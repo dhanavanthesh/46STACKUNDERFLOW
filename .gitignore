@@ -1,0 +1,4 @@
+venv
+src\__pycache__
+src\*.pyc
+__init__.py

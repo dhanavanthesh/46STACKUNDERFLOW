@@ -1,0 +1,27 @@
+=== Market Analysis for AAPL ===
+Analysis Date: 2025-04-11 17:15:54
+
+Company Information:
+Name: Apple Inc.
+Sector: Technology
+Industry: Consumer Electronics
+Website: https://www.apple.com
+
+Price Information:
+Current Price: $197.97999572753906
+Change: 11.800003051757812
+Change %: 6.337954407542947%
+Day Range: $186.06 - $199.35
+
+Volume Information:
+Current Volume: 0
+Average Volume: 1,011,222.3913043478
+Volume Change: -100.0%
+
+Key Factors Affecting Price:
+
+Market Context:
+- S&P 500: +1.49%
+- Dow Jones: +1.33%
+- NASDAQ: +1.55%
+
