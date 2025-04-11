@@ -1,0 +1,20 @@
+{
+    "timestamp": "2025-04-12 00:10:08",
+    "query": "Why is the Invesco QQQ ETF down today?",
+    "query_info": {
+        "original_query": "Why is the Invesco QQQ ETF down today?",
+        "intent": "price_movement",
+        "tickers": [
+            "QQQ"
+        ],
+        "timeframe": "today",
+        "security_type": "etf",
+        "direction": "down",
+        "specific_factors": []
+    },
+    "response": {
+        "success": true,
+        "message": "",
+        "answer": "QQQ is actually up 1.81% today, not down."
+    }
+}

@@ -1,14 +1,40 @@
-2025-04-11 23:12:44,036 - NewsSense - INFO - NewsSense initialized successfully
-2025-04-11 23:13:25,926 - MarketAnalyzer - INFO - Analyzing security data for AAPL
-2025-04-11 23:13:33,725 - NewsCollector - INFO - Scraping news for AAPL from multiple sources...
-2025-04-11 23:13:33,728 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/AAPL/news
-2025-04-11 23:13:33,729 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/aapl
-2025-04-11 23:13:33,730 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/AAPL.O
-2025-04-11 23:13:33,732 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/aapl
-2025-04-11 23:13:33,736 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/AAPL/news
-2025-04-11 23:13:33,848 - NewsCollector - WARNING - Reuters returned status code 401
-2025-04-11 23:13:35,041 - NewsCollector - INFO - Found 8 articles from marketwatch
-2025-04-11 23:13:36,108 - NewsCollector - INFO - News saved to data/scraped_news\AAPL_news_20250411_231336.json
-2025-04-11 23:13:36,109 - NewsCollector - INFO - Total articles found for AAPL: 8
-2025-04-11 23:13:36,110 - MarketAnalyzer - INFO - Analyzing impact of 8 news items
-2025-04-11 23:13:36,231 - MarketAnalyzer - INFO - Generating explanation for AAPL
+2025-04-12 00:05:20,858 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 00:08:43,930 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 00:08:59,567 - MarketAnalyzer - INFO - Analyzing security data for MSFT
+2025-04-12 00:09:05,195 - NewsCollector - INFO - Scraping news for MSFT from multiple sources...
+2025-04-12 00:09:05,198 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/MSFT/news
+2025-04-12 00:09:05,199 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/msft
+2025-04-12 00:09:05,202 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/MSFT.O
+2025-04-12 00:09:05,203 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/msft
+2025-04-12 00:09:05,208 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/MSFT/news
+2025-04-12 00:09:05,374 - NewsCollector - WARNING - Reuters returned status code 401
+2025-04-12 00:09:05,480 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 00:09:07,417 - NewsCollector - WARNING - No news articles found for MSFT
+2025-04-12 00:09:07,418 - MarketAnalyzer - WARNING - No news items to analyze
+2025-04-12 00:09:07,418 - MarketAnalyzer - INFO - Generating explanation for MSFT
+2025-04-12 00:10:04,791 - QueryProcessor - INFO - Processing query: Why is the Invesco QQQ ETF down today?
+2025-04-12 00:10:04,796 - QueryProcessor - INFO - Extracted query components: {'original_query': 'Why is the Invesco QQQ ETF down today?', 'intent': 'price_movement', 'tickers': ['QQQ'], 'timeframe': 'today', 'security_type': 'etf', 'direction': 'down', 'specific_factors': []}
+2025-04-12 00:10:04,800 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 00:10:05,930 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 00:10:05,932 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 00:10:05,933 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 00:10:05,934 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 00:10:05,935 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 00:10:05,937 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 00:10:06,090 - NewsCollector - WARNING - Reuters returned status code 401
+2025-04-12 00:10:06,309 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 00:10:08,966 - NewsCollector - WARNING - No news articles found for QQQ
+2025-04-12 00:10:08,967 - MarketAnalyzer - WARNING - No news items to analyze
+2025-04-12 00:10:08,968 - MarketAnalyzer - INFO - Generating explanation for QQQ
+2025-04-12 00:10:08,973 - QueryProcessor - INFO - Query saved to data/queries\query_20250412_001008.json
+2025-04-12 00:14:44,538 - QueryProcessor - INFO - Processing query: Why did Jyothy Labs up today?
+2025-04-12 00:14:44,539 - QueryProcessor - INFO - Extracted query components: {'original_query': 'Why did Jyothy Labs up today?', 'intent': 'price_movement', 'tickers': [], 'timeframe': 'today', 'security_type': None, 'direction': 'up', 'specific_factors': []}
+2025-04-12 00:14:44,543 - QueryProcessor - INFO - Query saved to data/queries\query_20250412_001444.json
+2025-04-12 00:34:28,452 - NewsSense - ERROR - Initialization error: No module named 'yfinance'
+2025-04-12 00:34:28,456 - NewsSense - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\main.py", line 34, in __init__
+    from src.analyzer.market_analyzer import MarketAnalyzer
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 1, in <module>
+    import yfinance as yf
+ModuleNotFoundError: No module named 'yfinance'
+

@@ -63,8 +63,35 @@ class QueryProcessor:
             'this_year': [r'this year', r'past year', r'ytd', r'year to date']
         }
         
+        # Common words that should not be treated as tickers
+        self.common_words = {
+            'A', 'I', 'AM', 'PM', 'IS', 'ARE', 'BE', 'TO', 'IN', 'FOR', 'ON', 
+            'AT', 'BY', 'THE', 'OF', 'AND', 'OR', 'WHY', 'WHAT', 'WHEN', 'WHERE',
+            'WHO', 'HOW', 'WHICH', 'UP', 'DOWN', 'OVER', 'UNDER', 'ABOVE', 'BELOW',
+            'MY', 'YOUR', 'OUR', 'THEIR', 'HIS', 'HER', 'ITS', 'THAT', 'THIS',
+            'THESE', 'THOSE', 'FROM', 'WITH', 'WITHOUT', 'ABOUT', 'BETWEEN',
+            'AMONG', 'THROUGH', 'DURING', 'BEFORE', 'AFTER', 'SINCE', 'UNTIL',
+            'WHILE', 'SO', 'SUCH', 'RATHER', 'THAN', 'AS', 'JUST', 'VERY', 'TOO',
+            'QUITE', 'MOST', 'LEAST', 'ALL', 'ANY', 'SOME', 'NO', 'NOT', 'ONLY',
+            'BOTH', 'EITHER', 'NEITHER', 'EACH', 'EVERY', 'OTHER', 'ANOTHER',
+            'MANY', 'MUCH', 'MORE', 'LESS', 'FEW', 'LITTLE', 'OWN', 'SAME',
+            'SUCH', 'LIKE', 'ALSO', 'WELL', 'NOW', 'TODAY', 'YESTERDAY', 'TOMORROW',
+            'WEEK', 'MONTH', 'YEAR', 'TIME', 'BACK', 'GO', 'COME', 'GET', 'MAKE'
+        }
+        
         # Lists of supported security types
         self.security_types = ['stock', 'etf', 'fund', 'mutual fund', 'index']
+        
+        # Common stock tickers for validation
+        self.common_tickers = {
+            'AAPL', 'MSFT', 'AMZN', 'GOOGL', 'GOOG', 'META', 'TSLA', 'NVDA', 'JPM', 
+            'JNJ', 'V', 'PG', 'UNH', 'HD', 'BAC', 'MA', 'XOM', 'DIS', 'VZ', 'NFLX',
+            'ADBE', 'CSCO', 'INTC', 'CRM', 'AMD', 'CMCSA', 'PEP', 'COST', 'ABT', 'TMO',
+            'AVGO', 'ACN', 'NKE', 'DHR', 'NEE', 'TXN', 'WMT', 'LLY', 'PM', 'MDT',
+            'UNP', 'QCOM', 'T', 'CVX', 'MRK', 'PYPL', 'BMY', 'SBUX', 'RTX', 'AMGN',
+            'HON', 'UPS', 'IBM', 'LIN', 'BA', 'CAT', 'DE', 'MMM', 'GS', 'MCD',
+            'QQQ', 'SPY', 'IWM', 'DIA', 'VOO', 'VTI', 'EEM', 'XLF', 'XLK', 'XLE'
+        }
         
         # Cache for recent queries
         self.query_cache = {}
@@ -109,11 +136,12 @@ class QueryProcessor:
     
     def _extract_query_components(self, query_text):
         """Extract important components from the query text"""
+        original_query = query_text
         query_text = query_text.lower()
         
         # Initialize components dictionary
         components = {
-            'original_query': query_text,
+            'original_query': original_query,
             'intent': None,
             'tickers': [],
             'timeframe': 'today',  # Default timeframe
@@ -132,12 +160,50 @@ class QueryProcessor:
         if not components['intent']:
             components['intent'] = 'price_movement'
         
-        # Extract tickers (look for uppercase 1-5 letter words in original query)
-        tickers = re.findall(self.ticker_pattern, query_text.upper())
-        if tickers:
-            # Filter out common words that might be mistaken for tickers
-            filtered_tickers = [t for t in tickers if t not in ['A', 'I', 'AM', 'PM', 'IS', 'ARE', 'BE', 'TO', 'IN', 'FOR', 'ON']]
-            components['tickers'] = filtered_tickers
+        # Extract tickers using common patterns in financial queries
+        candidate_tickers = []
+        
+        # Pattern 1: "why is {TICKER} up/down today"
+        pattern1 = re.search(r'(?:why|what|how) (?:is|are|did|does) ([A-Za-z]{1,5}) (?:up|down|going|moving|doing|performing)', query_text, re.IGNORECASE)
+        if pattern1:
+            ticker = pattern1.group(1).upper()
+            if ticker not in self.common_words:
+                candidate_tickers.append(ticker)
+        
+        # Pattern 2: "explain {TICKER} movement"
+        pattern2 = re.search(r'(?:explain|about|analyze|check) ([A-Za-z]{1,5})(?:\s|$)', query_text, re.IGNORECASE)
+        if pattern2:
+            ticker = pattern2.group(1).upper()
+            if ticker not in self.common_words:
+                candidate_tickers.append(ticker)
+        
+        # Pattern 3: "what happened to {TICKER}"
+        pattern3 = re.search(r'(?:what|explain) (?:happened|occurring|going on|news) (?:to|with|for|about) ([A-Za-z]{1,5})', query_text, re.IGNORECASE)
+        if pattern3:
+            ticker = pattern3.group(1).upper()
+            if ticker not in self.common_words:
+                candidate_tickers.append(ticker)
+        
+        # Extract all potential ticker symbols (1-5 uppercase letters)
+        all_tickers = re.findall(self.ticker_pattern, original_query)
+        
+        # Filter out common words and add valid tickers
+        for ticker in all_tickers:
+            if ticker not in self.common_words and ticker not in candidate_tickers:
+                candidate_tickers.append(ticker)
+        
+        # Prioritize well-known tickers if found
+        prioritized_tickers = []
+        for ticker in candidate_tickers:
+            if ticker in self.common_tickers:
+                prioritized_tickers.append(ticker)
+        
+        # If we found common tickers, use those
+        if prioritized_tickers:
+            components['tickers'] = prioritized_tickers
+        # Otherwise use the candidates if we have any
+        elif candidate_tickers:
+            components['tickers'] = candidate_tickers
         
         # Extract timeframe
         for timeframe, patterns in self.timeframe_patterns.items():
@@ -170,6 +236,9 @@ class QueryProcessor:
         for factor, keywords in factor_keywords.items():
             if any(keyword in query_text for keyword in keywords):
                 components['specific_factors'].append(factor)
+        
+        # Log the extracted components
+        logger.info(f"Extracted query components: {components}")
         
         return components
     
@@ -691,8 +760,8 @@ class QueryProcessor:
             if news_analysis and 'sentiments' in news_analysis:
                 for item in news_analysis['sentiments']:
                     # Check if topics contain macro-related topics
-                    if item.get('topics', []) and any(topic in ['economic_indicators', 'market_trend', 'international'] 
-                                                 for topic in item['topics']):
+                    if 'topics' in item and any(topic in ['economic_indicators', 'market_trend', 'international'] 
+                                                 for topic in item.get('topics', [])):
                         macro_news.append(item)
                     
                     # Also check title keywords

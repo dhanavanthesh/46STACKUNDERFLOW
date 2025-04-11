@@ -1,0 +1,18 @@
+{
+    "timestamp": "2025-04-12 00:14:44",
+    "query": "Why did Jyothy Labs up today?",
+    "query_info": {
+        "original_query": "Why did Jyothy Labs up today?",
+        "intent": "price_movement",
+        "tickers": [],
+        "timeframe": "today",
+        "security_type": null,
+        "direction": "up",
+        "specific_factors": []
+    },
+    "response": {
+        "success": false,
+        "message": "I couldn't identify a specific stock, ETF, or fund in your query. Please specify a ticker symbol.",
+        "answer": null
+    }
+}
