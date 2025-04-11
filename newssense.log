@@ -252,3 +252,247 @@ TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
 2025-04-12 01:28:21,566 - NewsCollector - WARNING - No news articles found for JYOTHYLAB.NS
 2025-04-12 01:28:21,570 - MarketAnalyzer - WARNING - No news items to analyze
 2025-04-12 01:28:21,574 - QueryProcessor - INFO - Query saved to data/queries\query_20250412_012821.json
+2025-04-12 01:40:51,601 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 01:40:56,702 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 01:40:56,719 - MarketAnalyzer - ERROR - Error in security analysis for QQQ: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-04-12 01:40:56,731 - MarketAnalyzer - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 69, in analyze_security
+    info = security.info
+           ^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\ticker.py", line 142, in info
+    return self.get_info()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\base.py", line 1736, in get_info
+    data = self._quote.info
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\scrapers\quote.py", line 572, in info
+    self._fetch(self.proxy)
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\scrapers\quote.py", line 602, in _fetch
+    result = self._data.get_raw_json(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\data.py", line 399, in get_raw_json
+    response = self.get(url, user_agent_headers=user_agent_headers, params=params, proxy=proxy, timeout=timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\utils.py", line 108, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\data.py", line 348, in get
+    cookie, crumb, strategy = self._get_cookie_and_crumb()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\utils.py", line 108, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\data.py", line 324, in _get_cookie_and_crumb
+    cookie, crumb = self._get_cookie_and_crumb_basic(proxy, timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\utils.py", line 108, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\data.py", line 213, in _get_cookie_and_crumb_basic
+    cookie = self._get_cookie_basic(proxy, timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\data.py", line 156, in _get_cookie_basic
+    self._cookie = self._load_cookie_basic()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\data.py", line 142, in _load_cookie_basic
+    cookie_dict = cache.get_cookie_cache().lookup('basic')
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\cache.py", line 362, in lookup
+    return {'cookie':cookie, 'age':_datetime.datetime.now()-data.fetch_date}
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+
+2025-04-12 04:28:47,900 - src.utils.path_helper - INFO - Added C:\Users\Dhana\Desktop\newssense\market_analyzer\src to Python path
+2025-04-12 04:28:47,900 - NewsSense - INFO - Directory structure verified
+2025-04-12 04:28:50,657 - GeminiHelper - INFO - Loaded 10 custom ticker mappings
+2025-04-12 04:28:50,658 - NewsSense - INFO - Gemini Helper initialized successfully
+2025-04-12 04:28:50,659 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 04:28:57,564 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 04:28:57,885 - yfinance - ERROR - QQQ: No price data found, symbol may be delisted (period=1d)
+2025-04-12 04:28:57,886 - MarketAnalyzer - WARNING - No historical data available for QQQ
+2025-04-12 04:28:57,894 - MarketAnalyzer - ERROR - Error initializing ticker QQQ: 'MarketAnalyzer' object has no attribute '_get_market_context'
+2025-04-12 04:28:57,896 - MarketAnalyzer - ERROR - Error in security analysis for QQQ: 'MarketAnalyzer' object has no attribute '_get_market_context'
+2025-04-12 04:28:57,902 - MarketAnalyzer - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 76, in analyze_security
+    return self._create_empty_security_data(ticker, "No historical data available")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 182, in _create_empty_security_data
+    'market_context': self._get_market_context(),  # Still provide market context
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketAnalyzer' object has no attribute '_get_market_context'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 79, in analyze_security
+    return self._create_empty_security_data(ticker, f"Failed to retrieve security: {str(e)}")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 182, in _create_empty_security_data
+    'market_context': self._get_market_context(),  # Still provide market context
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketAnalyzer' object has no attribute '_get_market_context'
+
+2025-04-12 04:28:57,906 - NewsSense - ERROR - Security analysis error: 'MarketAnalyzer' object has no attribute '_get_market_context'
+2025-04-12 04:28:57,918 - NewsSense - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 76, in analyze_security
+    return self._create_empty_security_data(ticker, "No historical data available")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 182, in _create_empty_security_data
+    'market_context': self._get_market_context(),  # Still provide market context
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketAnalyzer' object has no attribute '_get_market_context'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 79, in analyze_security
+    return self._create_empty_security_data(ticker, f"Failed to retrieve security: {str(e)}")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 182, in _create_empty_security_data
+    'market_context': self._get_market_context(),  # Still provide market context
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketAnalyzer' object has no attribute '_get_market_context'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\main.py", line 178, in analyze_security
+    security_data = self.market_analyzer.analyze_security(ticker)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 168, in analyze_security
+    return self._create_empty_security_data(ticker, f"Analysis error: {str(e)}")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 182, in _create_empty_security_data
+    'market_context': self._get_market_context(),  # Still provide market context
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketAnalyzer' object has no attribute '_get_market_context'
+
+2025-04-12 04:29:39,771 - MarketAnalyzer - INFO - Analyzing security data for AAPL
+2025-04-12 04:29:39,774 - yfinance - ERROR - AAPL: No price data found, symbol may be delisted (period=1d)
+2025-04-12 04:29:39,778 - MarketAnalyzer - WARNING - No historical data available for AAPL
+2025-04-12 04:29:39,783 - MarketAnalyzer - ERROR - Error initializing ticker AAPL: 'MarketAnalyzer' object has no attribute '_get_market_context'
+2025-04-12 04:29:39,788 - MarketAnalyzer - ERROR - Error in security analysis for AAPL: 'MarketAnalyzer' object has no attribute '_get_market_context'
+2025-04-12 04:29:39,795 - MarketAnalyzer - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 76, in analyze_security
+    return self._create_empty_security_data(ticker, "No historical data available")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 182, in _create_empty_security_data
+    'market_context': self._get_market_context(),  # Still provide market context
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketAnalyzer' object has no attribute '_get_market_context'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 79, in analyze_security
+    return self._create_empty_security_data(ticker, f"Failed to retrieve security: {str(e)}")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 182, in _create_empty_security_data
+    'market_context': self._get_market_context(),  # Still provide market context
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketAnalyzer' object has no attribute '_get_market_context'
+
+2025-04-12 04:29:39,804 - NewsSense - ERROR - Security analysis error: 'MarketAnalyzer' object has no attribute '_get_market_context'
+2025-04-12 04:29:39,815 - NewsSense - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 76, in analyze_security
+    return self._create_empty_security_data(ticker, "No historical data available")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 182, in _create_empty_security_data
+    'market_context': self._get_market_context(),  # Still provide market context
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketAnalyzer' object has no attribute '_get_market_context'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 79, in analyze_security
+    return self._create_empty_security_data(ticker, f"Failed to retrieve security: {str(e)}")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 182, in _create_empty_security_data
+    'market_context': self._get_market_context(),  # Still provide market context
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketAnalyzer' object has no attribute '_get_market_context'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\main.py", line 178, in analyze_security
+    security_data = self.market_analyzer.analyze_security(ticker)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 168, in analyze_security
+    return self._create_empty_security_data(ticker, f"Analysis error: {str(e)}")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 182, in _create_empty_security_data
+    'market_context': self._get_market_context(),  # Still provide market context
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketAnalyzer' object has no attribute '_get_market_context'
+
+2025-04-12 04:30:07,826 - QueryProcessor - INFO - Processing query: Why is AAPL up today?
+2025-04-12 04:30:07,826 - QueryProcessor - ERROR - Error processing query: 'GeminiHelper' object has no attribute 'extract_query_components'
+2025-04-12 04:30:07,829 - QueryProcessor - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\query_processor\query_processor.py", line 160, in process_query
+    gemini_components = self.gemini_helper.extract_query_components(query_text)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GeminiHelper' object has no attribute 'extract_query_components'
+
+2025-04-12 04:46:16,392 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 04:46:20,715 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 04:46:20,944 - yfinance - ERROR - QQQ: No price data found, symbol may be delisted (period=1d)
+2025-04-12 04:46:20,945 - MarketAnalyzer - WARNING - No historical data available for QQQ
+2025-04-12 04:46:20,949 - MarketAnalyzer - ERROR - Error initializing ticker QQQ: 'MarketAnalyzer' object has no attribute 'get_market_context'
+2025-04-12 04:46:20,951 - MarketAnalyzer - ERROR - Error in security analysis for QQQ: 'MarketAnalyzer' object has no attribute 'get_market_context'
+2025-04-12 04:46:20,959 - MarketAnalyzer - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 76, in analyze_security
+    return self._create_empty_security_data(ticker, "No historical data available")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 182, in _create_empty_security_data
+    'market_context': self.get_market_context(),  # Use the non-underscore method
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketAnalyzer' object has no attribute 'get_market_context'. Did you mean: '_generate_market_context'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 79, in analyze_security
+    return self._create_empty_security_data(ticker, f"Failed to retrieve security: {str(e)}")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 182, in _create_empty_security_data
+    'market_context': self.get_market_context(),  # Use the non-underscore method
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketAnalyzer' object has no attribute 'get_market_context'. Did you mean: '_generate_market_context'?
+
+2025-04-12 04:46:20,963 - NewsSense - ERROR - Security analysis error: 'MarketAnalyzer' object has no attribute 'get_market_context'
+2025-04-12 04:46:20,979 - NewsSense - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 76, in analyze_security
+    return self._create_empty_security_data(ticker, "No historical data available")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 182, in _create_empty_security_data
+    'market_context': self.get_market_context(),  # Use the non-underscore method
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketAnalyzer' object has no attribute 'get_market_context'. Did you mean: '_generate_market_context'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 79, in analyze_security
+    return self._create_empty_security_data(ticker, f"Failed to retrieve security: {str(e)}")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 182, in _create_empty_security_data
+    'market_context': self.get_market_context(),  # Use the non-underscore method
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketAnalyzer' object has no attribute 'get_market_context'. Did you mean: '_generate_market_context'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\main.py", line 146, in analyze_security
+    security_data = self.market_analyzer.analyze_security(ticker)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 168, in analyze_security
+    return self._create_empty_security_data(ticker, f"Analysis error: {str(e)}")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 182, in _create_empty_security_data
+    'market_context': self.get_market_context(),  # Use the non-underscore method
+                      ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketAnalyzer' object has no attribute 'get_market_context'. Did you mean: '_generate_market_context'?
+

@@ -7,6 +7,7 @@ import json
 import os
 import logging
 import re
+import traceback
 from collections import Counter, defaultdict
 
 # Set up logging
@@ -24,7 +25,9 @@ class MarketAnalyzer:
             "^DJI": "Dow Jones",
             "^IXIC": "NASDAQ",
             "^RUT": "Russell 2000",
-            "^VIX": "VIX"
+            "^VIX": "VIX",
+            "^NSEI": "Nifty 50",  # Added Indian index
+            "^BSESN": "Sensex"    # Added Indian index
         }
         
         self.sector_etfs = {
@@ -49,7 +52,7 @@ class MarketAnalyzer:
         os.makedirs(self.data_dir, exist_ok=True)
 
     def analyze_security(self, ticker):
-        """Comprehensive security analysis with detailed data"""
+        """Comprehensive security analysis with detailed data and better error handling"""
         try:
             cache_key = f"{ticker}_security_{datetime.now().strftime('%Y%m%d_%H')}"
             
@@ -62,19 +65,59 @@ class MarketAnalyzer:
             
             logger.info(f"Analyzing security data for {ticker}")
             
-            # Get ticker object
-            security = yf.Ticker(ticker)
+            # Get ticker object with error handling
+            try:
+                security = yf.Ticker(ticker)
+                
+                # Test if we can get basic data to verify the ticker works
+                hist_test = security.history(period='1d')
+                if hist_test.empty:
+                    logger.warning(f"No historical data available for {ticker}")
+                    return self._create_empty_security_data(ticker, "No historical data available")
+            except Exception as e:
+                logger.error(f"Error initializing ticker {ticker}: {str(e)}")
+                return self._create_empty_security_data(ticker, f"Failed to retrieve security: {str(e)}")
             
-            # Get detailed info
-            info = security.info
+            # Get detailed info with error handling
+            try:
+                info = security.info
+            except Exception as e:
+                logger.error(f"Error getting info for {ticker}: {str(e)}")
+                info = {}
             
-            # Get various timeframe data
-            data = {
-                'today': security.history(period='1d', interval='5m'),
-                'week': security.history(period='5d'),
-                'month': security.history(period='1mo'),
-                'year': security.history(period='1y')
-            }
+            # Get various timeframe data with error handling
+            data = {}
+            try:
+                data['today'] = security.history(period='1d', interval='5m')
+                if data['today'].empty:
+                    logger.warning(f"No intraday data for {ticker}")
+            except Exception as e:
+                logger.error(f"Error getting today data for {ticker}: {str(e)}")
+                data['today'] = pd.DataFrame()
+            
+            try:
+                data['week'] = security.history(period='5d')
+                if data['week'].empty:
+                    logger.warning(f"No weekly data for {ticker}")
+            except Exception as e:
+                logger.error(f"Error getting weekly data for {ticker}: {str(e)}")
+                data['week'] = pd.DataFrame()
+            
+            try:
+                data['month'] = security.history(period='1mo')
+                if data['month'].empty:
+                    logger.warning(f"No monthly data for {ticker}")
+            except Exception as e:
+                logger.error(f"Error getting monthly data for {ticker}: {str(e)}")
+                data['month'] = pd.DataFrame()
+            
+            try:
+                data['year'] = security.history(period='1y')
+                if data['year'].empty:
+                    logger.warning(f"No yearly data for {ticker}")
+            except Exception as e:
+                logger.error(f"Error getting yearly data for {ticker}: {str(e)}")
+                data['year'] = pd.DataFrame()
             
             # Get key statistics
             stats = {
@@ -95,7 +138,7 @@ class MarketAnalyzer:
             sector_context = self._get_sector_context(info.get('sector'))
             
             # Get market context
-            market_context = self._get_market_context()
+            market_context = self.get_market_context()
             
             # Get price patterns and technical indicators
             technical_analysis = self._get_technical_analysis(data)
@@ -114,22 +157,125 @@ class MarketAnalyzer:
             # Cache the results
             self.data_cache[cache_key] = (datetime.now(), result)
             
+            # Save the analysis to a file
+            self._save_analysis(ticker, result)
+            
             return result
 
         except Exception as e:
             logger.error(f"Error in security analysis for {ticker}: {str(e)}")
-            import traceback
             logger.error(traceback.format_exc())
-            return None
-
+            return self._create_empty_security_data(ticker, f"Analysis error: {str(e)}")
+    
+    def _create_empty_security_data(self, ticker, error_message):
+        """Create an empty security data structure with error information"""
+        return {
+            'error': error_message,
+            'ticker': ticker,
+            'data': {
+                'today': pd.DataFrame(),
+                'week': pd.DataFrame(),
+                'month': pd.DataFrame(),
+                'year': pd.DataFrame()
+            },
+            'info': {},
+            'market_context': self.get_market_context(),  # Use the non-underscore method
+            'success': False
+        }
+    
+    def _save_analysis(self, ticker, analysis_data):
+        """Save analysis results to a file"""
+        try:
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            filename = f"analysis_{ticker}_{timestamp}.txt"
+            filepath = os.path.join(self.data_dir, filename)
+            
+            # Create a readable summary for storage
+            summary = [f"=== Market Analysis for {ticker} ==="]
+            summary.append(f"Analysis Date: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+            summary.append("")
+            
+            # Company Information
+            if 'info' in analysis_data and analysis_data['info']:
+                info = analysis_data['info']
+                summary.append("Company Information:")
+                summary.append(f"Name: {info.get('longName', ticker)}")
+                summary.append(f"Sector: {info.get('sector', 'Unknown')}")
+                summary.append(f"Industry: {info.get('industry', 'Unknown')}")
+                summary.append(f"Website: {info.get('website', 'Unknown')}")
+                summary.append("")
+            
+            # Price Information
+            if 'data' in analysis_data and 'today' in analysis_data['data']:
+                today_data = analysis_data['data']['today']
+                if not today_data.empty:
+                    summary.append("Price Information:")
+                    current_price = today_data['Close'].iloc[-1]
+                    open_price = today_data['Open'].iloc[0]
+                    price_change = current_price - open_price
+                    price_change_pct = (price_change / open_price) * 100
+                    
+                    summary.append(f"Current Price: ${current_price}")
+                    summary.append(f"Change: {price_change}")
+                    summary.append(f"Change %: {price_change_pct}%")
+                    summary.append(f"Day Range: ${today_data['Low'].min()} - ${today_data['High'].max()}")
+                    summary.append("")
+            
+            # Volume Information
+            if 'data' in analysis_data and 'today' in analysis_data['data']:
+                today_data = analysis_data['data']['today']
+                if not today_data.empty and 'Volume' in today_data.columns:
+                    summary.append("Volume Information:")
+                    current_volume = today_data['Volume'].sum()
+                    avg_volume = today_data['Volume'].mean()
+                    volume_change = ((current_volume - avg_volume) / avg_volume) * 100
+                    
+                    summary.append(f"Current Volume: {current_volume}")
+                    summary.append(f"Average Volume: {avg_volume}")
+                    summary.append(f"Volume Change: {volume_change}%")
+                    summary.append("")
+            
+            # Key Factors
+            summary.append("Key Factors Affecting Price:")
+            summary.append("")
+            
+            # Market Context
+            if 'market_context' in analysis_data:
+                summary.append("Market Context:")
+                context = analysis_data['market_context']
+                for index_name, index_data in context.items():
+                    if isinstance(index_data, dict) and 'change_pct' in index_data:
+                        summary.append(f"- {index_name}: {index_data['change_pct']:+.2f}%")
+                summary.append("")
+            
+            # Write to file
+            with open(filepath, 'w', encoding='utf-8') as f:
+                f.write("\n".join(summary))
+            
+            logger.info(f"Analysis saved to {filepath}")
+            
+        except Exception as e:
+            logger.error(f"Error saving analysis for {ticker}: {str(e)}")
+            logger.error(traceback.format_exc())
+    
     def analyze_news_impact(self, news_items):
-        """Analyze news impact and sentiment with better categorization"""
+        """Analyze news impact and sentiment with better categorization and error handling"""
         try:
             if not news_items:
                 logger.warning("No news items to analyze")
                 return self._get_empty_news_analysis()
+                
+            # Filter out empty or invalid news items
+            valid_news_items = []
+            for item in news_items:
+                if item and 'title' in item and item['title']:
+                    valid_news_items.append(item)
+                    
+            if not valid_news_items:
+                logger.warning("No valid news items to analyze after filtering")
+                return self._get_empty_news_analysis()
             
-            logger.info(f"Analyzing impact of {len(news_items)} news items")
+            logger.info(f"Analyzing impact of {len(valid_news_items)} news items")
             
             analysis = {
                 'sentiments': [],
@@ -160,7 +306,7 @@ class MarketAnalyzer:
             total_sentiment = 0
             keyword_counter = Counter()
             
-            for item in news_items:
+            for item in valid_news_items:
                 # Sentiment analysis
                 if 'title' in item:
                     title = item['title']
@@ -232,7 +378,7 @@ class MarketAnalyzer:
                     total_sentiment += sentiment_score
 
             # Calculate average sentiment
-            analysis['average_sentiment'] = total_sentiment / len(news_items) if news_items else 0
+            analysis['average_sentiment'] = total_sentiment / len(valid_news_items) if valid_news_items else 0
             
             # Get top keywords
             analysis['keywords'] = [item for item, count in keyword_counter.most_common(20)]
@@ -245,7 +391,6 @@ class MarketAnalyzer:
 
         except Exception as e:
             logger.error(f"Error in news analysis: {str(e)}")
-            import traceback
             logger.error(traceback.format_exc())
             return self._get_empty_news_analysis()
 
@@ -266,6 +411,10 @@ class MarketAnalyzer:
         try:
             if not security_data:
                 return f"Unable to generate analysis for {ticker} due to missing market data."
+            
+            # Check for errors in the security data
+            if 'error' in security_data:
+                return f"Analysis for {ticker} is limited. {security_data['error']}"
                 
             logger.info(f"Generating explanation for {ticker}")
             
@@ -305,7 +454,6 @@ class MarketAnalyzer:
 
         except Exception as e:
             logger.error(f"Error generating explanation: {str(e)}")
-            import traceback
             logger.error(traceback.format_exc())
             return f"Analysis for {ticker} is currently unavailable. Please try again later."
 
@@ -395,10 +543,10 @@ class MarketAnalyzer:
             
             # Get major indices performance
             indices_perf = []
-            for index_name, data in context.items():
-                if isinstance(data, dict) and 'change_pct' in data:
-                    direction = "up" if data['change_pct'] > 0 else "down"
-                    indices_perf.append(f"{index_name} is {direction} {abs(data['change_pct']):.2f}%")
+            for index_name, index_data in context.items():
+                if isinstance(index_data, dict) and 'change_pct' in index_data:
+                    direction = "up" if index_data['change_pct'] > 0 else "down"
+                    indices_perf.append(f"{index_name} is {direction} {abs(index_data['change_pct']):.2f}%")
             
             if indices_perf:
                 summary = "Market Context: " + ", ".join(indices_perf) + "."
@@ -593,249 +741,3 @@ class MarketAnalyzer:
         except Exception as e:
             logger.error(f"Error generating key takeaway: {str(e)}")
             return None
-
-    def _get_market_context(self):
-        """Get broader market context with detailed metrics"""
-        context = {}
-        
-        for symbol, name in self.market_indicators.items():
-            try:
-                # Use cache if available
-                cache_key = f"{symbol}_market_{datetime.now().strftime('%Y%m%d_%H')}"
-                if cache_key in self.data_cache:
-                    cache_time, cached_data = self.data_cache[cache_key]
-                    if (datetime.now() - cache_time).total_seconds() < self.cache_expiry:
-                        context[name] = cached_data
-                        continue
-                
-                index = yf.Ticker(symbol)
-                data = index.history(period='1d')
-                if not data.empty:
-                    current_price = data['Close'].iloc[-1]
-                    open_price = data['Open'].iloc[0]
-                    change_pct = ((current_price - open_price) / open_price) * 100
-                    result = {
-                        'change_pct': change_pct,
-                        'price': current_price,
-                        'volume': data['Volume'].iloc[-1] if 'Volume' in data.columns else 0
-                    }
-                    context[name] = result
-                    
-                    # Cache the result
-                    self.data_cache[cache_key] = (datetime.now(), result)
-            except Exception as e:
-                logger.error(f"Error getting market data for {name}: {str(e)}")
-                continue
-                
-        return context
-
-    def _get_sector_context(self, sector):
-        """Get sector performance context"""
-        if not sector:
-            return {}
-            
-        sector_performance = {}
-        
-        # Try to map sector to ETF
-        sector_mapping = {
-            'Technology': 'XLK',
-            'Financial': 'XLF',
-            'Financials': 'XLF',
-            'Energy': 'XLE',
-            'Healthcare': 'XLV',
-            'Health Care': 'XLV',
-            'Industrial': 'XLI',
-            'Industrials': 'XLI',
-            'Consumer Staples': 'XLP',
-            'Consumer Discretionary': 'XLY',
-            'Materials': 'XLB',
-            'Utilities': 'XLU',
-            'Real Estate': 'XLRE',
-            'Communication Services': 'XLC'
-        }
-        
-        # Try to get the sector ETF performance
-        try:
-            if sector in sector_mapping:
-                etf_ticker = sector_mapping[sector]
-                
-                # Use cache if available
-                cache_key = f"{etf_ticker}_sector_{datetime.now().strftime('%Y%m%d_%H')}"
-                if cache_key in self.data_cache:
-                    cache_time, cached_data = self.data_cache[cache_key]
-                    if (datetime.now() - cache_time).total_seconds() < self.cache_expiry:
-                        sector_performance[sector] = cached_data
-                        return sector_performance
-                
-                etf = yf.Ticker(etf_ticker)
-                data = etf.history(period='1d')
-                if not data.empty:
-                    current_price = data['Close'].iloc[-1]
-                    open_price = data['Open'].iloc[0]
-                    change_pct = ((current_price - open_price) / open_price) * 100
-                    sector_performance[sector] = change_pct
-                    
-                    # Cache the result
-                    self.data_cache[cache_key] = (datetime.now(), change_pct)
-        except Exception as e:
-            logger.error(f"Error getting sector data for {sector}: {str(e)}")
-        
-        # Get all sector ETFs for context
-        for etf_symbol, etf_sector in self.sector_etfs.items():
-            if etf_sector != sector:  # Skip the main sector, we already have it
-                try:
-                    # Use cache if available
-                    cache_key = f"{etf_symbol}_sector_{datetime.now().strftime('%Y%m%d_%H')}"
-                    if cache_key in self.data_cache:
-                        cache_time, cached_data = self.data_cache[cache_key]
-                        if (datetime.now() - cache_time).total_seconds() < self.cache_expiry:
-                            sector_performance[etf_sector] = cached_data
-                            continue
-                    
-                    etf = yf.Ticker(etf_symbol)
-                    data = etf.history(period='1d')
-                    if not data.empty:
-                        current_price = data['Close'].iloc[-1]
-                        open_price = data['Open'].iloc[0]
-                        change_pct = ((current_price - open_price) / open_price) * 100
-                        sector_performance[etf_sector] = change_pct
-                        
-                        # Cache the result
-                        self.data_cache[cache_key] = (datetime.now(), change_pct)
-                except Exception as e:
-                    logger.error(f"Error getting sector data for {etf_sector}: {str(e)}")
-                    continue
-        
-        return sector_performance
-
-    def _extract_company_metrics(self, info, ticker):
-        """Extract company-specific metrics from ticker info"""
-        metrics = {
-            'name': info.get('longName', ticker),
-            'sector': info.get('sector', 'Unknown'),
-            'industry': info.get('industry', 'Unknown'),
-            'country': info.get('country', 'Unknown'),
-            'employees': info.get('fullTimeEmployees', None)
-        }
-        
-        # Financial metrics
-        metrics['financial'] = {
-            'market_cap': info.get('marketCap', None),
-            'revenue': info.get('totalRevenue', None),
-            'profit_margin': info.get('profitMargins', None),
-            'operating_margin': info.get('operatingMargins', None),
-            'return_on_equity': info.get('returnOnEquity', None),
-            'return_on_assets': info.get('returnOnAssets', None),
-            'debt_to_equity': info.get('debtToEquity', None)
-        }
-        
-        # Valuation metrics
-        metrics['valuation'] = {
-            'pe_ratio': info.get('trailingPE', None),
-            'forward_pe': info.get('forwardPE', None),
-            'price_to_sales': info.get('priceToSalesTrailing12Months', None),
-            'price_to_book': info.get('priceToBook', None),
-            'enterprise_to_revenue': info.get('enterpriseToRevenue', None),
-            'enterprise_to_ebitda': info.get('enterpriseToEbitda', None)
-        }
-        
-        return metrics
-
-    def _get_technical_analysis(self, price_data):
-        """Calculate basic technical indicators"""
-        if not price_data or 'week' not in price_data or price_data['week'].empty:
-            return {}
-            
-        # Use weekly data for technical analysis
-        df = price_data['week'].copy()
-        
-        # Ensure we have enough data points
-        if len(df) < 10:
-            return {}
-            
-        analysis = {}
-        
-        # Calculate SMA (Simple Moving Average)
-        try:
-            df['SMA_5'] = df['Close'].rolling(window=5).mean()
-            df['SMA_10'] = df['Close'].rolling(window=10).mean()
-            
-            last_close = df['Close'].iloc[-1]
-            last_sma5 = df['SMA_5'].iloc[-1]
-            last_sma10 = df['SMA_10'].iloc[-1]
-            
-            analysis['sma'] = {
-                'sma5': last_sma5,
-                'sma10': last_sma10,
-                'sma5_signal': 'buy' if last_close > last_sma5 else 'sell',
-                'sma10_signal': 'buy' if last_close > last_sma10 else 'sell',
-                'crossover': 'bullish' if last_sma5 > last_sma10 else 'bearish'
-            }
-        except Exception as e:
-            logger.error(f"Error calculating SMA: {str(e)}")
-        
-        # Calculate RSI (Relative Strength Index)
-        try:
-            delta = df['Close'].diff()
-            gain = delta.where(delta > 0, 0).rolling(window=14).mean()
-            loss = -delta.where(delta < 0, 0).rolling(window=14).mean()
-            
-            rs = gain / loss
-            df['RSI'] = 100 - (100 / (1 + rs))
-            
-            last_rsi = df['RSI'].iloc[-1]
-            
-            analysis['rsi'] = last_rsi
-            analysis['rsi_signal'] = 'sell' if last_rsi > 70 else 'buy' if last_rsi < 30 else 'neutral'
-        except Exception as e:
-            logger.error(f"Error calculating RSI: {str(e)}")
-        
-        # Calculate MACD (Moving Average Convergence Divergence)
-        try:
-            df['EMA_12'] = df['Close'].ewm(span=12, adjust=False).mean()
-            df['EMA_26'] = df['Close'].ewm(span=26, adjust=False).mean()
-            
-            df['MACD'] = df['EMA_12'] - df['EMA_26']
-            df['Signal_Line'] = df['MACD'].ewm(span=9, adjust=False).mean()
-            df['MACD_Histogram'] = df['MACD'] - df['Signal_Line']
-            
-            last_macd = df['MACD'].iloc[-1]
-            last_signal = df['Signal_Line'].iloc[-1]
-            last_hist = df['MACD_Histogram'].iloc[-1]
-            
-            analysis['macd'] = last_macd
-            analysis['macd_signal'] = 'buy' if last_macd > last_signal else 'sell'
-            analysis['macd_histogram'] = last_hist
-        except Exception as e:
-            logger.error(f"Error calculating MACD: {str(e)}")
-        
-        # Bollinger Bands
-        try:
-            df['SMA_20'] = df['Close'].rolling(window=20).mean()
-            df['Std_Dev'] = df['Close'].rolling(window=20).std()
-            
-            df['Upper_Band'] = df['SMA_20'] + (df['Std_Dev'] * 2)
-            df['Lower_Band'] = df['SMA_20'] - (df['Std_Dev'] * 2)
-            
-            last_close = df['Close'].iloc[-1]
-            last_upper = df['Upper_Band'].iloc[-1]
-            last_lower = df['Lower_Band'].iloc[-1]
-            
-            analysis['bollinger'] = {
-                'upper': last_upper,
-                'middle': df['SMA_20'].iloc[-1],
-                'lower': last_lower,
-                'signal': 'sell' if last_close > last_upper else 'buy' if last_close < last_lower else 'neutral'
-            }
-        except Exception as e:
-            logger.error(f"Error calculating Bollinger Bands: {str(e)}")
-        
-        # Aggregate signals
-        analysis['signals'] = {
-            'sma': analysis.get('sma', {}).get('sma5_signal', 'neutral'),
-            'rsi': analysis.get('rsi_signal', 'neutral'),
-            'macd': analysis.get('macd_signal', 'neutral'),
-            'bollinger': analysis.get('bollinger', {}).get('signal', 'neutral')
-        }
-        
-        return analysis
