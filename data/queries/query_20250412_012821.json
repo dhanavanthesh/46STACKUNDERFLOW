@@ -1,0 +1,20 @@
+{
+    "timestamp": "2025-04-12 01:28:21",
+    "query": "Why did Jyothy Labs up today?",
+    "query_info": {
+        "original_query": "Why did Jyothy Labs up today?",
+        "intent": "price_movement",
+        "tickers": [
+            "JYOTHYLAB.NS"
+        ],
+        "timeframe": "today",
+        "security_type": null,
+        "direction": "up",
+        "specific_factors": []
+    },
+    "response": {
+        "success": true,
+        "message": "",
+        "answer": "I couldn't retrieve current price data for JYOTHYLAB.NS."
+    }
+}

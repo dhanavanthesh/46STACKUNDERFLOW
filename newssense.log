@@ -38,3 +38,217 @@
     import yfinance as yf
 ModuleNotFoundError: No module named 'yfinance'
 
+2025-04-12 00:38:04,395 - NewsSense - ERROR - Initialization error: module 'pandas' has no attribute 'DataFrame'
+2025-04-12 00:38:04,400 - NewsSense - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\main.py", line 34, in __init__
+    from src.analyzer.market_analyzer import MarketAnalyzer
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 1, in <module>
+    import yfinance as yf
+  File "C:\Python312\Lib\site-packages\yfinance\__init__.py", line 24, in <module>
+    from .ticker import Ticker
+  File "C:\Python312\Lib\site-packages\yfinance\ticker.py", line 25, in <module>
+    from .scrapers.funds import FundsData
+  File "C:\Python312\Lib\site-packages\yfinance\scrapers\funds.py", line 12, in <module>
+    class FundsData:
+  File "C:\Python312\Lib\site-packages\yfinance\scrapers\funds.py", line 85, in FundsData
+    def fund_operations(self) -> pd.DataFrame:
+                                 ^^^^^^^^^^^^
+AttributeError: module 'pandas' has no attribute 'DataFrame'
+
+2025-04-12 00:38:38,134 - NewsSense - ERROR - Initialization error: module 'pandas' has no attribute 'DataFrame'
+2025-04-12 00:38:38,141 - NewsSense - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\main.py", line 34, in __init__
+    from src.analyzer.market_analyzer import MarketAnalyzer
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 1, in <module>
+    import yfinance as yf
+  File "C:\Python312\Lib\site-packages\yfinance\__init__.py", line 24, in <module>
+    from .ticker import Ticker
+  File "C:\Python312\Lib\site-packages\yfinance\ticker.py", line 25, in <module>
+    from .scrapers.funds import FundsData
+  File "C:\Python312\Lib\site-packages\yfinance\scrapers\funds.py", line 12, in <module>
+    class FundsData:
+  File "C:\Python312\Lib\site-packages\yfinance\scrapers\funds.py", line 85, in FundsData
+    def fund_operations(self) -> pd.DataFrame:
+                                 ^^^^^^^^^^^^
+AttributeError: module 'pandas' has no attribute 'DataFrame'
+
+2025-04-12 00:54:22,491 - NewsSense - ERROR - Initialization error: module 'numpy' has no attribute 'ndarray'
+2025-04-12 00:54:22,504 - NewsSense - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\main.py", line 34, in __init__
+    from src.analyzer.market_analyzer import MarketAnalyzer
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 1, in <module>
+    import yfinance as yf
+  File "C:\Python312\Lib\site-packages\yfinance\__init__.py", line 23, in <module>
+    from .search import Search
+  File "C:\Python312\Lib\site-packages\yfinance\search.py", line 24, in <module>
+    from . import utils
+  File "C:\Python312\Lib\site-packages\yfinance\utils.py", line 36, in <module>
+    import pandas as _pd
+  File "C:\Python312\Lib\site-packages\pandas\__init__.py", line 22, in <module>
+    from pandas.compat import is_numpy_dev as _is_numpy_dev  # pyright: ignore # noqa:F401
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\site-packages\pandas\compat\__init__.py", line 16, in <module>
+    from pandas._typing import F
+  File "C:\Python312\Lib\site-packages\pandas\_typing.py", line 93, in <module>
+    ArrayLike = Union["ExtensionArray", np.ndarray]
+                                        ^^^^^^^^^^
+AttributeError: module 'numpy' has no attribute 'ndarray'
+
+2025-04-12 01:17:57,453 - NewsSense - ERROR - Initialization error: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+2025-04-12 01:17:57,461 - NewsSense - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\main.py", line 34, in __init__
+    from src.analyzer.market_analyzer import MarketAnalyzer
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 1, in <module>
+    import yfinance as yf
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\__init__.py", line 23, in <module>
+    from .ticker import Ticker
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\ticker.py", line 27, in <module>
+    import pandas as _pd
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\pandas\__init__.py", line 22, in <module>
+    from pandas.compat import is_numpy_dev as _is_numpy_dev  # pyright: ignore # noqa:F401
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\pandas\compat\__init__.py", line 18, in <module>
+    from pandas.compat.numpy import (
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\pandas\compat\numpy\__init__.py", line 4, in <module>
+    from pandas.util.version import Version
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\pandas\util\__init__.py", line 2, in <module>
+    from pandas.util._decorators import (  # noqa:F401
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\pandas\util\_decorators.py", line 14, in <module>
+    from pandas._libs.properties import cache_readonly
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\pandas\_libs\__init__.py", line 13, in <module>
+    from pandas._libs.interval import Interval
+  File "pandas\_libs\interval.pyx", line 1, in init pandas._libs.interval
+ValueError: numpy.dtype size changed, may indicate binary incompatibility. Expected 96 from C header, got 88 from PyObject
+
+2025-04-12 01:21:19,122 - GeminiHelper - INFO - Loaded 10 custom ticker mappings
+2025-04-12 01:21:19,125 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 01:21:45,295 - QueryProcessor - INFO - Processing query: Why did Jyothy Labs up today?
+2025-04-12 01:21:45,296 - GeminiHelper - INFO - Found tickers from local mappings: ['JYOTHYLAB.NS']
+2025-04-12 01:21:45,297 - QueryProcessor - INFO - Using Gemini analysis for query: {'original_query': 'Why did Jyothy Labs up today?', 'intent': 'price_movement', 'tickers': ['JYOTHYLAB.NS'], 'timeframe': 'today', 'security_type': None, 'direction': 'up', 'specific_factors': []}
+2025-04-12 01:21:45,297 - MarketAnalyzer - INFO - Analyzing security data for JYOTHYLAB.NS
+2025-04-12 01:21:45,320 - MarketAnalyzer - ERROR - Error in security analysis for JYOTHYLAB.NS: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-04-12 01:21:45,335 - MarketAnalyzer - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 69, in analyze_security
+    info = security.info
+           ^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\ticker.py", line 142, in info
+    return self.get_info()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\base.py", line 1736, in get_info
+    data = self._quote.info
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\scrapers\quote.py", line 572, in info
+    self._fetch(self.proxy)
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\scrapers\quote.py", line 602, in _fetch
+    result = self._data.get_raw_json(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\data.py", line 399, in get_raw_json
+    response = self.get(url, user_agent_headers=user_agent_headers, params=params, proxy=proxy, timeout=timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\utils.py", line 108, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\data.py", line 348, in get
+    cookie, crumb, strategy = self._get_cookie_and_crumb()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\utils.py", line 108, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\data.py", line 324, in _get_cookie_and_crumb
+    cookie, crumb = self._get_cookie_and_crumb_basic(proxy, timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\utils.py", line 108, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\data.py", line 213, in _get_cookie_and_crumb_basic
+    cookie = self._get_cookie_basic(proxy, timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\data.py", line 156, in _get_cookie_basic
+    self._cookie = self._load_cookie_basic()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\data.py", line 142, in _load_cookie_basic
+    cookie_dict = cache.get_cookie_cache().lookup('basic')
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\cache.py", line 362, in lookup
+    return {'cookie':cookie, 'age':_datetime.datetime.now()-data.fetch_date}
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+
+2025-04-12 01:21:45,338 - NewsCollector - INFO - Scraping news for JYOTHYLAB.NS from multiple sources...
+2025-04-12 01:21:45,340 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/JYOTHYLAB.NS/news
+2025-04-12 01:21:45,341 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/jyothylab.ns
+2025-04-12 01:21:45,342 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/JYOTHYLAB.NS.O
+2025-04-12 01:21:45,344 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/jyothylab.ns
+2025-04-12 01:21:45,348 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/JYOTHYLAB.NS/news
+2025-04-12 01:21:46,563 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 01:21:47,234 - NewsCollector - WARNING - Seeking Alpha returned status code 404
+2025-04-12 01:21:47,823 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 01:21:48,413 - NewsCollector - WARNING - CNBC returned status code 404
+2025-04-12 01:21:48,419 - NewsCollector - WARNING - No news articles found for JYOTHYLAB.NS
+2025-04-12 01:21:48,421 - MarketAnalyzer - WARNING - No news items to analyze
+2025-04-12 01:21:48,424 - QueryProcessor - INFO - Query saved to data/queries\query_20250412_012148.json
+2025-04-12 01:28:18,952 - QueryProcessor - INFO - Processing query: Why did Jyothy Labs up today?
+2025-04-12 01:28:18,952 - GeminiHelper - INFO - Found tickers from local mappings: ['JYOTHYLAB.NS']
+2025-04-12 01:28:18,953 - QueryProcessor - INFO - Using Gemini analysis for query: {'original_query': 'Why did Jyothy Labs up today?', 'intent': 'price_movement', 'tickers': ['JYOTHYLAB.NS'], 'timeframe': 'today', 'security_type': None, 'direction': 'up', 'specific_factors': []}
+2025-04-12 01:28:18,954 - MarketAnalyzer - INFO - Analyzing security data for JYOTHYLAB.NS
+2025-04-12 01:28:18,955 - MarketAnalyzer - ERROR - Error in security analysis for JYOTHYLAB.NS: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-04-12 01:28:18,967 - MarketAnalyzer - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 69, in analyze_security
+    info = security.info
+           ^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\ticker.py", line 142, in info
+    return self.get_info()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\base.py", line 1736, in get_info
+    data = self._quote.info
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\scrapers\quote.py", line 572, in info
+    self._fetch(self.proxy)
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\scrapers\quote.py", line 602, in _fetch
+    result = self._data.get_raw_json(
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\data.py", line 399, in get_raw_json
+    response = self.get(url, user_agent_headers=user_agent_headers, params=params, proxy=proxy, timeout=timeout)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\utils.py", line 108, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\data.py", line 348, in get
+    cookie, crumb, strategy = self._get_cookie_and_crumb()
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\utils.py", line 108, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\data.py", line 324, in _get_cookie_and_crumb
+    cookie, crumb = self._get_cookie_and_crumb_basic(proxy, timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\utils.py", line 108, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\data.py", line 213, in _get_cookie_and_crumb_basic
+    cookie = self._get_cookie_basic(proxy, timeout)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\data.py", line 156, in _get_cookie_basic
+    self._cookie = self._load_cookie_basic()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\data.py", line 142, in _load_cookie_basic
+    cookie_dict = cache.get_cookie_cache().lookup('basic')
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\venv_new\Lib\site-packages\yfinance\cache.py", line 362, in lookup
+    return {'cookie':cookie, 'age':_datetime.datetime.now()-data.fetch_date}
+                                   ~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~
+TypeError: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+
+2025-04-12 01:28:18,981 - NewsCollector - INFO - Scraping news for JYOTHYLAB.NS from multiple sources...
+2025-04-12 01:28:18,981 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/JYOTHYLAB.NS/news
+2025-04-12 01:28:18,984 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/jyothylab.ns
+2025-04-12 01:28:18,998 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/JYOTHYLAB.NS.O
+2025-04-12 01:28:19,000 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/jyothylab.ns
+2025-04-12 01:28:19,003 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/JYOTHYLAB.NS/news
+2025-04-12 01:28:20,321 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 01:28:20,702 - NewsCollector - WARNING - Seeking Alpha returned status code 404
+2025-04-12 01:28:21,541 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 01:28:21,556 - NewsCollector - WARNING - CNBC returned status code 404
+2025-04-12 01:28:21,566 - NewsCollector - WARNING - No news articles found for JYOTHYLAB.NS
+2025-04-12 01:28:21,570 - MarketAnalyzer - WARNING - No news items to analyze
+2025-04-12 01:28:21,574 - QueryProcessor - INFO - Query saved to data/queries\query_20250412_012821.json
