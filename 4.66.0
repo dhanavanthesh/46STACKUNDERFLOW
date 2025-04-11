@@ -1,0 +1,2 @@
+Requirement already satisfied: tqdm in c:\python312\lib\site-packages (4.67.1)
+Requirement already satisfied: colorama in c:\python312\lib\site-packages (from tqdm) (0.4.6)

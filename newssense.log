@@ -1,0 +1,14 @@
+2025-04-11 23:12:44,036 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-11 23:13:25,926 - MarketAnalyzer - INFO - Analyzing security data for AAPL
+2025-04-11 23:13:33,725 - NewsCollector - INFO - Scraping news for AAPL from multiple sources...
+2025-04-11 23:13:33,728 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/AAPL/news
+2025-04-11 23:13:33,729 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/aapl
+2025-04-11 23:13:33,730 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/AAPL.O
+2025-04-11 23:13:33,732 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/aapl
+2025-04-11 23:13:33,736 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/AAPL/news
+2025-04-11 23:13:33,848 - NewsCollector - WARNING - Reuters returned status code 401
+2025-04-11 23:13:35,041 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-11 23:13:36,108 - NewsCollector - INFO - News saved to data/scraped_news\AAPL_news_20250411_231336.json
+2025-04-11 23:13:36,109 - NewsCollector - INFO - Total articles found for AAPL: 8
+2025-04-11 23:13:36,110 - MarketAnalyzer - INFO - Analyzing impact of 8 news items
+2025-04-11 23:13:36,231 - MarketAnalyzer - INFO - Generating explanation for AAPL

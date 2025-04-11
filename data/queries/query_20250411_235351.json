@@ -1,0 +1,23 @@
+{
+    "timestamp": "2025-04-11 23:53:51",
+    "query": "WHY IS QQQ up today?",
+    "query_info": {
+        "original_query": "why is qqq up today?",
+        "intent": "price_movement",
+        "tickers": [
+            "WHY",
+            "QQQ",
+            "UP",
+            "TODAY"
+        ],
+        "timeframe": "today",
+        "security_type": null,
+        "direction": "up",
+        "specific_factors": []
+    },
+    "response": {
+        "success": true,
+        "message": "",
+        "answer": "I couldn't retrieve current price data for WHY."
+    }
+}
