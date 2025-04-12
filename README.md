@@ -18,7 +18,13 @@ A financial market explanation system that connects real-world news and events t
 - [Screenshots](#screenshots)
 - [License](#license)
 
+
 ## 🔍 Overview
+### Workflow
+[news-sense-workflow.pdf](https://github.com/user-attachments/files/19717668/news-sense-workflow.pdf)
+
+
+## Installation
 
 NewsSense is an AI-powered financial analysis tool that helps investors understand market movements by connecting price changes to real-world news and events. Instead of just seeing that a stock is "down 2%", NewsSense provides comprehensive explanations of the factors affecting security prices.
 
@@ -44,6 +50,7 @@ This project was created as a solution to the "Why Is My Nifty Down?" hackathon 
 - Internet connection for downloading dependencies and fetching market data
 
 ### Option 1: Automatic Installation (Recommended)
+
 
 1. Clone the repository:
    ```bash
@@ -247,3 +254,21 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 📣 Disclaimer
 
 NewsSense is for educational and informational purposes only. It does not provide investment advice, and you should not rely solely on its analysis for making investment decisions. The data and analysis provided may not be accurate or complete. Always consult with a qualified financial advisor before making investment decisions.
+
+NewsSense is for educational and informational purposes only. It does not provide investment advice, and you should not rely solely on its analysis for making investment decisions.
+
+
+### CLI OUTPUT (Command Line Interface)
+
+![WhatsApp Image 2025-04-12 at 09 20 43_8fcbe462](https://github.com/user-attachments/assets/7c58d6d0-5e29-4cce-8651-e28fcdf06151)
+
+
+### Corelation
+
+## Demo 1
+![WhatsApp Image 2025-04-12 at 11 07 59_ff4fc558](https://github.com/user-attachments/assets/2cd31deb-052e-431b-8642-1ed4e2d4281e)
+
+## Demo 2
+![WhatsApp Image 2025-04-12 at 10 57 08_28d2077a](https://github.com/user-attachments/assets/4140bc80-a5ce-4863-ae85-e958241a138a)
+
+The price increase on April 11 (from $442 to $455) represents a significant jump of about 3% in a single day, which is notable for an index fund like QQQ. Without corresponding negative news data, this suggests the price movement was likely driven by other market factors rather than news sentiment during this period.
