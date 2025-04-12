@@ -1,0 +1,30 @@
+=== Market Analysis for XLF ===
+Analysis Date: 2025-04-12 08:56:25
+
+Company Information:
+Name: The Financial Select Sector SPDR Fund
+Sector: Unknown
+Industry: Unknown
+Website: Unknown
+
+Price Information:
+Current Price: $46.65999984741211
+Change: 1.0600013732910156
+Change %: 2.32456449289705%
+Day Range: $45.369998931884766 - $46.970001220703125
+
+Volume Information:
+Current Volume: 61954818
+Average Volume: 794292.5384615385
+Volume Change: 7700.0%
+
+Key Factors Affecting Price:
+
+Market Context:
+- S&P 500: 2.0511573169300705%
+- Dow Jones: 1.8212882762517018%
+- NASDAQ: 2.236940959523041%
+- Russell 2000: 1.7804141023848814%
+- VIX: -7.941171383225148%
+- Nifty 50: 0.5866844749740643%
+- Sensex: 0.4299639323461889%

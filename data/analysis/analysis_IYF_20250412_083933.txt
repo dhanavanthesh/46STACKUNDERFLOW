@@ -1,0 +1,30 @@
+=== Market Analysis for IYF ===
+Analysis Date: 2025-04-12 08:39:33
+
+Company Information:
+Name: iShares U.S. Financials ETF
+Sector: Unknown
+Industry: Unknown
+Website: Unknown
+
+Price Information:
+Current Price: $105.0999984741211
+Change: 2.2099990844726562
+Change %: 2.1479240913427393%
+Day Range: $102.36000061035156 - $105.66000366210938
+
+Volume Information:
+Current Volume: 449661
+Average Volume: 5839.7532467532465
+Volume Change: 7600.0%
+
+Key Factors Affecting Price:
+
+Market Context:
+- S&P 500: 2.0511573169300705%
+- Dow Jones: 1.8212882762517018%
+- NASDAQ: 2.236940959523041%
+- Russell 2000: 1.7804141023848814%
+- VIX: -7.941171383225148%
+- Nifty 50: 0.5866844749740643%
+- Sensex: 0.4299639323461889%

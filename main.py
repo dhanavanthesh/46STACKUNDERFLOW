@@ -4,21 +4,21 @@ NewsSense - "Why Is My Nifty Down?"
 A financial news analysis system that explains market movements.
 """
 
+import json
 import sys
 import os
 import logging
 from datetime import datetime
 from colorama import init, Fore, Style
+import requests
 from tabulate import tabulate
 import traceback
 from dotenv import load_dotenv
 
 load_dotenv()
 
-# Initialize colorama for cross-platform color support
 init(autoreset=True)
 
-# Setup logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -33,17 +33,14 @@ class NewsSenseCLI:
     def __init__(self):
         """Initialize the CLI interface with required components"""
         try:
-            # Fix potential path issues
             self._fix_path_issues()
             
             
-            # Import components
             from src.news_scraper.news_collector import NewsCollector
             from src.analyzer.market_analyzer import MarketAnalyzer
             from src.query_processor.query_processor import QueryProcessor
-            from src.utils.gemini_helper import GeminiHelper  # Move import here
+            from src.utils.gemini_helper import GeminiHelper  
 
-            # Try to import GeminiHelper (optional)
             try:
                 from src.utils.gemini_helper import GeminiHelper
                 self.gemini_helper = GeminiHelper()
@@ -58,7 +55,6 @@ class NewsSenseCLI:
             )
             logger.info("Gemini helper initialized successfully")
             
-            # Initialize components
             self.gemini_helper = GeminiHelper()
             self.news_collector = NewsCollector()
             self.market_analyzer = MarketAnalyzer()
@@ -68,13 +64,10 @@ class NewsSenseCLI:
                 self.gemini_helper
             )
             
-            # Get username
             self.user = os.getenv('USERNAME', 'User')
             
-            # Setup display settings
             self.setup_display_settings()
             
-            # Create necessary directories
             os.makedirs(os.path.join("data", "analysis"), exist_ok=True)
             os.makedirs(os.path.join("data", "scraped_news"), exist_ok=True)
             os.makedirs(os.path.join("data", "market_data"), exist_ok=True)
@@ -89,12 +82,10 @@ class NewsSenseCLI:
     
     def _fix_path_issues(self):
         """Fix common path issues"""
-        # Add src directory to path if not already there
         src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "src"))
         if src_dir not in sys.path:
             sys.path.insert(0, src_dir)
         
-        # Add current directory to path
         current_dir = os.path.abspath(os.path.dirname(__file__))
         if current_dir not in sys.path:
             sys.path.insert(0, current_dir)
@@ -140,79 +131,232 @@ class NewsSenseCLI:
         print("5. Help")
         print("6. Exit")
 
-    def process_query(self, query):
-        """Process natural language query about market data"""
+
+    def extract_query_components(self, query_text):
+        """First use of Gemini - Extract ticker and intent"""
         try:
-            print(f"\n{self.colors['info']}Processing your query: \"{query}\"{Style.RESET_ALL}")
-            print(f"{self.colors['info']}This may take a moment as I gather market data and news...{Style.RESET_ALL}")
+            prompt = f"""
+            Analyze this financial market query: "{query_text}"
+            Return a JSON object with:
+            {{
+                "tickers": ["TICKER"],
+                "intent": "price_movement/company_news/financial_metrics",
+                "timeframe": "today/this_week/recent",
+                "focus": "price/news/both"
+            }}
+            Example: "How is AAPL doing?" -> {{"tickers": ["AAPL"], "intent": "price_movement", "timeframe": "today", "focus": "both"}}
+            """
             
-            # First use Gemini to parse the query
+            url = f"{self.base_url}?key={self.api_key}"
+            response = requests.post(
+                url,
+                headers={"Content-Type": "application/json"},
+                json={
+                    "contents": [{"parts": [{"text": prompt}]}],
+                    "generationConfig": {
+                        "temperature": 0.1,
+                        "maxOutputTokens": 1024
+                    }
+                }
+            )
+
+            if response.status_code == 200:
+                components = self._extract_json_from_response(
+                    response.json()['candidates'][0]['content']['parts'][0]['text']
+                )
+                return components
+
+        except Exception as e:
+            logger.error(f"Error extracting components: {str(e)}")
+            return None
+    
+    
+    def analyze_market_context(self, query, data):
+        """Generate market analysis using Gemini"""
+        try:
+            # Convert DataFrame to dict if present
+            if 'market_data' in data and 'data' in data['market_data']:
+                for sector in data['market_data']['data']:
+                    for etf in data['market_data']['data'][sector]:
+                        if hasattr(data['market_data']['data'][sector][etf], 'to_dict'):
+                            data['market_data']['data'][sector][etf] = data['market_data']['data'][sector][etf].to_dict()
+
+            current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
+            user_login = os.getenv('USERNAME', 'User')
+
+            prompt = f"""
+            Current Date and Time (UTC): {current_time}
+            Current User's Login: {user_login}
+            
+            Query: "{query}"
+            
+            Market Data and News Analysis:
+            {json.dumps(data, indent=2, default=str)}
+            
+            Provide a comprehensive analysis including:
+            1. Market trends and sector impacts
+            2. News sentiment analysis
+            3. Key factors affecting markets
+            4. Actionable insights for investors
+
+            Format the response in clear sections with bullet points.
+            Include specific data points and percentage changes where relevant.
+            Consider both technical indicators and news sentiment in the analysis.
+            """
+
+            url = f"{self.base_url}?key={self.api_key}"
+            response = requests.post(
+                url,
+                headers={"Content-Type": "application/json"},
+                json={
+                    "contents": [{"parts": [{"text": prompt}]}],
+                    "generationConfig": {
+                        "temperature": 0.3,
+                        "maxOutputTokens": 1024
+                    }
+                }
+            )
+
+            if response.status_code == 200:
+                return response.json()['candidates'][0]['content']['parts'][0]['text']
+
+        except Exception as e:
+            logger.error(f"Error in market analysis: {str(e)}")
+            return None
+
+
+    def _collect_market_data(self):
+        """Collect market data for relevant ETFs and sectors"""
+        market_data = {
+            'sectors': {
+                'tech': ['QQQ', 'XLK', 'VGT'],
+                'finance': ['XLF', 'VFH', 'IYF'],
+                'healthcare': ['XLV', 'VHT', 'IYH']
+            },
+            'data': {}
+        }
+        
+        try:
+            for sector, etfs in market_data['sectors'].items():
+                sector_data = {}
+                for etf in etfs:
+                    security_data = self.market_analyzer.analyze_security(etf)
+                    if security_data and 'data' in security_data and 'today' in security_data['data']:
+                        price_data = security_data['data']['today']
+                        if not price_data.empty:
+                            sector_data[etf] = {
+                                'current_price': float(price_data['Close'].iloc[-1]),
+                                'open_price': float(price_data['Open'].iloc[0]),
+                                'change': float(price_data['Close'].iloc[-1] - price_data['Open'].iloc[0]),
+                                'change_pct': float((price_data['Close'].iloc[-1] - price_data['Open'].iloc[0]) / price_data['Open'].iloc[0] * 100),
+                                'volume': int(price_data['Volume'].sum()) if 'Volume' in price_data else 0
+                            }
+                market_data['data'][sector] = sector_data
+            
+            return market_data
+        
+        except Exception as e:
+            logger.error(f"Error collecting market data: {str(e)}")
+            return None
+
+    def process_query(self, query):
+        """Main query processing with dual Gemini usage"""
+        try:
+            current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
+            user_login = os.getenv('USERNAME', 'User')
+            print(f"Processing query at {current_time} for {user_login}")
+
             components = self.gemini_helper.extract_query_components(query)
-            
-            if not components or not components.get('tickers'):
-                print(f"\n{self.colors['error']}I couldn't identify a specific stock, ETF, or fund in your query. Please specify a ticker symbol.{Style.RESET_ALL}")
-                return
-            
-            ticker = components['tickers'][0]
-            print(f"\n{self.colors['info']}Analyzing {ticker}...{Style.RESET_ALL}")
-            
-            # Get market data
-            security_data = self.market_analyzer.analyze_security(ticker)
-            if not security_data or 'error' in security_data:
-                print(f"{self.colors['error']}Failed to fetch market data for {ticker}{Style.RESET_ALL}")
-                return
-            
-            # Get news
-            news_items = self.news_collector.scrape_all_sources(ticker)
-            news_analysis = self.market_analyzer.analyze_news_impact(news_items)
-            
-            # Generate explanation
-            explanation = self.market_analyzer.generate_explanation(security_data, news_analysis, ticker)
-            
-            # Prepare response
-            response = {
-                'success': True,
-                'components': components,
-                'security_data': security_data,
-                'news_data': news_analysis,
-                'explanation': explanation
+
+            if components and components.get('tickers'):
+                ticker = components['tickers'][0]
+                market_data = self.market_analyzer.analyze_security(ticker)
+                news_items = self.news_collector.scrape_all_sources(ticker)
+                
+                analysis = self.gemini_helper.analyze_market_context(
+                    query,
+                    {
+                        'ticker': ticker,
+                        'market_data': market_data,
+                        'news': news_items
+                    }
+                )
+                
+                self._display_specific_analysis(ticker, market_data, news_items, analysis)
+
+            else:
+                market_data = self._collect_market_data()
+                news_data = self._collect_sector_news()
+                
+                analysis = self.gemini_helper.analyze_market_context(
+                    query,
+                    {
+                        'market_data': market_data,
+                        'news': news_data
+                    }
+                )
+                
+                self._display_market_analysis(market_data, news_data, analysis)
+
+        except Exception as e:
+            logger.error(f"Error processing query: {str(e)}")
+            return None
+    
+     
+    def _collect_sector_news(self):
+        """Collect news for relevant sectors and ETFs"""
+        news_data = {
+            'tech': [],
+            'finance': [],
+            'healthcare': []
+        }
+        
+        try:
+            sector_etfs = {
+                'tech': ['QQQ', 'XLK', 'VGT'],
+                'finance': ['XLF', 'VFH', 'IYF'],
+                'healthcare': ['XLV', 'VHT', 'IYH']
             }
             
-            # Display results
-            self.display_analysis_results(ticker, security_data, news_analysis, explanation)
-            
-            return response
+            for sector, etfs in sector_etfs.items():
+                sector_news = []
+                for etf in etfs:
+                    news_items = self.news_collector.scrape_all_sources(etf)
+                    if news_items:
+                        for item in news_items:
+                            item['sector'] = sector
+                            item['etf'] = etf
+                        sector_news.extend(news_items)
                 
+                sector_news.sort(key=lambda x: abs(x.get('sentiment', 0)), reverse=True)
+                news_data[sector] = sector_news[:5] 
+            
+            return news_data
+        
         except Exception as e:
-            print(f"{self.colors['error']}Error processing query: {str(e)}{Style.RESET_ALL}")
-            logger.error(f"Query processing error: {str(e)}")
-            logger.error(traceback.format_exc())
-            return {'success': False, 'message': str(e)}
+            logger.error(f"Error collecting sector news: {str(e)}")
+            return None
+     
     
     def analyze_security(self, ticker):
         """Perform comprehensive security analysis"""
         try:
             print(f"\n{self.colors['info']}Analyzing {ticker}...{Style.RESET_ALL}")
             
-            # Get security data
             print(f"{self.colors['info']}Fetching market data...{Style.RESET_ALL}")
             security_data = self.market_analyzer.analyze_security(ticker)
             if not security_data:
                 print(f"{self.colors['error']}Failed to fetch market data for {ticker}{Style.RESET_ALL}")
                 return
             
-            # Get news
             print(f"{self.colors['info']}Collecting news from multiple sources...{Style.RESET_ALL}")
             news_items = self.news_collector.scrape_all_sources(ticker)
             
-            # Analyze news
             print(f"{self.colors['info']}Analyzing news and market context...{Style.RESET_ALL}")
             news_analysis = self.market_analyzer.analyze_news_impact(news_items)
             
-            # Generate explanation
             explanation = self.market_analyzer.generate_explanation(security_data, news_analysis, ticker)
             
-            # Display results
             self.display_analysis_results(ticker, security_data, news_analysis, explanation)
             
         except Exception as e:
@@ -225,12 +369,10 @@ class NewsSenseCLI:
         try:
             print(f"\n{self.colors['header']}=== Analysis Results for {ticker} ==={Style.RESET_ALL}")
             
-            # Check for errors
             if security_data and 'error' in security_data:
                 print(f"{self.colors['error']}Error: {security_data['error']}{Style.RESET_ALL}")
                 return
             
-            # Company Information
             if security_data and 'info' in security_data and security_data['info']:
                 info = security_data['info']
                 print(f"\n{self.colors['header']}Company Information:{Style.RESET_ALL}")
@@ -239,7 +381,6 @@ class NewsSenseCLI:
                 print(f"Industry: {info.get('industry', 'N/A')}")
                 print(f"Website: {info.get('website', 'N/A')}")
 
-            # Price Information
             if security_data and 'data' in security_data and 'today' in security_data['data']:
                 today_data = security_data['data']['today']
                 if not today_data.empty:
@@ -255,7 +396,6 @@ class NewsSenseCLI:
                     print(f"Change: {color}{price_change:+.2f} ({price_change_pct:+.2f}%){Style.RESET_ALL}")
                     print(f"Day Range: ${today_data['Low'].min():.2f} - ${today_data['High'].max():.2f}")
 
-            # Volume Information
             if security_data and 'data' in security_data and 'today' in security_data['data']:
                 today_data = security_data['data']['today']
                 if not today_data.empty and 'Volume' in today_data.columns:
@@ -267,7 +407,6 @@ class NewsSenseCLI:
                     print(f"Average Volume: {avg_volume:,.0f}")
                     print(f"Volume Change: {volume_change:+.1f}% vs average")
 
-            # Key Factors
             if news_analysis and 'topics' in news_analysis:
                 print(f"\n{self.colors['header']}Key Factors Affecting Price:{Style.RESET_ALL}")
                 has_factors = False
@@ -278,7 +417,6 @@ class NewsSenseCLI:
                 if not has_factors:
                     print("No significant factors identified")
 
-            # Market Context
             if security_data and 'market_context' in security_data:
                 context = security_data.get('market_context', {})
                 if context:
@@ -349,6 +487,58 @@ class NewsSenseCLI:
         except:
             return str(price)
 
+
+    def _display_market_analysis(self, market_data, news_data, analysis):
+        """Display market analysis results for broader queries"""
+        try:
+            print(f"\n{self.colors['header']}=== Market Analysis Results ==={Style.RESET_ALL}")
+            
+            # Display sector performance if available
+            if market_data and 'data' in market_data:
+                print(f"\n{self.colors['header']}Sector Performance:{Style.RESET_ALL}")
+                
+                for sector, data in market_data['data'].items():
+                    print(f"\n{sector.title()} Sector:")
+                    for etf, metrics in data.items():
+                        color = self.colors['positive'] if metrics['change_pct'] >= 0 else self.colors['negative']
+                        print(f"- {etf}: {color}{metrics['change_pct']:+.2f}%{Style.RESET_ALL}")
+                        print(f"  Price: ${metrics['current_price']:.2f}")
+                        if metrics.get('volume', 0) > 0:
+                            print(f"  Volume: {metrics['volume']:,}")
+
+            # Display news analysis if available
+            if news_data:
+                print(f"\n{self.colors['header']}Market Moving News:{Style.RESET_ALL}")
+                
+                for sector, news_items in news_data.items():
+                    if news_items:
+                        print(f"\n{sector.title()} Sector News:")
+                        for item in news_items:
+                            sentiment_color = (self.colors['positive'] if item.get('sentiment', 0) > 0.2
+                                            else self.colors['negative'] if item.get('sentiment', 0) < -0.2
+                                            else self.colors['neutral'])
+                            
+                            title = item.get('title', '')
+                            if len(title) > 70:
+                                title = title[:67] + "..."
+                            
+                            print(f"- {title}")
+                            print(f"  {item.get('etf', '')} | {sentiment_color}Sentiment: {item.get('sentiment', 0):+.2f}{Style.RESET_ALL}")
+
+            # Display Gemini's analysis if available
+            if analysis:
+                print(f"\n{self.colors['header']}Market Insights:{Style.RESET_ALL}")
+                print(analysis)
+                
+            print(f"\n{self.colors['info']}Use options 1 or 3 to analyze specific securities in detail.{Style.RESET_ALL}")
+            
+        except Exception as e:
+            print(f"{self.colors['error']}Error displaying market analysis: {str(e)}{Style.RESET_ALL}")
+            logger.error(f"Display error: {str(e)}")
+            logger.error(traceback.format_exc()) 
+            
+        
+        
     def track_multiple_securities(self):
         """Track and compare multiple securities"""
         try:
@@ -472,6 +662,154 @@ class NewsSenseCLI:
             logger.error(f"Securities tracking error: {str(e)}")
             logger.error(traceback.format_exc())
 
+
+
+
+    def _display_specific_analysis(self, ticker, market_data, news_items, analysis):
+        """Display analysis for specific ticker"""
+        try:
+            current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
+            print(f"\n{self.colors['header']}=== Analysis Results for {ticker} ==={Style.RESET_ALL}")
+            print(f"Current Date and Time (UTC): {current_time}")
+            print(f"Current User's Login: {os.getenv('USERNAME', 'User')}")
+            
+            # Check for errors
+            if market_data and 'error' in market_data:
+                print(f"{self.colors['error']}Error: {market_data['error']}{Style.RESET_ALL}")
+                return
+            
+            # Company Information
+            if market_data and 'info' in market_data and market_data['info']:
+                info = market_data['info']
+                print(f"\n{self.colors['header']}Company Information:{Style.RESET_ALL}")
+                print(f"Name: {info.get('longName', ticker)}")
+                # print(f"Sector: {info.get('sector', 'N/A')}")
+                # print(f"Industry: {info.get('industry', 'N/A')}")
+                # print(f"Website: {info.get('website', 'N/A')}")
+
+            # Price Information
+            if market_data and 'data' in market_data and 'today' in market_data['data']:
+                today_data = market_data['data']['today']
+                if not today_data.empty:
+                    print(f"\n{self.colors['header']}Price Information:{Style.RESET_ALL}")
+                    
+                    current_price = today_data['Close'].iloc[-1]
+                    open_price = today_data['Open'].iloc[0]
+                    price_change = current_price - open_price
+                    price_change_pct = (price_change / open_price) * 100
+                    
+                    color = self.colors['positive'] if price_change >= 0 else self.colors['negative']
+                    print(f"Current Price: {self.format_price(current_price)}")
+                    print(f"Change: {color}{price_change:+.2f} ({price_change_pct:+.2f}%){Style.RESET_ALL}")
+                    print(f"Day Range: ${today_data['Low'].min():.2f} - ${today_data['High'].max():.2f}")
+
+            # Volume Information
+            if market_data and 'data' in market_data and 'today' in market_data['data']:
+                today_data = market_data['data']['today']
+                if not today_data.empty and 'Volume' in today_data.columns:
+                    print(f"\n{self.colors['header']}Volume Information:{Style.RESET_ALL}")
+                    current_volume = today_data['Volume'].sum()
+                    avg_volume = today_data['Volume'].mean()
+                    volume_change = ((current_volume - avg_volume) / avg_volume) * 100 if avg_volume > 0 else 0
+                    print(f"Current Volume: {current_volume:,.0f}")
+                    print(f"Average Volume: {avg_volume:,.0f}")
+                    print(f"Volume Change: {volume_change:+.1f}% vs average")
+
+            # Key Factors
+            if news_items:
+                print(f"\n{self.colors['header']}Key Factors Affecting Price:{Style.RESET_ALL}")
+                topics = {}
+                for item in news_items:
+                    for topic in item.get('topics', []):
+                        topics[topic] = topics.get(topic, 0) + 1
+                
+                if topics:
+                    for topic, count in sorted(topics.items(), key=lambda x: x[1], reverse=True):
+                        print(f"- {topic.replace('_', ' ').title()}: {count} mentions")
+                else:
+                    print("No significant factors identified")
+
+            # Market Context
+            if market_data and 'market_context' in market_data:
+                context = market_data.get('market_context', {})
+                if context:
+                    print(f"\n{self.colors['header']}Market Context:{Style.RESET_ALL}")
+                    for index_name, index_data in context.items():
+                        if isinstance(index_data, dict) and 'change_pct' in index_data:
+                            change_pct = index_data['change_pct']
+                            color = self.colors['positive'] if change_pct >= 0 else self.colors['negative']
+                            print(f"{index_name}: {color}{change_pct:+.2f}%{Style.RESET_ALL}")
+
+            # News Analysis
+            if news_items:
+                print(f"\n{self.colors['header']}Recent News:{Style.RESET_ALL}")
+                
+                # Group news by source
+                news_by_source = {}
+                for item in news_items:
+                    source = item.get('source', 'Unknown')
+                    if source not in news_by_source:
+                        news_by_source[source] = []
+                    news_by_source[source].append(item)
+
+                # Display news by source
+                for source, items in news_by_source.items():
+                    print(f"\n{self.colors['header']}{source} News:{Style.RESET_ALL}")
+                    news_table = []
+                    for item in items:
+                        sentiment = item.get('sentiment', 0)
+                        sentiment_color = (self.colors['positive'] if sentiment > 0.2 
+                                        else self.colors['negative'] if sentiment < -0.2 
+                                        else self.colors['neutral'])
+                        
+                        title = item.get('title', '')
+                        if len(title) > 50:
+                            title = title[:47] + "..."
+                        
+                        news_table.append([
+                            title,
+                            f"{sentiment_color}{sentiment:.2f}{Style.RESET_ALL}",
+                            item.get('timestamp', 'N/A')[:10]  # Just show the date part
+                        ])
+                    
+                    if news_table:
+                        print(tabulate(news_table, 
+                                    headers=["Title", "Sentiment", "Date"],
+                                    tablefmt="grid"))
+
+                print(f"\n{self.colors['info']}Total articles found: {len(news_items)}{Style.RESET_ALL}")
+
+            # Analysis Explanation (Gemini's analysis)
+            if analysis:
+                print(f"\n{self.colors['header']}Analysis Explanation:{Style.RESET_ALL}")
+                print(analysis)
+                
+                # Add observations section
+                print(f"\n{self.colors['header']}Key Observations:{Style.RESET_ALL}")
+                if market_data and 'data' in market_data and 'today' in market_data['data']:
+                    today_data = market_data['data']['today']
+                    if not today_data.empty:
+                        price_change = today_data['Close'].iloc[-1] - today_data['Open'].iloc[0]
+                        if price_change > 0:
+                            print("- Stock is showing positive momentum today")
+                        else:
+                            print("- Stock is showing negative pressure today")
+                        
+                        if 'Volume' in today_data.columns:
+                            avg_volume = today_data['Volume'].mean()
+                            current_volume = today_data['Volume'].sum()
+                            if current_volume > avg_volume:
+                                print("- Trading volume is above average, indicating strong interest")
+                            else:
+                                print("- Trading volume is below average, suggesting lower activity")
+
+            print(f"\n{self.colors['info']}Use 'Track Multiple Securities' for comparison with other tickers.{Style.RESET_ALL}")
+            
+        except Exception as e:
+            print(f"{self.colors['error']}Error displaying specific analysis: {str(e)}{Style.RESET_ALL}")
+            logger.error(f"Specific analysis display error: {str(e)}")
+            logger.error(traceback.format_exc())
+            
     def view_recent_analyses(self):
         """View recently saved analyses"""
         try:

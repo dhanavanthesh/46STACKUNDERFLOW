@@ -1,0 +1,30 @@
+=== Market Analysis for VFH ===
+Analysis Date: 2025-04-12 08:32:34
+
+Company Information:
+Name: Vanguard Financials Index Fund ETF Shares
+Sector: Unknown
+Industry: Unknown
+Website: Unknown
+
+Price Information:
+Current Price: $111.19999694824219
+Change: 2.5799942016601562
+Change %: 2.375247777961727%
+Day Range: $108.20999908447266 - $111.7699966430664
+
+Volume Information:
+Current Volume: 484307
+Average Volume: 6209.0641025641025
+Volume Change: 7700.0%
+
+Key Factors Affecting Price:
+
+Market Context:
+- S&P 500: 2.0511573169300705%
+- Dow Jones: 1.8212882762517018%
+- NASDAQ: 2.236940959523041%
+- Russell 2000: 1.7804141023848814%
+- VIX: -7.941171383225148%
+- Nifty 50: 0.5866844749740643%
+- Sensex: 0.4299639323461889%

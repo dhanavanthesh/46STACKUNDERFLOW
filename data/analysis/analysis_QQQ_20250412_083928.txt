@@ -1,0 +1,30 @@
+=== Market Analysis for QQQ ===
+Analysis Date: 2025-04-12 08:39:28
+
+Company Information:
+Name: Invesco QQQ Trust
+Sector: Unknown
+Industry: Unknown
+Website: Unknown
+
+Price Information:
+Current Price: $454.239990234375
+Change: 8.6300048828125
+Change %: 1.9366722395154332%
+Day Range: $441.3299865722656 - $455.760009765625
+
+Volume Information:
+Current Volume: 49853388
+Average Volume: 639146.0
+Volume Change: 7700.0%
+
+Key Factors Affecting Price:
+
+Market Context:
+- S&P 500: 2.0511573169300705%
+- Dow Jones: 1.8212882762517018%
+- NASDAQ: 2.236940959523041%
+- Russell 2000: 1.7804141023848814%
+- VIX: -7.941171383225148%
+- Nifty 50: 0.5866844749740643%
+- Sensex: 0.4299639323461889%

@@ -1,0 +1,30 @@
+=== Market Analysis for VGT ===
+Analysis Date: 2025-04-12 08:39:30
+
+Company Information:
+Name: Vanguard Information Technology Index Fund ETF Shares
+Sector: Unknown
+Industry: Unknown
+Website: Unknown
+
+Price Information:
+Current Price: $519.72998046875
+Change: 12.8499755859375
+Change %: 2.535111951971421%
+Day Range: $503.2349853515625 - $522.0999755859375
+
+Volume Information:
+Current Volume: 711013
+Average Volume: 9115.551282051281
+Volume Change: 7700.000000000002%
+
+Key Factors Affecting Price:
+
+Market Context:
+- S&P 500: 2.0511573169300705%
+- Dow Jones: 1.8212882762517018%
+- NASDAQ: 2.236940959523041%
+- Russell 2000: 1.7804141023848814%
+- VIX: -7.941171383225148%
+- Nifty 50: 0.5866844749740643%
+- Sensex: 0.4299639323461889%
