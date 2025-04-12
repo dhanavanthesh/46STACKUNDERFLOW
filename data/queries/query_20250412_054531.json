@@ -1,0 +1,20 @@
+{
+    "timestamp": "2025-04-12 05:45:31",
+    "query": "Why is AAPL up today?",
+    "query_info": {
+        "original_query": "Why is AAPL up today?",
+        "intent": "price_movement",
+        "tickers": [
+            "AAPL"
+        ],
+        "timeframe": "today",
+        "security_type": null,
+        "direction": "up",
+        "specific_factors": []
+    },
+    "response": {
+        "success": true,
+        "message": "",
+        "answer": "AAPL is up 6.36% today, trading at $198.02. Key factors include international and market trend. The broader market shows: S&P 500 is up 2.05%; Dow Jones is up 1.82%."
+    }
+}

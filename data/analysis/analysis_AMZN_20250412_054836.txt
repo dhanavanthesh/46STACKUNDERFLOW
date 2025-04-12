@@ -1,0 +1,30 @@
+=== Market Analysis for AMZN ===
+Analysis Date: 2025-04-12 05:48:36
+
+Company Information:
+Name: Amazon.com, Inc.
+Sector: Consumer Cyclical
+Industry: Internet Retail
+Website: https://www.aboutamazon.com
+
+Price Information:
+Current Price: $184.7899932861328
+Change: 4.7949981689453125
+Change %: 2.663961942843734%
+Day Range: $178.0 - $185.86000061035156
+
+Volume Information:
+Current Volume: 42620253
+Average Volume: 546413.5
+Volume Change: 7700.0%
+
+Key Factors Affecting Price:
+
+Market Context:
+- S&P 500: 2.0511573169300705%
+- Dow Jones: 1.821348702463129%
+- NASDAQ: 2.237094343154935%
+- Russell 2000: 1.7807152542721552%
+- VIX: -7.941171383225148%
+- Nifty 50: 0.5866844749740643%
+- Sensex: 0.4299639323461889%

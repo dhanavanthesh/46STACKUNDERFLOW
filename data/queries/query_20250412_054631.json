@@ -1,0 +1,20 @@
+{
+    "timestamp": "2025-04-12 05:46:31",
+    "query": "What happened to Nifty this week?",
+    "query_info": {
+        "original_query": "What happened to Nifty this week?",
+        "intent": "price_movement",
+        "tickers": [
+            "NIFTY50"
+        ],
+        "timeframe": "this_week",
+        "security_type": null,
+        "direction": null,
+        "specific_factors": []
+    },
+    "response": {
+        "success": true,
+        "message": "",
+        "answer": "I couldn't retrieve data for NIFTY50: Failed to retrieve security: 'NoneType' object has no attribute 'update'"
+    }
+}

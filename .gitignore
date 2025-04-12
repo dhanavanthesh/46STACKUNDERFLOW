@@ -4,3 +4,4 @@ src\__pycache__
 src\*.pyc
 __init__.py
 newssense.log
+market_analyzer\newssense.log

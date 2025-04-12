@@ -1,0 +1,20 @@
+{
+    "timestamp": "2025-04-12 05:35:06",
+    "query": "why jyothi lab stocks went down?",
+    "query_info": {
+        "original_query": "why jyothi lab stocks went down?",
+        "intent": "price_movement",
+        "tickers": [
+            "DIA"
+        ],
+        "timeframe": "today",
+        "security_type": "stock",
+        "direction": "down",
+        "specific_factors": []
+    },
+    "response": {
+        "success": true,
+        "message": "",
+        "answer": "DIA is actually up 1.90% today, not down."
+    }
+}

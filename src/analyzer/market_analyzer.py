@@ -43,33 +43,50 @@ class MarketAnalyzer:
             "XLRE": "Real Estate"
         }
         
-        # Cache for financial data to minimize API calls
+        # Cache for financial data
         self.data_cache = {}
-        self.cache_expiry = 3600  # 1 hour in seconds
+        self.cache_expiry = timedelta(hours=1)  # 1 hour in seconds
         
         # Create data directories
         self.data_dir = "data/analysis"
         os.makedirs(self.data_dir, exist_ok=True)
 
+    def _get_from_cache(self, cache_key):
+        """Helper method to safely retrieve data from cache"""
+        if cache_key in self.data_cache:
+            cache_time, cached_data = self.data_cache[cache_key]
+            if isinstance(cache_time, str):
+                try:
+                    cache_time = datetime.strptime(cache_time, '%Y-%m-%d %H:%M:%S')
+                except ValueError:
+                    return None
+            
+            if datetime.now() - cache_time < self.cache_expiry:
+                return cached_data
+        return None
+
+    def _store_in_cache(self, cache_key, data):
+        """Helper method to safely store data in cache"""
+        self.data_cache[cache_key] = (datetime.now(), data)
+
     def analyze_security(self, ticker):
-        """Comprehensive security analysis with detailed data and better error handling"""
+        """Comprehensive security analysis with improved error handling"""
         try:
             cache_key = f"{ticker}_security_{datetime.now().strftime('%Y%m%d_%H')}"
             
-            # Check if we have cached results
-            if cache_key in self.data_cache:
-                cache_time, cached_data = self.data_cache[cache_key]
-                if (datetime.now() - cache_time).total_seconds() < self.cache_expiry:
-                    logger.info(f"Using cached security data for {ticker}")
-                    return cached_data
+            # Check cache with improved datetime handling
+            cached_data = self._get_from_cache(cache_key)
+            if cached_data is not None:
+                logger.info(f"Using cached security data for {ticker}")
+                return cached_data
             
             logger.info(f"Analyzing security data for {ticker}")
             
-            # Get ticker object with error handling
+            # Initialize yfinance with error handling
             try:
+                # Don't use cache.clear() as it might not exist in all yfinance versions
                 security = yf.Ticker(ticker)
-                
-                # Test if we can get basic data to verify the ticker works
+                # Test if we can get basic data
                 hist_test = security.history(period='1d')
                 if hist_test.empty:
                     logger.warning(f"No historical data available for {ticker}")
@@ -78,58 +95,18 @@ class MarketAnalyzer:
                 logger.error(f"Error initializing ticker {ticker}: {str(e)}")
                 return self._create_empty_security_data(ticker, f"Failed to retrieve security: {str(e)}")
             
-            # Get detailed info with error handling
+            # Get security info with error handling
             try:
                 info = security.info
             except Exception as e:
                 logger.error(f"Error getting info for {ticker}: {str(e)}")
                 info = {}
             
-            # Get various timeframe data with error handling
-            data = {}
-            try:
-                data['today'] = security.history(period='1d', interval='5m')
-                if data['today'].empty:
-                    logger.warning(f"No intraday data for {ticker}")
-            except Exception as e:
-                logger.error(f"Error getting today data for {ticker}: {str(e)}")
-                data['today'] = pd.DataFrame()
-            
-            try:
-                data['week'] = security.history(period='5d')
-                if data['week'].empty:
-                    logger.warning(f"No weekly data for {ticker}")
-            except Exception as e:
-                logger.error(f"Error getting weekly data for {ticker}: {str(e)}")
-                data['week'] = pd.DataFrame()
-            
-            try:
-                data['month'] = security.history(period='1mo')
-                if data['month'].empty:
-                    logger.warning(f"No monthly data for {ticker}")
-            except Exception as e:
-                logger.error(f"Error getting monthly data for {ticker}: {str(e)}")
-                data['month'] = pd.DataFrame()
-            
-            try:
-                data['year'] = security.history(period='1y')
-                if data['year'].empty:
-                    logger.warning(f"No yearly data for {ticker}")
-            except Exception as e:
-                logger.error(f"Error getting yearly data for {ticker}: {str(e)}")
-                data['year'] = pd.DataFrame()
+            # Get historical data for different timeframes
+            data = self._get_historical_data(security)
             
             # Get key statistics
-            stats = {
-                'Market Cap': info.get('marketCap'),
-                'PE Ratio': info.get('trailingPE'),
-                'EPS': info.get('trailingEps'),
-                'Dividend Yield': info.get('dividendYield'),
-                '52 Week High': info.get('fiftyTwoWeekHigh'),
-                '52 Week Low': info.get('fiftyTwoWeekLow'),
-                'Average Volume': info.get('averageVolume'),
-                'Beta': info.get('beta')
-            }
+            stats = self._calculate_statistics(info)
             
             # Get company-specific metrics
             company_metrics = self._extract_company_metrics(info, ticker)
@@ -138,7 +115,7 @@ class MarketAnalyzer:
             sector_context = self._get_sector_context(info.get('sector'))
             
             # Get market context
-            market_context = self.get_market_context()
+            market_context = self._get_market_context()
             
             # Get price patterns and technical indicators
             technical_analysis = self._get_technical_analysis(data)
@@ -154,10 +131,10 @@ class MarketAnalyzer:
                 'technical_analysis': technical_analysis
             }
             
-            # Cache the results
-            self.data_cache[cache_key] = (datetime.now(), result)
+            # Store in cache with proper datetime
+            self._store_in_cache(cache_key, result)
             
-            # Save the analysis to a file
+            # Save analysis to file
             self._save_analysis(ticker, result)
             
             return result
@@ -166,7 +143,44 @@ class MarketAnalyzer:
             logger.error(f"Error in security analysis for {ticker}: {str(e)}")
             logger.error(traceback.format_exc())
             return self._create_empty_security_data(ticker, f"Analysis error: {str(e)}")
-    
+
+    def _get_historical_data(self, security):
+        """Helper method to get historical data with error handling"""
+        data = {}
+        timeframes = {
+            'today': {'period': '1d', 'interval': '5m'},
+            'week': {'period': '5d', 'interval': '1h'},
+            'month': {'period': '1mo', 'interval': '1d'},
+            'year': {'period': '1y', 'interval': '1d'}
+        }
+        
+        for timeframe, params in timeframes.items():
+            try:
+                df = security.history(period=params['period'], interval=params['interval'])
+                if df.empty:
+                    logger.warning(f"No {timeframe} data available")
+                    data[timeframe] = pd.DataFrame()
+                else:
+                    data[timeframe] = df
+            except Exception as e:
+                logger.error(f"Error getting {timeframe} data: {str(e)}")
+                data[timeframe] = pd.DataFrame()
+                
+        return data
+
+    def _calculate_statistics(self, info):
+        """Calculate key statistics from security info"""
+        return {
+            'Market Cap': info.get('marketCap'),
+            'PE Ratio': info.get('trailingPE'),
+            'EPS': info.get('trailingEps'),
+            'Dividend Yield': info.get('dividendYield'),
+            '52 Week High': info.get('fiftyTwoWeekHigh'),
+            '52 Week Low': info.get('fiftyTwoWeekLow'),
+            'Average Volume': info.get('averageVolume'),
+            'Beta': info.get('beta')
+        }
+
     def _create_empty_security_data(self, ticker, error_message):
         """Create an empty security data structure with error information"""
         return {
@@ -179,12 +193,12 @@ class MarketAnalyzer:
                 'year': pd.DataFrame()
             },
             'info': {},
-            'market_context': self.get_market_context(),  # Use the non-underscore method
+            'market_context': self._get_market_context(),
             'success': False
         }
-    
+
     def _save_analysis(self, ticker, analysis_data):
-        """Save analysis results to a file"""
+        """Save analysis results to a file with improved formatting"""
         try:
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             filename = f"analysis_{ticker}_{timestamp}.txt"
@@ -245,7 +259,7 @@ class MarketAnalyzer:
                 context = analysis_data['market_context']
                 for index_name, index_data in context.items():
                     if isinstance(index_data, dict) and 'change_pct' in index_data:
-                        summary.append(f"- {index_name}: {index_data['change_pct']:+.2f}%")
+                        summary.append(f"- {index_name}: {index_data['change_pct']}%")
                 summary.append("")
             
             # Write to file
@@ -257,19 +271,16 @@ class MarketAnalyzer:
         except Exception as e:
             logger.error(f"Error saving analysis for {ticker}: {str(e)}")
             logger.error(traceback.format_exc())
-    
+
     def analyze_news_impact(self, news_items):
-        """Analyze news impact and sentiment with better categorization and error handling"""
+        """Analyze news impact and sentiment with improved categorization"""
         try:
             if not news_items:
                 logger.warning("No news items to analyze")
                 return self._get_empty_news_analysis()
                 
             # Filter out empty or invalid news items
-            valid_news_items = []
-            for item in news_items:
-                if item and 'title' in item and item['title']:
-                    valid_news_items.append(item)
+            valid_news_items = [item for item in news_items if item and 'title' in item and item['title']]
                     
             if not valid_news_items:
                 logger.warning("No valid news items to analyze after filtering")
@@ -284,7 +295,8 @@ class MarketAnalyzer:
                 'keywords': [],
                 'average_sentiment': 0,
                 'sentiment_distribution': {'positive': 0, 'negative': 0, 'neutral': 0},
-                'sources': defaultdict(int)
+                'sources': defaultdict(int),
+                'sentiment_label': 'Neutral'  # Default sentiment label
             }
 
             # Keywords for topic classification
@@ -302,83 +314,92 @@ class MarketAnalyzer:
                 'international': ['global', 'international', 'foreign', 'overseas', 'export', 'import', 'tariff', 'trade']
             }
             
-            # Extract sentiment and topics
+            # Process each news item
             total_sentiment = 0
             keyword_counter = Counter()
+            news_items_with_sentiment = []
             
             for item in valid_news_items:
+                # News content preparation
+                title = item['title']
+                summary = item.get('summary', '')
+                content = f"{title} {summary}"
+                
                 # Sentiment analysis
-                if 'title' in item:
-                    title = item['title']
-                    summary = item.get('summary', '')
-                    content = f"{title} {summary}"
-                    
-                    # Use TextBlob for sentiment analysis
-                    blob = TextBlob(content)
-                    sentiment_score = blob.sentiment.polarity
-                    
-                    # Categorize sentiment
-                    sentiment_category = 'neutral'
-                    if sentiment_score > 0.2:
-                        sentiment_category = 'positive'
-                        analysis['sentiment_distribution']['positive'] += 1
-                    elif sentiment_score < -0.2:
-                        sentiment_category = 'negative'
-                        analysis['sentiment_distribution']['negative'] += 1
-                    else:
-                        analysis['sentiment_distribution']['neutral'] += 1
-                    
-                    # Extract keywords (basic implementation)
-                    words = re.findall(r'\b[A-Za-z][A-Za-z\-]{2,}\b', content.lower())
-                    filtered_words = [w for w in words if len(w) > 3 and w not in [
-                        'this', 'that', 'these', 'those', 'there', 'their', 'they',
-                        'what', 'when', 'where', 'which', 'while', 'with', 'would',
-                        'about', 'above', 'after', 'again', 'against', 'could', 'should',
-                        'from', 'have', 'having', 'here', 'more', 'once', 'only', 'same', 'some',
-                        'such', 'than', 'then', 'through'
-                    ]]
-                    keyword_counter.update(filtered_words)
-                    
-                    # Topic classification
-                    content_lower = content.lower()
-                    detected_topics = []
-                    for topic, keywords in topic_keywords.items():
-                        if any(keyword in content_lower for keyword in keywords):
-                            analysis['topics'][topic] += 1
-                            detected_topics.append(topic)
-                    
-                    # Add sentiment data
-                    sentiment_item = {
-                        'title': title,
-                        'sentiment': sentiment_score,
-                        'sentiment_category': sentiment_category,
-                        'source': item.get('source', 'Unknown'),
-                        'url': item.get('url', ''),
-                        'timestamp': item.get('timestamp', datetime.now().strftime('%Y-%m-%d %H:%M:%S')),
-                        'topics': detected_topics
-                    }
-                    
-                    # Add entity data if available
-                    if 'entities' in item:
-                        sentiment_item['entities'] = item['entities']
-                        # Collect unique entities
-                        for ticker in item['entities'].get('tickers', []):
-                            analysis['entities']['tickers'].add(ticker)
-                        for company in item['entities'].get('companies', []):
-                            analysis['entities']['companies'].add(company)
-                        for person in item['entities'].get('people', []):
-                            analysis['entities']['people'].add(person)
-                        for topic in item['entities'].get('topics', []):
-                            analysis['entities']['topics'].add(topic)
-                    
-                    # Count sources
-                    analysis['sources'][item.get('source', 'Unknown')] += 1
-                    
-                    analysis['sentiments'].append(sentiment_item)
-                    total_sentiment += sentiment_score
+                blob = TextBlob(content)
+                sentiment_score = blob.sentiment.polarity
+                
+                # Categorize sentiment
+                sentiment_category = 'neutral'
+                if sentiment_score > 0.2:
+                    sentiment_category = 'positive'
+                    analysis['sentiment_distribution']['positive'] += 1
+                elif sentiment_score < -0.2:
+                    sentiment_category = 'negative'
+                    analysis['sentiment_distribution']['negative'] += 1
+                else:
+                    analysis['sentiment_distribution']['neutral'] += 1
+                
+                # Extract keywords
+                words = re.findall(r'\b[A-Za-z][A-Za-z\-]{2,}\b', content.lower())
+                filtered_words = [w for w in words if len(w) > 3 and w not in [
+                    'this', 'that', 'these', 'those', 'there', 'their', 'they',
+                    'what', 'when', 'where', 'which', 'while', 'with', 'would',
+                    'about', 'above', 'after', 'again', 'against', 'could', 'should',
+                    'from', 'have', 'having', 'here', 'more', 'once', 'only', 'same', 'some',
+                    'such', 'than', 'then', 'through'
+                ]]
+                keyword_counter.update(filtered_words)
+                
+                # Topic classification
+                content_lower = content.lower()
+                detected_topics = []
+                for topic, keywords in topic_keywords.items():
+                    if any(keyword in content_lower for keyword in keywords):
+                        analysis['topics'][topic] += 1
+                        detected_topics.append(topic)
+                
+                # Create sentiment item
+                sentiment_item = {
+                    'title': title,
+                    'sentiment': sentiment_score,
+                    'sentiment_category': sentiment_category,
+                    'source': item.get('source', 'Unknown'),
+                    'url': item.get('url', ''),
+                    'timestamp': item.get('timestamp', datetime.now().strftime('%Y-%m-%d %H:%M:%S')),
+                    'topics': detected_topics
+                }
+                
+                # Process entities if available
+                if 'entities' in item:
+                    sentiment_item['entities'] = item['entities']
+                    for entity_type, entities in item['entities'].items():
+                        if isinstance(entities, list):  # Ensure entities is a list
+                            analysis['entities'][entity_type].update(entities)
+                
+                # Update source count
+                analysis['sources'][item.get('source', 'Unknown')] += 1
+                
+                analysis['sentiments'].append(sentiment_item)
+                news_items_with_sentiment.append((sentiment_item, sentiment_score))
+                total_sentiment += sentiment_score
 
             # Calculate average sentiment
-            analysis['average_sentiment'] = total_sentiment / len(valid_news_items) if valid_news_items else 0
+            if valid_news_items:
+                analysis['average_sentiment'] = total_sentiment / len(valid_news_items)
+                
+                # Set overall sentiment label
+                if analysis['average_sentiment'] > 0.1:
+                    analysis['sentiment_label'] = 'Positive'
+                elif analysis['average_sentiment'] < -0.1:
+                    analysis['sentiment_label'] = 'Negative'
+                else:
+                    analysis['sentiment_label'] = 'Neutral'
+                
+                # Add news items sorted by sentiment impact
+                analysis['news_items'] = [item[0] for item in sorted(news_items_with_sentiment, 
+                                                                    key=lambda x: abs(x[1]), 
+                                                                    reverse=True)]
             
             # Get top keywords
             analysis['keywords'] = [item for item, count in keyword_counter.most_common(20)]
@@ -403,7 +424,9 @@ class MarketAnalyzer:
             'keywords': [],
             'average_sentiment': 0,
             'sentiment_distribution': {'positive': 0, 'negative': 0, 'neutral': 0},
-            'sources': {}
+            'sources': {},
+            'sentiment_label': 'Neutral',
+            'news_items': []
         }
 
     def generate_explanation(self, security_data, news_analysis, ticker):
@@ -411,10 +434,6 @@ class MarketAnalyzer:
         try:
             if not security_data:
                 return f"Unable to generate analysis for {ticker} due to missing market data."
-            
-            # Check for errors in the security data
-            if 'error' in security_data:
-                return f"Analysis for {ticker} is limited. {security_data['error']}"
                 
             logger.info(f"Generating explanation for {ticker}")
             
@@ -543,10 +562,10 @@ class MarketAnalyzer:
             
             # Get major indices performance
             indices_perf = []
-            for index_name, index_data in context.items():
-                if isinstance(index_data, dict) and 'change_pct' in index_data:
-                    direction = "up" if index_data['change_pct'] > 0 else "down"
-                    indices_perf.append(f"{index_name} is {direction} {abs(index_data['change_pct']):.2f}%")
+            for index_name, data in context.items():
+                if isinstance(data, dict) and 'change_pct' in data:
+                    direction = "up" if data['change_pct'] > 0 else "down"
+                    indices_perf.append(f"{index_name} is {direction} {abs(data['change_pct']):.2f}%")
             
             if indices_perf:
                 summary = "Market Context: " + ", ".join(indices_perf) + "."
@@ -741,3 +760,251 @@ class MarketAnalyzer:
         except Exception as e:
             logger.error(f"Error generating key takeaway: {str(e)}")
             return None
+    # Add these methods to your MarketAnalyzer class
+
+    def _get_market_context(self):
+        """Get broader market context with improved error handling and caching"""
+        context = {}
+        
+        for symbol, name in self.market_indicators.items():
+            try:
+                # Check cache
+                cache_key = f"{symbol}_market_{datetime.now().strftime('%Y%m%d_%H')}"
+                cached_data = self._get_from_cache(cache_key)
+                if cached_data is not None:
+                    context[name] = cached_data
+                    continue
+                
+                # Get new data
+                index = yf.Ticker(symbol)
+                data = index.history(period='1d')
+                if not data.empty:
+                    current_price = data['Close'].iloc[-1]
+                    open_price = data['Open'].iloc[0]
+                    change_pct = ((current_price - open_price) / open_price) * 100
+                    result = {
+                        'change_pct': change_pct,
+                        'price': current_price,
+                        'volume': data['Volume'].iloc[-1] if 'Volume' in data.columns else 0
+                    }
+                    context[name] = result
+                    
+                    # Cache the result
+                    self._store_in_cache(cache_key, result)
+            except Exception as e:
+                logger.error(f"Error getting market data for {name}: {str(e)}")
+                continue
+                
+        return context
+
+    def _get_sector_context(self, sector):
+        """Get sector performance context with improved caching"""
+        if not sector:
+            return {}
+            
+        sector_performance = {}
+        
+        # Sector to ETF mapping
+        sector_mapping = {
+            'Technology': 'XLK',
+            'Financial': 'XLF',
+            'Financials': 'XLF',
+            'Energy': 'XLE',
+            'Healthcare': 'XLV',
+            'Health Care': 'XLV',
+            'Industrial': 'XLI',
+            'Industrials': 'XLI',
+            'Consumer Staples': 'XLP',
+            'Consumer Discretionary': 'XLY',
+            'Materials': 'XLB',
+            'Utilities': 'XLU',
+            'Real Estate': 'XLRE',
+            'Communication Services': 'XLC'
+        }
+        
+        try:
+            if sector in sector_mapping:
+                etf_ticker = sector_mapping[sector]
+                cache_key = f"{etf_ticker}_sector_{datetime.now().strftime('%Y%m%d_%H')}"
+                
+                # Check cache
+                cached_data = self._get_from_cache(cache_key)
+                if cached_data is not None:
+                    sector_performance[sector] = cached_data
+                    return sector_performance
+                
+                # Get new data
+                etf = yf.Ticker(etf_ticker)
+                data = etf.history(period='1d')
+                if not data.empty:
+                    current_price = data['Close'].iloc[-1]
+                    open_price = data['Open'].iloc[0]
+                    change_pct = ((current_price - open_price) / open_price) * 100
+                    sector_performance[sector] = change_pct
+                    
+                    # Cache the result
+                    self._store_in_cache(cache_key, change_pct)
+        except Exception as e:
+            logger.error(f"Error getting sector data for {sector}: {str(e)}")
+        
+        # Get all sector ETFs for context
+        for etf_symbol, etf_sector in self.sector_etfs.items():
+            if etf_sector != sector:  # Skip the main sector, we already have it
+                try:
+                    # Check cache first
+                    cache_key = f"{etf_symbol}_sector_{datetime.now().strftime('%Y%m%d_%H')}"
+                    cached_data = self._get_from_cache(cache_key)
+                    if cached_data is not None:
+                        sector_performance[etf_sector] = cached_data
+                        continue
+                    
+                    # Get new data
+                    etf = yf.Ticker(etf_symbol)
+                    data = etf.history(period='1d')
+                    if not data.empty:
+                        current_price = data['Close'].iloc[-1]
+                        open_price = data['Open'].iloc[0]
+                        change_pct = ((current_price - open_price) / open_price) * 100
+                        sector_performance[etf_sector] = change_pct
+                        
+                        # Cache the result
+                        self._store_in_cache(cache_key, change_pct)
+                except Exception as e:
+                    logger.error(f"Error getting sector data for {etf_sector}: {str(e)}")
+                    continue
+        
+        return sector_performance  
+    
+    
+    
+    def _get_technical_analysis(self, price_data):
+        """Calculate basic technical indicators"""
+        if not price_data or 'week' not in price_data or price_data['week'].empty:
+            return {}
+            
+        # Use weekly data for technical analysis
+        df = price_data['week'].copy()
+        
+        # Ensure we have enough data points
+        if len(df) < 10:
+            return {}
+            
+        analysis = {}
+        
+        # Calculate SMA (Simple Moving Average)
+        try:
+            df['SMA_5'] = df['Close'].rolling(window=5).mean()
+            df['SMA_10'] = df['Close'].rolling(window=10).mean()
+            
+            last_close = df['Close'].iloc[-1]
+            last_sma5 = df['SMA_5'].iloc[-1]
+            last_sma10 = df['SMA_10'].iloc[-1]
+            
+            analysis['sma'] = {
+                'sma5': last_sma5,
+                'sma10': last_sma10,
+                'sma5_signal': 'buy' if last_close > last_sma5 else 'sell',
+                'sma10_signal': 'buy' if last_close > last_sma10 else 'sell',
+                'crossover': 'bullish' if last_sma5 > last_sma10 else 'bearish'
+            }
+        except Exception as e:
+            logger.error(f"Error calculating SMA: {str(e)}")
+        
+        # Calculate RSI (Relative Strength Index)
+        try:
+            delta = df['Close'].diff()
+            gain = delta.where(delta > 0, 0).rolling(window=14).mean()
+            loss = -delta.where(delta < 0, 0).rolling(window=14).mean()
+            
+            rs = gain / loss
+            df['RSI'] = 100 - (100 / (1 + rs))
+            
+            last_rsi = df['RSI'].iloc[-1]
+            
+            analysis['rsi'] = last_rsi
+            analysis['rsi_signal'] = 'sell' if last_rsi > 70 else 'buy' if last_rsi < 30 else 'neutral'
+        except Exception as e:
+            logger.error(f"Error calculating RSI: {str(e)}")
+        
+        # Calculate MACD (Moving Average Convergence Divergence)
+        try:
+            df['EMA_12'] = df['Close'].ewm(span=12, adjust=False).mean()
+            df['EMA_26'] = df['Close'].ewm(span=26, adjust=False).mean()
+            
+            df['MACD'] = df['EMA_12'] - df['EMA_26']
+            df['Signal_Line'] = df['MACD'].ewm(span=9, adjust=False).mean()
+            df['MACD_Histogram'] = df['MACD'] - df['Signal_Line']
+            
+            last_macd = df['MACD'].iloc[-1]
+            last_signal = df['Signal_Line'].iloc[-1]
+            last_hist = df['MACD_Histogram'].iloc[-1]
+            
+            analysis['macd'] = last_macd
+            analysis['macd_signal'] = 'buy' if last_macd > last_signal else 'sell'
+            analysis['macd_histogram'] = last_hist
+        except Exception as e:
+            logger.error(f"Error calculating MACD: {str(e)}")
+        
+        # Bollinger Bands
+        try:
+            df['SMA_20'] = df['Close'].rolling(window=20).mean()
+            df['Std_Dev'] = df['Close'].rolling(window=20).std()
+            
+            df['Upper_Band'] = df['SMA_20'] + (df['Std_Dev'] * 2)
+            df['Lower_Band'] = df['SMA_20'] - (df['Std_Dev'] * 2)
+            
+            last_close = df['Close'].iloc[-1]
+            last_upper = df['Upper_Band'].iloc[-1]
+            last_lower = df['Lower_Band'].iloc[-1]
+            
+            analysis['bollinger'] = {
+                'upper': last_upper,
+                'middle': df['SMA_20'].iloc[-1],
+                'lower': last_lower,
+                'signal': 'sell' if last_close > last_upper else 'buy' if last_close < last_lower else 'neutral'
+            }
+        except Exception as e:
+            logger.error(f"Error calculating Bollinger Bands: {str(e)}")
+        
+        # Aggregate signals
+        analysis['signals'] = {
+            'sma': analysis.get('sma', {}).get('sma5_signal', 'neutral'),
+            'rsi': analysis.get('rsi_signal', 'neutral'),
+            'macd': analysis.get('macd_signal', 'neutral'),
+            'bollinger': analysis.get('bollinger', {}).get('signal', 'neutral')
+        }
+        
+        return analysis  
+
+    def _extract_company_metrics(self, info, ticker):
+        """Extract company-specific metrics from ticker info"""
+        metrics = {
+            'name': info.get('longName', ticker),
+            'sector': info.get('sector', 'Unknown'),
+            'industry': info.get('industry', 'Unknown'),
+            'country': info.get('country', 'Unknown'),
+            'employees': info.get('fullTimeEmployees', None)
+        }
+        
+        # Financial metrics
+        metrics['financial'] = {
+            'market_cap': info.get('marketCap', None),
+            'revenue': info.get('totalRevenue', None),
+            'profit_margin': info.get('profitMargins', None),
+            'operating_margin': info.get('operatingMargins', None),
+            'return_on_equity': info.get('returnOnEquity', None),
+            'return_on_assets': info.get('returnOnAssets', None),
+            'debt_to_equity': info.get('debtToEquity', None)
+        }
+        
+        # Valuation metrics
+        metrics['valuation'] = {
+            'pe_ratio': info.get('trailingPE', None),
+            'forward_pe': info.get('forwardPE', None),
+            'price_to_sales': info.get('priceToSalesTrailing12Months', None),
+            'price_to_book': info.get('priceToBook', None),
+            'enterprise_to_revenue': info.get('enterpriseToRevenue', None),
+            'enterprise_to_ebitda': info.get('enterpriseToEbitda', None)
+        }
+        
+        return metrics

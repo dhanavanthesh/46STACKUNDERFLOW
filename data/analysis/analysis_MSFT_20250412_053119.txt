@@ -1,0 +1,30 @@
+=== Market Analysis for MSFT ===
+Analysis Date: 2025-04-12 05:31:19
+
+Company Information:
+Name: Microsoft Corporation
+Sector: Technology
+Industry: Software - Infrastructure
+Website: https://www.microsoft.com
+
+Price Information:
+Current Price: $387.989990234375
+Change: 7.35498046875
+Change %: 1.9322921644225026%
+Day Range: $378.8900146484375 - $390.04998779296875
+
+Volume Information:
+Current Volume: 17874845
+Average Volume: 229164.6794871795
+Volume Change: 7700.0%
+
+Key Factors Affecting Price:
+
+Market Context:
+- S&P 500: 2.0511573169300705%
+- Dow Jones: 1.821348702463129%
+- NASDAQ: 2.237094343154935%
+- Russell 2000: 1.7807152542721552%
+- VIX: -7.941171383225148%
+- Nifty 50: 0.5866844749740643%
+- Sensex: 0.4299639323461889%

@@ -496,3 +496,474 @@ Traceback (most recent call last):
                       ^^^^^^^^^^^^^^^^^^^^^^^
 AttributeError: 'MarketAnalyzer' object has no attribute 'get_market_context'. Did you mean: '_generate_market_context'?
 
+2025-04-12 05:03:06,148 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 05:03:09,625 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 05:03:09,627 - MarketAnalyzer - ERROR - Error initializing ticker QQQ: module 'yfinance.cache' has no attribute 'clear'
+2025-04-12 05:03:09,904 - yfinance - ERROR - ^GSPC: No price data found, symbol may be delisted (period=1d)
+2025-04-12 05:03:09,907 - yfinance - ERROR - ^DJI: No price data found, symbol may be delisted (period=1d)
+2025-04-12 05:03:09,910 - yfinance - ERROR - ^IXIC: No price data found, symbol may be delisted (period=1d)
+2025-04-12 05:03:09,915 - yfinance - ERROR - ^RUT: No price data found, symbol may be delisted (period=1d)
+2025-04-12 05:03:09,927 - yfinance - ERROR - ^VIX: No price data found, symbol may be delisted (period=1d)
+2025-04-12 05:03:09,930 - yfinance - ERROR - Failed to get ticker '^NSEI' reason: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-04-12 05:03:09,933 - yfinance - ERROR - ^NSEI: No price data found, symbol may be delisted (period=1d)
+2025-04-12 05:03:09,934 - yfinance - ERROR - Failed to get ticker '^BSESN' reason: unsupported operand type(s) for -: 'datetime.datetime' and 'str'
+2025-04-12 05:03:09,937 - yfinance - ERROR - ^BSESN: No price data found, symbol may be delisted (period=1d)
+2025-04-12 05:03:09,939 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 05:03:09,942 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 05:03:09,943 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 05:03:09,944 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 05:03:09,946 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 05:03:09,947 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 05:03:13,548 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 05:03:15,226 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_050315.json
+2025-04-12 05:03:15,227 - NewsCollector - INFO - Total articles found for QQQ: 8
+2025-04-12 05:03:15,228 - MarketAnalyzer - INFO - Analyzing impact of 8 news items
+2025-04-12 05:03:15,349 - NewsSense - ERROR - Security analysis error: 'MarketAnalyzer' object has no attribute 'generate_explanation'
+2025-04-12 05:03:15,356 - NewsSense - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\main.py", line 160, in analyze_security
+    explanation = self.market_analyzer.generate_explanation(security_data, news_analysis, ticker)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketAnalyzer' object has no attribute 'generate_explanation'
+
+2025-04-12 05:21:59,751 - GeminiHelper - INFO - Loaded 10 custom ticker mappings
+2025-04-12 05:21:59,752 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 05:21:59,756 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 05:22:10,693 - MarketAnalyzer - INFO - Analyzing security data for AAPL
+2025-04-12 05:22:19,825 - MarketAnalyzer - ERROR - Error in security analysis for AAPL: 'MarketAnalyzer' object has no attribute '_get_sector_context'
+2025-04-12 05:22:19,831 - MarketAnalyzer - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 115, in analyze_security
+    sector_context = self._get_sector_context(info.get('sector'))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketAnalyzer' object has no attribute '_get_sector_context'
+
+2025-04-12 05:22:19,835 - NewsSense - ERROR - Security analysis error: 'MarketAnalyzer' object has no attribute '_get_market_context'
+2025-04-12 05:22:19,847 - NewsSense - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 115, in analyze_security
+    sector_context = self._get_sector_context(info.get('sector'))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketAnalyzer' object has no attribute '_get_sector_context'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\main.py", line 173, in analyze_security
+    security_data = self.market_analyzer.analyze_security(ticker)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 145, in analyze_security
+    return self._create_empty_security_data(ticker, f"Analysis error: {str(e)}")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 196, in _create_empty_security_data
+    'market_context': self._get_market_context(),
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketAnalyzer' object has no attribute '_get_market_context'. Did you mean: '_generate_market_context'?
+
+2025-04-12 05:24:59,193 - GeminiHelper - INFO - Loaded 10 custom ticker mappings
+2025-04-12 05:24:59,194 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 05:24:59,197 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 05:25:10,533 - MarketAnalyzer - INFO - Analyzing security data for AAPL
+2025-04-12 05:25:25,260 - MarketAnalyzer - ERROR - Error in security analysis for AAPL: 'MarketAnalyzer' object has no attribute '_get_technical_analysis'
+2025-04-12 05:25:25,267 - MarketAnalyzer - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\analyzer\market_analyzer.py", line 121, in analyze_security
+    technical_analysis = self._get_technical_analysis(data)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'MarketAnalyzer' object has no attribute '_get_technical_analysis'
+
+2025-04-12 05:25:25,271 - NewsCollector - INFO - Scraping news for AAPL from multiple sources...
+2025-04-12 05:25:25,274 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/AAPL/news
+2025-04-12 05:25:25,276 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/aapl
+2025-04-12 05:25:25,278 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/AAPL.O
+2025-04-12 05:25:25,283 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/aapl
+2025-04-12 05:25:25,287 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/AAPL/news
+2025-04-12 05:25:28,239 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 05:25:29,164 - NewsCollector - INFO - News saved to data/scraped_news\AAPL_news_20250412_052529.json
+2025-04-12 05:25:29,165 - NewsCollector - INFO - Total articles found for AAPL: 8
+2025-04-12 05:25:29,167 - MarketAnalyzer - INFO - Analyzing impact of 8 news items
+2025-04-12 05:25:29,244 - MarketAnalyzer - INFO - Generating explanation for AAPL
+2025-04-12 05:30:05,525 - GeminiHelper - INFO - Loaded 10 custom ticker mappings
+2025-04-12 05:30:05,526 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 05:30:05,529 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 05:30:11,213 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 05:30:15,906 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_053015.txt
+2025-04-12 05:30:15,907 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 05:30:15,909 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 05:30:15,910 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 05:30:15,912 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 05:30:15,914 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 05:30:15,916 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 05:30:17,382 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 05:30:25,157 - NewsCollector - WARNING - No news articles found for QQQ
+2025-04-12 05:30:25,158 - MarketAnalyzer - WARNING - No news items to analyze
+2025-04-12 05:30:25,158 - MarketAnalyzer - INFO - Generating explanation for QQQ
+2025-04-12 05:30:46,326 - MarketAnalyzer - INFO - Analyzing security data for AAPL
+2025-04-12 05:30:49,676 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_AAPL_20250412_053049.txt
+2025-04-12 05:30:49,677 - NewsCollector - INFO - Scraping news for AAPL from multiple sources...
+2025-04-12 05:30:49,678 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/AAPL/news
+2025-04-12 05:30:49,679 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/aapl
+2025-04-12 05:30:49,680 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/AAPL.O
+2025-04-12 05:30:49,682 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/aapl
+2025-04-12 05:30:49,685 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/AAPL/news
+2025-04-12 05:30:50,878 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 05:30:52,142 - NewsCollector - WARNING - No news articles found for AAPL
+2025-04-12 05:30:52,144 - MarketAnalyzer - WARNING - No news items to analyze
+2025-04-12 05:30:52,145 - MarketAnalyzer - INFO - Generating explanation for AAPL
+2025-04-12 05:31:17,715 - MarketAnalyzer - INFO - Analyzing security data for MSFT
+2025-04-12 05:31:19,283 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_MSFT_20250412_053119.txt
+2025-04-12 05:31:19,284 - NewsCollector - INFO - Scraping news for MSFT from multiple sources...
+2025-04-12 05:31:19,285 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/MSFT/news
+2025-04-12 05:31:19,285 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/msft
+2025-04-12 05:31:19,286 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/MSFT.O
+2025-04-12 05:31:19,288 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/msft
+2025-04-12 05:31:19,292 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/MSFT/news
+2025-04-12 05:31:20,393 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 05:31:22,378 - NewsCollector - WARNING - No news articles found for MSFT
+2025-04-12 05:31:22,380 - MarketAnalyzer - WARNING - No news items to analyze
+2025-04-12 05:31:22,380 - MarketAnalyzer - INFO - Generating explanation for MSFT
+2025-04-12 05:34:36,258 - QueryProcessor - INFO - Processing query: Why is AAPL up today?
+2025-04-12 05:34:36,261 - QueryProcessor - INFO - Extracted query components: {'original_query': 'Why is AAPL up today?', 'intent': 'price_movement', 'tickers': ['AAPL'], 'timeframe': 'today', 'security_type': None, 'direction': 'up', 'specific_factors': []}
+2025-04-12 05:34:36,262 - MarketAnalyzer - INFO - Using cached security data for AAPL
+2025-04-12 05:34:36,263 - NewsCollector - INFO - Scraping news for AAPL from multiple sources...
+2025-04-12 05:34:36,264 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/AAPL/news
+2025-04-12 05:34:36,266 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/aapl
+2025-04-12 05:34:36,266 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/AAPL.O
+2025-04-12 05:34:36,268 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/aapl
+2025-04-12 05:34:36,270 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/AAPL/news
+2025-04-12 05:34:37,755 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 05:34:39,042 - NewsCollector - WARNING - No news articles found for AAPL
+2025-04-12 05:34:39,042 - MarketAnalyzer - WARNING - No news items to analyze
+2025-04-12 05:34:39,044 - MarketAnalyzer - INFO - Generating explanation for AAPL
+2025-04-12 05:34:39,047 - QueryProcessor - INFO - Query saved to data/queries\query_20250412_053439.json
+2025-04-12 05:34:59,222 - QueryProcessor - INFO - Processing query: why jyothi lab stocks went down?
+2025-04-12 05:34:59,225 - QueryProcessor - INFO - Extracted query components: {'original_query': 'why jyothi lab stocks went down?', 'intent': 'price_movement', 'tickers': [], 'timeframe': 'today', 'security_type': 'stock', 'direction': 'down', 'specific_factors': []}
+2025-04-12 05:34:59,228 - GeminiHelper - INFO - Found tickers from local mappings: ['DIA']
+2025-04-12 05:34:59,230 - QueryProcessor - INFO - Used Gemini to extract tickers: ['DIA']
+2025-04-12 05:34:59,231 - MarketAnalyzer - INFO - Analyzing security data for DIA
+2025-04-12 05:35:02,161 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_DIA_20250412_053502.txt
+2025-04-12 05:35:02,162 - NewsCollector - INFO - Scraping news for DIA from multiple sources...
+2025-04-12 05:35:02,163 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/DIA/news
+2025-04-12 05:35:02,164 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/dia
+2025-04-12 05:35:02,165 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/DIA.O
+2025-04-12 05:35:02,168 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/dia
+2025-04-12 05:35:02,172 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/DIA/news
+2025-04-12 05:35:03,504 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 05:35:04,941 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 05:35:06,069 - NewsCollector - WARNING - No news articles found for DIA
+2025-04-12 05:35:06,071 - MarketAnalyzer - WARNING - No news items to analyze
+2025-04-12 05:35:06,072 - MarketAnalyzer - INFO - Generating explanation for DIA
+2025-04-12 05:35:06,075 - QueryProcessor - INFO - Query saved to data/queries\query_20250412_053506.json
+2025-04-12 05:38:11,890 - QueryProcessor - INFO - Processing query: Any macro news impacting tech-focused funds?
+2025-04-12 05:38:11,891 - QueryProcessor - INFO - Extracted query components: {'original_query': 'Any macro news impacting tech-focused funds?', 'intent': 'news_impact', 'tickers': [], 'timeframe': 'today', 'security_type': 'fund', 'direction': None, 'specific_factors': []}
+2025-04-12 05:38:11,892 - GeminiHelper - INFO - Found tickers from local mappings: ['XLK']
+2025-04-12 05:38:11,893 - QueryProcessor - INFO - Used Gemini to extract tickers: ['XLK']
+2025-04-12 05:38:11,893 - MarketAnalyzer - INFO - Analyzing security data for XLK
+2025-04-12 05:38:15,143 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLK_20250412_053815.txt
+2025-04-12 05:38:15,145 - NewsCollector - INFO - Scraping news for XLK from multiple sources...
+2025-04-12 05:38:15,147 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/XLK/news
+2025-04-12 05:38:15,148 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/xlk
+2025-04-12 05:38:15,149 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/XLK.O
+2025-04-12 05:38:15,157 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/xlk
+2025-04-12 05:38:15,161 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/XLK/news
+2025-04-12 05:38:16,195 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 05:38:18,186 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 05:38:18,939 - NewsCollector - WARNING - No news articles found for XLK
+2025-04-12 05:38:18,941 - MarketAnalyzer - WARNING - No news items to analyze
+2025-04-12 05:38:18,943 - QueryProcessor - INFO - Query saved to data/queries\query_20250412_053818.json
+2025-04-12 05:41:10,751 - GeminiHelper - INFO - Loaded 10 custom ticker mappings
+2025-04-12 05:41:10,752 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 05:41:10,754 - NewsSense - ERROR - Initialization error: 'NewsCollector' object has no attribute '_scrape_thefly'
+2025-04-12 05:41:10,759 - NewsSense - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\main.py", line 51, in __init__
+    self.news_collector = NewsCollector()
+                          ^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\news_scraper\news_collector.py", line 46, in __init__
+    "thefly": self._scrape_thefly,
+              ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NewsCollector' object has no attribute '_scrape_thefly'
+
+2025-04-12 05:41:46,347 - GeminiHelper - INFO - Loaded 10 custom ticker mappings
+2025-04-12 05:41:46,348 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 05:41:46,349 - NewsSense - ERROR - Initialization error: 'NewsCollector' object has no attribute '_scrape_thefly'
+2025-04-12 05:41:46,356 - NewsSense - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\main.py", line 51, in __init__
+    self.news_collector = NewsCollector()
+                          ^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\news_scraper\news_collector.py", line 46, in __init__
+    "thefly": self._scrape_thefly,
+              ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NewsCollector' object has no attribute '_scrape_thefly'
+
+2025-04-12 05:44:25,779 - GeminiHelper - INFO - Loaded 10 custom ticker mappings
+2025-04-12 05:44:25,779 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 05:44:25,782 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 05:44:35,190 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 05:44:37,873 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_054437.txt
+2025-04-12 05:44:37,873 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 05:44:38,018 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 05:44:38,034 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 05:44:38,042 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 05:44:38,062 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 05:44:38,067 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 05:44:38,069 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 05:44:38,075 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 05:44:38,095 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 05:44:38,111 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 05:44:38,117 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 05:44:38,133 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 05:44:38,169 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 05:44:38,749 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 05:44:38,941 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 05:44:41,793 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 05:44:42,650 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 05:44:42,873 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 05:44:43,452 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_054443.json
+2025-04-12 05:44:43,452 - NewsCollector - INFO - Total articles found for QQQ: 10
+2025-04-12 05:44:43,454 - MarketAnalyzer - INFO - Analyzing impact of 10 news items
+2025-04-12 05:44:43,502 - MarketAnalyzer - INFO - Generating explanation for QQQ
+2025-04-12 05:45:23,534 - QueryProcessor - INFO - Processing query: Why is AAPL up today?
+2025-04-12 05:45:23,536 - QueryProcessor - INFO - Extracted query components: {'original_query': 'Why is AAPL up today?', 'intent': 'price_movement', 'tickers': ['AAPL'], 'timeframe': 'today', 'security_type': None, 'direction': 'up', 'specific_factors': []}
+2025-04-12 05:45:23,537 - MarketAnalyzer - INFO - Analyzing security data for AAPL
+2025-04-12 05:45:26,013 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_AAPL_20250412_054526.txt
+2025-04-12 05:45:26,014 - NewsCollector - INFO - Scraping news for AAPL from multiple sources...
+2025-04-12 05:45:26,118 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/aapl
+2025-04-12 05:45:26,139 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/AAPL/news
+2025-04-12 05:45:26,144 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/AAPL/news
+2025-04-12 05:45:26,151 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/aapl-news
+2025-04-12 05:45:26,154 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/AAPL/news
+2025-04-12 05:45:26,157 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=aapl
+2025-04-12 05:45:26,167 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=AAPL
+2025-04-12 05:45:26,192 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/aapl
+2025-04-12 05:45:26,202 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/AAPL
+2025-04-12 05:45:26,216 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/AAPL.O
+2025-04-12 05:45:26,287 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/aapl
+2025-04-12 05:45:26,309 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/AAPL:US
+2025-04-12 05:45:26,913 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 05:45:27,152 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 05:45:29,316 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 05:45:30,143 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 05:45:31,738 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 05:45:31,934 - NewsCollector - INFO - News saved to data/scraped_news\AAPL_news_20250412_054531.json
+2025-04-12 05:45:31,934 - NewsCollector - INFO - Total articles found for AAPL: 10
+2025-04-12 05:45:31,935 - MarketAnalyzer - INFO - Analyzing impact of 10 news items
+2025-04-12 05:45:31,939 - MarketAnalyzer - INFO - Generating explanation for AAPL
+2025-04-12 05:45:31,941 - QueryProcessor - INFO - Query saved to data/queries\query_20250412_054531.json
+2025-04-12 05:46:21,015 - QueryProcessor - INFO - Processing query: What happened to Nifty this week?
+2025-04-12 05:46:21,016 - QueryProcessor - INFO - Extracted query components: {'original_query': 'What happened to Nifty this week?', 'intent': 'price_movement', 'tickers': ['NIFTY50'], 'timeframe': 'this_week', 'security_type': None, 'direction': None, 'specific_factors': []}
+2025-04-12 05:46:21,017 - MarketAnalyzer - INFO - Analyzing security data for NIFTY50
+2025-04-12 05:46:24,981 - yfinance - ERROR - 404 Client Error: Not Found for url: https://query2.finance.yahoo.com/v10/finance/quoteSummary/NIFTY50?modules=financialData%2CquoteType%2CdefaultKeyStatistics%2CassetProfile%2CsummaryDetail&corsDomain=finance.yahoo.com&formatted=false&symbol=NIFTY50&crumb=rZiZFDBZ6eq
+2025-04-12 05:46:24,982 - MarketAnalyzer - ERROR - Error initializing ticker NIFTY50: 'NoneType' object has no attribute 'update'
+2025-04-12 05:46:24,983 - NewsCollector - INFO - Scraping news for NIFTY50 from multiple sources...
+2025-04-12 05:46:25,094 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=nifty50
+2025-04-12 05:46:25,107 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/NIFTY50/news
+2025-04-12 05:46:25,118 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/nifty50-news
+2025-04-12 05:46:25,123 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/NIFTY50:US
+2025-04-12 05:46:25,132 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/nifty50
+2025-04-12 05:46:25,159 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/NIFTY50
+2025-04-12 05:46:25,164 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/NIFTY50/news
+2025-04-12 05:46:25,174 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/nifty50
+2025-04-12 05:46:25,189 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/NIFTY50.O
+2025-04-12 05:46:25,207 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=NIFTY50
+2025-04-12 05:46:25,262 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/nifty50
+2025-04-12 05:46:25,273 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/NIFTY50/news
+2025-04-12 05:46:25,889 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 05:46:26,494 - NewsCollector - WARNING - Seeking Alpha returned status code 404
+2025-04-12 05:46:26,923 - NewsCollector - WARNING - CNBC returned status code 404
+2025-04-12 05:46:27,010 - NewsCollector - WARNING - Finviz returned status code 404
+2025-04-12 05:46:27,620 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 05:46:29,008 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 05:46:30,617 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 05:46:31,177 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 05:46:31,182 - NewsCollector - INFO - News saved to data/scraped_news\NIFTY50_news_20250412_054631.json
+2025-04-12 05:46:31,184 - NewsCollector - INFO - Total articles found for NIFTY50: 8
+2025-04-12 05:46:31,185 - MarketAnalyzer - INFO - Analyzing impact of 5 news items
+2025-04-12 05:46:31,188 - MarketAnalyzer - INFO - Generating explanation for NIFTY50
+2025-04-12 05:46:31,190 - QueryProcessor - INFO - Query saved to data/queries\query_20250412_054631.json
+2025-04-12 05:47:14,353 - QueryProcessor - INFO - Processing query: Why did Jyothy Labs up today?
+2025-04-12 05:47:14,353 - QueryProcessor - INFO - Extracted query components: {'original_query': 'Why did Jyothy Labs up today?', 'intent': 'price_movement', 'tickers': ['JYOTHYLAB.NS'], 'timeframe': 'today', 'security_type': None, 'direction': 'up', 'specific_factors': []}
+2025-04-12 05:47:14,354 - MarketAnalyzer - INFO - Analyzing security data for JYOTHYLAB.NS
+2025-04-12 05:47:15,477 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_JYOTHYLAB.NS_20250412_054715.txt
+2025-04-12 05:47:15,478 - NewsCollector - INFO - Scraping news for JYOTHYLAB.NS from multiple sources...
+2025-04-12 05:47:15,598 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/jyothylab.ns
+2025-04-12 05:47:15,599 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=jyothylab.ns
+2025-04-12 05:47:15,625 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/JYOTHYLAB.NS/news
+2025-04-12 05:47:15,649 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/JYOTHYLAB.NS.O
+2025-04-12 05:47:15,651 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/JYOTHYLAB.NS
+2025-04-12 05:47:15,689 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/jyothylab.ns
+2025-04-12 05:47:15,702 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/JYOTHYLAB.NS/news
+2025-04-12 05:47:15,708 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/JYOTHYLAB.NS:US
+2025-04-12 05:47:15,735 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/jyothylab.ns-news
+2025-04-12 05:47:15,737 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=JYOTHYLAB.NS
+2025-04-12 05:47:15,740 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/JYOTHYLAB.NS/news
+2025-04-12 05:47:15,755 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/jyothylab.ns
+2025-04-12 05:47:16,495 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 05:47:16,595 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 05:47:16,943 - NewsCollector - WARNING - Seeking Alpha returned status code 404
+2025-04-12 05:47:17,491 - NewsCollector - WARNING - Finviz returned status code 404
+2025-04-12 05:47:17,504 - NewsCollector - WARNING - CNBC returned status code 404
+2025-04-12 05:47:17,897 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 05:47:21,066 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 05:47:21,431 - NewsCollector - WARNING - barrons returned status code 403
+2025-04-12 05:47:21,436 - NewsCollector - WARNING - No news articles found for JYOTHYLAB.NS
+2025-04-12 05:47:21,437 - MarketAnalyzer - WARNING - No news items to analyze
+2025-04-12 05:47:21,437 - MarketAnalyzer - INFO - Generating explanation for JYOTHYLAB.NS
+2025-04-12 05:47:21,440 - QueryProcessor - INFO - Query saved to data/queries\query_20250412_054721.json
+2025-04-12 05:48:03,530 - MarketAnalyzer - INFO - Using cached security data for AAPL
+2025-04-12 05:48:03,531 - NewsCollector - INFO - Using cached news for AAPL
+2025-04-12 05:48:03,531 - MarketAnalyzer - INFO - Analyzing impact of 10 news items
+2025-04-12 05:48:29,004 - MarketAnalyzer - INFO - Using cached security data for AAPL
+2025-04-12 05:48:29,005 - NewsCollector - INFO - Using cached news for AAPL
+2025-04-12 05:48:29,006 - MarketAnalyzer - INFO - Analyzing impact of 10 news items
+2025-04-12 05:48:29,012 - MarketAnalyzer - INFO - Analyzing security data for MSFT
+2025-04-12 05:48:29,906 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_MSFT_20250412_054829.txt
+2025-04-12 05:48:29,906 - NewsCollector - INFO - Scraping news for MSFT from multiple sources...
+2025-04-12 05:48:30,017 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/MSFT/news
+2025-04-12 05:48:30,032 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=MSFT
+2025-04-12 05:48:30,054 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/MSFT
+2025-04-12 05:48:30,059 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/msft-news
+2025-04-12 05:48:30,109 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/msft
+2025-04-12 05:48:30,109 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/MSFT/news
+2025-04-12 05:48:30,117 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/MSFT:US
+2025-04-12 05:48:30,145 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/MSFT/news
+2025-04-12 05:48:30,169 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/msft
+2025-04-12 05:48:30,171 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/MSFT.O
+2025-04-12 05:48:30,199 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/msft
+2025-04-12 05:48:30,205 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=msft
+2025-04-12 05:48:30,872 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 05:48:31,998 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 05:48:33,797 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 05:48:34,840 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 05:48:35,460 - NewsCollector - INFO - News saved to data/scraped_news\MSFT_news_20250412_054835.json
+2025-04-12 05:48:35,460 - NewsCollector - INFO - Total articles found for MSFT: 18
+2025-04-12 05:48:35,461 - MarketAnalyzer - INFO - Analyzing impact of 18 news items
+2025-04-12 05:48:35,467 - MarketAnalyzer - INFO - Analyzing security data for AMZN
+2025-04-12 05:48:36,502 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_AMZN_20250412_054836.txt
+2025-04-12 05:48:36,503 - NewsCollector - INFO - Scraping news for AMZN from multiple sources...
+2025-04-12 05:48:36,669 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=amzn
+2025-04-12 05:48:36,674 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/AMZN/news
+2025-04-12 05:48:36,715 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/amzn
+2025-04-12 05:48:36,747 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/AMZN/news
+2025-04-12 05:48:36,749 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/amzn-news
+2025-04-12 05:48:36,749 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/amzn
+2025-04-12 05:48:36,779 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/AMZN.O
+2025-04-12 05:48:36,784 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/amzn
+2025-04-12 05:48:36,788 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/AMZN/news
+2025-04-12 05:48:37,594 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 05:48:37,675 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 05:48:37,831 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=AMZN
+2025-04-12 05:48:38,121 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/AMZN
+2025-04-12 05:48:38,947 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/AMZN:US
+2025-04-12 05:48:40,540 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 05:48:44,251 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 05:48:44,401 - NewsCollector - INFO - News saved to data/scraped_news\AMZN_news_20250412_054844.json
+2025-04-12 05:48:44,401 - NewsCollector - INFO - Total articles found for AMZN: 10
+2025-04-12 05:48:44,402 - MarketAnalyzer - INFO - Analyzing impact of 10 news items
+2025-04-12 05:49:36,267 - QueryProcessor - INFO - Processing query: WHY APPPLE IS DOWN TODAY?
+2025-04-12 05:49:36,269 - QueryProcessor - INFO - Extracted query components: {'original_query': 'WHY APPPLE IS DOWN TODAY?', 'intent': 'price_movement', 'tickers': [], 'timeframe': 'today', 'security_type': None, 'direction': 'down', 'specific_factors': []}
+2025-04-12 05:49:36,270 - GeminiHelper - INFO - Found tickers from local mappings: ['WHY', 'IS', 'DOWN', 'TODAY']
+2025-04-12 05:49:36,270 - QueryProcessor - INFO - Used Gemini to extract tickers: ['WHY', 'IS', 'DOWN', 'TODAY']
+2025-04-12 05:49:36,270 - MarketAnalyzer - INFO - Analyzing security data for WHY
+2025-04-12 05:49:36,462 - yfinance - ERROR - $WHY: possibly delisted; no price data found  (period=1d)
+2025-04-12 05:49:36,462 - MarketAnalyzer - WARNING - No historical data available for WHY
+2025-04-12 05:49:36,464 - NewsCollector - INFO - Scraping news for WHY from multiple sources...
+2025-04-12 05:49:36,628 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/why
+2025-04-12 05:49:36,630 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=WHY
+2025-04-12 05:49:36,642 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/why
+2025-04-12 05:49:36,643 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/WHY:US
+2025-04-12 05:49:36,643 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/WHY/news
+2025-04-12 05:49:36,654 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/WHY.O
+2025-04-12 05:49:36,661 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/WHY/news
+2025-04-12 05:49:36,671 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/WHY/news
+2025-04-12 05:49:36,695 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/why-news
+2025-04-12 05:49:36,707 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/WHY
+2025-04-12 05:49:36,743 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/why
+2025-04-12 05:49:36,746 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=why
+2025-04-12 05:49:37,545 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 05:49:37,703 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 05:49:38,065 - NewsCollector - WARNING - Seeking Alpha returned status code 404
+2025-04-12 05:49:38,651 - NewsCollector - WARNING - Finviz returned status code 404
+2025-04-12 05:49:39,081 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 05:49:40,637 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 05:49:41,542 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 05:49:43,132 - NewsCollector - WARNING - No news articles found for WHY
+2025-04-12 05:49:43,132 - MarketAnalyzer - WARNING - No news items to analyze
+2025-04-12 05:49:43,133 - MarketAnalyzer - INFO - Generating explanation for WHY
+2025-04-12 05:49:43,133 - MarketAnalyzer - INFO - Analyzing security data for IS
+2025-04-12 05:49:46,842 - yfinance - ERROR - $IS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2025-04-12 05:49:46,843 - MarketAnalyzer - WARNING - No historical data available for IS
+2025-04-12 05:49:46,844 - NewsCollector - INFO - Scraping news for IS from multiple sources...
+2025-04-12 05:49:46,992 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/IS:US
+2025-04-12 05:49:46,998 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=IS
+2025-04-12 05:49:47,019 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/IS/news
+2025-04-12 05:49:47,029 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=is
+2025-04-12 05:49:47,031 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/IS
+2025-04-12 05:49:47,035 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/IS/news
+2025-04-12 05:49:47,044 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/is-news
+2025-04-12 05:49:47,045 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/IS/news
+2025-04-12 05:49:47,058 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/IS.O
+2025-04-12 05:49:47,063 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/is
+2025-04-12 05:49:47,063 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/is
+2025-04-12 05:49:47,068 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/is
+2025-04-12 05:49:47,871 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 05:49:47,992 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 05:49:48,493 - NewsCollector - WARNING - CNBC returned status code 404
+2025-04-12 05:49:48,704 - NewsCollector - WARNING - Seeking Alpha returned status code 403
+2025-04-12 05:49:49,157 - NewsCollector - WARNING - Finviz returned status code 404
+2025-04-12 05:49:49,441 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 05:49:50,802 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 05:49:51,430 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 05:49:52,936 - NewsCollector - WARNING - No news articles found for IS
+2025-04-12 05:49:52,938 - MarketAnalyzer - WARNING - No news items to analyze
+2025-04-12 05:49:52,938 - MarketAnalyzer - INFO - Generating explanation for IS
+2025-04-12 05:49:52,939 - MarketAnalyzer - INFO - Analyzing security data for DOWN
+2025-04-12 05:49:57,551 - yfinance - ERROR - $DOWN: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2025-04-12 05:49:57,553 - MarketAnalyzer - WARNING - No historical data available for DOWN
+2025-04-12 05:49:57,555 - NewsCollector - INFO - Scraping news for DOWN from multiple sources...
+2025-04-12 05:49:57,663 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/DOWN/news
+2025-04-12 05:49:57,683 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/DOWN.O
+2025-04-12 05:49:57,684 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/down
+2025-04-12 05:49:57,685 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/down-news
+2025-04-12 05:49:57,725 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=DOWN
+2025-04-12 05:49:57,730 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=down
+2025-04-12 05:49:57,737 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/DOWN/news
+2025-04-12 05:49:57,781 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/DOWN/news
+2025-04-12 05:49:57,794 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/DOWN:US
+2025-04-12 05:49:57,803 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/down
+2025-04-12 05:49:57,809 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/DOWN
+2025-04-12 05:49:57,852 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/down
+2025-04-12 05:49:58,492 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 05:49:58,667 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 05:49:58,892 - NewsCollector - WARNING - Seeking Alpha returned status code 403
+2025-04-12 05:49:59,553 - NewsCollector - WARNING - CNBC returned status code 404
+2025-04-12 05:49:59,604 - NewsCollector - WARNING - Finviz returned status code 404
+2025-04-12 05:50:00,023 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 05:50:03,115 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 05:50:03,215 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 05:50:03,218 - NewsCollector - WARNING - No news articles found for DOWN
+2025-04-12 05:50:03,219 - MarketAnalyzer - WARNING - No news items to analyze
+2025-04-12 05:50:03,219 - MarketAnalyzer - INFO - Generating explanation for DOWN
+2025-04-12 05:50:03,220 - MarketAnalyzer - INFO - Analyzing security data for TODAY
+2025-04-12 05:50:05,435 - yfinance - ERROR - $TODAY: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2025-04-12 05:50:05,436 - MarketAnalyzer - WARNING - No historical data available for TODAY
+2025-04-12 05:50:05,438 - NewsCollector - INFO - Scraping news for TODAY from multiple sources...
+2025-04-12 05:50:05,565 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=today
+2025-04-12 05:50:05,565 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/TODAY.O
+2025-04-12 05:50:05,571 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/today
+2025-04-12 05:50:05,595 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/TODAY/news
+2025-04-12 05:50:05,595 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/TODAY/news
+2025-04-12 05:50:05,598 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/today
+2025-04-12 05:50:05,661 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/today-news
+2025-04-12 05:50:05,711 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/today
+2025-04-12 05:50:05,721 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/TODAY:US
+2025-04-12 05:50:05,728 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/TODAY/news
+2025-04-12 05:50:06,341 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 05:50:06,362 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 05:50:06,694 - NewsCollector - WARNING - Seeking Alpha returned status code 403
+2025-04-12 05:50:06,797 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=TODAY
+2025-04-12 05:50:07,447 - NewsCollector - WARNING - Finviz returned status code 404
+2025-04-12 05:50:07,559 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/TODAY
+2025-04-12 05:50:07,899 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 05:50:08,550 - NewsCollector - WARNING - CNBC returned status code 404
+2025-04-12 05:50:10,912 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 05:50:14,049 - NewsCollector - WARNING - barrons returned status code 404
+2025-04-12 05:50:14,051 - NewsCollector - WARNING - No news articles found for TODAY
+2025-04-12 05:50:14,051 - MarketAnalyzer - WARNING - No news items to analyze
+2025-04-12 05:50:14,051 - MarketAnalyzer - INFO - Generating explanation for TODAY
+2025-04-12 05:50:14,054 - QueryProcessor - INFO - Query saved to data/queries\query_20250412_055014.json

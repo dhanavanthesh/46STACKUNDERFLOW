@@ -1,0 +1,23 @@
+{
+    "timestamp": "2025-04-12 05:50:14",
+    "query": "WHY APPPLE IS DOWN TODAY?",
+    "query_info": {
+        "original_query": "WHY APPPLE IS DOWN TODAY?",
+        "intent": "price_movement",
+        "tickers": [
+            "WHY",
+            "IS",
+            "DOWN",
+            "TODAY"
+        ],
+        "timeframe": "today",
+        "security_type": null,
+        "direction": "down",
+        "specific_factors": []
+    },
+    "response": {
+        "success": true,
+        "message": "",
+        "answer": "I couldn't retrieve data for WHY: No historical data available"
+    }
+}

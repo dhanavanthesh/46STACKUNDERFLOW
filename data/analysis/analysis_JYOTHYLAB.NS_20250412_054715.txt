@@ -1,0 +1,30 @@
+=== Market Analysis for JYOTHYLAB.NS ===
+Analysis Date: 2025-04-12 05:47:15
+
+Company Information:
+Name: Jyothy Labs Limited
+Sector: Consumer Defensive
+Industry: Household & Personal Products
+Website: https://www.jyothylabs.com
+
+Price Information:
+Current Price: $364.5
+Change: -7.70001220703125
+Change %: -2.068783437532028%
+Day Range: $362.3999938964844 - $376.45001220703125
+
+Volume Information:
+Current Volume: 2242944
+Average Volume: 29905.92
+Volume Change: 7400.0%
+
+Key Factors Affecting Price:
+
+Market Context:
+- S&P 500: 2.0511573169300705%
+- Dow Jones: 1.821348702463129%
+- NASDAQ: 2.237094343154935%
+- Russell 2000: 1.7807152542721552%
+- VIX: -7.941171383225148%
+- Nifty 50: 0.5866844749740643%
+- Sensex: 0.4299639323461889%

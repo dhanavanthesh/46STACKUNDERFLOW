@@ -10,6 +10,7 @@ import logging
 from datetime import datetime
 from colorama import init, Fore, Style
 from tabulate import tabulate
+import traceback
 
 # Initialize colorama for cross-platform color support
 init(autoreset=True)
@@ -29,15 +30,31 @@ class NewsSenseCLI:
     def __init__(self):
         """Initialize the CLI interface with required components"""
         try:
+            # Fix potential path issues
+            self._fix_path_issues()
+            
             # Import components
             from src.news_scraper.news_collector import NewsCollector
             from src.analyzer.market_analyzer import MarketAnalyzer
             from src.query_processor.query_processor import QueryProcessor
             
+            # Try to import GeminiHelper (optional)
+            try:
+                from src.utils.gemini_helper import GeminiHelper
+                self.gemini_helper = GeminiHelper()
+                logger.info("Gemini helper initialized successfully")
+            except Exception as e:
+                logger.warning(f"Gemini helper not available: {str(e)}")
+                self.gemini_helper = None
+            
             # Initialize components
             self.news_collector = NewsCollector()
             self.market_analyzer = MarketAnalyzer()
-            self.query_processor = QueryProcessor(self.news_collector, self.market_analyzer)
+            self.query_processor = QueryProcessor(
+                self.news_collector, 
+                self.market_analyzer,
+                self.gemini_helper
+            )
             
             # Get username
             self.user = os.getenv('USERNAME', 'User')
@@ -55,9 +72,20 @@ class NewsSenseCLI:
         except Exception as e:
             print(f"{Fore.RED}Error initializing the application: {str(e)}{Style.RESET_ALL}")
             logger.error(f"Initialization error: {str(e)}")
-            import traceback
             logger.error(traceback.format_exc())
             sys.exit(1)
+    
+    def _fix_path_issues(self):
+        """Fix common path issues"""
+        # Add src directory to path if not already there
+        src_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "src"))
+        if src_dir not in sys.path:
+            sys.path.insert(0, src_dir)
+        
+        # Add current directory to path
+        current_dir = os.path.abspath(os.path.dirname(__file__))
+        if current_dir not in sys.path:
+            sys.path.insert(0, current_dir)
 
     def setup_display_settings(self):
         """Setup display settings and colors"""
@@ -133,7 +161,6 @@ class NewsSenseCLI:
         except Exception as e:
             print(f"{self.colors['error']}Error processing query: {str(e)}{Style.RESET_ALL}")
             logger.error(f"Query processing error: {str(e)}")
-            import traceback
             logger.error(traceback.format_exc())
 
     def analyze_security(self, ticker):
@@ -165,13 +192,17 @@ class NewsSenseCLI:
         except Exception as e:
             print(f"{self.colors['error']}Error in security analysis: {str(e)}{Style.RESET_ALL}")
             logger.error(f"Security analysis error: {str(e)}")
-            import traceback
             logger.error(traceback.format_exc())
 
     def display_analysis_results(self, ticker, security_data, news_analysis, explanation):
         """Display comprehensive analysis results"""
         try:
             print(f"\n{self.colors['header']}=== Analysis Results for {ticker} ==={Style.RESET_ALL}")
+            
+            # Check for errors
+            if security_data and 'error' in security_data:
+                print(f"{self.colors['error']}Error: {security_data['error']}{Style.RESET_ALL}")
+                return
             
             # Company Information
             if security_data and 'info' in security_data and security_data['info']:
@@ -203,9 +234,9 @@ class NewsSenseCLI:
                 today_data = security_data['data']['today']
                 if not today_data.empty and 'Volume' in today_data.columns:
                     print(f"\n{self.colors['header']}Volume Information:{Style.RESET_ALL}")
-                    current_volume = today_data['Volume'].iloc[-1]
+                    current_volume = today_data['Volume'].sum()
                     avg_volume = today_data['Volume'].mean()
-                    volume_change = ((current_volume - avg_volume) / avg_volume) * 100
+                    volume_change = ((current_volume - avg_volume) / avg_volume) * 100 if avg_volume > 0 else 0
                     print(f"Current Volume: {current_volume:,.0f}")
                     print(f"Average Volume: {avg_volume:,.0f}")
                     print(f"Volume Change: {volume_change:+.1f}% vs average")
@@ -283,7 +314,6 @@ class NewsSenseCLI:
         except Exception as e:
             print(f"{self.colors['error']}Error displaying results: {str(e)}{Style.RESET_ALL}")
             logger.error(f"Results display error: {str(e)}")
-            import traceback
             logger.error(traceback.format_exc())
             
     def format_price(self, price):
@@ -318,6 +348,12 @@ class NewsSenseCLI:
             for ticker in tickers:
                 try:
                     security_data = self.market_analyzer.analyze_security(ticker)
+                    
+                    # Skip if there was an error getting the security
+                    if security_data and 'error' in security_data:
+                        print(f"{self.colors['error']}Error with {ticker}: {security_data['error']}{Style.RESET_ALL}")
+                        continue
+                        
                     news_items = self.news_collector.scrape_all_sources(ticker)
                     news_analysis = self.market_analyzer.analyze_news_impact(news_items)
                     
@@ -342,6 +378,7 @@ class NewsSenseCLI:
                 except Exception as e:
                     print(f"{self.colors['error']}Error fetching data for {ticker}: {str(e)}{Style.RESET_ALL}")
                     logger.error(f"Error fetching data for {ticker}: {str(e)}")
+                    logger.error(traceback.format_exc())
             
             # Display comparison table
             if securities_data:
@@ -354,9 +391,13 @@ class NewsSenseCLI:
                                     else self.colors['negative'] if data['news_sentiment'] < -0.1 
                                     else self.colors['neutral'])
                     
+                    name = data['name']
+                    if len(name) > 20:
+                        name = name[:17] + '...'
+                    
                     table_data.append([
                         data['ticker'],
-                        data['name'][:20] + ('...' if len(data['name']) > 20 else ''),
+                        name,
                         f"${data['price']:.2f}",
                         f"{change_color}{data['change_pct']:+.2f}%{Style.RESET_ALL}",
                         f"{sentiment_color}{data['news_sentiment']:.2f}{Style.RESET_ALL}",
@@ -403,7 +444,6 @@ class NewsSenseCLI:
         except Exception as e:
             print(f"{self.colors['error']}Error tracking securities: {str(e)}{Style.RESET_ALL}")
             logger.error(f"Securities tracking error: {str(e)}")
-            import traceback
             logger.error(traceback.format_exc())
 
     def view_recent_analyses(self):
@@ -459,7 +499,6 @@ class NewsSenseCLI:
         except Exception as e:
             print(f"{self.colors['error']}Error viewing analyses: {str(e)}{Style.RESET_ALL}")
             logger.error(f"Viewing analyses error: {str(e)}")
-            import traceback
             logger.error(traceback.format_exc())
 
     def display_saved_analysis(self, filepath):
@@ -478,6 +517,7 @@ class NewsSenseCLI:
         except Exception as e:
             print(f"{self.colors['error']}Error displaying analysis: {str(e)}{Style.RESET_ALL}")
             logger.error(f"Display analysis error: {str(e)}")
+            logger.error(traceback.format_exc())
 
     def show_help(self):
         """Display help information"""
@@ -493,15 +533,37 @@ Key Features:
 
 Example Questions:
 - "Why is Apple up today?"
-- "What happened to Tesla this week?"
-- "Explain the recent drop in Amazon"
-- "How is Microsoft performing compared to the market?"
+- "What happened to Nifty this week?"
+- "Why did Jyothy Labs go up today?"
+- "How is QQQ performing compared to the market?"
 - "Any macro news impacting tech-focused stocks?"
-        """)
+- "What's happening with SBI AMC?"
+
+Supported Indian Securities:
+- "NIFTY50" or "^NSEI" - Nifty 50 Index
+- "SENSEX" or "^BSESN" - BSE Sensex Index
+- "JYOTHYLAB.NS" - Jyothy Labs
+- "RELIANCE.NS" - Reliance Industries
+- "TCS.NS" - Tata Consultancy Services
+- "HDFCBANK.NS" - HDFC Bank
+""")
+
+    def display_disclaimer(self):
+        """Display legal disclaimer"""
+        print(f"\n{self.colors['warning']}DISCLAIMER:{Style.RESET_ALL}")
+        print("""
+NewsSense is for educational and informational purposes only. It does not provide 
+investment advice, and you should not rely solely on its analysis for making investment 
+decisions. The data and analysis provided may not be accurate or complete. 
+Always consult with a qualified financial advisor before making investment decisions.
+""")
 
     def run(self):
         """Main application loop"""
         try:
+            # Display welcome banner at startup
+            self.display_welcome_banner()
+            
             while True:
                 self.display_header()
                 self.display_menu()
@@ -509,7 +571,7 @@ Example Questions:
                 choice = input(f"\n{self.colors['prompt']}Enter your choice (1-6): {Style.RESET_ALL}").strip()
                 
                 if choice == "1":
-                    ticker = input(f"\n{self.colors['prompt']}Enter security ticker (e.g., AAPL, MSFT): {Style.RESET_ALL}").upper().strip()
+                    ticker = input(f"\n{self.colors['prompt']}Enter security ticker (e.g., AAPL, MSFT, NIFTY50): {Style.RESET_ALL}").upper().strip()
                     if ticker:
                         self.analyze_security(ticker)
                         input(f"\n{self.colors['warning']}Press Enter to continue...{Style.RESET_ALL}")
@@ -534,6 +596,7 @@ Example Questions:
                 
                 elif choice == "5":
                     self.show_help()
+                    self.display_disclaimer()
                     input(f"\n{self.colors['warning']}Press Enter to continue...{Style.RESET_ALL}")
                 
                 elif choice == "6":
@@ -548,15 +611,12 @@ Example Questions:
         except Exception as e:
             print(f"{self.colors['error']}An unexpected error occurred: {str(e)}{Style.RESET_ALL}")
             logger.error(f"Unexpected error: {str(e)}")
-            import traceback
             logger.error(traceback.format_exc())
         finally:
             sys.exit(0)
-
-def main():
-    """Application entry point"""
-    try:
-        # Display startup banner
+    
+    def display_welcome_banner(self):
+        """Display welcome banner with ASCII art"""
         print(f"{Fore.CYAN}{Style.BRIGHT}")
         print("=" * 80)
         print(r"""
@@ -572,13 +632,29 @@ def main():
         print("=" * 80)
         print(f"{Style.RESET_ALL}")
         
+        # Print short intro
+        print(f"""
+{Fore.GREEN}Welcome to NewsSense - Financial News Analyzer{Style.RESET_ALL}
+        
+NewsSense helps investors understand market movements by connecting real-world 
+news and events to financial performance. Ask natural language questions about 
+your stocks, ETFs, and mutual funds to get AI-powered explanations.
+        """)
+        
+        # Show startup delay only during first run (can be removed later)
+        print(f"{Fore.YELLOW}Initializing...{Style.RESET_ALL}")
+        from time import sleep
+        sleep(1)  # Short delay to allow user to read banner
+
+def main():
+    """Application entry point"""
+    try:
         # Start the CLI
         cli = NewsSenseCLI()
         cli.run()
     except Exception as e:
         print(f"{Fore.RED}Fatal error: {str(e)}{Style.RESET_ALL}")
         logger.error(f"Fatal error: {str(e)}")
-        import traceback
         logger.error(traceback.format_exc())
         sys.exit(1)
 

@@ -1,0 +1,30 @@
+=== Market Analysis for DIA ===
+Analysis Date: 2025-04-12 05:35:02
+
+Company Information:
+Name: SPDR Dow Jones Industrial Average ETF Trust
+Sector: Unknown
+Industry: Unknown
+Website: Unknown
+
+Price Information:
+Current Price: $401.94000244140625
+Change: 7.5
+Change %: 1.9014298634972042%
+Day Range: $392.69000244140625 - $404.0899963378906
+
+Volume Information:
+Current Volume: 3461207
+Average Volume: 44374.44871794872
+Volume Change: 7700.0%
+
+Key Factors Affecting Price:
+
+Market Context:
+- S&P 500: 2.0511573169300705%
+- Dow Jones: 1.821348702463129%
+- NASDAQ: 2.237094343154935%
+- Russell 2000: 1.7807152542721552%
+- VIX: -7.941171383225148%
+- Nifty 50: 0.5866844749740643%
+- Sensex: 0.4299639323461889%

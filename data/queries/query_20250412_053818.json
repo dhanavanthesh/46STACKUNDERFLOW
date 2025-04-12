@@ -1,0 +1,20 @@
+{
+    "timestamp": "2025-04-12 05:38:18",
+    "query": "Any macro news impacting tech-focused funds?",
+    "query_info": {
+        "original_query": "Any macro news impacting tech-focused funds?",
+        "intent": "news_impact",
+        "tickers": [
+            "XLK"
+        ],
+        "timeframe": "today",
+        "security_type": "fund",
+        "direction": null,
+        "specific_factors": []
+    },
+    "response": {
+        "success": true,
+        "message": "",
+        "answer": "I couldn't find any recent news articles about XLK."
+    }
+}
