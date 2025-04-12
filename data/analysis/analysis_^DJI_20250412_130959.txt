@@ -1,0 +1,30 @@
+=== Market Analysis for ^DJI ===
+Analysis Date: 2025-04-12 13:09:59
+
+Company Information:
+Name: Dow Jones Industrial Average
+Sector: Unknown
+Industry: Unknown
+Website: Unknown
+
+Price Information:
+Current Price: $40201.80078125
+Change: 708.37890625
+Change %: 1.7936630269518776%
+Day Range: $39255.2109375 - $40404.26953125
+
+Volume Information:
+Current Volume: 595272926
+Average Volume: 7631704.179487179
+Volume Change: 7700.0%
+
+Key Factors Affecting Price:
+
+Market Context:
+- S&P 500: 2.0511573169300705%
+- Dow Jones: 1.8212882762517018%
+- NASDAQ: 2.236940959523041%
+- Russell 2000: 1.7804141023848814%
+- VIX: -7.941171383225148%
+- Nifty 50: 0.5866844749740643%
+- Sensex: 0.4299639323461889%

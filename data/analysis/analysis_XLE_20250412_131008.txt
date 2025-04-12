@@ -1,0 +1,30 @@
+=== Market Analysis for XLE ===
+Analysis Date: 2025-04-12 13:10:08
+
+Company Information:
+Name: The Energy Select Sector SPDR Fund
+Sector: Unknown
+Industry: Unknown
+Website: Unknown
+
+Price Information:
+Current Price: $78.91999816894531
+Change: 1.5800018310546875
+Change %: 2.0429297981238834%
+Day Range: $75.81999969482422 - $79.4800033569336
+
+Volume Information:
+Current Volume: 20395254
+Average Volume: 261477.61538461538
+Volume Change: 7700.0%
+
+Key Factors Affecting Price:
+
+Market Context:
+- S&P 500: 2.0511573169300705%
+- Dow Jones: 1.8212882762517018%
+- NASDAQ: 2.236940959523041%
+- Russell 2000: 1.7804141023848814%
+- VIX: -7.941171383225148%
+- Nifty 50: 0.5866844749740643%
+- Sensex: 0.4299639323461889%

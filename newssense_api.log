@@ -1,0 +1,512 @@
+2025-04-12 12:41:13,970 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 12:41:13,974 - NewsSenseAPI - INFO - NewsSense API initialized successfully
+2025-04-12 12:41:13,978 - NewsSenseAPI - INFO - Starting NewsSense API on port 5000
+2025-04-12 12:41:14,173 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.152.6.154:5000
+2025-04-12 12:41:14,174 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-12 12:41:14,184 - werkzeug - INFO -  * Restarting with stat
+2025-04-12 12:41:17,038 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 12:41:17,044 - NewsSenseAPI - INFO - NewsSense API initialized successfully
+2025-04-12 12:41:17,050 - NewsSenseAPI - INFO - Starting NewsSense API on port 5000
+2025-04-12 12:41:17,088 - werkzeug - WARNING -  * Debugger is active!
+2025-04-12 12:41:17,105 - werkzeug - INFO -  * Debugger PIN: 132-009-105
+2025-04-12 12:41:56,943 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 12:41:56] "OPTIONS /api/query HTTP/1.1" 200 -
+2025-04-12 12:41:57,187 - NewsSenseAPI - INFO - Processing query: why did apple stocks down today
+2025-04-12 12:42:02,100 - NewsSenseAPI - INFO - Analyzing ticker: AAPL
+2025-04-12 12:42:02,100 - MarketAnalyzer - INFO - Analyzing security data for AAPL
+2025-04-12 12:42:13,420 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_AAPL_20250412_124213.txt
+2025-04-12 12:42:13,420 - NewsCollector - INFO - Scraping news for AAPL from multiple sources...
+2025-04-12 12:42:13,539 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/aapl
+2025-04-12 12:42:13,561 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=AAPL
+2025-04-12 12:42:13,592 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/AAPL:US
+2025-04-12 12:42:13,595 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/aapl
+2025-04-12 12:42:13,598 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/AAPL.O
+2025-04-12 12:42:13,603 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/AAPL/news
+2025-04-12 12:42:13,607 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=aapl
+2025-04-12 12:42:13,610 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/AAPL
+2025-04-12 12:42:13,612 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/aapl
+2025-04-12 12:42:13,613 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/aapl-news
+2025-04-12 12:42:13,631 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/AAPL/news
+2025-04-12 12:42:13,666 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/AAPL/news
+2025-04-12 12:42:15,490 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 12:42:15,511 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 12:42:18,598 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 12:42:18,600 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 12:42:19,541 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 12:42:20,275 - NewsCollector - INFO - News saved to data/scraped_news\AAPL_news_20250412_124220.json
+2025-04-12 12:42:20,277 - NewsCollector - INFO - Total articles found for AAPL: 10
+2025-04-12 12:42:20,278 - MarketAnalyzer - INFO - Analyzing impact of 10 news items
+2025-04-12 12:42:20,570 - MarketAnalyzer - INFO - Generating explanation for AAPL
+2025-04-12 12:42:27,898 - GeminiHelper - INFO - Generated market analysis for query: why did apple stocks down today
+2025-04-12 12:42:27,963 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 12:42:27] "[35m[1mPOST /api/query HTTP/1.1[0m" 500 -
+2025-04-12 12:44:53,675 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Dhana\\Desktop\\newssense\\market_analyzer\\app.py', reloading
+2025-04-12 12:44:54,129 - werkzeug - INFO -  * Restarting with stat
+2025-04-12 12:46:27,446 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 12:46:27,450 - NewsSenseAPI - INFO - NewsSense API initialized successfully
+2025-04-12 12:46:27,454 - NewsSenseAPI - INFO - Starting NewsSense API on port 5000
+2025-04-12 12:46:27,523 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.152.6.154:5000
+2025-04-12 12:46:27,524 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-12 12:46:27,528 - werkzeug - INFO -  * Restarting with stat
+2025-04-12 12:46:30,673 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 12:46:30,676 - NewsSenseAPI - INFO - NewsSense API initialized successfully
+2025-04-12 12:46:30,681 - NewsSenseAPI - INFO - Starting NewsSense API on port 5000
+2025-04-12 12:46:30,723 - werkzeug - WARNING -  * Debugger is active!
+2025-04-12 12:46:30,737 - werkzeug - INFO -  * Debugger PIN: 132-009-105
+2025-04-12 12:46:39,483 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 12:46:39] "OPTIONS /api/query HTTP/1.1" 200 -
+2025-04-12 12:46:39,726 - NewsSenseAPI - INFO - Processing query: why did apple stocks down today
+2025-04-12 12:46:44,014 - NewsSenseAPI - INFO - Analyzing ticker: AAPL
+2025-04-12 12:46:44,015 - MarketAnalyzer - INFO - Analyzing security data for AAPL
+2025-04-12 12:46:50,444 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_AAPL_20250412_124650.txt
+2025-04-12 12:46:50,445 - NewsCollector - INFO - Scraping news for AAPL from multiple sources...
+2025-04-12 12:46:50,570 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/AAPL.O
+2025-04-12 12:46:50,581 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/aapl-news
+2025-04-12 12:46:50,638 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/AAPL/news
+2025-04-12 12:46:50,645 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/AAPL:US
+2025-04-12 12:46:50,664 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/AAPL
+2025-04-12 12:46:50,664 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/aapl
+2025-04-12 12:46:50,673 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/aapl
+2025-04-12 12:46:50,675 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/AAPL/news
+2025-04-12 12:46:50,676 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=AAPL
+2025-04-12 12:46:50,701 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/aapl
+2025-04-12 12:46:50,709 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=aapl
+2025-04-12 12:46:50,748 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/AAPL/news
+2025-04-12 12:46:52,226 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 12:46:52,571 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 12:46:54,341 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 12:46:54,757 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 12:46:56,817 - NewsCollector - INFO - News saved to data/scraped_news\AAPL_news_20250412_124656.json
+2025-04-12 12:46:56,818 - NewsCollector - INFO - Total articles found for AAPL: 10
+2025-04-12 12:46:56,819 - MarketAnalyzer - INFO - Analyzing impact of 10 news items
+2025-04-12 12:46:57,041 - MarketAnalyzer - INFO - Generating explanation for AAPL
+2025-04-12 12:47:04,897 - GeminiHelper - INFO - Generated market analysis for query: why did apple stocks down today
+2025-04-12 12:47:04,940 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 12:47:04] "[35m[1mPOST /api/query HTTP/1.1[0m" 500 -
+2025-04-12 12:48:11,946 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Dhana\\Desktop\\newssense\\market_analyzer\\app.py', reloading
+2025-04-12 12:48:12,373 - werkzeug - INFO -  * Restarting with stat
+2025-04-12 12:48:15,673 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 12:48:15,676 - NewsSenseAPI - INFO - NewsSense API initialized successfully
+2025-04-12 12:48:15,680 - NewsSenseAPI - INFO - Starting NewsSense API on port 5000
+2025-04-12 12:48:15,713 - werkzeug - WARNING -  * Debugger is active!
+2025-04-12 12:48:15,726 - werkzeug - INFO -  * Debugger PIN: 132-009-105
+2025-04-12 12:48:46,918 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Dhana\\Desktop\\newssense\\market_analyzer\\app.py', reloading
+2025-04-12 12:48:47,225 - werkzeug - INFO -  * Restarting with stat
+2025-04-12 12:48:50,664 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 12:48:50,669 - NewsSenseAPI - INFO - NewsSense API initialized successfully
+2025-04-12 12:48:50,674 - NewsSenseAPI - INFO - Starting NewsSense API on port 5000
+2025-04-12 12:48:50,712 - werkzeug - WARNING -  * Debugger is active!
+2025-04-12 12:48:50,732 - werkzeug - INFO -  * Debugger PIN: 132-009-105
+2025-04-12 12:48:53,250 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Dhana\\Desktop\\newssense\\market_analyzer\\app.py', reloading
+2025-04-12 12:48:53,759 - werkzeug - INFO -  * Restarting with stat
+2025-04-12 12:48:56,874 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 12:48:56,877 - NewsSenseAPI - INFO - NewsSense API initialized successfully
+2025-04-12 12:48:56,880 - NewsSenseAPI - INFO - Starting NewsSense API on port 5000
+2025-04-12 12:48:56,912 - werkzeug - WARNING -  * Debugger is active!
+2025-04-12 12:48:56,924 - werkzeug - INFO -  * Debugger PIN: 132-009-105
+2025-04-12 12:49:19,445 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 12:49:19,450 - NewsSenseAPI - INFO - NewsSense API initialized successfully
+2025-04-12 12:49:19,453 - NewsSenseAPI - INFO - Starting NewsSense API on port 5000
+2025-04-12 12:49:19,512 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.152.6.154:5000
+2025-04-12 12:49:19,512 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-12 12:49:19,516 - werkzeug - INFO -  * Restarting with stat
+2025-04-12 12:49:22,830 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 12:49:22,834 - NewsSenseAPI - INFO - NewsSense API initialized successfully
+2025-04-12 12:49:22,839 - NewsSenseAPI - INFO - Starting NewsSense API on port 5000
+2025-04-12 12:49:22,878 - werkzeug - WARNING -  * Debugger is active!
+2025-04-12 12:49:22,891 - werkzeug - INFO -  * Debugger PIN: 132-009-105
+2025-04-12 12:49:41,300 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Dhana\\Desktop\\newssense\\market_analyzer\\app.py', reloading
+2025-04-12 12:49:41,596 - werkzeug - INFO -  * Restarting with stat
+2025-04-12 12:49:45,446 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 12:49:45,452 - NewsSenseAPI - INFO - NewsSense API initialized successfully
+2025-04-12 12:49:45,457 - NewsSenseAPI - INFO - Starting NewsSense API on port 5000
+2025-04-12 12:49:45,495 - werkzeug - WARNING -  * Debugger is active!
+2025-04-12 12:49:45,506 - werkzeug - INFO -  * Debugger PIN: 132-009-105
+2025-04-12 12:51:16,873 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 12:51:16] "OPTIONS /api/query HTTP/1.1" 200 -
+2025-04-12 12:51:17,116 - NewsSenseAPI - INFO - Processing query: why did apple stocks down today
+2025-04-12 12:51:19,497 - NewsSenseAPI - INFO - Processing query: why did apple stocks down today
+2025-04-12 12:51:22,531 - NewsSenseAPI - INFO - Analyzing ticker: AAPL
+2025-04-12 12:51:22,532 - MarketAnalyzer - INFO - Analyzing security data for AAPL
+2025-04-12 12:51:24,006 - NewsSenseAPI - INFO - Analyzing ticker: AAPL
+2025-04-12 12:51:24,008 - MarketAnalyzer - INFO - Analyzing security data for AAPL
+2025-04-12 12:51:28,423 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_AAPL_20250412_125128.txt
+2025-04-12 12:51:28,424 - NewsCollector - INFO - Scraping news for AAPL from multiple sources...
+2025-04-12 12:51:28,536 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/aapl
+2025-04-12 12:51:28,587 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/AAPL/news
+2025-04-12 12:51:28,588 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/aapl
+2025-04-12 12:51:28,592 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/AAPL:US
+2025-04-12 12:51:28,623 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=aapl
+2025-04-12 12:51:28,645 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/AAPL
+2025-04-12 12:51:28,661 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/AAPL.O
+2025-04-12 12:51:28,671 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=AAPL
+2025-04-12 12:51:28,732 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/aapl
+2025-04-12 12:51:28,732 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/AAPL/news
+2025-04-12 12:51:28,733 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/aapl-news
+2025-04-12 12:51:28,743 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/AAPL/news
+2025-04-12 12:51:28,748 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_AAPL_20250412_125128.txt
+2025-04-12 12:51:28,753 - NewsCollector - INFO - Scraping news for AAPL from multiple sources...
+2025-04-12 12:51:30,167 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 12:51:30,431 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 12:51:32,245 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/AAPL.O
+2025-04-12 12:51:32,529 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/aapl
+2025-04-12 12:51:32,778 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/AAPL/news
+2025-04-12 12:51:32,854 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=AAPL
+2025-04-12 12:51:32,934 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/AAPL:US
+2025-04-12 12:51:32,941 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 12:51:33,012 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/aapl
+2025-04-12 12:51:33,041 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/AAPL/news
+2025-04-12 12:51:33,127 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/aapl
+2025-04-12 12:51:33,218 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/AAPL
+2025-04-12 12:51:33,247 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=aapl
+2025-04-12 12:51:33,423 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 12:51:33,795 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/aapl-news
+2025-04-12 12:51:34,080 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/AAPL/news
+2025-04-12 12:51:34,895 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 12:51:35,930 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 12:51:36,272 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 12:51:36,422 - NewsCollector - INFO - News saved to data/scraped_news\AAPL_news_20250412_125136.json
+2025-04-12 12:51:36,453 - NewsCollector - INFO - Total articles found for AAPL: 10
+2025-04-12 12:51:36,459 - MarketAnalyzer - INFO - Analyzing impact of 10 news items
+2025-04-12 12:51:36,465 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 12:51:36,632 - MarketAnalyzer - INFO - Generating explanation for AAPL
+2025-04-12 12:51:37,864 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 12:51:39,540 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 12:51:39,557 - NewsCollector - INFO - News saved to data/scraped_news\AAPL_news_20250412_125139.json
+2025-04-12 12:51:39,562 - NewsCollector - INFO - Total articles found for AAPL: 18
+2025-04-12 12:51:39,563 - MarketAnalyzer - INFO - Analyzing impact of 18 news items
+2025-04-12 12:51:39,572 - MarketAnalyzer - INFO - Generating explanation for AAPL
+2025-04-12 12:51:44,149 - GeminiHelper - INFO - Generated market analysis for query: why did apple stocks down today
+2025-04-12 12:51:44,182 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 12:51:44] "[35m[1mPOST /api/query HTTP/1.1[0m" 500 -
+2025-04-12 12:51:47,732 - GeminiHelper - INFO - Generated market analysis for query: why did apple stocks down today
+2025-04-12 12:51:47,763 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 12:51:47] "[35m[1mPOST /api/query HTTP/1.1[0m" 500 -
+2025-04-12 12:57:37,596 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Dhana\\Desktop\\newssense\\market_analyzer\\app.py', reloading
+2025-04-12 12:57:37,904 - werkzeug - INFO -  * Restarting with stat
+2025-04-12 12:57:41,225 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 12:57:41,229 - NewsSenseAPI - INFO - NewsSense API initialized successfully
+2025-04-12 12:57:41,233 - NewsSenseAPI - INFO - Starting NewsSense API on port 5000
+2025-04-12 12:57:41,279 - werkzeug - WARNING -  * Debugger is active!
+2025-04-12 12:57:41,292 - werkzeug - INFO -  * Debugger PIN: 132-009-105
+2025-04-12 12:57:51,614 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Dhana\\Desktop\\newssense\\market_analyzer\\app.py', reloading
+2025-04-12 12:57:51,894 - werkzeug - INFO -  * Restarting with stat
+2025-04-12 12:57:55,029 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 12:57:55,033 - NewsSenseAPI - INFO - NewsSense API initialized successfully
+2025-04-12 12:57:55,036 - NewsSenseAPI - INFO - Starting NewsSense API on port 5000
+2025-04-12 12:57:55,070 - werkzeug - WARNING -  * Debugger is active!
+2025-04-12 12:57:55,081 - werkzeug - INFO -  * Debugger PIN: 132-009-105
+2025-04-12 12:58:01,384 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Dhana\\Desktop\\newssense\\market_analyzer\\app.py', reloading
+2025-04-12 12:58:01,650 - werkzeug - INFO -  * Restarting with stat
+2025-04-12 12:58:05,112 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 12:58:05,115 - NewsSenseAPI - INFO - NewsSense API initialized successfully
+2025-04-12 12:58:05,120 - NewsSenseAPI - INFO - Starting NewsSense API on port 5000
+2025-04-12 12:58:05,153 - werkzeug - WARNING -  * Debugger is active!
+2025-04-12 12:58:05,165 - werkzeug - INFO -  * Debugger PIN: 132-009-105
+2025-04-12 12:58:37,825 - werkzeug - INFO -  * Detected change in 'C:\\Users\\Dhana\\Desktop\\newssense\\market_analyzer\\app.py', reloading
+2025-04-12 12:58:38,084 - werkzeug - INFO -  * Restarting with stat
+2025-04-12 13:03:20,345 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 13:03:20,349 - NewsSenseAPI - INFO - NewsSense API initialized successfully
+2025-04-12 13:03:20,352 - NewsSenseAPI - INFO - Starting NewsSense API on port 5000
+2025-04-12 13:03:20,420 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.152.6.154:5000
+2025-04-12 13:03:20,420 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-12 13:03:20,427 - werkzeug - INFO -  * Restarting with stat
+2025-04-12 13:03:23,421 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 13:03:23,425 - NewsSenseAPI - INFO - NewsSense API initialized successfully
+2025-04-12 13:03:23,429 - NewsSenseAPI - INFO - Starting NewsSense API on port 5000
+2025-04-12 13:03:23,461 - werkzeug - WARNING -  * Debugger is active!
+2025-04-12 13:03:23,472 - werkzeug - INFO -  * Debugger PIN: 132-009-105
+2025-04-12 13:09:48,732 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:09:48] "OPTIONS /api/query HTTP/1.1" 200 -
+2025-04-12 13:09:48,994 - NewsSenseAPI - INFO - Processing query: why apple socks are down today?
+2025-04-12 13:09:52,685 - GeminiHelper - INFO - Alpha Vantage verification for AAPL: False
+2025-04-12 13:09:52,694 - NewsSenseAPI - INFO - No specific tickers found in query, providing general market analysis
+2025-04-12 13:09:52,695 - MarketAnalyzer - INFO - Analyzing security data for ^GSPC
+2025-04-12 13:09:57,928 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_^GSPC_20250412_130957.txt
+2025-04-12 13:09:57,929 - MarketAnalyzer - INFO - Analyzing security data for ^DJI
+2025-04-12 13:09:59,470 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_^DJI_20250412_130959.txt
+2025-04-12 13:09:59,471 - MarketAnalyzer - INFO - Analyzing security data for ^IXIC
+2025-04-12 13:10:01,118 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_^IXIC_20250412_131001.txt
+2025-04-12 13:10:01,119 - MarketAnalyzer - INFO - Analyzing security data for ^RUT
+2025-04-12 13:10:02,014 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_^RUT_20250412_131002.txt
+2025-04-12 13:10:02,015 - MarketAnalyzer - INFO - Analyzing security data for ^VIX
+2025-04-12 13:10:02,894 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_^VIX_20250412_131002.txt
+2025-04-12 13:10:02,896 - MarketAnalyzer - INFO - Analyzing security data for XLK
+2025-04-12 13:10:04,737 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLK_20250412_131004.txt
+2025-04-12 13:10:04,738 - MarketAnalyzer - INFO - Analyzing security data for XLF
+2025-04-12 13:10:06,445 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLF_20250412_131006.txt
+2025-04-12 13:10:06,447 - MarketAnalyzer - INFO - Analyzing security data for XLE
+2025-04-12 13:10:08,211 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLE_20250412_131008.txt
+2025-04-12 13:10:08,212 - MarketAnalyzer - INFO - Analyzing security data for XLV
+2025-04-12 13:10:09,950 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLV_20250412_131009.txt
+2025-04-12 13:10:09,951 - MarketAnalyzer - INFO - Analyzing security data for XLI
+2025-04-12 13:10:11,879 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLI_20250412_131011.txt
+2025-04-12 13:10:11,879 - MarketAnalyzer - INFO - Analyzing security data for XLP
+2025-04-12 13:10:13,304 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLP_20250412_131013.txt
+2025-04-12 13:10:13,306 - MarketAnalyzer - INFO - Analyzing security data for XLY
+2025-04-12 13:10:14,314 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLY_20250412_131014.txt
+2025-04-12 13:10:14,315 - NewsCollector - INFO - Scraping news for SPY from multiple sources...
+2025-04-12 13:10:14,422 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/spy
+2025-04-12 13:10:14,446 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/spy-news
+2025-04-12 13:10:14,451 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=spy
+2025-04-12 13:10:14,455 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/SPY
+2025-04-12 13:10:14,469 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/SPY/news
+2025-04-12 13:10:14,482 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/spy
+2025-04-12 13:10:14,528 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/SPY/news
+2025-04-12 13:10:14,534 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/SPY/news
+2025-04-12 13:10:14,548 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=SPY
+2025-04-12 13:10:14,582 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/SPY:US
+2025-04-12 13:10:14,587 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/SPY.O
+2025-04-12 13:10:14,594 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/spy
+2025-04-12 13:10:16,304 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 13:10:16,356 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 13:10:18,615 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 13:10:19,514 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 13:10:19,890 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 13:10:20,562 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 13:10:20,570 - NewsCollector - INFO - News saved to data/scraped_news\SPY_news_20250412_131020.json
+2025-04-12 13:10:20,571 - NewsCollector - INFO - Total articles found for SPY: 10
+2025-04-12 13:10:20,571 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 13:10:20,743 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 13:10:20,747 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 13:10:20,776 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 13:10:20,777 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 13:10:20,808 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 13:10:20,832 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 13:10:20,849 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 13:10:20,868 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 13:10:20,874 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 13:10:22,135 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 13:10:22,539 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 13:10:22,544 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 13:10:22,658 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 13:10:24,833 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 13:10:26,895 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 13:10:28,527 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 13:10:29,657 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 13:10:29,670 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_131029.json
+2025-04-12 13:10:29,671 - NewsCollector - INFO - Total articles found for QQQ: 10
+2025-04-12 13:10:29,674 - MarketAnalyzer - INFO - Analyzing impact of 11 news items
+2025-04-12 13:10:36,033 - GeminiHelper - INFO - Generated market analysis for query: why apple socks are down today?
+2025-04-12 13:10:36,037 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:10:36] "POST /api/query HTTP/1.1" 200 -
+2025-04-12 13:12:30,948 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:12:30] "OPTIONS /api/query HTTP/1.1" 200 -
+2025-04-12 13:12:31,211 - NewsSenseAPI - INFO - Processing query: why apple socks are down today?
+2025-04-12 13:12:34,688 - NewsSenseAPI - INFO - No specific tickers found in query, providing general market analysis
+2025-04-12 13:12:34,689 - MarketAnalyzer - INFO - Using cached security data for ^GSPC
+2025-04-12 13:12:34,690 - MarketAnalyzer - INFO - Using cached security data for ^DJI
+2025-04-12 13:12:34,691 - MarketAnalyzer - INFO - Using cached security data for ^IXIC
+2025-04-12 13:12:34,692 - MarketAnalyzer - INFO - Using cached security data for ^RUT
+2025-04-12 13:12:34,693 - MarketAnalyzer - INFO - Using cached security data for ^VIX
+2025-04-12 13:12:34,694 - MarketAnalyzer - INFO - Using cached security data for XLK
+2025-04-12 13:12:34,694 - MarketAnalyzer - INFO - Using cached security data for XLF
+2025-04-12 13:12:34,695 - MarketAnalyzer - INFO - Using cached security data for XLE
+2025-04-12 13:12:34,697 - MarketAnalyzer - INFO - Using cached security data for XLV
+2025-04-12 13:12:34,697 - MarketAnalyzer - INFO - Using cached security data for XLI
+2025-04-12 13:12:34,698 - MarketAnalyzer - INFO - Using cached security data for XLP
+2025-04-12 13:12:34,699 - MarketAnalyzer - INFO - Using cached security data for XLY
+2025-04-12 13:12:34,701 - NewsCollector - INFO - Using cached news for SPY
+2025-04-12 13:12:34,701 - NewsCollector - INFO - Using cached news for QQQ
+2025-04-12 13:12:34,702 - MarketAnalyzer - INFO - Analyzing impact of 11 news items
+2025-04-12 13:12:42,013 - GeminiHelper - INFO - Generated market analysis for query: why apple socks are down today?
+2025-04-12 13:12:42,020 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:12:42] "POST /api/query HTTP/1.1" 200 -
+2025-04-12 13:12:51,442 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:12:51] "OPTIONS /api/query HTTP/1.1" 200 -
+2025-04-12 13:12:51,830 - NewsSenseAPI - INFO - Processing query: why apple socks are down today?
+2025-04-12 13:12:54,256 - NewsSenseAPI - INFO - No specific tickers found in query, providing general market analysis
+2025-04-12 13:12:54,257 - MarketAnalyzer - INFO - Using cached security data for ^GSPC
+2025-04-12 13:12:54,258 - MarketAnalyzer - INFO - Using cached security data for ^DJI
+2025-04-12 13:12:54,258 - MarketAnalyzer - INFO - Using cached security data for ^IXIC
+2025-04-12 13:12:54,259 - MarketAnalyzer - INFO - Using cached security data for ^RUT
+2025-04-12 13:12:54,260 - MarketAnalyzer - INFO - Using cached security data for ^VIX
+2025-04-12 13:12:54,260 - MarketAnalyzer - INFO - Using cached security data for XLK
+2025-04-12 13:12:54,261 - MarketAnalyzer - INFO - Using cached security data for XLF
+2025-04-12 13:12:54,262 - MarketAnalyzer - INFO - Using cached security data for XLE
+2025-04-12 13:12:54,262 - MarketAnalyzer - INFO - Using cached security data for XLV
+2025-04-12 13:12:54,263 - MarketAnalyzer - INFO - Using cached security data for XLI
+2025-04-12 13:12:54,264 - MarketAnalyzer - INFO - Using cached security data for XLP
+2025-04-12 13:12:54,264 - MarketAnalyzer - INFO - Using cached security data for XLY
+2025-04-12 13:12:54,265 - NewsCollector - INFO - Using cached news for SPY
+2025-04-12 13:12:54,266 - NewsCollector - INFO - Using cached news for QQQ
+2025-04-12 13:12:54,268 - MarketAnalyzer - INFO - Analyzing impact of 11 news items
+2025-04-12 13:12:57,459 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:12:57] "OPTIONS /api/query HTTP/1.1" 200 -
+2025-04-12 13:12:57,773 - NewsSenseAPI - INFO - Processing query: why apple socks are down today?
+2025-04-12 13:13:00,903 - NewsSenseAPI - INFO - No specific tickers found in query, providing general market analysis
+2025-04-12 13:13:00,904 - MarketAnalyzer - INFO - Using cached security data for ^GSPC
+2025-04-12 13:13:00,904 - MarketAnalyzer - INFO - Using cached security data for ^DJI
+2025-04-12 13:13:00,905 - MarketAnalyzer - INFO - Using cached security data for ^IXIC
+2025-04-12 13:13:00,905 - MarketAnalyzer - INFO - Using cached security data for ^RUT
+2025-04-12 13:13:00,905 - MarketAnalyzer - INFO - Using cached security data for ^VIX
+2025-04-12 13:13:00,907 - MarketAnalyzer - INFO - Using cached security data for XLK
+2025-04-12 13:13:00,908 - MarketAnalyzer - INFO - Using cached security data for XLF
+2025-04-12 13:13:00,908 - MarketAnalyzer - INFO - Using cached security data for XLE
+2025-04-12 13:13:00,908 - MarketAnalyzer - INFO - Using cached security data for XLV
+2025-04-12 13:13:00,909 - MarketAnalyzer - INFO - Using cached security data for XLI
+2025-04-12 13:13:00,909 - MarketAnalyzer - INFO - Using cached security data for XLP
+2025-04-12 13:13:00,910 - MarketAnalyzer - INFO - Using cached security data for XLY
+2025-04-12 13:13:00,910 - NewsCollector - INFO - Using cached news for SPY
+2025-04-12 13:13:00,911 - NewsCollector - INFO - Using cached news for QQQ
+2025-04-12 13:13:00,911 - MarketAnalyzer - INFO - Analyzing impact of 11 news items
+2025-04-12 13:13:01,793 - GeminiHelper - INFO - Generated market analysis for query: why apple socks are down today?
+2025-04-12 13:13:01,798 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:13:01] "POST /api/query HTTP/1.1" 200 -
+2025-04-12 13:13:08,486 - GeminiHelper - INFO - Generated market analysis for query: why apple socks are down today?
+2025-04-12 13:13:08,492 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:13:08] "POST /api/query HTTP/1.1" 200 -
+2025-04-12 13:13:21,768 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:13:21] "OPTIONS /api/query HTTP/1.1" 200 -
+2025-04-12 13:13:22,018 - NewsSenseAPI - INFO - Processing query: why apple socks are down today?
+2025-04-12 13:13:24,354 - NewsSenseAPI - INFO - No specific tickers found in query, providing general market analysis
+2025-04-12 13:13:24,354 - MarketAnalyzer - INFO - Using cached security data for ^GSPC
+2025-04-12 13:13:24,355 - MarketAnalyzer - INFO - Using cached security data for ^DJI
+2025-04-12 13:13:24,356 - MarketAnalyzer - INFO - Using cached security data for ^IXIC
+2025-04-12 13:13:24,356 - MarketAnalyzer - INFO - Using cached security data for ^RUT
+2025-04-12 13:13:24,357 - MarketAnalyzer - INFO - Using cached security data for ^VIX
+2025-04-12 13:13:24,357 - MarketAnalyzer - INFO - Using cached security data for XLK
+2025-04-12 13:13:24,358 - MarketAnalyzer - INFO - Using cached security data for XLF
+2025-04-12 13:13:24,359 - MarketAnalyzer - INFO - Using cached security data for XLE
+2025-04-12 13:13:24,359 - MarketAnalyzer - INFO - Using cached security data for XLV
+2025-04-12 13:13:24,360 - MarketAnalyzer - INFO - Using cached security data for XLI
+2025-04-12 13:13:24,360 - MarketAnalyzer - INFO - Using cached security data for XLP
+2025-04-12 13:13:24,361 - MarketAnalyzer - INFO - Using cached security data for XLY
+2025-04-12 13:13:24,361 - NewsCollector - INFO - Using cached news for SPY
+2025-04-12 13:13:24,362 - NewsCollector - INFO - Using cached news for QQQ
+2025-04-12 13:13:24,362 - MarketAnalyzer - INFO - Analyzing impact of 11 news items
+2025-04-12 13:13:31,299 - GeminiHelper - INFO - Generated market analysis for query: why apple socks are down today?
+2025-04-12 13:13:31,305 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:13:31] "POST /api/query HTTP/1.1" 200 -
+2025-04-12 13:13:45,405 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:13:45] "OPTIONS /api/query HTTP/1.1" 200 -
+2025-04-12 13:13:45,726 - NewsSenseAPI - INFO - Processing query: why apple socks are down today?
+2025-04-12 13:13:48,331 - NewsSenseAPI - INFO - No specific tickers found in query, providing general market analysis
+2025-04-12 13:13:48,333 - MarketAnalyzer - INFO - Using cached security data for ^GSPC
+2025-04-12 13:13:48,334 - MarketAnalyzer - INFO - Using cached security data for ^DJI
+2025-04-12 13:13:48,335 - MarketAnalyzer - INFO - Using cached security data for ^IXIC
+2025-04-12 13:13:48,336 - MarketAnalyzer - INFO - Using cached security data for ^RUT
+2025-04-12 13:13:48,337 - MarketAnalyzer - INFO - Using cached security data for ^VIX
+2025-04-12 13:13:48,337 - MarketAnalyzer - INFO - Using cached security data for XLK
+2025-04-12 13:13:48,339 - MarketAnalyzer - INFO - Using cached security data for XLF
+2025-04-12 13:13:48,340 - MarketAnalyzer - INFO - Using cached security data for XLE
+2025-04-12 13:13:48,341 - MarketAnalyzer - INFO - Using cached security data for XLV
+2025-04-12 13:13:48,342 - MarketAnalyzer - INFO - Using cached security data for XLI
+2025-04-12 13:13:48,342 - MarketAnalyzer - INFO - Using cached security data for XLP
+2025-04-12 13:13:48,343 - MarketAnalyzer - INFO - Using cached security data for XLY
+2025-04-12 13:13:48,343 - NewsCollector - INFO - Using cached news for SPY
+2025-04-12 13:13:48,344 - NewsCollector - INFO - Using cached news for QQQ
+2025-04-12 13:13:48,344 - MarketAnalyzer - INFO - Analyzing impact of 11 news items
+2025-04-12 13:13:55,688 - GeminiHelper - INFO - Generated market analysis for query: why apple socks are down today?
+2025-04-12 13:13:55,693 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:13:55] "POST /api/query HTTP/1.1" 200 -
+2025-04-12 13:16:50,791 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:16:50] "OPTIONS /api/query HTTP/1.1" 200 -
+2025-04-12 13:16:51,083 - NewsSenseAPI - INFO - Processing query: why apple socks are down today?
+2025-04-12 13:16:53,768 - NewsSenseAPI - INFO - No specific tickers found in query, providing general market analysis
+2025-04-12 13:16:53,769 - MarketAnalyzer - INFO - Using cached security data for ^GSPC
+2025-04-12 13:16:53,797 - MarketAnalyzer - INFO - Using cached security data for ^DJI
+2025-04-12 13:16:53,813 - MarketAnalyzer - INFO - Using cached security data for ^IXIC
+2025-04-12 13:16:53,882 - MarketAnalyzer - INFO - Using cached security data for ^RUT
+2025-04-12 13:16:53,930 - MarketAnalyzer - INFO - Using cached security data for ^VIX
+2025-04-12 13:16:53,983 - MarketAnalyzer - INFO - Using cached security data for XLK
+2025-04-12 13:16:54,018 - MarketAnalyzer - INFO - Using cached security data for XLF
+2025-04-12 13:16:54,051 - MarketAnalyzer - INFO - Using cached security data for XLE
+2025-04-12 13:16:54,102 - MarketAnalyzer - INFO - Using cached security data for XLV
+2025-04-12 13:16:54,148 - MarketAnalyzer - INFO - Using cached security data for XLI
+2025-04-12 13:16:54,180 - MarketAnalyzer - INFO - Using cached security data for XLP
+2025-04-12 13:16:54,194 - MarketAnalyzer - INFO - Using cached security data for XLY
+2025-04-12 13:16:54,199 - NewsCollector - INFO - Using cached news for SPY
+2025-04-12 13:16:54,241 - NewsCollector - INFO - Using cached news for QQQ
+2025-04-12 13:16:54,293 - MarketAnalyzer - INFO - Analyzing impact of 11 news items
+2025-04-12 13:16:56,455 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:16:56] "OPTIONS /api/query HTTP/1.1" 200 -
+2025-04-12 13:16:56,780 - NewsSenseAPI - INFO - Processing query: why apple socks are down today?
+2025-04-12 13:16:59,551 - NewsSenseAPI - INFO - No specific tickers found in query, providing general market analysis
+2025-04-12 13:16:59,553 - MarketAnalyzer - INFO - Using cached security data for ^GSPC
+2025-04-12 13:16:59,553 - MarketAnalyzer - INFO - Using cached security data for ^DJI
+2025-04-12 13:16:59,554 - MarketAnalyzer - INFO - Using cached security data for ^IXIC
+2025-04-12 13:16:59,557 - MarketAnalyzer - INFO - Using cached security data for ^RUT
+2025-04-12 13:16:59,557 - MarketAnalyzer - INFO - Using cached security data for ^VIX
+2025-04-12 13:16:59,558 - MarketAnalyzer - INFO - Using cached security data for XLK
+2025-04-12 13:16:59,560 - MarketAnalyzer - INFO - Using cached security data for XLF
+2025-04-12 13:16:59,561 - MarketAnalyzer - INFO - Using cached security data for XLE
+2025-04-12 13:16:59,562 - MarketAnalyzer - INFO - Using cached security data for XLV
+2025-04-12 13:16:59,562 - MarketAnalyzer - INFO - Using cached security data for XLI
+2025-04-12 13:16:59,563 - MarketAnalyzer - INFO - Using cached security data for XLP
+2025-04-12 13:16:59,563 - MarketAnalyzer - INFO - Using cached security data for XLY
+2025-04-12 13:16:59,565 - NewsCollector - INFO - Using cached news for SPY
+2025-04-12 13:16:59,565 - NewsCollector - INFO - Using cached news for QQQ
+2025-04-12 13:16:59,567 - MarketAnalyzer - INFO - Analyzing impact of 11 news items
+2025-04-12 13:17:02,242 - GeminiHelper - INFO - Generated market analysis for query: why apple socks are down today?
+2025-04-12 13:17:02,246 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:17:02] "POST /api/query HTTP/1.1" 200 -
+2025-04-12 13:17:07,183 - GeminiHelper - INFO - Generated market analysis for query: why apple socks are down today?
+2025-04-12 13:17:07,189 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:17:07] "POST /api/query HTTP/1.1" 200 -
+2025-04-12 13:17:21,774 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:17:21] "OPTIONS /api/query HTTP/1.1" 200 -
+2025-04-12 13:17:22,030 - NewsSenseAPI - INFO - Processing query: why apple socks are down today?
+2025-04-12 13:17:25,317 - NewsSenseAPI - INFO - No specific tickers found in query, providing general market analysis
+2025-04-12 13:17:25,318 - MarketAnalyzer - INFO - Using cached security data for ^GSPC
+2025-04-12 13:17:25,319 - MarketAnalyzer - INFO - Using cached security data for ^DJI
+2025-04-12 13:17:25,320 - MarketAnalyzer - INFO - Using cached security data for ^IXIC
+2025-04-12 13:17:25,321 - MarketAnalyzer - INFO - Using cached security data for ^RUT
+2025-04-12 13:17:25,322 - MarketAnalyzer - INFO - Using cached security data for ^VIX
+2025-04-12 13:17:25,324 - MarketAnalyzer - INFO - Using cached security data for XLK
+2025-04-12 13:17:25,326 - MarketAnalyzer - INFO - Using cached security data for XLF
+2025-04-12 13:17:25,327 - MarketAnalyzer - INFO - Using cached security data for XLE
+2025-04-12 13:17:25,328 - MarketAnalyzer - INFO - Using cached security data for XLV
+2025-04-12 13:17:25,329 - MarketAnalyzer - INFO - Using cached security data for XLI
+2025-04-12 13:17:25,330 - MarketAnalyzer - INFO - Using cached security data for XLP
+2025-04-12 13:17:25,331 - MarketAnalyzer - INFO - Using cached security data for XLY
+2025-04-12 13:17:25,331 - NewsCollector - INFO - Using cached news for SPY
+2025-04-12 13:17:25,332 - NewsCollector - INFO - Using cached news for QQQ
+2025-04-12 13:17:25,333 - MarketAnalyzer - INFO - Analyzing impact of 11 news items
+2025-04-12 13:17:32,778 - GeminiHelper - INFO - Generated market analysis for query: why apple socks are down today?
+2025-04-12 13:17:32,781 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:17:32] "POST /api/query HTTP/1.1" 200 -
+2025-04-12 13:17:46,452 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:17:46] "OPTIONS /api/query HTTP/1.1" 200 -
+2025-04-12 13:17:46,777 - NewsSenseAPI - INFO - Processing query: why apple socks are down today?
+2025-04-12 13:17:49,884 - NewsSenseAPI - INFO - No specific tickers found in query, providing general market analysis
+2025-04-12 13:17:49,885 - MarketAnalyzer - INFO - Using cached security data for ^GSPC
+2025-04-12 13:17:49,885 - MarketAnalyzer - INFO - Using cached security data for ^DJI
+2025-04-12 13:17:49,886 - MarketAnalyzer - INFO - Using cached security data for ^IXIC
+2025-04-12 13:17:49,886 - MarketAnalyzer - INFO - Using cached security data for ^RUT
+2025-04-12 13:17:49,888 - MarketAnalyzer - INFO - Using cached security data for ^VIX
+2025-04-12 13:17:49,888 - MarketAnalyzer - INFO - Using cached security data for XLK
+2025-04-12 13:17:49,889 - MarketAnalyzer - INFO - Using cached security data for XLF
+2025-04-12 13:17:49,890 - MarketAnalyzer - INFO - Using cached security data for XLE
+2025-04-12 13:17:49,890 - MarketAnalyzer - INFO - Using cached security data for XLV
+2025-04-12 13:17:49,891 - MarketAnalyzer - INFO - Using cached security data for XLI
+2025-04-12 13:17:49,892 - MarketAnalyzer - INFO - Using cached security data for XLP
+2025-04-12 13:17:49,892 - MarketAnalyzer - INFO - Using cached security data for XLY
+2025-04-12 13:17:49,893 - NewsCollector - INFO - Using cached news for SPY
+2025-04-12 13:17:49,894 - NewsCollector - INFO - Using cached news for QQQ
+2025-04-12 13:17:49,894 - MarketAnalyzer - INFO - Analyzing impact of 11 news items
+2025-04-12 13:17:56,229 - GeminiHelper - INFO - Generated market analysis for query: why apple socks are down today?
+2025-04-12 13:17:56,235 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:17:56] "POST /api/query HTTP/1.1" 200 -
+2025-04-12 13:18:17,677 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:18:17] "OPTIONS /api/query HTTP/1.1" 200 -
+2025-04-12 13:18:17,985 - NewsSenseAPI - INFO - Processing query: why apple stocks down today?
+2025-04-12 13:18:21,970 - NewsSenseAPI - INFO - Analyzing ticker: AAPL
+2025-04-12 13:18:21,971 - MarketAnalyzer - INFO - Analyzing security data for AAPL
+2025-04-12 13:18:29,131 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_AAPL_20250412_131829.txt
+2025-04-12 13:18:29,132 - NewsCollector - INFO - Scraping news for AAPL from multiple sources...
+2025-04-12 13:18:29,237 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/aapl
+2025-04-12 13:18:29,242 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/AAPL/news
+2025-04-12 13:18:29,261 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/AAPL/news
+2025-04-12 13:18:29,271 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=aapl
+2025-04-12 13:18:29,291 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/aapl-news
+2025-04-12 13:18:29,298 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/AAPL.O
+2025-04-12 13:18:29,322 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=AAPL
+2025-04-12 13:18:29,334 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/aapl
+2025-04-12 13:18:29,336 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/aapl
+2025-04-12 13:18:29,355 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/AAPL
+2025-04-12 13:18:29,368 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/AAPL:US
+2025-04-12 13:18:29,389 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/AAPL/news
+2025-04-12 13:18:31,019 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 13:18:31,085 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 13:18:34,039 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 13:18:34,911 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 13:18:36,070 - NewsCollector - INFO - News saved to data/scraped_news\AAPL_news_20250412_131836.json
+2025-04-12 13:18:36,071 - NewsCollector - INFO - Total articles found for AAPL: 10
+2025-04-12 13:18:36,072 - MarketAnalyzer - INFO - Analyzing impact of 10 news items
+2025-04-12 13:18:36,079 - MarketAnalyzer - INFO - Generating explanation for AAPL
+2025-04-12 13:18:43,538 - GeminiHelper - INFO - Generated market analysis for query: why apple stocks down today?
+2025-04-12 13:18:43,544 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:18:43] "POST /api/query HTTP/1.1" 200 -
+2025-04-12 13:20:10,012 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:20:10] "OPTIONS /api/query HTTP/1.1" 200 -
+2025-04-12 13:20:10,364 - NewsSenseAPI - INFO - Processing query: why apple stocks down today?
+2025-04-12 13:20:14,890 - NewsSenseAPI - INFO - Analyzing ticker: AAPL
+2025-04-12 13:20:14,890 - MarketAnalyzer - INFO - Using cached security data for AAPL
+2025-04-12 13:20:14,891 - NewsCollector - INFO - Using cached news for AAPL
+2025-04-12 13:20:14,891 - MarketAnalyzer - INFO - Analyzing impact of 10 news items
+2025-04-12 13:20:14,898 - MarketAnalyzer - INFO - Generating explanation for AAPL
+2025-04-12 13:20:23,066 - GeminiHelper - INFO - Generated market analysis for query: why apple stocks down today?
+2025-04-12 13:20:23,069 - werkzeug - INFO - 127.0.0.1 - - [12/Apr/2025 13:20:23] "POST /api/query HTTP/1.1" 200 -

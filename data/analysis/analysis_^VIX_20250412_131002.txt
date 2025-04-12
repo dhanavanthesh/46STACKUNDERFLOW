@@ -1,0 +1,30 @@
+=== Market Analysis for ^VIX ===
+Analysis Date: 2025-04-12 13:10:02
+
+Company Information:
+Name: CBOE Volatility Index
+Sector: Unknown
+Industry: Unknown
+Website: Unknown
+
+Price Information:
+Current Price: $37.54999923706055
+Change: -3.25
+Change %: -7.9656864234641285%
+Day Range: $36.849998474121094 - $46.119998931884766
+
+Volume Information:
+Current Volume: 0
+Average Volume: 0.0
+Volume Change: nan%
+
+Key Factors Affecting Price:
+
+Market Context:
+- S&P 500: 2.0511573169300705%
+- Dow Jones: 1.8212882762517018%
+- NASDAQ: 2.236940959523041%
+- Russell 2000: 1.7804141023848814%
+- VIX: -7.941171383225148%
+- Nifty 50: 0.5866844749740643%
+- Sensex: 0.4299639323461889%

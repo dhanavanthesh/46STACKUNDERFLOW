@@ -1,0 +1,30 @@
+=== Market Analysis for ^GSPC ===
+Analysis Date: 2025-04-12 13:09:57
+
+Company Information:
+Name: S&P 500
+Sector: Unknown
+Industry: Unknown
+Website: Unknown
+
+Price Information:
+Current Price: $5361.2001953125
+Change: 105.64013671875
+Change %: 2.010064304107991%
+Day Range: $5220.77001953125 - $5381.4599609375
+
+Volume Information:
+Current Volume: 3079946396
+Average Volume: 39486492.256410256
+Volume Change: 7700.0%
+
+Key Factors Affecting Price:
+
+Market Context:
+- S&P 500: 2.0511573169300705%
+- Dow Jones: 1.8212882762517018%
+- NASDAQ: 2.236940959523041%
+- Russell 2000: 1.7804141023848814%
+- VIX: -7.941171383225148%
+- Nifty 50: 0.5866844749740643%
+- Sensex: 0.4299639323461889%

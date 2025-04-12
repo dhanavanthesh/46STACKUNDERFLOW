@@ -1,0 +1,30 @@
+=== Market Analysis for ^RUT ===
+Analysis Date: 2025-04-12 13:10:02
+
+Company Information:
+Name: Russell 2000
+Sector: Unknown
+Industry: Unknown
+Website: Unknown
+
+Price Information:
+Current Price: $1859.3203125
+Change: 31.660888671875
+Change %: 1.7323188477621103%
+Day Range: $1802.234375 - $1860.8470458984375
+
+Volume Information:
+Current Volume: 0
+Average Volume: 0.0
+Volume Change: nan%
+
+Key Factors Affecting Price:
+
+Market Context:
+- S&P 500: 2.0511573169300705%
+- Dow Jones: 1.8212882762517018%
+- NASDAQ: 2.236940959523041%
+- Russell 2000: 1.7804141023848814%
+- VIX: -7.941171383225148%
+- Nifty 50: 0.5866844749740643%
+- Sensex: 0.4299639323461889%
