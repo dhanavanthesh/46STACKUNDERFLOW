@@ -20,7 +20,7 @@ A financial market explanation system that connects real-world news and events t
 
 
 ## 🔍 Overview
-### Workflow
+###  📑Workflow
 [news-sense-workflow.pdf](https://github.com/user-attachments/files/19717668/news-sense-workflow.pdf)
 
 
