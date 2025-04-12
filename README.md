@@ -11,6 +11,10 @@ NewsSense is an AI-powered financial news analysis system that explains market m
 - **Natural Language Querying**: Answer questions about market movements in plain English
 - **Comprehensive Explanations**: Generates detailed explanations for price movements
 
+  ### WORKFLOW :
+[news-sense-workflow.pdf](https://github.com/user-attachments/files/19717668/news-sense-workflow.pdf)
+
+
 ## Installation
 
 ### Prerequisites
@@ -133,6 +137,4 @@ NewsSense is for educational and informational purposes only. It does not provid
 
 ![WhatsApp Image 2025-04-12 at 09 20 43_8fcbe462](https://github.com/user-attachments/assets/7c58d6d0-5e29-4cce-8651-e28fcdf06151)
 
-### WORKFLOW :
-[news-sense-workflow.pdf](https://github.com/user-attachments/files/19717668/news-sense-workflow.pdf)
 
