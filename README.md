@@ -1,4 +1,4 @@
-# NewsSense - "Why Is My Nifty Down?"
+# NewsSense - CLI Based Scraped News,Market Insight.
 
 ![NewsSense](https://img.shields.io/badge/NewsSense-1.0.0-blue)
 ![Python](https://img.shields.io/badge/Python-3.8%2B-brightgreen)
