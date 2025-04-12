@@ -664,7 +664,715 @@ class NewsSenseCLI:
 
 
 
+    # def visualize_price_news_correlation(self, ticker, security_data, news_items):
+    #     """Create a matplotlib visualization window for price-news correlation"""
+    #     try:
+    #         # Check if matplotlib is available
+    #         import matplotlib
+    #         import matplotlib.pyplot as plt
+    #         import matplotlib.dates as mdates
+    #         import numpy as np
+    #         from datetime import datetime
+            
+    #         print(f"{self.colors['info']}Creating visualization for price-news correlation...{Style.RESET_ALL}")
+            
+    #         # Calculate correlation using market analyzer
+    #         correlation_result = self.market_analyzer.compute_price_news_correlation(security_data, news_items)
+            
+    #         if 'error' in correlation_result and correlation_result['error']:
+    #             print(f"{self.colors['error']}Error: {correlation_result['error']}{Style.RESET_ALL}")
+    #             return
+            
+    #         correlation_data = correlation_result.get('data', [])
+    #         correlation_coef = correlation_result.get('correlation_coefficient')
+    #         days_analyzed = correlation_result.get('days_analyzed', 0)
+            
+    #         if not correlation_data or len(correlation_data) < 2:
+    #             print(f"{self.colors['warning']}Insufficient data to visualize price-news correlation.{Style.RESET_ALL}")
+    #             return
+                
+    #         # Prepare data for plotting
+    #         dates = [datetime.strptime(item['date'], '%Y-%m-%d') for item in correlation_data]
+    #         prices = [item['price'] for item in correlation_data]
+    #         neg_news = [item['negative_news'] for item in correlation_data]
+            
+    #         # Create figure with two y-axes
+    #         plt.style.use('ggplot')  # Use a nice style
+    #         fig, ax1 = plt.subplots(figsize=(12, 8))
+    #         fig.patch.set_facecolor('#f5f5f5')
+            
+    #         # Format title with correlation info
+    #         if correlation_coef is not None:
+    #             abs_corr = abs(correlation_coef)
+    #             if abs_corr > 0.7:
+    #                 strength = "Strong"
+    #             elif abs_corr > 0.4:
+    #                 strength = "Moderate"
+    #             elif abs_corr > 0.2:
+    #                 strength = "Weak"
+    #             else:
+    #                 strength = "No clear"
+                
+    #             corr_type = "negative" if correlation_coef < 0 else "positive"
+    #             title = f"Price vs. Negative News Correlation for {ticker}\n"
+    #             title += f"Correlation: {correlation_coef:.2f} ({strength} {corr_type})"
+    #             plt.suptitle(title, fontsize=16, fontweight='bold')
+    #         else:
+    #             plt.suptitle(f"Price vs. Negative News for {ticker}", fontsize=16, fontweight='bold')
+            
+    #         # Plot price line
+    #         ax1.set_xlabel('Date', fontsize=12)
+    #         ax1.set_ylabel('Price ($)', color='#3366cc', fontsize=12)
+    #         line1 = ax1.plot(dates, prices, 'o-', color='#3366cc', linewidth=2.5, label='Price', markersize=8)
+    #         ax1.tick_params(axis='y', labelcolor='#3366cc')
+            
+    #         # Format date axis
+    #         ax1.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+    #         plt.xticks(rotation=45)
+            
+    #         # Create second y-axis for negative news
+    #         ax2 = ax1.twinx()
+    #         ax2.set_ylabel('Negative News Count', color='#cc3333', fontsize=12)
+    #         bar_width = 0.4
+    #         bars = ax2.bar(dates, neg_news, alpha=0.7, color='#cc3333', width=bar_width, label='Negative News')
+    #         ax2.tick_params(axis='y', labelcolor='#cc3333')
+            
+    #         # Add grid
+    #         ax1.grid(True, linestyle='--', alpha=0.6)
+            
+    #         # Add legend with both datasets
+    #         lines1, labels1 = ax1.get_legend_handles_labels()
+    #         lines2, labels2 = ax2.get_legend_handles_labels()
+    #         ax1.legend(lines1 + lines2, labels1 + labels2, loc='upper left', frameon=True, framealpha=0.9)
+            
+    #         # Add correlation visualization - highlight relationships with arrows
+    #         if correlation_coef:
+    #             for i, (date, price, news) in enumerate(zip(dates, prices, neg_news)):
+    #                 if news > np.mean(neg_news):  # Only annotate days with above-average negative news
+    #                     # Place arrows showing relationship between news and price
+    #                     arrow_symbol = '↓' if correlation_coef < 0 else '↑'
+    #                     arrow_color = '#cc3333' if correlation_coef < 0 else '#33cc33'
+    #                     ax1.annotate(f'{arrow_symbol}', 
+    #                                 xy=(date, price),
+    #                                 xytext=(0, 10 if correlation_coef > 0 else -15),
+    #                                 textcoords='offset points',
+    #                                 fontsize=15,
+    #                                 color=arrow_color,
+    #                                 ha='center',
+    #                                 weight='bold')
+            
+    #         # Add insight text based on correlation
+    #         if correlation_coef is not None:
+    #             insight_text = ""
+    #             if correlation_coef < -0.2:
+    #                 insight_text = "Insight: Increased negative news tends to correspond with price declines."
+    #                 insight_color = '#cc3333'
+    #             elif correlation_coef > 0.2:
+    #                 insight_text = "Insight: Prices have moved in the same direction as negative news, which is unusual."
+    #                 insight_color = '#e68a00'  # Orange
+    #             else:
+    #                 insight_text = "Insight: No clear relationship between price and negative news in this period."
+    #                 insight_color = '#808080'  # Gray
+                    
+    #             plt.figtext(0.5, 0.01, insight_text, ha='center', fontsize=13, 
+    #                     bbox=dict(facecolor='#f9f9f9', edgecolor=insight_color, alpha=0.8, 
+    #                             boxstyle='round,pad=0.5', linewidth=2))
+            
+    #         # Add statistical significance note if correlation is strong
+    #         if correlation_coef and abs(correlation_coef) > 0.4:
+    #             if correlation_coef < 0:
+    #                 sig_text = "This security is particularly sensitive to negative news sentiment."
+    #                 sig_color = '#cc3333'  # Red for negative correlation
+    #             else:
+    #                 sig_text = "This security is showing unusual resilience to negative news."
+    #                 sig_color = '#e68a00'  # Orange for positive correlation
+                    
+    #             plt.figtext(0.5, 0.04, sig_text, ha='center', fontsize=12, style='italic',
+    #                     bbox=dict(facecolor='#f9f9f9', edgecolor=sig_color, alpha=0.6, 
+    #                             boxstyle='round,pad=0.3', linewidth=1))
+            
+    #         # Add a footer with the data source
+    #         plt.figtext(0.01, 0.01, "Data source: NewsSense Analysis", fontsize=8, color='#666666')
+            
+    #         # Adjust layout and display
+    #         plt.tight_layout()
+    #         plt.subplots_adjust(top=0.9, bottom=0.15)
+            
+    #         # Show plot in a non-blocking way so CLI can continue
+    #         plt.show(block=False)
+            
+    #         print(f"{self.colors['success']}Visualization window opened for {ticker} price-news correlation.{Style.RESET_ALL}")
+    #         print(f"{self.colors['info']}Close the window to continue with CLI.{Style.RESET_ALL}")
+            
+    #         return True
+            
+    #     except ImportError as e:
+    #         print(f"{self.colors['error']}Error: Matplotlib is required for visualization.{Style.RESET_ALL}")
+    #         print(f"{self.colors['info']}Install matplotlib with: pip install matplotlib{Style.RESET_ALL}")
+    #         return False
+    #     except Exception as e:
+    #         print(f"{self.colors['error']}Error creating visualization: {str(e)}{Style.RESET_ALL}")
+    #         return False
+        
+ 
+        def visualize_price_news_correlation(self, ticker, security_data, news_items):
+            """Create a matplotlib visualization window for price-news correlation"""
+            try:
+                # Make sure we have the required packages
+                try:
+                    import matplotlib
+                    import matplotlib.pyplot as plt
+                    import matplotlib.dates as mdates
+                    import numpy as np
+                    from datetime import datetime
+                except ImportError as e:
+                    print(f"{self.colors['error']}Error importing visualization libraries: {str(e)}{Style.RESET_ALL}")
+                    print(f"{self.colors['info']}Install matplotlib with: pip install matplotlib numpy{Style.RESET_ALL}")
+                    return False
+                
+                print(f"{self.colors['info']}Creating visualization for price-news correlation...{Style.RESET_ALL}")
+                
+                # Calculate correlation using market analyzer
+                correlation_result = self.market_analyzer.compute_price_news_correlation(security_data, news_items)
+                
+                if 'error' in correlation_result and correlation_result['error']:
+                    print(f"{self.colors['error']}Error: {correlation_result['error']}{Style.RESET_ALL}")
+                    return False
+                
+                correlation_data = correlation_result.get('data', [])
+                correlation_coef = correlation_result.get('correlation_coefficient')
+                days_analyzed = correlation_result.get('days_analyzed', 0)
+                
+                if not correlation_data or len(correlation_data) < 2:
+                    print(f"{self.colors['warning']}Insufficient data to visualize price-news correlation.{Style.RESET_ALL}")
+                    return False
+                    
+                # Prepare data for plotting
+                try:
+                    dates = [datetime.strptime(item['date'], '%Y-%m-%d') for item in correlation_data]
+                    prices = [float(item['price']) for item in correlation_data]
+                    neg_news = [int(item['negative_news']) for item in correlation_data]
+                except Exception as e:
+                    print(f"{self.colors['error']}Error processing data for visualization: {str(e)}{Style.RESET_ALL}")
+                    return False
+                
+                # Configure matplotlib to use a GUI backend that works without blocking
+                # This helps ensure the visualization works in various environments
+                try:
+                    matplotlib.use('TkAgg', force=True)  # Use TkAgg as it's widely available
+                except:
+                    # If TkAgg fails, try other backends
+                    for backend in ['Qt5Agg', 'MacOSX', 'GTK3Agg', 'Agg']:
+                        try:
+                            matplotlib.use(backend, force=True)
+                            break
+                        except:
+                            continue
+                
+                # Create figure with two y-axes
+                plt.style.use('ggplot')  # Use a nice style
+                fig, ax1 = plt.subplots(figsize=(12, 8))
+                fig.patch.set_facecolor('#f5f5f5')
+                
+                # Format title with correlation info
+                if correlation_coef is not None:
+                    abs_corr = abs(correlation_coef)
+                    if abs_corr > 0.7:
+                        strength = "Strong"
+                    elif abs_corr > 0.4:
+                        strength = "Moderate"
+                    elif abs_corr > 0.2:
+                        strength = "Weak"
+                    else:
+                        strength = "No clear"
+                    
+                    corr_type = "negative" if correlation_coef < 0 else "positive"
+                    title = f"Price vs. Negative News Correlation for {ticker}\n"
+                    title += f"Correlation: {correlation_coef:.2f} ({strength} {corr_type})"
+                    plt.suptitle(title, fontsize=16, fontweight='bold')
+                else:
+                    plt.suptitle(f"Price vs. Negative News for {ticker}", fontsize=16, fontweight='bold')
+                
+                # Plot price line
+                ax1.set_xlabel('Date', fontsize=12)
+                ax1.set_ylabel('Price ($)', color='#3366cc', fontsize=12)
+                line1 = ax1.plot(dates, prices, 'o-', color='#3366cc', linewidth=2.5, label='Price', markersize=8)
+                ax1.tick_params(axis='y', labelcolor='#3366cc')
+                
+                # Format date axis
+                ax1.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+                plt.xticks(rotation=45)
+                
+                # Create second y-axis for negative news
+                ax2 = ax1.twinx()
+                ax2.set_ylabel('Negative News Count', color='#cc3333', fontsize=12)
+                bar_width = 0.4
+                bars = ax2.bar(dates, neg_news, alpha=0.7, color='#cc3333', width=bar_width, label='Negative News')
+                ax2.tick_params(axis='y', labelcolor='#cc3333')
+                
+                # Add grid
+                ax1.grid(True, linestyle='--', alpha=0.6)
+                
+                # Add legend with both datasets
+                lines1, labels1 = ax1.get_legend_handles_labels()
+                lines2, labels2 = ax2.get_legend_handles_labels()
+                ax1.legend(lines1 + lines2, labels1 + labels2, loc='upper left', frameon=True, framealpha=0.9)
+                
+                # Add correlation visualization - highlight relationships with arrows
+                if correlation_coef:
+                    for i, (date, price, news) in enumerate(zip(dates, prices, neg_news)):
+                        if i > 0 and news > np.mean(neg_news):  # Only annotate days with above-average negative news
+                            # Place arrows showing relationship between news and price
+                            arrow_symbol = '↓' if correlation_coef < 0 else '↑'
+                            arrow_color = '#cc3333' if correlation_coef < 0 else '#33cc33'
+                            ax1.annotate(f'{arrow_symbol}', 
+                                        xy=(date, price),
+                                        xytext=(0, 10 if correlation_coef > 0 else -15),
+                                        textcoords='offset points',
+                                        fontsize=15,
+                                        color=arrow_color,
+                                        ha='center',
+                                        weight='bold')
+                
+                # Add insight text based on correlation
+                if correlation_coef is not None:
+                    insight_text = ""
+                    if correlation_coef < -0.2:
+                        insight_text = "Insight: Increased negative news tends to correspond with price declines."
+                        insight_color = '#cc3333'
+                    elif correlation_coef > 0.2:
+                        insight_text = "Insight: Prices have moved in the same direction as negative news, which is unusual."
+                        insight_color = '#e68a00'  # Orange
+                    else:
+                        insight_text = "Insight: No clear relationship between price and negative news in this period."
+                        insight_color = '#808080'  # Gray
+                        
+                    plt.figtext(0.5, 0.01, insight_text, ha='center', fontsize=13, 
+                            bbox=dict(facecolor='#f9f9f9', edgecolor=insight_color, alpha=0.8, 
+                                    boxstyle='round,pad=0.5', linewidth=2))
+                
+                # Add statistical significance note if correlation is strong
+                if correlation_coef and abs(correlation_coef) > 0.4:
+                    if correlation_coef < 0:
+                        sig_text = "This security is particularly sensitive to negative news sentiment."
+                        sig_color = '#cc3333'  # Red for negative correlation
+                    else:
+                        sig_text = "This security is showing unusual resilience to negative news."
+                        sig_color = '#e68a00'  # Orange for positive correlation
+                        
+                    plt.figtext(0.5, 0.04, sig_text, ha='center', fontsize=12, style='italic',
+                            bbox=dict(facecolor='#f9f9f9', edgecolor=sig_color, alpha=0.6, 
+                                    boxstyle='round,pad=0.3', linewidth=1))
+                
+                # Add a footer with the data source
+                plt.figtext(0.01, 0.01, "Data source: NewsSense Analysis", fontsize=8, color='#666666')
+                
+                # Adjust layout and display
+                plt.tight_layout()
+                plt.subplots_adjust(top=0.9, bottom=0.15)
+                
+                # Show plot in a non-blocking way so CLI can continue
+                try:
+                    plt.show(block=False)
+                    print(f"{self.colors['success']}Visualization window opened for {ticker} price-news correlation.{Style.RESET_ALL}")
+                    print(f"{self.colors['info']}Close the window when finished to continue with CLI.{Style.RESET_ALL}")
+                    return True
+                except Exception as e:
+                    print(f"{self.colors['error']}Error displaying plot: {str(e)}{Style.RESET_ALL}")
+                    # Try alternative display method
+                    print(f"{self.colors['info']}Trying alternative display method...{Style.RESET_ALL}")
+                    try:
+                        plt.savefig(f"news_correlation_{ticker}.png")
+                        print(f"{self.colors['success']}Visualization saved to 'news_correlation_{ticker}.png'{Style.RESET_ALL}")
+                        return True
+                    except Exception as e:
+                        print(f"{self.colors['error']}Could not save visualization: {str(e)}{Style.RESET_ALL}")
+                        return False
+                
+            except ImportError as e:
+                print(f"{self.colors['error']}Error: Matplotlib is required for visualization.{Style.RESET_ALL}")
+                print(f"{self.colors['info']}Install matplotlib with: pip install matplotlib numpy{Style.RESET_ALL}")
+                return False
+            except Exception as e:
+                print(f"{self.colors['error']}Error creating visualization: {str(e)}{Style.RESET_ALL}")
+                return False
+    
+    
+    def _display_price_news_correlation(self, ticker, security_data, news_items):
+        """Display correlation between price movement and negative news volume"""
+        print(f"\n{self.colors['header']}Price vs. Negative News Correlation:{Style.RESET_ALL}")
+        print("This analysis shows the relationship between price movements and negative news volume.")
+        
+        # Calculate correlation using market analyzer
+        correlation_result = self.market_analyzer.compute_price_news_correlation(security_data, news_items)
+        
+        if 'error' in correlation_result and correlation_result['error']:
+            print(f"{self.colors['error']}Error: {correlation_result['error']}{Style.RESET_ALL}")
+            return
+        
+        correlation_data = correlation_result.get('data', [])
+        correlation_coef = correlation_result.get('correlation_coefficient')
+        days_analyzed = correlation_result.get('days_analyzed', 0)
+        
+        if not correlation_data:
+            print(f"{self.colors['warning']}Insufficient data to analyze price-news correlation.{Style.RESET_ALL}")
+            return
+        
+        # Print correlation coefficient with interpretation
+        if correlation_coef is not None:
+            # Determine correlation strength and color
+            abs_corr = abs(correlation_coef)
+            if abs_corr > 0.7:
+                strength = "Strong"
+                color = self.colors['negative'] if correlation_coef < 0 else self.colors['positive']
+            elif abs_corr > 0.4:
+                strength = "Moderate"
+                color = self.colors['negative'] if correlation_coef < 0 else self.colors['positive']
+            elif abs_corr > 0.2:
+                strength = "Weak"
+                color = self.colors['negative'] if correlation_coef < 0 else self.colors['positive']
+            else:
+                strength = "No clear"
+                color = self.colors['neutral']
+            
+            corr_type = "negative" if correlation_coef < 0 else "positive"
+            
+            print(f"\nCorrelation Coefficient: {color}{correlation_coef:.2f}{Style.RESET_ALL}")
+            print(f"Interpretation: {color}{strength} {corr_type} correlation{Style.RESET_ALL} between price and negative news")
+            print(f"Time period analyzed: {days_analyzed} trading days")
+            
+            # Print insight based on correlation
+            print("\nInsight:", end=" ")
+            if correlation_coef < -0.2:
+                print(f"{self.colors['negative']}Increased negative news tends to correspond with price declines.{Style.RESET_ALL}")
+            elif correlation_coef > 0.2:
+                print(f"{self.colors['warning']}For this period, prices have moved in the same direction as negative news, which is unusual.{Style.RESET_ALL}")
+            else:
+                print(f"{self.colors['neutral']}No clear relationship between price and negative news in this period.{Style.RESET_ALL}")
+        
+        # Create a visual representation of the data
+        print("\nPrice to Negative News Relationship (timeline):")
+        print(f"\n{self.colors['header']}Date       | Price ($) | Neg News | Visualization{Style.RESET_ALL}")
+        print("─" * 80)
+        
+        # Find max values for scaling the visualization
+        max_price = max(item['price'] for item in correlation_data) if correlation_data else 0
+        max_neg_news = max(item['negative_news'] for item in correlation_data) if correlation_data else 0
+        
+        # Calculate scaling factors
+        price_scale = 20 / max_price if max_price > 0 else 0
+        news_scale = 10 / max_neg_news if max_neg_news > 0 else 0
+        
+        # Display each data point with visual bars
+        for item in correlation_data:
+            date = item['date']
+            price = item['price']
+            neg_news = item['negative_news']
+            
+            # Create ASCII bar charts with proper scaling
+            price_bar_length = int(price * price_scale)
+            news_bar_length = int(neg_news * news_scale)
+            
+            price_bar = "█" * price_bar_length
+            news_bar = "▓" * news_bar_length
+            
+            print(f"{date} | ${price:8.2f} | {neg_news:8d} | ", end="")
+            print(f"{self.colors['info']}{price_bar}{Style.RESET_ALL} ", end="")
+            
+            # Add directional arrow to show relationship
+            if neg_news > 0:
+                if correlation_coef and correlation_coef < 0:
+                    print("↘ ", end="")  # Negative correlation: price down when news negative
+                elif correlation_coef and correlation_coef > 0:
+                    print("↗ ", end="")  # Positive correlation: price up when news negative
+                else:
+                    print("→ ", end="")  # No clear correlation
+                    
+                print(f"{self.colors['negative']}{news_bar}{Style.RESET_ALL}")
+            else:
+                print()
+        
+        # Add legend
+        print("\nLegend:")
+        print(f"{self.colors['info']}█{Style.RESET_ALL} Price")
+        print(f"{self.colors['negative']}▓{Style.RESET_ALL} Negative News")
+        print("↘ Negative correlation (price tends to fall with negative news)")
+        print("↗ Positive correlation (price tends to rise despite negative news)")
+        
+        # Add statistical significance note if correlation is strong
+        if correlation_coef and abs(correlation_coef) > 0.4:
+            sig_color = self.colors['positive'] if correlation_coef < 0 else self.colors['warning']
+            print(f"\n{sig_color}Note: This correlation appears statistically significant.{Style.RESET_ALL}")
+            
+            if correlation_coef < 0:
+                print("This security is particularly sensitive to negative news sentiment.")
+            else:
+                print("This security is showing unusual resilience to negative news.")
+        
+        # Offer graphical visualization
+        print(f"\n{self.colors['prompt']}Would you like to see a graphical visualization? (y/n){Style.RESET_ALL}")
+        choice = input("> ").strip().lower()
+        
+        if choice == 'y':
+            try:
+                # Try to use matplotlib for visualization
+                self.visualize_price_news_correlation(ticker, security_data, news_items)
+            except Exception as e:
+                print(f"{self.colors['error']}Error displaying graphical visualization: {str(e)}{Style.RESET_ALL}")
+                print(f"{self.colors['info']}Using text-based visualization only.{Style.RESET_ALL}")
+        
+        return True
 
+    # def _display_price_news_correlation(self, ticker, security_data, news_items):
+    #     """Display correlation between price movement and negative news volume"""
+    #     print(f"\n{self.colors['header']}Price vs. Negative News Correlation:{Style.RESET_ALL}")
+    #     print("This analysis shows the relationship between price movements and negative news volume.")
+        
+    #     # Calculate correlation using market analyzer
+    #     correlation_result = self.market_analyzer.compute_price_news_correlation(security_data, news_items)
+        
+    #     if 'error' in correlation_result:
+    #         print(f"{self.colors['error']}Error: {correlation_result['error']}{Style.RESET_ALL}")
+    #         return
+        
+    #     correlation_data = correlation_result.get('data', [])
+    #     correlation_coef = correlation_result.get('correlation_coefficient')
+    #     days_analyzed = correlation_result.get('days_analyzed', 0)
+        
+    #     if not correlation_data:
+    #         print(f"{self.colors['warning']}Insufficient data to analyze price-news correlation.{Style.RESET_ALL}")
+    #         return
+        
+    #     # Print correlation coefficient with interpretation
+    #     if correlation_coef is not None:
+    #         # Determine correlation strength and color
+    #         abs_corr = abs(correlation_coef)
+    #         if abs_corr > 0.7:
+    #             strength = "Strong"
+    #             color = self.colors['negative'] if correlation_coef < 0 else self.colors['positive']
+    #         elif abs_corr > 0.4:
+    #             strength = "Moderate"
+    #             color = self.colors['negative'] if correlation_coef < 0 else self.colors['positive']
+    #         elif abs_corr > 0.2:
+    #             strength = "Weak"
+    #             color = self.colors['negative'] if correlation_coef < 0 else self.colors['positive']
+    #         else:
+    #             strength = "No clear"
+    #             color = self.colors['neutral']
+            
+    #         corr_type = "negative" if correlation_coef < 0 else "positive"
+            
+    #         print(f"\nCorrelation Coefficient: {color}{correlation_coef:.2f}{Style.RESET_ALL}")
+    #         print(f"Interpretation: {color}{strength} {corr_type} correlation{Style.RESET_ALL} between price and negative news")
+    #         print(f"Time period analyzed: {days_analyzed} trading days")
+            
+    #         # Print insight based on correlation
+    #         print("\nInsight:", end=" ")
+    #         if correlation_coef < -0.2:
+    #             print(f"{self.colors['negative']}Increased negative news tends to correspond with price declines.{Style.RESET_ALL}")
+    #         elif correlation_coef > 0.2:
+    #             print(f"{self.colors['warning']}For this period, prices have moved in the same direction as negative news, which is unusual.{Style.RESET_ALL}")
+    #         else:
+    #             print(f"{self.colors['neutral']}No clear relationship between price and negative news in this period.{Style.RESET_ALL}")
+        
+    #     # Create a visual representation of the data
+    #     print("\nPrice to Negative News Relationship (timeline):")
+    #     print(f"\n{self.colors['header']}Date       | Price ($) | Neg News | Visualization{Style.RESET_ALL}")
+    #     print("─" * 80)
+        
+    #     # Find max values for scaling the visualization
+    #     max_price = max(item['price'] for item in correlation_data) if correlation_data else 0
+    #     max_neg_news = max(item['negative_news'] for item in correlation_data) if correlation_data else 0
+        
+    #     # Calculate scaling factors
+    #     price_scale = 20 / max_price if max_price > 0 else 0
+    #     news_scale = 10 / max_neg_news if max_neg_news > 0 else 0
+        
+    #     # Display each data point with visual bars
+    #     for item in correlation_data:
+    #         date = item['date']
+    #         price = item['price']
+    #         neg_news = item['negative_news']
+            
+    #         # Create ASCII bar charts with proper scaling
+    #         price_bar_length = int(price * price_scale)
+    #         news_bar_length = int(neg_news * news_scale)
+            
+    #         price_bar = "█" * price_bar_length
+    #         news_bar = "▓" * news_bar_length
+            
+    #         print(f"{date} | ${price:8.2f} | {neg_news:8d} | ", end="")
+    #         print(f"{self.colors['info']}{price_bar}{Style.RESET_ALL} ", end="")
+            
+    #         # Add directional arrow to show relationship
+    #         if neg_news > 0:
+    #             if correlation_coef and correlation_coef < 0:
+    #                 print("↘ ", end="")  # Negative correlation: price down when news negative
+    #             elif correlation_coef and correlation_coef > 0:
+    #                 print("↗ ", end="")  # Positive correlation: price up when news negative
+    #             else:
+    #                 print("→ ", end="")  # No clear correlation
+                    
+    #             print(f"{self.colors['negative']}{news_bar}{Style.RESET_ALL}")
+    #         else:
+    #             print()
+        
+    #     # Add legend
+    #     print("\nLegend:")
+    #     print(f"{self.colors['info']}█{Style.RESET_ALL} Price")
+    #     print(f"{self.colors['negative']}▓{Style.RESET_ALL} Negative News")
+    #     print("↘ Negative correlation (price tends to fall with negative news)")
+    #     print("↗ Positive correlation (price tends to rise despite negative news)")
+        
+    #     # Add statistical significance note if correlation is strong
+    #     if correlation_coef and abs(correlation_coef) > 0.4:
+    #         sig_color = self.colors['positive'] if correlation_coef < 0 else self.colors['warning']
+    #         print(f"\n{sig_color}Note: This correlation appears statistically significant.{Style.RESET_ALL}")
+            
+    #         if correlation_coef < 0:
+    #             print("This security is particularly sensitive to negative news sentiment.")
+    #         else:
+    #             print("This security is showing unusual resilience to negative news.")
+                
+
+    # def _display_specific_analysis(self, ticker, market_data, news_items, analysis):
+    #     """Display analysis for specific ticker"""
+    #     try:
+    #         current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
+    #         print(f"\n{self.colors['header']}=== Analysis Results for {ticker} ==={Style.RESET_ALL}")
+    #         print(f"Current Date and Time (UTC): {current_time}")
+    #         print(f"Current User's Login: {os.getenv('USERNAME', 'User')}")
+            
+    #         # Check for errors
+    #         if market_data and 'error' in market_data:
+    #             print(f"{self.colors['error']}Error: {market_data['error']}{Style.RESET_ALL}")
+    #             return
+            
+    #         # Company Information
+    #         if market_data and 'info' in market_data and market_data['info']:
+    #             info = market_data['info']
+    #             print(f"\n{self.colors['header']}Company Information:{Style.RESET_ALL}")
+    #             print(f"Name: {info.get('longName', ticker)}")
+    #             # print(f"Sector: {info.get('sector', 'N/A')}")
+    #             # print(f"Industry: {info.get('industry', 'N/A')}")
+    #             # print(f"Website: {info.get('website', 'N/A')}")
+
+    #         if market_data and 'data' in market_data and 'today' in market_data['data']:
+    #             today_data = market_data['data']['today']
+    #             if not today_data.empty:
+    #                 print(f"\n{self.colors['header']}Price Information:{Style.RESET_ALL}")
+                    
+    #                 current_price = today_data['Close'].iloc[-1]
+    #                 open_price = today_data['Open'].iloc[0]
+    #                 price_change = current_price - open_price
+    #                 price_change_pct = (price_change / open_price) * 100
+                    
+    #                 color = self.colors['positive'] if price_change >= 0 else self.colors['negative']
+    #                 print(f"Current Price: {self.format_price(current_price)}")
+    #                 print(f"Change: {color}{price_change:+.2f} ({price_change_pct:+.2f}%){Style.RESET_ALL}")
+    #                 print(f"Day Range: ${today_data['Low'].min():.2f} - ${today_data['High'].max():.2f}")
+
+    #         if market_data and 'data' in market_data and 'today' in market_data['data']:
+    #             today_data = market_data['data']['today']
+    #             if not today_data.empty and 'Volume' in today_data.columns:
+    #                 print(f"\n{self.colors['header']}Volume Information:{Style.RESET_ALL}")
+    #                 current_volume = today_data['Volume'].sum()
+    #                 avg_volume = today_data['Volume'].mean()
+    #                 volume_change = ((current_volume - avg_volume) / avg_volume) * 100 if avg_volume > 0 else 0
+    #                 print(f"Current Volume: {current_volume:,.0f}")
+    #                 print(f"Average Volume: {avg_volume:,.0f}")
+    #                 print(f"Volume Change: {volume_change:+.1f}% vs average")
+
+    #         if news_items:
+    #             print(f"\n{self.colors['header']}Key Factors Affecting Price:{Style.RESET_ALL}")
+    #             topics = {}
+    #             for item in news_items:
+    #                 for topic in item.get('topics', []):
+    #                     topics[topic] = topics.get(topic, 0) + 1
+                
+    #             if topics:
+    #                 for topic, count in sorted(topics.items(), key=lambda x: x[1], reverse=True):
+    #                     print(f"- {topic.replace('_', ' ').title()}: {count} mentions")
+    #             else:
+    #                 print("No significant factors identified")
+
+    #         if market_data and 'market_context' in market_data:
+    #             context = market_data.get('market_context', {})
+    #             if context:
+    #                 print(f"\n{self.colors['header']}Market Context:{Style.RESET_ALL}")
+    #                 for index_name, index_data in context.items():
+    #                     if isinstance(index_data, dict) and 'change_pct' in index_data:
+    #                         change_pct = index_data['change_pct']
+    #                         color = self.colors['positive'] if change_pct >= 0 else self.colors['negative']
+    #                         print(f"{index_name}: {color}{change_pct:+.2f}%{Style.RESET_ALL}")
+
+    #         if news_items:
+    #             print(f"\n{self.colors['header']}Recent News:{Style.RESET_ALL}")
+                
+    #             news_by_source = {}
+    #             for item in news_items:
+    #                 source = item.get('source', 'Unknown')
+    #                 if source not in news_by_source:
+    #                     news_by_source[source] = []
+    #                 news_by_source[source].append(item)
+
+    #             for source, items in news_by_source.items():
+    #                 print(f"\n{self.colors['header']}{source} News:{Style.RESET_ALL}")
+    #                 news_table = []
+    #                 for item in items:
+    #                     sentiment = item.get('sentiment', 0)
+    #                     sentiment_color = (self.colors['positive'] if sentiment > 0.2 
+    #                                     else self.colors['negative'] if sentiment < -0.2 
+    #                                     else self.colors['neutral'])
+                        
+    #                     title = item.get('title', '')
+    #                     if len(title) > 50:
+    #                         title = title[:47] + "..."
+                        
+    #                     news_table.append([
+    #                         title,
+    #                         f"{sentiment_color}{sentiment:.2f}{Style.RESET_ALL}",
+    #                         item.get('timestamp', 'N/A')[:10]  # Just show the date part
+    #                     ])
+                    
+    #                 if news_table:
+    #                     print(tabulate(news_table, 
+    #                                 headers=["Title", "Sentiment", "Date"],
+    #                                 tablefmt="grid"))
+
+    #             print(f"\n{self.colors['info']}Total articles found: {len(news_items)}{Style.RESET_ALL}")
+
+    #         # Analysis Explanation (Gemini's analysis)
+    #         if analysis:
+    #             print(f"\n{self.colors['header']}Analysis Explanation:{Style.RESET_ALL}")
+    #             print(analysis)
+                
+    #             # Add observations section
+    #             print(f"\n{self.colors['header']}Key Observations:{Style.RESET_ALL}")
+    #             if market_data and 'data' in market_data and 'today' in market_data['data']:
+    #                 today_data = market_data['data']['today']
+    #                 if not today_data.empty:
+    #                     price_change = today_data['Close'].iloc[-1] - today_data['Open'].iloc[0]
+    #                     if price_change > 0:
+    #                         print("- Stock is showing positive momentum today")
+    #                     else:
+    #                         print("- Stock is showing negative pressure today")
+                        
+    #                     if 'Volume' in today_data.columns:
+    #                         avg_volume = today_data['Volume'].mean()
+    #                         current_volume = today_data['Volume'].sum()
+    #                         if current_volume > avg_volume:
+    #                             print("- Trading volume is above average, indicating strong interest")
+    #                         else:
+    #                             print("- Trading volume is below average, suggesting lower activity")
+
+    #         print(f"\n{self.colors['info']}Use 'Track Multiple Securities' for comparison with other tickers.{Style.RESET_ALL}")
+            
+    #     except Exception as e:
+    #         print(f"{self.colors['error']}Error displaying specific analysis: {str(e)}{Style.RESET_ALL}")
+    #         logger.error(f"Specific analysis display error: {str(e)}")
+    #         logger.error(traceback.format_exc())
+          
     def _display_specific_analysis(self, ticker, market_data, news_items, analysis):
         """Display analysis for specific ticker"""
         try:
@@ -778,7 +1486,10 @@ class NewsSenseCLI:
                                     tablefmt="grid"))
 
                 print(f"\n{self.colors['info']}Total articles found: {len(news_items)}{Style.RESET_ALL}")
-
+                
+                # Display Price-News Correlation
+                self._display_price_news_correlation(ticker, market_data, news_items)
+                
             # Analysis Explanation (Gemini's analysis)
             if analysis:
                 print(f"\n{self.colors['header']}Analysis Explanation:{Style.RESET_ALL}")
@@ -808,7 +1519,210 @@ class NewsSenseCLI:
         except Exception as e:
             print(f"{self.colors['error']}Error displaying specific analysis: {str(e)}{Style.RESET_ALL}")
             logger.error(f"Specific analysis display error: {str(e)}")
-            logger.error(traceback.format_exc())
+            logger.error(traceback.format_exc())          
+          
+          
+    # def _display_specific_analysis(self, ticker, market_data, news_items, analysis):
+    #     """Display analysis for specific ticker"""
+    #     try:
+    #         current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
+    #         print(f"\n{self.colors['header']}=== Analysis Results for {ticker} ==={Style.RESET_ALL}")
+    #         print(f"Current Date and Time (UTC): {current_time}")
+    #         print(f"Current User's Login: {os.getenv('USERNAME', 'User')}")
+            
+    #         # Check for errors
+    #         if market_data and 'error' in market_data:
+    #             print(f"{self.colors['error']}Error: {market_data['error']}{Style.RESET_ALL}")
+    #             return
+            
+    #         # Company Information
+    #         if market_data and 'info' in market_data and market_data['info']:
+    #             info = market_data['info']
+    #             print(f"\n{self.colors['header']}Company Information:{Style.RESET_ALL}")
+    #             print(f"Name: {info.get('longName', ticker)}")
+    #             # print(f"Sector: {info.get('sector', 'N/A')}")
+    #             # print(f"Industry: {info.get('industry', 'N/A')}")
+    #             # print(f"Website: {info.get('website', 'N/A')}")
+
+    #         # Price Information
+    #         if market_data and 'data' in market_data and 'today' in market_data['data']:
+    #             today_data = market_data['data']['today']
+    #             if not today_data.empty:
+    #                 print(f"\n{self.colors['header']}Price Information:{Style.RESET_ALL}")
+                    
+    #                 current_price = today_data['Close'].iloc[-1]
+    #                 open_price = today_data['Open'].iloc[0]
+    #                 price_change = current_price - open_price
+    #                 price_change_pct = (price_change / open_price) * 100
+                    
+    #                 color = self.colors['positive'] if price_change >= 0 else self.colors['negative']
+    #                 print(f"Current Price: {self.format_price(current_price)}")
+    #                 print(f"Change: {color}{price_change:+.2f} ({price_change_pct:+.2f}%){Style.RESET_ALL}")
+    #                 print(f"Day Range: ${today_data['Low'].min():.2f} - ${today_data['High'].max():.2f}")
+
+    #         # Volume Information
+    #         if market_data and 'data' in market_data and 'today' in market_data['data']:
+    #             today_data = market_data['data']['today']
+    #             if not today_data.empty and 'Volume' in today_data.columns:
+    #                 print(f"\n{self.colors['header']}Volume Information:{Style.RESET_ALL}")
+    #                 current_volume = today_data['Volume'].sum()
+    #                 avg_volume = today_data['Volume'].mean()
+    #                 volume_change = ((current_volume - avg_volume) / avg_volume) * 100 if avg_volume > 0 else 0
+    #                 print(f"Current Volume: {current_volume:,.0f}")
+    #                 print(f"Average Volume: {avg_volume:,.0f}")
+    #                 print(f"Volume Change: {volume_change:+.1f}% vs average")
+
+    #         # Key Factors
+    #         if news_items:
+    #             print(f"\n{self.colors['header']}Key Factors Affecting Price:{Style.RESET_ALL}")
+    #             topics = {}
+    #             for item in news_items:
+    #                 for topic in item.get('topics', []):
+    #                     topics[topic] = topics.get(topic, 0) + 1
+                
+    #             if topics:
+    #                 for topic, count in sorted(topics.items(), key=lambda x: x[1], reverse=True):
+    #                     print(f"- {topic.replace('_', ' ').title()}: {count} mentions")
+    #             else:
+    #                 print("No significant factors identified")
+
+    #         # Market Context
+    #         if market_data and 'market_context' in market_data:
+    #             context = market_data.get('market_context', {})
+    #             if context:
+    #                 print(f"\n{self.colors['header']}Market Context:{Style.RESET_ALL}")
+    #                 for index_name, index_data in context.items():
+    #                     if isinstance(index_data, dict) and 'change_pct' in index_data:
+    #                         change_pct = index_data['change_pct']
+    #                         color = self.colors['positive'] if change_pct >= 0 else self.colors['negative']
+    #                         print(f"{index_name}: {color}{change_pct:+.2f}%{Style.RESET_ALL}")
+
+    #         # News Analysis
+    #         if news_items:
+    #             print(f"\n{self.colors['header']}Recent News:{Style.RESET_ALL}")
+                
+    #             # Group news by source
+    #             news_by_source = {}
+    #             for item in news_items:
+    #                 source = item.get('source', 'Unknown')
+    #                 if source not in news_by_source:
+    #                     news_by_source[source] = []
+    #                 news_by_source[source].append(item)
+
+    #             # Display news by source
+    #             for source, items in news_by_source.items():
+    #                 print(f"\n{self.colors['header']}{source} News:{Style.RESET_ALL}")
+    #                 news_table = []
+    #                 for item in items:
+    #                     sentiment = item.get('sentiment', 0)
+    #                     sentiment_color = (self.colors['positive'] if sentiment > 0.2 
+    #                                     else self.colors['negative'] if sentiment < -0.2 
+    #                                     else self.colors['neutral'])
+                        
+    #                     title = item.get('title', '')
+    #                     if len(title) > 50:
+    #                         title = title[:47] + "..."
+                        
+    #                     news_table.append([
+    #                         title,
+    #                         f"{sentiment_color}{sentiment:.2f}{Style.RESET_ALL}",
+    #                         item.get('timestamp', 'N/A')[:10]  # Just show the date part
+    #                     ])
+                    
+    #                 if news_table:
+    #                     print(tabulate(news_table, 
+    #                                 headers=["Title", "Sentiment", "Date"],
+    #                                 tablefmt="grid"))
+
+    #             print(f"\n{self.colors['info']}Total articles found: {len(news_items)}{Style.RESET_ALL}")
+                
+    #             # News-Price Correlation
+    #             print(f"\n{self.colors['header']}Fund Price vs. Negative News Correlation:{Style.RESET_ALL}")
+    #             print("This visualization shows the relationship between price movements and negative news volume.")
+                
+    #             # Calculate negative news counts per day
+    #             news_date_map = {}
+    #             for item in news_items:
+    #                 date_str = item.get('timestamp', '')[:10]  # Extract date part
+    #                 if not date_str:
+    #                     continue
+                    
+    #                 if date_str not in news_date_map:
+    #                     news_date_map[date_str] = {'total': 0, 'negative': 0}
+                    
+    #                 news_date_map[date_str]['total'] += 1
+    #                 if item.get('sentiment', 0) < -0.1:
+    #                     news_date_map[date_str]['negative'] += 1
+                
+    #             # Get price data for the week
+    #             week_price_data = {}
+    #             if market_data and 'data' in market_data and 'week' in market_data['data']:
+    #                 week_data = market_data['data']['week']
+    #                 if not week_data.empty:
+    #                     for i in range(len(week_data)):
+    #                         date = week_data.index[i].strftime('%Y-%m-%d')
+    #                         week_price_data[date] = week_data['Close'].iloc[i]
+                
+    #             # Create ASCII chart representation
+    #             if week_price_data and news_date_map:
+    #                 print("\nPrice to Negative News Relationship (last week):")
+                    
+    #                 # Get common dates
+    #                 common_dates = sorted(set(week_price_data.keys()) & set(news_date_map.keys()))
+                    
+    #                 if common_dates:
+    #                     # Simplified ASCII chart (in production, use a proper chart visualization)
+    #                     for date in common_dates:
+    #                         price = week_price_data.get(date, 0)
+    #                         neg_news = news_date_map.get(date, {}).get('negative', 0)
+                            
+    #                         # Create ASCII bar chart
+    #                         price_bar = "█" * int(min(price / 10, 20))  # Scale price
+    #                         news_bar = "█" * (neg_news * 2)  # Scale negative news
+                            
+    #                         print(f"{date}: Price ${price:.2f}")
+    #                         print(f"       Price trend: {self.colors['info']}{price_bar}{Style.RESET_ALL}")
+    #                         print(f"       Negative news ({neg_news}): {self.colors['negative']}{news_bar}{Style.RESET_ALL}")
+    #                 else:
+    #                     print("Insufficient data to show correlation")
+                        
+    #                 # Add correlation analysis
+    #                 print("\nInsight: Days with higher negative news volume often correlate with price declines.")
+    #                 print("For a better visualization, run this analysis in a graphical environment.")
+    #             else:
+    #                 print("Insufficient data to analyze price-news correlation.")
+
+    #         # Analysis Explanation (Gemini's analysis)
+    #         if analysis:
+    #             print(f"\n{self.colors['header']}Analysis Explanation:{Style.RESET_ALL}")
+    #             print(analysis)
+                
+    #             # Add observations section
+    #             print(f"\n{self.colors['header']}Key Observations:{Style.RESET_ALL}")
+    #             if market_data and 'data' in market_data and 'today' in market_data['data']:
+    #                 today_data = market_data['data']['today']
+    #                 if not today_data.empty:
+    #                     price_change = today_data['Close'].iloc[-1] - today_data['Open'].iloc[0]
+    #                     if price_change > 0:
+    #                         print("- Stock is showing positive momentum today")
+    #                     else:
+    #                         print("- Stock is showing negative pressure today")
+                        
+    #                     if 'Volume' in today_data.columns:
+    #                         avg_volume = today_data['Volume'].mean()
+    #                         current_volume = today_data['Volume'].sum()
+    #                         if current_volume > avg_volume:
+    #                             print("- Trading volume is above average, indicating strong interest")
+    #                         else:
+    #                             print("- Trading volume is below average, suggesting lower activity")
+
+    #         print(f"\n{self.colors['info']}Use 'Track Multiple Securities' for comparison with other tickers.{Style.RESET_ALL}")
+            
+    #     except Exception as e:
+    #         print(f"{self.colors['error']}Error displaying specific analysis: {str(e)}{Style.RESET_ALL}")
+    #         logger.error(f"Specific analysis display error: {str(e)}")
+    #         logger.error(traceback.format_exc())          
+          
             
     def view_recent_analyses(self):
         """View recently saved analyses"""

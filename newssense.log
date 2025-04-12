@@ -2630,3 +2630,183 @@ IndentationError: unindent does not match any outer indentation level
 2025-04-12 09:30:19,800 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_093019.json
 2025-04-12 09:30:19,801 - NewsCollector - INFO - Total articles found for QQQ: 10
 2025-04-12 09:30:19,802 - GeminiHelper - ERROR - Error in market analysis: Object of type DataFrame is not JSON serializable
+2025-04-12 10:13:39,964 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:13:39,965 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:13:39,966 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:13:39,966 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:13:39,967 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:13:39,971 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 10:14:26,698 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 10:14:31,902 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_101431.txt
+2025-04-12 10:14:31,903 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 10:14:32,019 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 10:14:32,050 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 10:14:32,052 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 10:14:32,079 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 10:14:32,106 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 10:14:32,106 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 10:14:32,108 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 10:14:32,124 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 10:14:32,167 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 10:14:32,199 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 10:14:32,201 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 10:14:32,223 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 10:14:33,942 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 10:14:35,112 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 10:14:36,375 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 10:14:36,585 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 10:14:38,087 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 10:14:38,096 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_101438.json
+2025-04-12 10:14:38,096 - NewsCollector - INFO - Total articles found for QQQ: 18
+2025-04-12 10:14:38,097 - GeminiHelper - ERROR - Error in market analysis: Object of type DataFrame is not JSON serializable
+2025-04-12 10:22:41,944 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:22:41,945 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:22:41,946 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:22:41,947 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:22:41,948 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:22:41,951 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 10:23:02,333 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 10:23:07,273 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_102307.txt
+2025-04-12 10:23:07,274 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 10:23:07,386 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 10:23:07,400 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 10:23:07,400 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 10:23:07,401 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 10:23:07,403 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 10:23:07,465 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 10:23:07,480 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 10:23:07,506 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 10:23:07,508 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 10:23:07,514 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 10:23:07,515 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 10:23:07,535 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 10:23:09,043 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 10:23:09,048 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 10:23:12,012 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 10:23:12,669 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 10:23:13,430 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 10:23:13,447 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_102313.json
+2025-04-12 10:23:13,448 - NewsCollector - INFO - Total articles found for QQQ: 10
+2025-04-12 10:23:13,450 - GeminiHelper - ERROR - Error in market analysis: Object of type DataFrame is not JSON serializable
+2025-04-12 10:30:18,960 - MarketAnalyzer - INFO - Using cached security data for QQQ
+2025-04-12 10:30:18,963 - NewsCollector - INFO - Using cached news for QQQ
+2025-04-12 10:30:18,964 - GeminiHelper - ERROR - Error in market analysis: Object of type DataFrame is not JSON serializable
+2025-04-12 10:33:35,691 - MarketAnalyzer - INFO - Using cached security data for QQQ
+2025-04-12 10:33:35,693 - NewsCollector - INFO - Using cached news for QQQ
+2025-04-12 10:33:35,693 - GeminiHelper - ERROR - Error in market analysis: Object of type DataFrame is not JSON serializable
+2025-04-12 10:34:03,287 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:34:03,289 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:34:03,290 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:34:03,291 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:34:03,292 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:34:03,295 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 10:34:16,001 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 10:34:20,360 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_103420.txt
+2025-04-12 10:34:20,360 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 10:34:20,478 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 10:34:20,493 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 10:34:20,521 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 10:34:20,529 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 10:34:20,545 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 10:34:20,546 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 10:34:20,589 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 10:34:20,599 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 10:34:20,607 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 10:34:20,618 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 10:34:20,633 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 10:34:20,651 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 10:34:22,167 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 10:34:22,284 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 10:34:24,779 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 10:34:24,919 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 10:34:26,206 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 10:34:26,846 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_103426.json
+2025-04-12 10:34:26,846 - NewsCollector - INFO - Total articles found for QQQ: 10
+2025-04-12 10:34:26,847 - GeminiHelper - ERROR - Error in market analysis: Object of type DataFrame is not JSON serializable
+2025-04-12 10:35:05,936 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:35:05,937 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:35:05,938 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:35:05,939 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:35:05,940 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:35:05,946 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 10:35:19,441 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 10:35:24,366 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_103524.txt
+2025-04-12 10:35:24,367 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 10:35:24,476 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 10:35:24,490 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 10:35:24,494 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 10:35:24,521 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 10:35:24,527 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 10:35:24,547 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 10:35:24,555 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 10:35:24,564 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 10:35:24,565 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 10:35:24,571 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 10:35:24,627 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 10:35:24,638 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 10:35:26,081 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 10:35:26,158 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 10:35:29,422 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 10:35:30,049 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 10:35:30,122 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 10:35:30,399 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_103530.json
+2025-04-12 10:35:30,399 - NewsCollector - INFO - Total articles found for QQQ: 10
+2025-04-12 10:35:30,400 - GeminiHelper - ERROR - Error in market analysis: Object of type DataFrame is not JSON serializable
+2025-04-12 10:45:58,734 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:45:58,735 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:45:58,736 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:45:58,737 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:45:58,739 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:45:58,742 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 10:46:14,906 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 10:46:19,839 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_104619.txt
+2025-04-12 10:46:19,839 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 10:46:19,951 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 10:46:19,970 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 10:46:19,988 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 10:46:19,998 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 10:46:20,001 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 10:46:20,008 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 10:46:20,057 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 10:46:20,097 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 10:46:20,118 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 10:46:20,123 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 10:46:20,123 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 10:46:20,140 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 10:46:21,686 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 10:46:24,619 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 10:46:24,895 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 10:46:25,028 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 10:46:26,039 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 10:46:26,046 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_104626.json
+2025-04-12 10:46:26,048 - NewsCollector - INFO - Total articles found for QQQ: 18
+2025-04-12 10:46:26,049 - GeminiHelper - ERROR - Error in market analysis: Object of type DataFrame is not JSON serializable
+2025-04-12 10:52:33,546 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:52:33,546 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:52:33,548 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:52:33,548 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:52:33,549 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:52:33,553 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 10:53:11,869 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 10:53:16,937 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_105316.txt
+2025-04-12 10:53:16,937 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 10:53:17,045 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 10:53:17,050 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 10:53:17,055 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 10:53:17,095 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 10:53:17,099 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 10:53:17,108 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 10:53:17,110 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 10:53:17,132 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 10:53:17,186 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 10:53:17,189 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 10:53:17,232 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 10:53:17,237 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 10:53:18,724 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 10:53:19,344 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 10:53:22,170 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 10:53:22,567 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 10:53:23,198 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 10:53:23,207 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_105323.json
+2025-04-12 10:53:23,207 - NewsCollector - INFO - Total articles found for QQQ: 10
+2025-04-12 10:53:23,208 - GeminiHelper - ERROR - Error in market analysis: Object of type DataFrame is not JSON serializable
