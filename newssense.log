@@ -1396,3 +1396,1417 @@ AttributeError: 'NewsSenseCLI' object has no attribute 'display_disclaimer'
 2025-04-12 07:39:10,218 - NewsSense - INFO - Gemini helper initialized successfully
 2025-04-12 07:39:10,219 - GeminiHelper - INFO - Gemini helper initialized successfully
 2025-04-12 07:39:10,222 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 08:27:35,293 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 08:27:35,294 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 08:27:35,294 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 08:27:35,294 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 08:27:35,295 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 08:27:35,297 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 08:28:14,094 - NewsSense - ERROR - Error processing query: 'NewsSenseCLI' object has no attribute '_collect_market_data'
+2025-04-12 08:31:19,184 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 08:31:19,184 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 08:31:19,185 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 08:31:19,185 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 08:31:19,186 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 08:31:19,187 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 08:31:32,057 - NewsSense - ERROR - Error processing query: 'NewsSenseCLI' object has no attribute '_collect_market_data'
+2025-04-12 08:32:18,451 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 08:32:18,452 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 08:32:18,453 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 08:32:18,453 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 08:32:18,454 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 08:32:18,457 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 08:32:28,952 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 08:32:31,747 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_083231.txt
+2025-04-12 08:32:31,749 - MarketAnalyzer - INFO - Analyzing security data for XLK
+2025-04-12 08:32:32,545 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLK_20250412_083232.txt
+2025-04-12 08:32:32,546 - MarketAnalyzer - INFO - Analyzing security data for VGT
+2025-04-12 08:32:33,286 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_VGT_20250412_083233.txt
+2025-04-12 08:32:33,288 - MarketAnalyzer - INFO - Analyzing security data for XLF
+2025-04-12 08:32:34,094 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLF_20250412_083234.txt
+2025-04-12 08:32:34,096 - MarketAnalyzer - INFO - Analyzing security data for VFH
+2025-04-12 08:32:34,986 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_VFH_20250412_083234.txt
+2025-04-12 08:32:34,988 - MarketAnalyzer - INFO - Analyzing security data for IYF
+2025-04-12 08:32:36,617 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_IYF_20250412_083236.txt
+2025-04-12 08:32:36,617 - MarketAnalyzer - INFO - Analyzing security data for XLV
+2025-04-12 08:32:37,584 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLV_20250412_083237.txt
+2025-04-12 08:32:37,585 - MarketAnalyzer - INFO - Analyzing security data for VHT
+2025-04-12 08:32:38,570 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_VHT_20250412_083238.txt
+2025-04-12 08:32:38,571 - MarketAnalyzer - INFO - Analyzing security data for IYH
+2025-04-12 08:32:39,762 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_IYH_20250412_083239.txt
+2025-04-12 08:32:39,762 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 08:32:39,908 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 08:32:39,933 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 08:32:39,937 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 08:32:39,943 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 08:32:39,965 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 08:32:39,994 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 08:32:39,995 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 08:32:40,007 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 08:32:40,015 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 08:32:40,036 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 08:32:40,038 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 08:32:40,062 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 08:32:40,784 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:32:40,801 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:32:44,235 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:32:44,620 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:32:45,742 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:32:45,748 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_083245.json
+2025-04-12 08:32:45,749 - NewsCollector - INFO - Total articles found for QQQ: 10
+2025-04-12 08:32:45,750 - NewsCollector - INFO - Scraping news for XLK from multiple sources...
+2025-04-12 08:32:45,858 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/xlk-news
+2025-04-12 08:32:45,859 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/XLK/news
+2025-04-12 08:32:45,903 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=xlk
+2025-04-12 08:32:45,947 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/XLK.O
+2025-04-12 08:32:45,959 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/XLK/news
+2025-04-12 08:32:45,997 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/XLK/news
+2025-04-12 08:32:46,003 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/xlk
+2025-04-12 08:32:46,017 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/xlk
+2025-04-12 08:32:46,021 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/xlk
+2025-04-12 08:32:46,692 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:32:46,814 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:32:47,983 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:32:48,084 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/XLK:US
+2025-04-12 08:32:48,845 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=XLK
+2025-04-12 08:32:49,171 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/XLK
+2025-04-12 08:32:50,047 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:32:51,661 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:32:56,106 - NewsCollector - INFO - News saved to data/scraped_news\XLK_news_20250412_083256.json
+2025-04-12 08:32:56,107 - NewsCollector - INFO - Total articles found for XLK: 10
+2025-04-12 08:32:56,108 - NewsCollector - INFO - Scraping news for VGT from multiple sources...
+2025-04-12 08:32:56,212 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/vgt
+2025-04-12 08:32:56,251 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/VGT:US
+2025-04-12 08:32:56,272 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/VGT/news
+2025-04-12 08:32:56,295 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/VGT/news
+2025-04-12 08:32:56,316 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/vgt-news
+2025-04-12 08:32:56,331 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/VGT/news
+2025-04-12 08:32:56,337 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/vgt
+2025-04-12 08:32:56,353 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=vgt
+2025-04-12 08:32:56,397 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/vgt
+2025-04-12 08:32:56,399 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/VGT.O
+2025-04-12 08:32:57,066 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:32:57,088 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:32:58,755 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:32:58,826 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/VGT
+2025-04-12 08:32:59,534 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=VGT
+2025-04-12 08:33:01,128 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:33:01,612 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:33:05,521 - NewsCollector - INFO - News saved to data/scraped_news\VGT_news_20250412_083305.json
+2025-04-12 08:33:05,521 - NewsCollector - INFO - Total articles found for VGT: 10
+2025-04-12 08:33:05,521 - NewsCollector - INFO - Scraping news for XLF from multiple sources...
+2025-04-12 08:33:05,627 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/xlf-news
+2025-04-12 08:33:05,631 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/XLF/news
+2025-04-12 08:33:05,642 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/XLF:US
+2025-04-12 08:33:05,656 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/XLF/news
+2025-04-12 08:33:05,700 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=XLF
+2025-04-12 08:33:05,707 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=xlf
+2025-04-12 08:33:05,752 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/xlf
+2025-04-12 08:33:05,758 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/xlf
+2025-04-12 08:33:05,780 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/xlf
+2025-04-12 08:33:05,799 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/XLF/news
+2025-04-12 08:33:05,803 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/XLF.O
+2025-04-12 08:33:06,394 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:33:07,615 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:33:08,371 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/XLF
+2025-04-12 08:33:09,057 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 08:33:10,163 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:33:11,091 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:33:13,699 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:33:13,704 - NewsCollector - INFO - News saved to data/scraped_news\XLF_news_20250412_083313.json
+2025-04-12 08:33:13,705 - NewsCollector - INFO - Total articles found for XLF: 18
+2025-04-12 08:33:13,705 - NewsCollector - INFO - Scraping news for VFH from multiple sources...
+2025-04-12 08:33:13,829 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=VFH
+2025-04-12 08:33:13,839 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/vfh
+2025-04-12 08:33:13,854 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/VFH/news
+2025-04-12 08:33:13,913 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/vfh
+2025-04-12 08:33:13,922 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/VFH.O
+2025-04-12 08:33:13,961 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/vfh
+2025-04-12 08:33:13,963 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/VFH/news
+2025-04-12 08:33:13,965 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/VFH/news
+2025-04-12 08:33:13,967 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=vfh
+2025-04-12 08:33:13,970 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/vfh-news
+2025-04-12 08:33:14,719 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:33:14,744 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:33:15,217 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/VFH:US
+2025-04-12 08:33:15,971 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:33:17,709 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:33:17,957 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/VFH
+2025-04-12 08:33:20,270 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:33:23,329 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:33:23,335 - NewsCollector - INFO - News saved to data/scraped_news\VFH_news_20250412_083323.json
+2025-04-12 08:33:23,336 - NewsCollector - INFO - Total articles found for VFH: 10
+2025-04-12 08:33:23,336 - NewsCollector - INFO - Scraping news for IYF from multiple sources...
+2025-04-12 08:33:23,441 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/IYF.O
+2025-04-12 08:33:23,449 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/iyf
+2025-04-12 08:33:23,472 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/iyf
+2025-04-12 08:33:23,478 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=IYF
+2025-04-12 08:33:23,492 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=iyf
+2025-04-12 08:33:23,521 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/IYF/news
+2025-04-12 08:33:23,524 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/IYF:US
+2025-04-12 08:33:23,545 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/iyf
+2025-04-12 08:33:23,564 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/IYF/news
+2025-04-12 08:33:23,603 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/IYF/news
+2025-04-12 08:33:23,623 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/iyf-news
+2025-04-12 08:33:24,203 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:33:24,358 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:33:25,507 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:33:26,361 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/IYF
+2025-04-12 08:33:28,253 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:33:28,443 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:33:31,393 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:33:31,400 - NewsCollector - INFO - News saved to data/scraped_news\IYF_news_20250412_083331.json
+2025-04-12 08:33:31,400 - NewsCollector - INFO - Total articles found for IYF: 10
+2025-04-12 08:33:31,401 - NewsCollector - INFO - Scraping news for XLV from multiple sources...
+2025-04-12 08:33:31,511 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/XLV/news
+2025-04-12 08:33:31,567 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/xlv
+2025-04-12 08:33:31,582 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/XLV.O
+2025-04-12 08:33:31,583 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=XLV
+2025-04-12 08:33:31,617 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/xlv
+2025-04-12 08:33:31,621 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/xlv
+2025-04-12 08:33:31,621 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/XLV:US
+2025-04-12 08:33:31,627 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=xlv
+2025-04-12 08:33:31,635 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/XLV/news
+2025-04-12 08:33:31,678 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/XLV/news
+2025-04-12 08:33:31,686 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/xlv-news
+2025-04-12 08:33:32,407 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:33:32,437 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:33:33,146 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/XLV
+2025-04-12 08:33:33,848 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:33:36,534 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:33:37,635 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:33:38,190 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:33:38,193 - NewsCollector - INFO - News saved to data/scraped_news\XLV_news_20250412_083338.json
+2025-04-12 08:33:38,194 - NewsCollector - INFO - Total articles found for XLV: 10
+2025-04-12 08:33:38,194 - NewsCollector - INFO - Scraping news for VHT from multiple sources...
+2025-04-12 08:33:38,308 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/VHT/news
+2025-04-12 08:33:38,324 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/vht
+2025-04-12 08:33:38,337 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=vht
+2025-04-12 08:33:38,373 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/vht
+2025-04-12 08:33:38,384 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/vht-news
+2025-04-12 08:33:38,395 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/VHT/news
+2025-04-12 08:33:38,419 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/vht
+2025-04-12 08:33:38,488 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/VHT.O
+2025-04-12 08:33:38,489 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/VHT/news
+2025-04-12 08:33:39,159 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:33:39,439 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/VHT:US
+2025-04-12 08:33:39,873 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/VHT
+2025-04-12 08:33:40,509 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:33:40,777 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=VHT
+2025-04-12 08:33:41,567 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 08:33:43,659 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:33:43,930 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:33:45,690 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:33:46,823 - NewsCollector - INFO - News saved to data/scraped_news\VHT_news_20250412_083346.json
+2025-04-12 08:33:46,824 - NewsCollector - INFO - Total articles found for VHT: 18
+2025-04-12 08:33:46,824 - NewsCollector - INFO - Scraping news for IYH from multiple sources...
+2025-04-12 08:33:46,967 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/IYH.O
+2025-04-12 08:33:46,983 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/IYH/news
+2025-04-12 08:33:47,012 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/IYH/news
+2025-04-12 08:33:47,030 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/iyh
+2025-04-12 08:33:47,037 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/IYH/news
+2025-04-12 08:33:47,045 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/iyh
+2025-04-12 08:33:47,053 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/iyh-news
+2025-04-12 08:33:47,077 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/iyh
+2025-04-12 08:33:47,097 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/IYH:US
+2025-04-12 08:33:47,121 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=iyh
+2025-04-12 08:33:47,880 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:33:47,995 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:33:48,624 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/IYH
+2025-04-12 08:33:49,288 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:33:49,676 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=IYH
+2025-04-12 08:33:52,141 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:33:52,199 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:33:54,962 - NewsCollector - INFO - News saved to data/scraped_news\IYH_news_20250412_083354.json
+2025-04-12 08:33:54,962 - NewsCollector - INFO - Total articles found for IYH: 10
+2025-04-12 08:33:54,963 - NewsSense - ERROR - Error processing query: 'GeminiHelper' object has no attribute 'analyze_market_context'
+2025-04-12 08:39:12,400 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 08:39:12,401 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 08:39:12,403 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 08:39:12,403 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 08:39:12,404 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 08:39:12,408 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 08:39:24,182 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 08:39:28,356 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_083928.txt
+2025-04-12 08:39:28,357 - MarketAnalyzer - INFO - Analyzing security data for XLK
+2025-04-12 08:39:29,402 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLK_20250412_083929.txt
+2025-04-12 08:39:29,406 - MarketAnalyzer - INFO - Analyzing security data for VGT
+2025-04-12 08:39:30,400 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_VGT_20250412_083930.txt
+2025-04-12 08:39:30,401 - MarketAnalyzer - INFO - Analyzing security data for XLF
+2025-04-12 08:39:31,405 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLF_20250412_083931.txt
+2025-04-12 08:39:31,406 - MarketAnalyzer - INFO - Analyzing security data for VFH
+2025-04-12 08:39:32,385 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_VFH_20250412_083932.txt
+2025-04-12 08:39:32,386 - MarketAnalyzer - INFO - Analyzing security data for IYF
+2025-04-12 08:39:33,701 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_IYF_20250412_083933.txt
+2025-04-12 08:39:33,702 - MarketAnalyzer - INFO - Analyzing security data for XLV
+2025-04-12 08:39:34,970 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLV_20250412_083934.txt
+2025-04-12 08:39:34,971 - MarketAnalyzer - INFO - Analyzing security data for VHT
+2025-04-12 08:39:36,011 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_VHT_20250412_083936.txt
+2025-04-12 08:39:36,012 - MarketAnalyzer - INFO - Analyzing security data for IYH
+2025-04-12 08:39:36,954 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_IYH_20250412_083936.txt
+2025-04-12 08:39:36,955 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 08:39:37,077 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 08:39:37,078 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 08:39:37,110 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 08:39:37,111 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 08:39:37,161 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 08:39:37,204 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 08:39:37,226 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 08:39:37,232 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 08:39:37,243 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 08:39:37,243 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 08:39:37,262 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 08:39:37,263 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 08:39:38,594 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:39:38,716 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:39:41,178 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:39:42,785 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:39:43,704 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:39:43,714 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_083943.json
+2025-04-12 08:39:43,716 - NewsCollector - INFO - Total articles found for QQQ: 10
+2025-04-12 08:39:43,722 - NewsCollector - INFO - Scraping news for XLK from multiple sources...
+2025-04-12 08:39:43,851 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/XLK/news
+2025-04-12 08:39:43,903 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/xlk
+2025-04-12 08:39:43,915 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/XLK.O
+2025-04-12 08:39:43,942 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/xlk-news
+2025-04-12 08:39:43,945 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/xlk
+2025-04-12 08:39:43,964 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/XLK/news
+2025-04-12 08:39:43,968 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/XLK/news
+2025-04-12 08:39:43,987 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/xlk
+2025-04-12 08:39:43,991 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=xlk
+2025-04-12 08:39:45,279 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:39:45,367 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:39:45,425 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=XLK
+2025-04-12 08:39:45,717 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/XLK:US
+2025-04-12 08:39:45,852 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/XLK
+2025-04-12 08:39:46,505 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:39:49,511 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:39:50,573 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:39:51,525 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:39:51,544 - NewsCollector - INFO - News saved to data/scraped_news\XLK_news_20250412_083951.json
+2025-04-12 08:39:51,546 - NewsCollector - INFO - Total articles found for XLK: 10
+2025-04-12 08:39:51,548 - NewsCollector - INFO - Scraping news for VGT from multiple sources...
+2025-04-12 08:39:51,667 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=VGT
+2025-04-12 08:39:51,698 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/vgt-news
+2025-04-12 08:39:51,700 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/vgt
+2025-04-12 08:39:51,706 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/VGT/news
+2025-04-12 08:39:51,728 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/VGT/news
+2025-04-12 08:39:51,767 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/VGT.O
+2025-04-12 08:39:51,799 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/vgt
+2025-04-12 08:39:51,811 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=vgt
+2025-04-12 08:39:51,846 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/VGT/news
+2025-04-12 08:39:51,850 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/vgt
+2025-04-12 08:39:53,190 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:39:53,454 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:39:53,850 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/VGT
+2025-04-12 08:39:54,042 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:39:54,741 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/VGT:US
+2025-04-12 08:39:56,042 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:40:00,113 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:40:01,006 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:40:01,018 - NewsCollector - INFO - News saved to data/scraped_news\VGT_news_20250412_084001.json
+2025-04-12 08:40:01,018 - NewsCollector - INFO - Total articles found for VGT: 10
+2025-04-12 08:40:01,019 - NewsCollector - INFO - Scraping news for XLF from multiple sources...
+2025-04-12 08:40:01,138 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/xlf
+2025-04-12 08:40:01,186 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/xlf
+2025-04-12 08:40:01,186 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=XLF
+2025-04-12 08:40:01,199 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/XLF/news
+2025-04-12 08:40:01,255 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/XLF.O
+2025-04-12 08:40:01,290 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/XLF
+2025-04-12 08:40:01,303 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/XLF/news
+2025-04-12 08:40:01,304 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/xlf
+2025-04-12 08:40:01,306 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/xlf-news
+2025-04-12 08:40:01,306 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=xlf
+2025-04-12 08:40:01,316 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/XLF/news
+2025-04-12 08:40:02,652 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:40:02,857 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:40:03,516 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:40:04,970 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/XLF:US
+2025-04-12 08:40:05,572 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:40:07,315 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:40:09,999 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:40:10,007 - NewsCollector - INFO - News saved to data/scraped_news\XLF_news_20250412_084010.json
+2025-04-12 08:40:10,009 - NewsCollector - INFO - Total articles found for XLF: 10
+2025-04-12 08:40:10,011 - NewsCollector - INFO - Scraping news for VFH from multiple sources...
+2025-04-12 08:40:10,141 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/vfh
+2025-04-12 08:40:10,164 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/VFH
+2025-04-12 08:40:10,171 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/VFH/news
+2025-04-12 08:40:10,189 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/VFH/news
+2025-04-12 08:40:10,208 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/VFH/news
+2025-04-12 08:40:10,222 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=vfh
+2025-04-12 08:40:10,225 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/vfh
+2025-04-12 08:40:10,262 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/VFH.O
+2025-04-12 08:40:10,281 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/vfh
+2025-04-12 08:40:10,299 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=VFH
+2025-04-12 08:40:10,302 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/vfh-news
+2025-04-12 08:40:11,719 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:40:11,876 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:40:13,015 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:40:13,038 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/VFH:US
+2025-04-12 08:40:15,444 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:40:15,675 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:40:17,547 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:40:17,557 - NewsCollector - INFO - News saved to data/scraped_news\VFH_news_20250412_084017.json
+2025-04-12 08:40:17,558 - NewsCollector - INFO - Total articles found for VFH: 10
+2025-04-12 08:40:17,560 - NewsCollector - INFO - Scraping news for IYF from multiple sources...
+2025-04-12 08:40:17,677 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/iyf
+2025-04-12 08:40:17,699 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/iyf-news
+2025-04-12 08:40:17,707 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/iyf
+2025-04-12 08:40:17,740 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/IYF/news
+2025-04-12 08:40:17,745 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=iyf
+2025-04-12 08:40:17,757 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/IYF/news
+2025-04-12 08:40:17,793 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/IYF/news
+2025-04-12 08:40:17,799 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/iyf
+2025-04-12 08:40:17,831 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/IYF.O
+2025-04-12 08:40:17,840 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/IYF
+2025-04-12 08:40:18,768 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=IYF
+2025-04-12 08:40:19,414 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:40:19,454 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:40:20,610 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/IYF:US
+2025-04-12 08:40:20,708 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:40:21,716 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:40:21,803 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:40:25,562 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:40:25,573 - NewsCollector - INFO - News saved to data/scraped_news\IYF_news_20250412_084025.json
+2025-04-12 08:40:25,576 - NewsCollector - INFO - Total articles found for IYF: 10
+2025-04-12 08:40:25,577 - NewsCollector - INFO - Scraping news for XLV from multiple sources...
+2025-04-12 08:40:25,690 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/xlv
+2025-04-12 08:40:25,697 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/XLV/news
+2025-04-12 08:40:25,742 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/XLV.O
+2025-04-12 08:40:25,757 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/xlv-news
+2025-04-12 08:40:25,765 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/XLV/news
+2025-04-12 08:40:25,778 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/xlv
+2025-04-12 08:40:25,806 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/xlv
+2025-04-12 08:40:25,819 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/XLV/news
+2025-04-12 08:40:25,856 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=xlv
+2025-04-12 08:40:25,859 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/XLV
+2025-04-12 08:40:27,332 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:40:27,346 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=XLV
+2025-04-12 08:40:28,178 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:40:29,809 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/XLV:US
+2025-04-12 08:40:30,148 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 08:40:30,149 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:40:31,954 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:40:34,444 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:40:34,455 - NewsCollector - INFO - News saved to data/scraped_news\XLV_news_20250412_084034.json
+2025-04-12 08:40:34,456 - NewsCollector - INFO - Total articles found for XLV: 18
+2025-04-12 08:40:34,456 - NewsCollector - INFO - Scraping news for VHT from multiple sources...
+2025-04-12 08:40:34,569 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/vht
+2025-04-12 08:40:34,584 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/VHT
+2025-04-12 08:40:34,599 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/vht
+2025-04-12 08:40:34,614 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/vht-news
+2025-04-12 08:40:34,655 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/VHT/news
+2025-04-12 08:40:34,661 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/VHT.O
+2025-04-12 08:40:34,697 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/VHT/news
+2025-04-12 08:40:34,703 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/vht
+2025-04-12 08:40:34,747 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=vht
+2025-04-12 08:40:34,750 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/VHT/news
+2025-04-12 08:40:36,115 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=VHT
+2025-04-12 08:40:36,213 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:40:36,260 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:40:36,784 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/VHT:US
+2025-04-12 08:40:37,667 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:40:38,706 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:40:41,316 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:40:41,400 - NewsCollector - INFO - News saved to data/scraped_news\VHT_news_20250412_084041.json
+2025-04-12 08:40:41,401 - NewsCollector - INFO - Total articles found for VHT: 10
+2025-04-12 08:40:41,402 - NewsCollector - INFO - Scraping news for IYH from multiple sources...
+2025-04-12 08:40:41,523 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/IYH/news
+2025-04-12 08:40:41,547 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=iyh
+2025-04-12 08:40:41,550 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/IYH.O
+2025-04-12 08:40:41,554 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/IYH/news
+2025-04-12 08:40:41,597 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/iyh
+2025-04-12 08:40:41,602 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/iyh
+2025-04-12 08:40:41,664 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/iyh
+2025-04-12 08:40:41,687 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/iyh-news
+2025-04-12 08:40:41,695 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/IYH/news
+2025-04-12 08:40:42,707 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=IYH
+2025-04-12 08:40:43,117 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/IYH
+2025-04-12 08:40:43,162 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:40:43,207 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:40:43,928 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:40:44,538 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/IYH:US
+2025-04-12 08:40:45,913 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:40:50,506 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:40:50,830 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:40:50,841 - NewsCollector - INFO - News saved to data/scraped_news\IYH_news_20250412_084050.json
+2025-04-12 08:40:50,842 - NewsCollector - INFO - Total articles found for IYH: 10
+2025-04-12 08:40:57,906 - GeminiHelper - INFO - Generated market analysis for query: Which tech ETFs are reacting to regulatory news this week?
+2025-04-12 08:40:57,910 - NewsSense - ERROR - Error processing query: 'NewsSenseCLI' object has no attribute '_display_market_analysis'
+2025-04-12 08:44:46,466 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 08:44:46,467 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 08:44:46,467 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 08:44:46,468 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 08:44:46,470 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 08:44:46,472 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 08:45:02,291 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 08:45:06,030 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_084506.txt
+2025-04-12 08:45:06,031 - MarketAnalyzer - INFO - Analyzing security data for XLK
+2025-04-12 08:45:07,022 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLK_20250412_084507.txt
+2025-04-12 08:45:07,023 - MarketAnalyzer - INFO - Analyzing security data for VGT
+2025-04-12 08:45:08,034 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_VGT_20250412_084508.txt
+2025-04-12 08:45:08,035 - MarketAnalyzer - INFO - Analyzing security data for XLF
+2025-04-12 08:45:09,033 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLF_20250412_084509.txt
+2025-04-12 08:45:09,035 - MarketAnalyzer - INFO - Analyzing security data for VFH
+2025-04-12 08:45:10,204 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_VFH_20250412_084510.txt
+2025-04-12 08:45:10,205 - MarketAnalyzer - INFO - Analyzing security data for IYF
+2025-04-12 08:45:11,939 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_IYF_20250412_084511.txt
+2025-04-12 08:45:11,940 - MarketAnalyzer - INFO - Analyzing security data for XLV
+2025-04-12 08:45:12,939 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLV_20250412_084512.txt
+2025-04-12 08:45:12,940 - MarketAnalyzer - INFO - Analyzing security data for VHT
+2025-04-12 08:45:13,988 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_VHT_20250412_084513.txt
+2025-04-12 08:45:13,989 - MarketAnalyzer - INFO - Analyzing security data for IYH
+2025-04-12 08:45:15,307 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_IYH_20250412_084515.txt
+2025-04-12 08:45:15,308 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 08:45:15,432 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 08:45:15,448 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 08:45:15,464 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 08:45:15,498 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 08:45:15,500 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 08:45:15,505 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 08:45:15,546 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 08:45:15,567 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 08:45:15,587 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 08:45:15,590 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 08:45:15,603 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 08:45:15,604 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 08:45:17,169 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:45:17,249 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:45:19,979 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:45:21,470 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:45:21,478 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_084521.json
+2025-04-12 08:45:21,479 - NewsCollector - INFO - Total articles found for QQQ: 10
+2025-04-12 08:45:21,479 - NewsCollector - INFO - Scraping news for XLK from multiple sources...
+2025-04-12 08:45:21,625 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/xlk
+2025-04-12 08:45:21,646 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/XLK/news
+2025-04-12 08:45:21,671 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/XLK/news
+2025-04-12 08:45:21,687 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/XLK
+2025-04-12 08:45:21,702 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/xlk
+2025-04-12 08:45:21,709 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/xlk
+2025-04-12 08:45:21,753 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/XLK.O
+2025-04-12 08:45:21,753 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/xlk-news
+2025-04-12 08:45:21,768 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/XLK/news
+2025-04-12 08:45:21,773 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=xlk
+2025-04-12 08:45:23,180 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:45:23,535 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=XLK
+2025-04-12 08:45:23,911 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:45:24,411 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/XLK:US
+2025-04-12 08:45:26,178 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 08:45:26,178 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:45:29,522 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:45:29,619 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:45:29,695 - NewsCollector - INFO - News saved to data/scraped_news\XLK_news_20250412_084529.json
+2025-04-12 08:45:29,696 - NewsCollector - INFO - Total articles found for XLK: 18
+2025-04-12 08:45:29,697 - NewsCollector - INFO - Scraping news for VGT from multiple sources...
+2025-04-12 08:45:29,805 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/vgt-news
+2025-04-12 08:45:29,832 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/VGT/news
+2025-04-12 08:45:29,838 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/VGT.O
+2025-04-12 08:45:29,873 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=vgt
+2025-04-12 08:45:29,889 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/vgt
+2025-04-12 08:45:29,902 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/VGT/news
+2025-04-12 08:45:29,906 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/vgt
+2025-04-12 08:45:29,953 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/vgt
+2025-04-12 08:45:29,982 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/VGT/news
+2025-04-12 08:45:31,660 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/VGT
+2025-04-12 08:45:31,758 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:45:31,809 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:45:32,062 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/VGT:US
+2025-04-12 08:45:32,597 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:45:32,723 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=VGT
+2025-04-12 08:45:35,104 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:45:36,690 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:45:36,961 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:45:38,894 - NewsCollector - INFO - News saved to data/scraped_news\VGT_news_20250412_084538.json
+2025-04-12 08:45:38,894 - NewsCollector - INFO - Total articles found for VGT: 10
+2025-04-12 08:45:38,895 - NewsCollector - INFO - Scraping news for XLF from multiple sources...
+2025-04-12 08:45:39,003 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/XLF.O
+2025-04-12 08:45:39,039 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/xlf
+2025-04-12 08:45:39,051 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=xlf
+2025-04-12 08:45:39,091 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/xlf-news
+2025-04-12 08:45:39,128 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/xlf
+2025-04-12 08:45:39,135 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/XLF/news
+2025-04-12 08:45:39,140 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/XLF:US
+2025-04-12 08:45:39,162 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/XLF/news
+2025-04-12 08:45:39,171 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/XLF/news
+2025-04-12 08:45:39,172 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/xlf
+2025-04-12 08:45:40,524 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:45:40,541 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/XLF
+2025-04-12 08:45:40,696 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:45:41,297 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:45:43,017 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=XLF
+2025-04-12 08:45:43,063 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:45:43,776 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:45:45,123 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:45:48,151 - NewsCollector - INFO - News saved to data/scraped_news\XLF_news_20250412_084548.json
+2025-04-12 08:45:48,152 - NewsCollector - INFO - Total articles found for XLF: 10
+2025-04-12 08:45:48,152 - NewsCollector - INFO - Scraping news for VFH from multiple sources...
+2025-04-12 08:45:48,265 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=vfh
+2025-04-12 08:45:48,290 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/VFH/news
+2025-04-12 08:45:48,311 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/VFH:US
+2025-04-12 08:45:48,322 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/vfh-news
+2025-04-12 08:45:48,323 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/VFH/news
+2025-04-12 08:45:48,328 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/vfh
+2025-04-12 08:45:48,418 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/VFH/news
+2025-04-12 08:45:48,421 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/vfh
+2025-04-12 08:45:48,422 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/VFH.O
+2025-04-12 08:45:48,435 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/vfh
+2025-04-12 08:45:48,454 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/VFH
+2025-04-12 08:45:49,941 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:45:50,606 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:45:51,248 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=VFH
+2025-04-12 08:45:52,728 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 08:45:52,728 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:45:52,938 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:45:55,639 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:45:55,649 - NewsCollector - INFO - News saved to data/scraped_news\VFH_news_20250412_084555.json
+2025-04-12 08:45:55,650 - NewsCollector - INFO - Total articles found for VFH: 18
+2025-04-12 08:45:55,651 - NewsCollector - INFO - Scraping news for IYF from multiple sources...
+2025-04-12 08:45:55,774 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/iyf
+2025-04-12 08:45:55,831 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/iyf
+2025-04-12 08:45:55,845 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/IYF/news
+2025-04-12 08:45:55,857 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/iyf-news
+2025-04-12 08:45:55,858 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/iyf
+2025-04-12 08:45:55,861 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/IYF/news
+2025-04-12 08:45:55,896 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=iyf
+2025-04-12 08:45:55,909 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/IYF/news
+2025-04-12 08:45:55,950 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/IYF.O
+2025-04-12 08:45:55,959 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/IYF:US
+2025-04-12 08:45:57,442 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:45:58,399 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:45:58,569 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/IYF
+2025-04-12 08:45:59,187 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=IYF
+2025-04-12 08:46:00,313 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 08:46:02,109 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:46:03,579 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:46:03,633 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:46:05,451 - NewsCollector - INFO - News saved to data/scraped_news\IYF_news_20250412_084605.json
+2025-04-12 08:46:05,452 - NewsCollector - INFO - Total articles found for IYF: 18
+2025-04-12 08:46:05,453 - NewsCollector - INFO - Scraping news for XLV from multiple sources...
+2025-04-12 08:46:05,560 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/xlv
+2025-04-12 08:46:05,576 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/xlv-news
+2025-04-12 08:46:05,583 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/xlv
+2025-04-12 08:46:05,586 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/XLV/news
+2025-04-12 08:46:05,594 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=xlv
+2025-04-12 08:46:05,628 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/xlv
+2025-04-12 08:46:05,643 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/XLV.O
+2025-04-12 08:46:05,700 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/XLV/news
+2025-04-12 08:46:05,721 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/XLV/news
+2025-04-12 08:46:05,754 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/XLV:US
+2025-04-12 08:46:06,742 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/XLV
+2025-04-12 08:46:07,327 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:46:08,466 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 08:46:08,467 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:46:09,529 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=XLV
+2025-04-12 08:46:10,592 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:46:10,883 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:46:15,818 - NewsCollector - INFO - News saved to data/scraped_news\XLV_news_20250412_084615.json
+2025-04-12 08:46:15,819 - NewsCollector - INFO - Total articles found for XLV: 18
+2025-04-12 08:46:15,819 - NewsCollector - INFO - Scraping news for VHT from multiple sources...
+2025-04-12 08:46:15,936 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=vht
+2025-04-12 08:46:15,951 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/vht
+2025-04-12 08:46:15,953 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/VHT.O
+2025-04-12 08:46:16,004 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/VHT/news
+2025-04-12 08:46:16,009 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/vht-news
+2025-04-12 08:46:16,035 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/VHT/news
+2025-04-12 08:46:16,057 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/VHT
+2025-04-12 08:46:16,093 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/VHT:US
+2025-04-12 08:46:16,103 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/VHT/news
+2025-04-12 08:46:16,103 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/vht
+2025-04-12 08:46:16,113 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/vht
+2025-04-12 08:46:17,560 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:46:17,611 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:46:18,213 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:46:19,653 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=VHT
+2025-04-12 08:46:20,345 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:46:21,223 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:46:25,899 - NewsCollector - INFO - News saved to data/scraped_news\VHT_news_20250412_084625.json
+2025-04-12 08:46:25,902 - NewsCollector - INFO - Total articles found for VHT: 10
+2025-04-12 08:46:25,905 - NewsCollector - INFO - Scraping news for IYH from multiple sources...
+2025-04-12 08:46:26,027 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/iyh-news
+2025-04-12 08:46:26,044 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/IYH:US
+2025-04-12 08:46:26,045 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/IYH/news
+2025-04-12 08:46:26,048 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/iyh
+2025-04-12 08:46:26,056 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/IYH/news
+2025-04-12 08:46:26,075 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/iyh
+2025-04-12 08:46:26,147 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/iyh
+2025-04-12 08:46:26,157 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=iyh
+2025-04-12 08:46:26,158 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/IYH/news
+2025-04-12 08:46:26,165 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/IYH
+2025-04-12 08:46:26,204 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/IYH.O
+2025-04-12 08:46:27,810 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:46:27,913 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:46:28,045 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=IYH
+2025-04-12 08:46:28,538 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:46:30,475 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:46:31,779 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:46:31,860 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:46:33,306 - NewsCollector - INFO - News saved to data/scraped_news\IYH_news_20250412_084633.json
+2025-04-12 08:46:33,307 - NewsCollector - INFO - Total articles found for IYH: 10
+2025-04-12 08:46:41,156 - GeminiHelper - INFO - Generated market analysis for query: Which tech ETFs are reacting to regulatory news this week?
+2025-04-12 08:46:41,161 - NewsSense - ERROR - Error processing query: 'NewsSenseCLI' object has no attribute '_display_market_analysis'
+2025-04-12 08:53:59,753 - NewsSense - ERROR - Initialization error: unindent does not match any outer indentation level (gemini_helper.py, line 343)
+2025-04-12 08:53:59,758 - NewsSense - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\main.py", line 44, in __init__
+    from src.utils.gemini_helper import GeminiHelper  # Move import here
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\utils\gemini_helper.py", line 343
+    def _display_market_analysis(self, market_data, news_data, analysis):
+                                                                         ^
+IndentationError: unindent does not match any outer indentation level
+
+2025-04-12 08:55:55,555 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 08:55:55,556 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 08:55:55,557 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 08:55:55,558 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 08:55:55,560 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 08:55:55,562 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 08:56:16,494 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 08:56:21,019 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_085621.txt
+2025-04-12 08:56:21,021 - MarketAnalyzer - INFO - Analyzing security data for XLK
+2025-04-12 08:56:22,574 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLK_20250412_085622.txt
+2025-04-12 08:56:22,575 - MarketAnalyzer - INFO - Analyzing security data for VGT
+2025-04-12 08:56:24,000 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_VGT_20250412_085623.txt
+2025-04-12 08:56:24,002 - MarketAnalyzer - INFO - Analyzing security data for XLF
+2025-04-12 08:56:25,850 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLF_20250412_085625.txt
+2025-04-12 08:56:25,852 - MarketAnalyzer - INFO - Analyzing security data for VFH
+2025-04-12 08:56:27,087 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_VFH_20250412_085627.txt
+2025-04-12 08:56:27,089 - MarketAnalyzer - INFO - Analyzing security data for IYF
+2025-04-12 08:56:28,116 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_IYF_20250412_085628.txt
+2025-04-12 08:56:28,117 - MarketAnalyzer - INFO - Analyzing security data for XLV
+2025-04-12 08:56:29,529 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLV_20250412_085629.txt
+2025-04-12 08:56:29,530 - MarketAnalyzer - INFO - Analyzing security data for VHT
+2025-04-12 08:56:30,861 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_VHT_20250412_085630.txt
+2025-04-12 08:56:30,863 - MarketAnalyzer - INFO - Analyzing security data for IYH
+2025-04-12 08:56:32,399 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_IYH_20250412_085632.txt
+2025-04-12 08:56:32,401 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 08:56:32,511 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 08:56:32,513 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 08:56:32,522 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 08:56:32,530 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 08:56:32,531 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 08:56:32,539 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 08:56:32,605 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 08:56:32,654 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 08:56:32,671 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 08:56:32,675 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 08:56:32,695 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 08:56:32,707 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 08:56:33,985 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:56:36,833 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 08:56:37,387 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:56:37,805 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:56:38,616 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:56:38,628 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_085638.json
+2025-04-12 08:56:38,630 - NewsCollector - INFO - Total articles found for QQQ: 18
+2025-04-12 08:56:38,632 - NewsCollector - INFO - Scraping news for XLK from multiple sources...
+2025-04-12 08:56:38,745 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/XLK/news
+2025-04-12 08:56:38,767 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/XLK/news
+2025-04-12 08:56:38,792 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/XLK.O
+2025-04-12 08:56:38,797 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/xlk
+2025-04-12 08:56:38,832 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=xlk
+2025-04-12 08:56:38,838 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/XLK/news
+2025-04-12 08:56:38,862 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/xlk
+2025-04-12 08:56:38,894 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/xlk-news
+2025-04-12 08:56:38,936 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/xlk
+2025-04-12 08:56:40,297 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:56:40,757 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/XLK
+2025-04-12 08:56:40,966 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:56:41,275 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 08:56:41,529 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=XLK
+2025-04-12 08:56:43,135 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:56:43,200 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/XLK:US
+2025-04-12 08:56:45,779 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:56:47,517 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:56:47,527 - NewsCollector - INFO - News saved to data/scraped_news\XLK_news_20250412_085647.json
+2025-04-12 08:56:47,528 - NewsCollector - INFO - Total articles found for XLK: 18
+2025-04-12 08:56:47,529 - NewsCollector - INFO - Scraping news for VGT from multiple sources...
+2025-04-12 08:56:47,680 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=vgt
+2025-04-12 08:56:47,683 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/VGT/news
+2025-04-12 08:56:47,698 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/VGT.O
+2025-04-12 08:56:47,716 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/vgt
+2025-04-12 08:56:47,733 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/vgt-news
+2025-04-12 08:56:47,781 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/VGT/news
+2025-04-12 08:56:47,785 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/VGT/news
+2025-04-12 08:56:47,810 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/vgt
+2025-04-12 08:56:47,822 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/VGT
+2025-04-12 08:56:47,827 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/vgt
+2025-04-12 08:56:49,302 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:56:49,414 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:56:50,379 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=VGT
+2025-04-12 08:56:50,394 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/VGT:US
+2025-04-12 08:56:50,537 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:56:51,924 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:56:55,929 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:56:55,942 - NewsCollector - INFO - News saved to data/scraped_news\VGT_news_20250412_085655.json
+2025-04-12 08:56:55,944 - NewsCollector - INFO - Total articles found for VGT: 10
+2025-04-12 08:56:55,945 - NewsCollector - INFO - Scraping news for XLF from multiple sources...
+2025-04-12 08:56:56,092 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/xlf
+2025-04-12 08:56:56,110 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/xlf
+2025-04-12 08:56:56,113 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/XLF/news
+2025-04-12 08:56:56,124 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/XLF/news
+2025-04-12 08:56:56,132 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/XLF.O
+2025-04-12 08:56:56,225 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=xlf
+2025-04-12 08:56:56,227 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/XLF/news
+2025-04-12 08:56:56,237 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/xlf-news
+2025-04-12 08:56:56,249 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/xlf
+2025-04-12 08:56:56,250 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/XLF
+2025-04-12 08:56:57,897 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:56:58,269 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:56:58,545 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/XLF:US
+2025-04-12 08:56:58,664 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 08:56:59,451 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=XLF
+2025-04-12 08:57:00,273 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:57:01,197 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:57:04,618 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:57:05,396 - NewsCollector - INFO - News saved to data/scraped_news\XLF_news_20250412_085705.json
+2025-04-12 08:57:05,397 - NewsCollector - INFO - Total articles found for XLF: 18
+2025-04-12 08:57:05,398 - NewsCollector - INFO - Scraping news for VFH from multiple sources...
+2025-04-12 08:57:05,509 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/VFH/news
+2025-04-12 08:57:05,561 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=vfh
+2025-04-12 08:57:05,593 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/VFH.O
+2025-04-12 08:57:05,611 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/vfh
+2025-04-12 08:57:05,619 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/VFH
+2025-04-12 08:57:05,633 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/vfh
+2025-04-12 08:57:05,690 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/VFH/news
+2025-04-12 08:57:05,691 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/vfh
+2025-04-12 08:57:05,697 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/VFH/news
+2025-04-12 08:57:05,700 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/vfh-news
+2025-04-12 08:57:07,184 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:57:07,277 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:57:07,895 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=VFH
+2025-04-12 08:57:07,940 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:57:08,110 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/VFH:US
+2025-04-12 08:57:09,802 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:57:14,347 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:57:14,713 - NewsCollector - INFO - News saved to data/scraped_news\VFH_news_20250412_085714.json
+2025-04-12 08:57:14,713 - NewsCollector - INFO - Total articles found for VFH: 10
+2025-04-12 08:57:14,714 - NewsCollector - INFO - Scraping news for IYF from multiple sources...
+2025-04-12 08:57:14,845 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/IYF/news
+2025-04-12 08:57:14,854 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/IYF/news
+2025-04-12 08:57:14,855 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/IYF/news
+2025-04-12 08:57:14,874 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/iyf-news
+2025-04-12 08:57:14,898 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/IYF
+2025-04-12 08:57:14,907 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/iyf
+2025-04-12 08:57:14,908 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/iyf
+2025-04-12 08:57:14,977 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/iyf
+2025-04-12 08:57:14,978 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=iyf
+2025-04-12 08:57:15,016 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/IYF.O
+2025-04-12 08:57:16,368 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:57:17,140 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=IYF
+2025-04-12 08:57:17,227 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:57:17,437 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 08:57:17,505 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/IYF:US
+2025-04-12 08:57:18,911 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:57:19,165 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:57:22,333 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:57:22,344 - NewsCollector - INFO - News saved to data/scraped_news\IYF_news_20250412_085722.json
+2025-04-12 08:57:22,346 - NewsCollector - INFO - Total articles found for IYF: 18
+2025-04-12 08:57:22,346 - NewsCollector - INFO - Scraping news for XLV from multiple sources...
+2025-04-12 08:57:22,461 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/xlv
+2025-04-12 08:57:22,476 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/XLV/news
+2025-04-12 08:57:22,483 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/XLV/news
+2025-04-12 08:57:22,487 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=xlv
+2025-04-12 08:57:22,497 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/XLV
+2025-04-12 08:57:22,520 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/xlv
+2025-04-12 08:57:22,525 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/xlv
+2025-04-12 08:57:22,592 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/XLV/news
+2025-04-12 08:57:22,599 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/xlv-news
+2025-04-12 08:57:22,609 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/XLV.O
+2025-04-12 08:57:23,727 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=XLV
+2025-04-12 08:57:24,344 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:57:24,398 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:57:25,722 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:57:26,055 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/XLV:US
+2025-04-12 08:57:26,810 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:57:27,580 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:57:30,937 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:57:30,946 - NewsCollector - INFO - News saved to data/scraped_news\XLV_news_20250412_085730.json
+2025-04-12 08:57:30,948 - NewsCollector - INFO - Total articles found for XLV: 10
+2025-04-12 08:57:30,948 - NewsCollector - INFO - Scraping news for VHT from multiple sources...
+2025-04-12 08:57:31,074 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/VHT/news
+2025-04-12 08:57:31,089 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/vht
+2025-04-12 08:57:31,136 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/VHT.O
+2025-04-12 08:57:31,149 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/VHT/news
+2025-04-12 08:57:31,161 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/vht
+2025-04-12 08:57:31,198 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/VHT
+2025-04-12 08:57:31,200 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/vht
+2025-04-12 08:57:31,204 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/vht-news
+2025-04-12 08:57:31,211 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=vht
+2025-04-12 08:57:31,254 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/VHT/news
+2025-04-12 08:57:32,647 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 08:57:32,759 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:57:33,393 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:57:33,703 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=VHT
+2025-04-12 08:57:34,052 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/VHT:US
+2025-04-12 08:57:35,489 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:57:36,379 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:57:43,223 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:57:43,232 - NewsCollector - INFO - News saved to data/scraped_news\VHT_news_20250412_085743.json
+2025-04-12 08:57:43,234 - NewsCollector - INFO - Total articles found for VHT: 10
+2025-04-12 08:57:43,234 - NewsCollector - INFO - Scraping news for IYH from multiple sources...
+2025-04-12 08:57:43,377 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/IYH
+2025-04-12 08:57:43,421 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/iyh
+2025-04-12 08:57:43,427 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/iyh
+2025-04-12 08:57:43,445 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/IYH/news
+2025-04-12 08:57:43,490 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/IYH/news
+2025-04-12 08:57:43,490 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/IYH.O
+2025-04-12 08:57:43,509 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=IYH
+2025-04-12 08:57:43,509 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/iyh
+2025-04-12 08:57:43,514 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/IYH:US
+2025-04-12 08:57:43,516 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/iyh-news
+2025-04-12 08:57:43,517 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=iyh
+2025-04-12 08:57:43,535 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/IYH/news
+2025-04-12 08:57:45,063 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 08:57:45,798 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 08:57:47,929 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 08:57:48,055 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 08:57:48,056 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 08:57:49,349 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 08:57:49,360 - NewsCollector - INFO - News saved to data/scraped_news\IYH_news_20250412_085749.json
+2025-04-12 08:57:49,361 - NewsCollector - INFO - Total articles found for IYH: 18
+2025-04-12 08:57:57,664 - GeminiHelper - INFO - Generated market analysis for query: Which tech ETFs are reacting to regulatory news this week?
+2025-04-12 08:57:57,670 - NewsSense - ERROR - Error processing query: 'NewsSenseCLI' object has no attribute '_display_market_analysis'
+2025-04-12 09:00:54,632 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 09:00:54,633 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 09:00:54,635 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 09:00:54,635 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 09:00:54,636 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 09:00:54,640 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 09:03:13,676 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 09:03:13,676 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 09:03:13,678 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 09:03:13,679 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 09:03:13,680 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 09:03:13,683 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 09:03:37,845 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 09:03:42,778 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_090342.txt
+2025-04-12 09:03:42,780 - MarketAnalyzer - INFO - Analyzing security data for XLK
+2025-04-12 09:03:44,369 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLK_20250412_090344.txt
+2025-04-12 09:03:44,370 - MarketAnalyzer - INFO - Analyzing security data for VGT
+2025-04-12 09:03:45,788 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_VGT_20250412_090345.txt
+2025-04-12 09:03:45,789 - MarketAnalyzer - INFO - Analyzing security data for XLF
+2025-04-12 09:03:47,415 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLF_20250412_090347.txt
+2025-04-12 09:03:47,418 - MarketAnalyzer - INFO - Analyzing security data for VFH
+2025-04-12 09:03:49,563 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_VFH_20250412_090349.txt
+2025-04-12 09:03:49,563 - MarketAnalyzer - INFO - Analyzing security data for IYF
+2025-04-12 09:03:50,685 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_IYF_20250412_090350.txt
+2025-04-12 09:03:50,686 - MarketAnalyzer - INFO - Analyzing security data for XLV
+2025-04-12 09:03:51,638 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_XLV_20250412_090351.txt
+2025-04-12 09:03:51,639 - MarketAnalyzer - INFO - Analyzing security data for VHT
+2025-04-12 09:03:52,705 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_VHT_20250412_090352.txt
+2025-04-12 09:03:52,707 - MarketAnalyzer - INFO - Analyzing security data for IYH
+2025-04-12 09:03:54,065 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_IYH_20250412_090354.txt
+2025-04-12 09:03:54,066 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 09:03:54,174 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 09:03:54,193 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 09:03:54,212 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 09:03:54,216 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 09:03:54,220 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 09:03:54,225 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 09:03:54,244 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 09:03:54,272 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 09:03:54,319 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 09:03:54,342 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 09:03:54,364 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 09:03:54,367 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 09:03:56,052 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 09:03:57,435 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 09:03:58,460 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 09:03:59,234 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 09:03:59,284 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 09:04:00,050 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_090400.json
+2025-04-12 09:04:00,050 - NewsCollector - INFO - Total articles found for QQQ: 18
+2025-04-12 09:04:00,052 - NewsCollector - INFO - Scraping news for XLK from multiple sources...
+2025-04-12 09:04:00,164 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/XLK/news
+2025-04-12 09:04:00,201 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/XLK/news
+2025-04-12 09:04:00,229 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/xlk
+2025-04-12 09:04:00,235 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/xlk-news
+2025-04-12 09:04:00,240 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=xlk
+2025-04-12 09:04:00,266 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/XLK.O
+2025-04-12 09:04:00,291 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/xlk
+2025-04-12 09:04:00,319 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/XLK/news
+2025-04-12 09:04:00,339 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/xlk
+2025-04-12 09:04:01,677 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/XLK:US
+2025-04-12 09:04:01,773 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 09:04:03,010 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/XLK
+2025-04-12 09:04:03,140 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 09:04:03,315 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 09:04:03,528 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=XLK
+2025-04-12 09:04:05,125 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 09:04:08,051 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 09:04:09,949 - NewsCollector - INFO - News saved to data/scraped_news\XLK_news_20250412_090409.json
+2025-04-12 09:04:09,950 - NewsCollector - INFO - Total articles found for XLK: 18
+2025-04-12 09:04:09,951 - NewsCollector - INFO - Scraping news for VGT from multiple sources...
+2025-04-12 09:04:10,059 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/VGT
+2025-04-12 09:04:10,085 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/vgt
+2025-04-12 09:04:10,102 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/vgt
+2025-04-12 09:04:10,113 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/vgt-news
+2025-04-12 09:04:10,133 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/VGT/news
+2025-04-12 09:04:10,138 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/VGT:US
+2025-04-12 09:04:10,161 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/VGT.O
+2025-04-12 09:04:10,186 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/VGT/news
+2025-04-12 09:04:10,237 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=vgt
+2025-04-12 09:04:10,241 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/VGT/news
+2025-04-12 09:04:10,248 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/vgt
+2025-04-12 09:04:11,649 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 09:04:11,659 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 09:04:12,880 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 09:04:13,710 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=VGT
+2025-04-12 09:04:14,099 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 09:04:15,875 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 09:04:18,753 - NewsCollector - INFO - News saved to data/scraped_news\VGT_news_20250412_090418.json
+2025-04-12 09:04:18,754 - NewsCollector - INFO - Total articles found for VGT: 10
+2025-04-12 09:04:18,755 - NewsCollector - INFO - Scraping news for XLF from multiple sources...
+2025-04-12 09:04:18,896 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/XLF/news
+2025-04-12 09:04:18,918 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=xlf
+2025-04-12 09:04:18,948 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/xlf
+2025-04-12 09:04:18,951 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/XLF.O
+2025-04-12 09:04:18,971 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/XLF:US
+2025-04-12 09:04:18,980 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/XLF/news
+2025-04-12 09:04:18,992 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/xlf
+2025-04-12 09:04:18,999 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/XLF/news
+2025-04-12 09:04:19,011 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/xlf-news
+2025-04-12 09:04:19,011 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/xlf
+2025-04-12 09:04:19,023 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/XLF
+2025-04-12 09:04:20,568 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 09:04:20,646 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 09:04:21,192 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=XLF
+2025-04-12 09:04:21,888 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 09:04:23,419 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 09:04:24,536 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 09:04:24,537 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 09:04:27,971 - NewsCollector - INFO - News saved to data/scraped_news\XLF_news_20250412_090427.json
+2025-04-12 09:04:27,972 - NewsCollector - INFO - Total articles found for XLF: 10
+2025-04-12 09:04:27,973 - NewsCollector - INFO - Scraping news for VFH from multiple sources...
+2025-04-12 09:04:28,080 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/vfh
+2025-04-12 09:04:28,132 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/VFH.O
+2025-04-12 09:04:28,150 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/VFH
+2025-04-12 09:04:28,163 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/VFH/news
+2025-04-12 09:04:28,178 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/VFH/news
+2025-04-12 09:04:28,181 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=vfh
+2025-04-12 09:04:28,184 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/VFH/news
+2025-04-12 09:04:28,231 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/vfh
+2025-04-12 09:04:28,237 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/VFH:US
+2025-04-12 09:04:28,238 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/vfh
+2025-04-12 09:04:28,260 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/vfh-news
+2025-04-12 09:04:29,867 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 09:04:30,316 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 09:04:30,389 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=VFH
+2025-04-12 09:04:31,775 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 09:04:32,605 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 09:04:32,975 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 09:04:36,575 - NewsCollector - INFO - News saved to data/scraped_news\VFH_news_20250412_090436.json
+2025-04-12 09:04:36,575 - NewsCollector - INFO - Total articles found for VFH: 18
+2025-04-12 09:04:36,576 - NewsCollector - INFO - Scraping news for IYF from multiple sources...
+2025-04-12 09:04:36,706 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/IYF
+2025-04-12 09:04:36,760 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=iyf
+2025-04-12 09:04:36,765 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/IYF/news
+2025-04-12 09:04:36,776 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/iyf
+2025-04-12 09:04:36,776 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/IYF/news
+2025-04-12 09:04:36,807 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/iyf-news
+2025-04-12 09:04:36,822 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/IYF.O
+2025-04-12 09:04:36,824 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/IYF:US
+2025-04-12 09:04:36,826 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/iyf
+2025-04-12 09:04:36,831 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/iyf
+2025-04-12 09:04:36,861 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/IYF/news
+2025-04-12 09:04:38,578 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 09:04:39,404 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=IYF
+2025-04-12 09:04:39,740 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 09:04:39,800 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 09:04:41,556 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 09:04:43,273 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 09:04:45,541 - NewsCollector - INFO - News saved to data/scraped_news\IYF_news_20250412_090445.json
+2025-04-12 09:04:45,541 - NewsCollector - INFO - Total articles found for IYF: 10
+2025-04-12 09:04:45,543 - NewsCollector - INFO - Scraping news for XLV from multiple sources...
+2025-04-12 09:04:45,661 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=xlv
+2025-04-12 09:04:45,676 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/XLV/news
+2025-04-12 09:04:45,717 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/XLV/news
+2025-04-12 09:04:45,720 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/XLV
+2025-04-12 09:04:45,738 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/XLV.O
+2025-04-12 09:04:45,795 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/xlv
+2025-04-12 09:04:45,803 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/xlv
+2025-04-12 09:04:45,806 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/XLV/news
+2025-04-12 09:04:45,815 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/xlv-news
+2025-04-12 09:04:45,823 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/XLV:US
+2025-04-12 09:04:45,828 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/xlv
+2025-04-12 09:04:47,178 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 09:04:47,789 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 09:04:47,994 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 09:04:48,455 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=XLV
+2025-04-12 09:04:49,981 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 09:04:52,095 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 09:04:55,207 - NewsCollector - INFO - News saved to data/scraped_news\XLV_news_20250412_090455.json
+2025-04-12 09:04:55,207 - NewsCollector - INFO - Total articles found for XLV: 10
+2025-04-12 09:04:55,208 - NewsCollector - INFO - Scraping news for VHT from multiple sources...
+2025-04-12 09:04:55,333 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/VHT/news
+2025-04-12 09:04:55,377 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/VHT:US
+2025-04-12 09:04:55,382 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=vht
+2025-04-12 09:04:55,400 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/vht-news
+2025-04-12 09:04:55,407 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/VHT
+2025-04-12 09:04:55,422 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/VHT/news
+2025-04-12 09:04:55,440 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/VHT.O
+2025-04-12 09:04:55,441 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/VHT/news
+2025-04-12 09:04:55,469 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/vht
+2025-04-12 09:04:55,474 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/vht
+2025-04-12 09:04:55,477 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/vht
+2025-04-12 09:04:57,054 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 09:04:57,200 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 09:04:57,864 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 09:04:59,275 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=VHT
+2025-04-12 09:04:59,672 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 09:05:00,121 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 09:05:05,441 - NewsCollector - INFO - News saved to data/scraped_news\VHT_news_20250412_090505.json
+2025-04-12 09:05:05,442 - NewsCollector - INFO - Total articles found for VHT: 10
+2025-04-12 09:05:05,443 - NewsCollector - INFO - Scraping news for IYH from multiple sources...
+2025-04-12 09:05:05,580 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/IYH/news
+2025-04-12 09:05:05,615 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/iyh
+2025-04-12 09:05:05,617 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/iyh
+2025-04-12 09:05:05,619 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/IYH/news
+2025-04-12 09:05:05,648 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/IYH:US
+2025-04-12 09:05:05,662 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/iyh
+2025-04-12 09:05:05,666 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=iyh
+2025-04-12 09:05:05,673 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/iyh-news
+2025-04-12 09:05:05,709 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/IYH
+2025-04-12 09:05:05,714 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/IYH/news
+2025-04-12 09:05:05,744 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/IYH.O
+2025-04-12 09:05:07,482 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 09:05:07,493 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 09:05:07,790 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=IYH
+2025-04-12 09:05:08,749 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 09:05:10,995 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 09:05:11,149 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 09:05:12,716 - NewsCollector - INFO - News saved to data/scraped_news\IYH_news_20250412_090512.json
+2025-04-12 09:05:12,717 - NewsCollector - INFO - Total articles found for IYH: 10
+2025-04-12 09:05:21,162 - GeminiHelper - INFO - Generated market analysis for query: Which tech ETFs are reacting to regulatory news this week?
+2025-04-12 09:08:47,100 - MarketAnalyzer - INFO - Using cached security data for QQQ
+2025-04-12 09:08:47,102 - MarketAnalyzer - INFO - Using cached security data for XLK
+2025-04-12 09:08:47,103 - MarketAnalyzer - INFO - Using cached security data for VGT
+2025-04-12 09:08:47,103 - MarketAnalyzer - INFO - Using cached security data for XLF
+2025-04-12 09:08:47,104 - MarketAnalyzer - INFO - Using cached security data for VFH
+2025-04-12 09:08:47,105 - MarketAnalyzer - INFO - Using cached security data for IYF
+2025-04-12 09:08:47,105 - MarketAnalyzer - INFO - Using cached security data for XLV
+2025-04-12 09:08:47,106 - MarketAnalyzer - INFO - Using cached security data for VHT
+2025-04-12 09:08:47,107 - MarketAnalyzer - INFO - Using cached security data for IYH
+2025-04-12 09:08:47,110 - NewsCollector - INFO - Using cached news for QQQ
+2025-04-12 09:08:47,111 - NewsCollector - INFO - Using cached news for XLK
+2025-04-12 09:08:47,112 - NewsCollector - INFO - Using cached news for VGT
+2025-04-12 09:08:47,127 - NewsCollector - INFO - Using cached news for XLF
+2025-04-12 09:08:47,129 - NewsCollector - INFO - Using cached news for VFH
+2025-04-12 09:08:47,131 - NewsCollector - INFO - Using cached news for IYF
+2025-04-12 09:08:47,131 - NewsCollector - INFO - Using cached news for XLV
+2025-04-12 09:08:47,132 - NewsCollector - INFO - Using cached news for VHT
+2025-04-12 09:08:47,132 - NewsCollector - INFO - Using cached news for IYH
+2025-04-12 09:08:55,356 - GeminiHelper - INFO - Generated market analysis for query: What's happening on the SBI amc?
+2025-04-12 09:10:05,565 - MarketAnalyzer - INFO - Using cached security data for QQQ
+2025-04-12 09:10:05,566 - NewsCollector - INFO - Using cached news for QQQ
+2025-04-12 09:10:05,566 - MarketAnalyzer - INFO - Analyzing impact of 18 news items
+2025-04-12 09:10:05,673 - MarketAnalyzer - INFO - Generating explanation for QQQ
+2025-04-12 09:11:06,580 - MarketAnalyzer - INFO - Using cached security data for QQQ
+2025-04-12 09:11:06,581 - MarketAnalyzer - INFO - Using cached security data for XLK
+2025-04-12 09:11:06,582 - MarketAnalyzer - INFO - Using cached security data for VGT
+2025-04-12 09:11:06,582 - MarketAnalyzer - INFO - Using cached security data for XLF
+2025-04-12 09:11:06,583 - MarketAnalyzer - INFO - Using cached security data for VFH
+2025-04-12 09:11:06,584 - MarketAnalyzer - INFO - Using cached security data for IYF
+2025-04-12 09:11:06,585 - MarketAnalyzer - INFO - Using cached security data for XLV
+2025-04-12 09:11:06,585 - MarketAnalyzer - INFO - Using cached security data for VHT
+2025-04-12 09:11:06,586 - MarketAnalyzer - INFO - Using cached security data for IYH
+2025-04-12 09:11:06,588 - NewsCollector - INFO - Using cached news for QQQ
+2025-04-12 09:11:06,589 - NewsCollector - INFO - Using cached news for XLK
+2025-04-12 09:11:06,597 - NewsCollector - INFO - Using cached news for VGT
+2025-04-12 09:11:06,598 - NewsCollector - INFO - Using cached news for XLF
+2025-04-12 09:11:06,599 - NewsCollector - INFO - Using cached news for VFH
+2025-04-12 09:11:06,599 - NewsCollector - INFO - Using cached news for IYF
+2025-04-12 09:11:06,600 - NewsCollector - INFO - Using cached news for XLV
+2025-04-12 09:11:06,600 - NewsCollector - INFO - Using cached news for VHT
+2025-04-12 09:11:06,601 - NewsCollector - INFO - Using cached news for IYH
+2025-04-12 09:11:14,560 - GeminiHelper - INFO - Generated market analysis for query: WHAT IS ALZAIMERS
+2025-04-12 09:12:01,671 - MarketAnalyzer - INFO - Using cached security data for QQQ
+2025-04-12 09:12:01,673 - MarketAnalyzer - INFO - Using cached security data for XLK
+2025-04-12 09:12:01,673 - MarketAnalyzer - INFO - Using cached security data for VGT
+2025-04-12 09:12:01,674 - MarketAnalyzer - INFO - Using cached security data for XLF
+2025-04-12 09:12:01,674 - MarketAnalyzer - INFO - Using cached security data for VFH
+2025-04-12 09:12:01,675 - MarketAnalyzer - INFO - Using cached security data for IYF
+2025-04-12 09:12:01,676 - MarketAnalyzer - INFO - Using cached security data for XLV
+2025-04-12 09:12:01,676 - MarketAnalyzer - INFO - Using cached security data for VHT
+2025-04-12 09:12:01,678 - MarketAnalyzer - INFO - Using cached security data for IYH
+2025-04-12 09:12:01,681 - NewsCollector - INFO - Using cached news for QQQ
+2025-04-12 09:12:01,682 - NewsCollector - INFO - Using cached news for XLK
+2025-04-12 09:12:01,688 - NewsCollector - INFO - Using cached news for VGT
+2025-04-12 09:12:01,690 - NewsCollector - INFO - Using cached news for XLF
+2025-04-12 09:12:01,692 - NewsCollector - INFO - Using cached news for VFH
+2025-04-12 09:12:01,694 - NewsCollector - INFO - Using cached news for IYF
+2025-04-12 09:12:01,694 - NewsCollector - INFO - Using cached news for XLV
+2025-04-12 09:12:01,695 - NewsCollector - INFO - Using cached news for VHT
+2025-04-12 09:12:01,695 - NewsCollector - INFO - Using cached news for IYH
+2025-04-12 09:12:09,552 - GeminiHelper - INFO - Generated market analysis for query: “What’s driving the drop in emerging market funds?
+2025-04-12 09:14:12,177 - MarketAnalyzer - INFO - Using cached security data for QQQ
+2025-04-12 09:14:12,178 - NewsCollector - INFO - Using cached news for QQQ
+2025-04-12 09:14:12,179 - GeminiHelper - ERROR - Error in market analysis: Object of type DataFrame is not JSON serializable
+2025-04-12 09:14:12,180 - NewsSense - ERROR - Error processing query: 'NewsSenseCLI' object has no attribute '_display_specific_analysis'
+2025-04-12 09:19:29,368 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 09:19:29,368 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 09:19:29,369 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 09:19:29,370 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 09:19:29,371 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 09:19:29,375 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 09:19:41,253 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 09:19:45,792 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_091945.txt
+2025-04-12 09:19:45,793 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 09:19:45,898 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 09:19:45,904 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 09:19:45,906 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 09:19:45,922 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 09:19:45,924 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 09:19:45,937 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 09:19:45,949 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 09:19:45,984 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 09:19:46,043 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 09:19:46,064 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 09:19:46,084 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 09:19:46,158 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 09:19:47,755 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 09:19:47,848 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 09:19:50,764 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 09:19:51,700 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 09:19:52,047 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 09:19:52,058 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_091952.json
+2025-04-12 09:19:52,061 - NewsCollector - INFO - Total articles found for QQQ: 10
+2025-04-12 09:19:52,064 - GeminiHelper - ERROR - Error in market analysis: Object of type DataFrame is not JSON serializable
+2025-04-12 09:26:00,086 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 09:26:00,086 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 09:26:00,087 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 09:26:00,088 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 09:26:00,090 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 09:26:00,092 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 09:26:14,480 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 09:26:18,802 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_092618.txt
+2025-04-12 09:26:18,802 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 09:26:18,938 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 09:26:18,951 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 09:26:18,954 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 09:26:18,988 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 09:26:19,008 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 09:26:19,020 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 09:26:19,023 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 09:26:19,064 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 09:26:19,075 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 09:26:19,080 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 09:26:19,092 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 09:26:19,099 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 09:26:20,657 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 09:26:20,851 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 09:26:23,194 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 09:26:23,478 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 09:26:24,372 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 09:26:24,527 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_092624.json
+2025-04-12 09:26:24,528 - NewsCollector - INFO - Total articles found for QQQ: 10
+2025-04-12 09:26:24,529 - GeminiHelper - ERROR - Error in market analysis: Object of type DataFrame is not JSON serializable
+2025-04-12 09:29:54,194 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 09:29:54,196 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 09:29:54,197 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 09:29:54,198 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 09:29:54,199 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 09:29:54,202 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 09:30:08,192 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 09:30:13,301 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_093013.txt
+2025-04-12 09:30:13,303 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 09:30:13,453 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 09:30:13,457 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 09:30:13,467 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 09:30:13,489 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 09:30:13,498 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 09:30:13,500 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 09:30:13,529 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 09:30:13,548 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 09:30:13,554 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 09:30:13,558 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 09:30:13,561 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 09:30:13,590 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 09:30:15,038 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 09:30:15,372 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 09:30:17,988 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 09:30:19,089 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 09:30:19,380 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 09:30:19,800 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_093019.json
+2025-04-12 09:30:19,801 - NewsCollector - INFO - Total articles found for QQQ: 10
+2025-04-12 09:30:19,802 - GeminiHelper - ERROR - Error in market analysis: Object of type DataFrame is not JSON serializable
+2025-04-12 10:13:39,964 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:13:39,965 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:13:39,966 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:13:39,966 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:13:39,967 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:13:39,971 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 10:14:26,698 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 10:14:31,902 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_101431.txt
+2025-04-12 10:14:31,903 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 10:14:32,019 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 10:14:32,050 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 10:14:32,052 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 10:14:32,079 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 10:14:32,106 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 10:14:32,106 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 10:14:32,108 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 10:14:32,124 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 10:14:32,167 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 10:14:32,199 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 10:14:32,201 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 10:14:32,223 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 10:14:33,942 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 10:14:35,112 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 10:14:36,375 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 10:14:36,585 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 10:14:38,087 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 10:14:38,096 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_101438.json
+2025-04-12 10:14:38,096 - NewsCollector - INFO - Total articles found for QQQ: 18
+2025-04-12 10:14:38,097 - GeminiHelper - ERROR - Error in market analysis: Object of type DataFrame is not JSON serializable
+2025-04-12 10:22:41,944 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:22:41,945 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:22:41,946 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:22:41,947 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:22:41,948 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:22:41,951 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 10:23:02,333 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 10:23:07,273 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_102307.txt
+2025-04-12 10:23:07,274 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 10:23:07,386 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 10:23:07,400 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 10:23:07,400 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 10:23:07,401 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 10:23:07,403 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 10:23:07,465 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 10:23:07,480 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 10:23:07,506 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 10:23:07,508 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 10:23:07,514 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 10:23:07,515 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 10:23:07,535 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 10:23:09,043 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 10:23:09,048 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 10:23:12,012 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 10:23:12,669 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 10:23:13,430 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 10:23:13,447 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_102313.json
+2025-04-12 10:23:13,448 - NewsCollector - INFO - Total articles found for QQQ: 10
+2025-04-12 10:23:13,450 - GeminiHelper - ERROR - Error in market analysis: Object of type DataFrame is not JSON serializable
+2025-04-12 10:30:18,960 - MarketAnalyzer - INFO - Using cached security data for QQQ
+2025-04-12 10:30:18,963 - NewsCollector - INFO - Using cached news for QQQ
+2025-04-12 10:30:18,964 - GeminiHelper - ERROR - Error in market analysis: Object of type DataFrame is not JSON serializable
+2025-04-12 10:33:35,691 - MarketAnalyzer - INFO - Using cached security data for QQQ
+2025-04-12 10:33:35,693 - NewsCollector - INFO - Using cached news for QQQ
+2025-04-12 10:33:35,693 - GeminiHelper - ERROR - Error in market analysis: Object of type DataFrame is not JSON serializable
+2025-04-12 10:34:03,287 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:34:03,289 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:34:03,290 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:34:03,291 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:34:03,292 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:34:03,295 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 10:34:16,001 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 10:34:20,360 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_103420.txt
+2025-04-12 10:34:20,360 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 10:34:20,478 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 10:34:20,493 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 10:34:20,521 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 10:34:20,529 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 10:34:20,545 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 10:34:20,546 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 10:34:20,589 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 10:34:20,599 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 10:34:20,607 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 10:34:20,618 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 10:34:20,633 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 10:34:20,651 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 10:34:22,167 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 10:34:22,284 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 10:34:24,779 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 10:34:24,919 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 10:34:26,206 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 10:34:26,846 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_103426.json
+2025-04-12 10:34:26,846 - NewsCollector - INFO - Total articles found for QQQ: 10
+2025-04-12 10:34:26,847 - GeminiHelper - ERROR - Error in market analysis: Object of type DataFrame is not JSON serializable
+2025-04-12 10:35:05,936 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:35:05,937 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:35:05,938 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:35:05,939 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:35:05,940 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:35:05,946 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 10:35:19,441 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 10:35:24,366 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_103524.txt
+2025-04-12 10:35:24,367 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 10:35:24,476 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 10:35:24,490 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 10:35:24,494 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 10:35:24,521 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 10:35:24,527 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 10:35:24,547 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 10:35:24,555 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 10:35:24,564 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 10:35:24,565 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 10:35:24,571 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 10:35:24,627 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 10:35:24,638 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 10:35:26,081 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 10:35:26,158 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 10:35:29,422 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 10:35:30,049 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 10:35:30,122 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 10:35:30,399 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_103530.json
+2025-04-12 10:35:30,399 - NewsCollector - INFO - Total articles found for QQQ: 10
+2025-04-12 10:35:30,400 - GeminiHelper - ERROR - Error in market analysis: Object of type DataFrame is not JSON serializable
+2025-04-12 10:45:58,734 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:45:58,735 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:45:58,736 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:45:58,737 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:45:58,739 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:45:58,742 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 10:46:14,906 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 10:46:19,839 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_104619.txt
+2025-04-12 10:46:19,839 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 10:46:19,951 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 10:46:19,970 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 10:46:19,988 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 10:46:19,998 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 10:46:20,001 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 10:46:20,008 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 10:46:20,057 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 10:46:20,097 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 10:46:20,118 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 10:46:20,123 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 10:46:20,123 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 10:46:20,140 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 10:46:21,686 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 10:46:24,619 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 10:46:24,895 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 10:46:25,028 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 10:46:26,039 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 10:46:26,046 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_104626.json
+2025-04-12 10:46:26,048 - NewsCollector - INFO - Total articles found for QQQ: 18
+2025-04-12 10:46:26,049 - GeminiHelper - ERROR - Error in market analysis: Object of type DataFrame is not JSON serializable
+2025-04-12 10:52:33,546 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:52:33,546 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:52:33,548 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:52:33,548 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 10:52:33,549 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 10:52:33,553 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 10:53:11,869 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 10:53:16,937 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_105316.txt
+2025-04-12 10:53:16,937 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 10:53:17,045 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 10:53:17,050 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 10:53:17,055 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 10:53:17,095 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 10:53:17,099 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 10:53:17,108 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 10:53:17,110 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 10:53:17,132 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 10:53:17,186 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 10:53:17,189 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 10:53:17,232 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 10:53:17,237 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 10:53:18,724 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 10:53:19,344 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 10:53:22,170 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 10:53:22,567 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 10:53:23,198 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 10:53:23,207 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_105323.json
+2025-04-12 10:53:23,207 - NewsCollector - INFO - Total articles found for QQQ: 10
+2025-04-12 10:53:23,208 - GeminiHelper - ERROR - Error in market analysis: Object of type DataFrame is not JSON serializable

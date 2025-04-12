@@ -1,0 +1,30 @@
+=== Market Analysis for XLV ===
+Analysis Date: 2025-04-12 08:32:37
+
+Company Information:
+Name: The Health Care Select Sector SPDR Fund
+Sector: Unknown
+Industry: Unknown
+Website: Unknown
+
+Price Information:
+Current Price: $136.89999389648438
+Change: 1.75
+Change %: 1.2948576241449037%
+Day Range: $133.64999389648438 - $137.75999450683594
+
+Volume Information:
+Current Volume: 10513052
+Average Volume: 134782.71794871794
+Volume Change: 7700.0%
+
+Key Factors Affecting Price:
+
+Market Context:
+- S&P 500: 2.0511573169300705%
+- Dow Jones: 1.8212882762517018%
+- NASDAQ: 2.236940959523041%
+- Russell 2000: 1.7804141023848814%
+- VIX: -7.941171383225148%
+- Nifty 50: 0.5866844749740643%
+- Sensex: 0.4299639323461889%

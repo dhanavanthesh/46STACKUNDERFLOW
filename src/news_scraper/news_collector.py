@@ -30,10 +30,8 @@ class NewsCollector:
             "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.159 Safari/537.36"
         ]
         
-        # Add timestamps for rate limiting
         self.last_request_time = {}
         
-        # List of news sources to scrape
         self.sources = {
         "yahoo_finance": self._scrape_yahoo_finance,
         "marketwatch": self._scrape_marketwatch,
@@ -49,9 +47,8 @@ class NewsCollector:
         "bloomberg": self._scrape_bloomberg
     }
         
-        # News cache to avoid duplicate scraping
         self.news_cache = {}
-        self.cache_expiry = 3600  # 1 hour in seconds
+        self.cache_expiry = 3600 
 
     def get_random_headers(self):
         """Generate random headers for requests"""

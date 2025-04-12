@@ -4,6 +4,8 @@ import json
 import logging
 from datetime import datetime
 from difflib import get_close_matches
+from colorama import init, Fore, Style
+import traceback
 
 logging.basicConfig(
     level=logging.INFO,
@@ -79,6 +81,64 @@ class GeminiHelper:
             "amazon": "AMZN",
             "tesla": "TSLA",
         }
+
+    def analyze_market_context(self, query, data):
+        """Generate market analysis using Gemini"""
+        try:
+            # Get current UTC time and format it
+            current_time = datetime.utcnow().strftime('%Y-%m-%d %H:%M:%S')
+            user_login = os.getenv('USERNAME', 'User')
+
+            prompt = f"""
+            Current Date and Time (UTC): {current_time}
+            Current User's Login: {user_login}
+            
+            Query: "{query}"
+            
+            Market Data and News Analysis:
+            {json.dumps(data, indent=2)}
+            
+            Provide a comprehensive analysis including:
+            1. Market trends and sector impacts
+            2. News sentiment analysis
+            3. Key factors affecting markets
+            4. Actionable insights for investors
+
+            Format the response in clear sections with bullet points.
+            Include specific data points and percentage changes where relevant.
+            Consider both technical indicators and news sentiment in the analysis.
+            """
+
+            # Get Gemini's analysis
+            url = f"{self.base_url}?key={self.api_key}"
+            response = requests.post(
+                url,
+                headers={"Content-Type": "application/json"},
+                json={
+                    "contents": [{
+                        "parts": [{"text": prompt}]
+                    }],
+                    "generationConfig": {
+                        "temperature": 0.3,
+                        "maxOutputTokens": 1024
+                    }
+                },
+                timeout=15
+            )
+
+            if response.status_code == 200:
+                result = response.json()
+                if 'candidates' in result:
+                    analysis = result['candidates'][0]['content']['parts'][0]['text']
+                    logger.info(f"Generated market analysis for query: {query}")
+                    return analysis
+
+            logger.warning(f"Failed to get analysis from Gemini API: {response.status_code}")
+            return None
+
+        except Exception as e:
+            logger.error(f"Error in market analysis: {str(e)}")
+            return None
 
     def extract_query_components(self, query_text):
         """Extract components with enhanced company and ETF detection"""
@@ -199,6 +259,7 @@ class GeminiHelper:
                 "news": []
             }
 
+            
     def _search_company_tickers(self, company_name):
         """Search for tickers related to a company using Alpha Vantage"""
         try:
@@ -278,6 +339,9 @@ class GeminiHelper:
             logger.error(f"Error verifying ticker {ticker}: {str(e)}")
             return False
 
+    
+            
+                
     def _extract_json_from_response(self, text):
         """Extract JSON from response"""
         try:

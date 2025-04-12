@@ -1,0 +1,30 @@
+=== Market Analysis for VHT ===
+Analysis Date: 2025-04-12 08:56:30
+
+Company Information:
+Name: Vanguard Health Care Index Fund ETF Shares
+Sector: Unknown
+Industry: Unknown
+Website: Unknown
+
+Price Information:
+Current Price: $247.89999389648438
+Change: 3.470001220703125
+Change %: 1.4196298836803678%
+Day Range: $241.94000244140625 - $249.12339782714844
+
+Volume Information:
+Current Volume: 221372
+Average Volume: 2874.961038961039
+Volume Change: 7600.0%
+
+Key Factors Affecting Price:
+
+Market Context:
+- S&P 500: 2.0511573169300705%
+- Dow Jones: 1.8212882762517018%
+- NASDAQ: 2.236940959523041%
+- Russell 2000: 1.7804141023848814%
+- VIX: -7.941171383225148%
+- Nifty 50: 0.5866844749740643%
+- Sensex: 0.4299639323461889%

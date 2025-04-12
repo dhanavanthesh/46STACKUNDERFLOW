@@ -272,6 +272,307 @@ class MarketAnalyzer:
             logger.error(f"Error saving analysis for {ticker}: {str(e)}")
             logger.error(traceback.format_exc())
 
+
+
+
+    # def compute_price_news_correlation(self, security_data, news_analysis, days=10):
+    #     """
+    #     Compute correlation between price movements and negative news
+        
+    #     Args:
+    #         security_data: Dictionary with security data including historical prices
+    #         news_analysis: Dictionary with news sentiment analysis
+    #         days: Number of days to analyze (default: 10)
+            
+    #     Returns:
+    #         Dictionary with correlation data and statistics
+    #     """
+    #     try:
+    #         if not security_data or 'data' not in security_data:
+    #             return {'error': 'No security data available'}
+                
+    #         # Try to get data from week, month, or year depending on availability
+    #         if 'week' in security_data['data'] and not security_data['data']['week'].empty:
+    #             price_data = security_data['data']['week']
+    #         elif 'month' in security_data['data'] and not security_data['data']['month'].empty:
+    #             price_data = security_data['data']['month']
+    #         elif 'year' in security_data['data'] and not security_data['data']['year'].empty:
+    #             price_data = security_data['data']['year']
+    #         else:
+    #             return {'error': 'No historical price data available'}
+            
+    #         # Limit to requested number of days
+    #         price_data = price_data.iloc[-days:] if len(price_data) > days else price_data
+            
+    #         # Group news by date
+    #         news_by_date = defaultdict(lambda: {'total': 0, 'negative': 0, 'neutral': 0, 'positive': 0})
+            
+    #         if news_analysis and 'sentiments' in news_analysis:
+    #             for item in news_analysis['sentiments']:
+    #                 if 'timestamp' not in item:
+    #                     continue
+                        
+    #                 # Extract date from timestamp
+    #                 date_str = None
+    #                 try:
+    #                     # Handle different timestamp formats
+    #                     timestamp = item['timestamp']
+    #                     if ' ' in timestamp:
+    #                         date_str = timestamp.split(' ')[0]  # Format: "2025-04-12 09:30"
+    #                     elif 'T' in timestamp:
+    #                         date_str = timestamp.split('T')[0]  # Format: "2025-04-12T09:30:00"
+    #                     else:
+    #                         date_str = timestamp  # Already date only
+    #                 except:
+    #                     continue
+                    
+    #                 if not date_str:
+    #                     continue
+                    
+    #                 # Count news by sentiment
+    #                 news_by_date[date_str]['total'] += 1
+                    
+    #                 sentiment = item.get('sentiment', 0)
+    #                 if sentiment < -0.1:
+    #                     news_by_date[date_str]['negative'] += 1
+    #                 elif sentiment > 0.1:
+    #                     news_by_date[date_str]['positive'] += 1
+    #                 else:
+    #                     news_by_date[date_str]['neutral'] += 1
+            
+    #         # Build correlation data
+    #         correlation_data = []
+            
+    #         for i in range(len(price_data)):
+    #             date = price_data.index[i].strftime('%Y-%m-%d')
+    #             price = price_data['Close'].iloc[i]
+                
+    #             news_counts = news_by_date.get(date, {'total': 0, 'negative': 0, 'neutral': 0, 'positive': 0})
+                
+    #             correlation_data.append({
+    #                 'date': date,
+    #                 'price': price,
+    #                 'total_news': news_counts['total'],
+    #                 'negative_news': news_counts['negative'],
+    #                 'neutral_news': news_counts['neutral'],
+    #                 'positive_news': news_counts['positive']
+    #             })
+            
+    #         # Calculate correlation coefficient if enough data points
+    #         correlation_coef = None
+    #         if len(correlation_data) >= 3:
+    #             prices = [item['price'] for item in correlation_data]
+    #             neg_news = [item['negative_news'] for item in correlation_data]
+                
+    #             # Calculate correlation if there's variation in the data
+    #             if len(set(prices)) > 1 and len(set(neg_news)) > 1:
+    #                 import numpy as np
+    #                 correlation_coef = np.corrcoef(prices, neg_news)[0, 1]
+            
+    #         return {
+    #             'data': correlation_data,
+    #             'correlation_coefficient': correlation_coef,
+    #             'days_analyzed': len(correlation_data)
+    #         }
+            
+    #     except Exception as e:
+    #         logger.error(f"Error computing price-news correlation: {str(e)}")
+    #         logger.error(traceback.format_exc())
+    #         return {'error': f'Error in correlation calculation: {str(e)}'}
+    
+    def compute_price_news_correlation(self, security_data, news_items):
+        """
+        Compute correlation between price movements and negative news
+        
+        Args:
+            security_data: Dictionary containing security price data
+            news_items: List of news items with sentiment scores
+            
+        Returns:
+            Dictionary containing correlation analysis
+        """
+        try:
+            # Initialize result structure
+            result = {
+                'correlation_coefficient': None,
+                'days_analyzed': 0,
+                'data': [],
+                'error': None
+            }
+            
+            # Check for valid inputs
+            if not security_data or 'data' not in security_data:
+                result['error'] = "No security data available"
+                return result
+                
+            if not news_items:
+                result['error'] = "No news items available"
+                return result
+            
+            # Try to get data from week, month, or year depending on availability
+            if 'week' in security_data['data'] and not security_data['data']['week'].empty:
+                price_data = security_data['data']['week']
+            elif 'month' in security_data['data'] and not security_data['data']['month'].empty:
+                price_data = security_data['data']['month']
+            elif 'year' in security_data['data'] and not security_data['data']['year'].empty:
+                price_data = security_data['data']['year']
+            else:
+                result['error'] = 'No historical price data available'
+                return result
+            
+            # Get most recent dates (up to 10 days)
+            days_to_analyze = min(10, len(price_data))
+            price_data = price_data.iloc[-days_to_analyze:]
+            
+            # Group news by date
+            news_by_date = {}
+            
+            # Process news items from news_analysis
+            if isinstance(news_items, dict) and 'sentiments' in news_items:
+                for item in news_items['sentiments']:
+                    if 'timestamp' not in item:
+                        continue
+                        
+                    # Extract date from timestamp
+                    try:
+                        timestamp = item['timestamp']
+                        if ' ' in timestamp:
+                            date_str = timestamp.split(' ')[0]  # Format: "2025-04-12 09:30"
+                        elif 'T' in timestamp:
+                            date_str = timestamp.split('T')[0]  # Format: "2025-04-12T09:30:00"
+                        else:
+                            date_str = timestamp[:10]  # Format: "2025-04-12"
+
+                        if len(date_str) < 10:  # Make sure we have a valid date
+                            continue
+                            
+                        # Initialize date entry if not exists
+                        if date_str not in news_by_date:
+                            news_by_date[date_str] = {'total': 0, 'negative': 0, 'neutral': 0, 'positive': 0}
+                            
+                        # Count news by sentiment
+                        news_by_date[date_str]['total'] += 1
+                        sentiment = item.get('sentiment', 0)
+                        
+                        if sentiment < -0.1:
+                            news_by_date[date_str]['negative'] += 1
+                        elif sentiment > 0.1:
+                            news_by_date[date_str]['positive'] += 1
+                        else:
+                            news_by_date[date_str]['neutral'] += 1
+                    except:
+                        continue
+            # Process raw news items
+            else:
+                for item in news_items:
+                    if not item or 'timestamp' not in item:
+                        continue
+                        
+                    try:
+                        timestamp = item['timestamp']
+                        if ' ' in timestamp:
+                            date_str = timestamp.split(' ')[0]
+                        elif 'T' in timestamp:
+                            date_str = timestamp.split('T')[0]
+                        else:
+                            date_str = timestamp[:10]
+
+                        if len(date_str) < 10:
+                            continue
+                            
+                        if date_str not in news_by_date:
+                            news_by_date[date_str] = {'total': 0, 'negative': 0, 'neutral': 0, 'positive': 0}
+                            
+                        news_by_date[date_str]['total'] += 1
+                        
+                        # Get sentiment if available, otherwise perform simple sentiment analysis
+                        if 'sentiment' in item:
+                            sentiment = item['sentiment']
+                        else:
+                            # Simple sentiment calculation using TextBlob if available
+                            try:
+                                from textblob import TextBlob
+                                text = f"{item.get('title', '')} {item.get('summary', '')}"
+                                sentiment = TextBlob(text).sentiment.polarity
+                            except:
+                                sentiment = 0  # Default neutral sentiment
+                        
+                        if sentiment < -0.1:
+                            news_by_date[date_str]['negative'] += 1
+                        elif sentiment > 0.1:
+                            news_by_date[date_str]['positive'] += 1
+                        else:
+                            news_by_date[date_str]['neutral'] += 1
+                    except:
+                        continue
+            
+            # Build correlation data
+            correlation_data = []
+            prices = []
+            neg_news_counts = []
+            
+            for i in range(len(price_data)):
+                date = price_data.index[i].strftime('%Y-%m-%d')
+                price = float(price_data['Close'].iloc[i])
+                
+                # Get news counts for this date
+                news_counts = news_by_date.get(date, {'total': 0, 'negative': 0, 'neutral': 0, 'positive': 0})
+                neg_news = news_counts['negative']
+                
+                correlation_data.append({
+                    'date': date,
+                    'price': price,
+                    'total_news': news_counts['total'],
+                    'negative_news': neg_news,
+                    'neutral_news': news_counts['neutral'],
+                    'positive_news': news_counts['positive']
+                })
+                
+                prices.append(price)
+                neg_news_counts.append(neg_news)
+            
+            # Calculate correlation coefficient if enough data points with variation
+            if len(prices) >= 2:
+                # Check if there's variation in both price and news
+                if len(set(prices)) > 1 and sum(neg_news_counts) > 0:
+                    try:
+                        import numpy as np
+                        correlation_coef = np.corrcoef(prices, neg_news_counts)[0, 1]
+                        # Handle potential NaN from constant values
+                        if np.isnan(correlation_coef):
+                            correlation_coef = 0
+                        result['correlation_coefficient'] = correlation_coef
+                    except Exception as e:
+                        logger.error(f"Error calculating correlation: {str(e)}")
+                        # Fallback to simple correlation calculation
+                        if len(prices) == len(neg_news_counts) and len(prices) > 0:
+                            mean_price = sum(prices) / len(prices)
+                            mean_news = sum(neg_news_counts) / len(neg_news_counts)
+                            
+                            numerator = sum((prices[i] - mean_price) * (neg_news_counts[i] - mean_news) 
+                                            for i in range(len(prices)))
+                            denom_price = sum((p - mean_price) ** 2 for p in prices)
+                            denom_news = sum((n - mean_news) ** 2 for n in neg_news_counts)
+                            
+                            if denom_price > 0 and denom_news > 0:
+                                correlation_coef = numerator / ((denom_price * denom_news) ** 0.5)
+                                result['correlation_coefficient'] = correlation_coef
+            
+            result['data'] = correlation_data
+            result['days_analyzed'] = len(correlation_data)
+            
+            return result
+            
+        except Exception as e:
+            logger.error(f"Error computing price-news correlation: {str(e)}")
+            logger.error(traceback.format_exc())
+            return {
+                'error': f'Error in correlation calculation: {str(e)}',
+                'correlation_coefficient': None,
+                'days_analyzed': 0,
+                'data': []
+            }    
+    
     def analyze_news_impact(self, news_items):
         """Analyze news impact and sentiment with improved categorization"""
         try:
