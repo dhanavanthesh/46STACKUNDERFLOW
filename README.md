@@ -251,17 +251,16 @@ NewsSense scrapes financial news from:
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 📣 Disclaimer
-
-NewsSense is for educational and informational purposes only. It does not provide investment advice, and you should not rely solely on its analysis for making investment decisions. The data and analysis provided may not be accurate or complete. Always consult with a qualified financial advisor before making investment decisions.
-
-NewsSense is for educational and informational purposes only. It does not provide investment advice, and you should not rely solely on its analysis for making investment decisions.
-
 
 ### CLI OUTPUT (Command Line Interface)
-
+1.
 ![WhatsApp Image 2025-04-12 at 09 20 43_8fcbe462](https://github.com/user-attachments/assets/7c58d6d0-5e29-4cce-8651-e28fcdf06151)
-
+2.
+![WhatsApp Image 2025-04-12 at 09 21 06_9ef66f44](https://github.com/user-attachments/assets/0fcecdbe-1f28-4412-8171-295b9ae2f788)
+3.
+![WhatsApp Image 2025-04-12 at 09 22 08_6838f219](https://github.com/user-attachments/assets/0c43d883-6c77-4ee9-914d-1eeb02ee4da0)
+4.
+![WhatsApp Image 2025-04-12 at 09 22 23_c4af60cc](https://github.com/user-attachments/assets/2df8b8ef-d083-47b1-8d8f-775f0eb97afc)
 
 ### Corelation
 
