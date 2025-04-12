@@ -227,7 +227,7 @@ NewsSense scrapes financial news from:
 ## 🔧 Technologies Used
 
 - **Python**: Core programming language
-- **yfinance**: Yahoo Finance market data
+- **Alpha vantage and datasets**: mf , mf_holdings, market data
 - **BeautifulSoup**: HTML parsing for news scraping
 - **Requests**: HTTP requests for web scraping
 - **TextBlob**: Natural language processing and sentiment analysis
