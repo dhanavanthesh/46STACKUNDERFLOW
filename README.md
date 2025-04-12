@@ -11,7 +11,7 @@ NewsSense is an AI-powered financial news analysis system that explains market m
 - **Natural Language Querying**: Answer questions about market movements in plain English
 - **Comprehensive Explanations**: Generates detailed explanations for price movements
 
-### WORKFLOW :
+### Workflow
 [news-sense-workflow.pdf](https://github.com/user-attachments/files/19717668/news-sense-workflow.pdf)
 
 
@@ -133,14 +133,16 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 NewsSense is for educational and informational purposes only. It does not provide investment advice, and you should not rely solely on its analysis for making investment decisions.
 
-### CLI OUTPUT:
+### CLI OUTPUT (Command Line Interface)
 
 ![WhatsApp Image 2025-04-12 at 09 20 43_8fcbe462](https://github.com/user-attachments/assets/7c58d6d0-5e29-4cce-8651-e28fcdf06151)
 
 
-### Corelation:
-## 1
+### Corelation
+## Demo 1
 ![WhatsApp Image 2025-04-12 at 11 07 59_ff4fc558](https://github.com/user-attachments/assets/2cd31deb-052e-431b-8642-1ed4e2d4281e)
 
-## 2
+## Demo 2
 ![WhatsApp Image 2025-04-12 at 10 57 08_28d2077a](https://github.com/user-attachments/assets/4140bc80-a5ce-4863-ae85-e958241a138a)
+
+The price increase on April 11 (from $442 to $455) represents a significant jump of about 3% in a single day, which is notable for an index fund like QQQ. Without corresponding negative news data, this suggests the price movement was likely driven by other market factors rather than news sentiment during this period.
