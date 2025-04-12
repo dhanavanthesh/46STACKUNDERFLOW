@@ -127,3 +127,9 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Disclaimer
 
 NewsSense is for educational and informational purposes only. It does not provide investment advice, and you should not rely solely on its analysis for making investment decisions.
+
+###CLI OUTPUT:
+![WhatsApp Image 2025-04-12 at 09 20 43_8fcbe462](https://github.com/user-attachments/assets/7c58d6d0-5e29-4cce-8651-e28fcdf06151)
+
+
+![WhatsApp Image 2025-04-12 at 09 21 06_6424b7f6](https://github.com/user-attachments/assets/3284afef-1bb3-4089-b0fa-6fab7115fe13)
