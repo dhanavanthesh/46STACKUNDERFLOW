@@ -20,6 +20,7 @@ NewsSense is an AI-powered financial news analysis system that explains market m
 
 ### Setup
 
+
 1. Clone the repository:
    ```
    git clone https://github.com/your-username/newssense.git
@@ -131,4 +132,7 @@ NewsSense is for educational and informational purposes only. It does not provid
 ### CLI OUTPUT:
 
 ![WhatsApp Image 2025-04-12 at 09 20 43_8fcbe462](https://github.com/user-attachments/assets/7c58d6d0-5e29-4cce-8651-e28fcdf06151)
+
+### WORKFLOW :
+[news-sense-workflow.pdf](https://github.com/user-attachments/files/19717668/news-sense-workflow.pdf)
 
