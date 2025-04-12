@@ -112,56 +112,35 @@ class QueryProcessor:
     def process_query(self, query_text):
         """Process natural language query about market data"""
         try:
-            # Check cache first
-            cache_key = query_text.lower().strip()
-            if cache_key in self.query_cache:
-                cache_time, cached_response = self.query_cache[cache_key]
-                if (datetime.now() - cache_time).total_seconds() < self.cache_expiry_seconds:
-                    logger.info(f"Using cached response for query: {query_text}")
-                    return cached_response
-            
             logger.info(f"Processing query: {query_text}")
             
-            # Extract query components
-            query_info = self._extract_query_components(query_text)
-            
-            # Try using Gemini helper if available and no tickers found
-            if self.gemini_helper and not query_info['tickers']:
+            # First try using Gemini helper
+            if self.gemini_helper:
                 try:
-                    gemini_components = self.gemini_helper.extract_query_components(query_text)
-                    if gemini_components and gemini_components.get('tickers'):
-                        # Update query info with Gemini results
-                        query_info['tickers'] = gemini_components['tickers']
-                        if 'timeframe' in gemini_components:
-                            query_info['timeframe'] = gemini_components['timeframe']
-                        if 'direction' in gemini_components:
-                            query_info['direction'] = gemini_components['direction']
-                        if 'intent' in gemini_components:
-                            query_info['intent'] = gemini_components['intent']
-                        logger.info(f"Used Gemini to extract tickers: {query_info['tickers']}")
+                    components = self.gemini_helper.extract_query_components(query_text)
+                    if components:
+                        if 'tickers' in components:
+                            query_info = self._extract_query_components(query_text)
+                            query_info['tickers'] = components['tickers']
+                            if 'company_name' in components:
+                                query_info['company_name'] = components['company_name']
+                            logger.info(f"Using Gemini analysis: {query_info}")
+                            return self._generate_response(query_info)
                 except Exception as e:
-                    logger.error(f"Error using Gemini helper: {str(e)}")
+                    logger.error(f"Gemini helper error: {str(e)}")
             
-            # Determine appropriate response based on intent
-            response = self._generate_response(query_info)
-            
-            # Cache the response
-            self.query_cache[cache_key] = (datetime.now(), response)
-            
-            # Save query for analysis
-            self._save_query(query_text, query_info, response)
-            
-            return response
-            
+            # Fallback to traditional extraction
+            query_info = self._extract_query_components(query_text)
+            return self._generate_response(query_info)
+                
         except Exception as e:
             logger.error(f"Error processing query: {str(e)}")
             logger.error(traceback.format_exc())
             return {
                 "success": False,
-                "message": "Sorry, I couldn't process that query. Please try asking in a different way.",
+                "message": f"Error processing query: {str(e)}",
                 "error": str(e)
-            }
-    
+        }
     def _extract_query_components(self, query_text):
         """Extract important components from the query text"""
         original_query = query_text

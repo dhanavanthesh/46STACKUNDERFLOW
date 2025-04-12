@@ -1,0 +1,18 @@
+{
+    "timestamp": "2025-04-12 06:01:23",
+    "query": "WHY APPPLE IS DOWN TODAY?",
+    "query_info": {
+        "original_query": "WHY APPPLE IS DOWN TODAY?",
+        "intent": "price_movement",
+        "tickers": [],
+        "timeframe": "today",
+        "security_type": null,
+        "direction": "down",
+        "specific_factors": []
+    },
+    "response": {
+        "success": false,
+        "message": "I couldn't identify a specific stock, ETF, or fund in your query. Please specify a ticker symbol.",
+        "answer": null
+    }
+}

@@ -11,6 +11,9 @@ from datetime import datetime
 from colorama import init, Fore, Style
 from tabulate import tabulate
 import traceback
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Initialize colorama for cross-platform color support
 init(autoreset=True)
@@ -33,11 +36,13 @@ class NewsSenseCLI:
             # Fix potential path issues
             self._fix_path_issues()
             
+            
             # Import components
             from src.news_scraper.news_collector import NewsCollector
             from src.analyzer.market_analyzer import MarketAnalyzer
             from src.query_processor.query_processor import QueryProcessor
-            
+            from src.utils.gemini_helper import GeminiHelper  # Move import here
+
             # Try to import GeminiHelper (optional)
             try:
                 from src.utils.gemini_helper import GeminiHelper
@@ -47,7 +52,14 @@ class NewsSenseCLI:
                 logger.warning(f"Gemini helper not available: {str(e)}")
                 self.gemini_helper = None
             
+            self.gemini_helper = GeminiHelper(
+            api_key=os.getenv("GEMINI_API_KEY"),
+            alpha_vantage_key=os.getenv("ALPHA_VANTAGE_KEY")
+            )
+            logger.info("Gemini helper initialized successfully")
+            
             # Initialize components
+            self.gemini_helper = GeminiHelper()
             self.news_collector = NewsCollector()
             self.market_analyzer = MarketAnalyzer()
             self.query_processor = QueryProcessor(
@@ -112,7 +124,7 @@ class NewsSenseCLI:
             current_time = datetime.now().strftime(self.formats['timestamp'])
             print(f"\n{self.colors['header']}=== NewsSense - 'Why Is My Nifty Down?' ==={Style.RESET_ALL}")
             print(f"{self.colors['info']}Current Date and Time: {current_time}")
-            print(f"Welcome, {self.user}!")
+            print(f"Welcome!")
             print("=" * 50)
         except Exception as e:
             print(f"{self.colors['error']}Error displaying header: {str(e)}{Style.RESET_ALL}")
@@ -134,35 +146,49 @@ class NewsSenseCLI:
             print(f"\n{self.colors['info']}Processing your query: \"{query}\"{Style.RESET_ALL}")
             print(f"{self.colors['info']}This may take a moment as I gather market data and news...{Style.RESET_ALL}")
             
-            # Process the query
-            response = self.query_processor.process_query(query)
+            # First use Gemini to parse the query
+            components = self.gemini_helper.extract_query_components(query)
             
-            if not response.get('success', False):
-                print(f"\n{self.colors['error']}{response.get('message', 'Failed to process query.')}{Style.RESET_ALL}")
+            if not components or not components.get('tickers'):
+                print(f"\n{self.colors['error']}I couldn't identify a specific stock, ETF, or fund in your query. Please specify a ticker symbol.{Style.RESET_ALL}")
                 return
             
-            # Display the answer
-            if response.get('answer'):
-                print(f"\n{self.colors['success']}Answer:{Style.RESET_ALL}")
-                print(response['answer'])
+            ticker = components['tickers'][0]
+            print(f"\n{self.colors['info']}Analyzing {ticker}...{Style.RESET_ALL}")
             
-            # Display detailed explanation
-            if response.get('explanation'):
-                print(f"\n{self.colors['header']}Detailed Explanation:{Style.RESET_ALL}")
-                print(response['explanation'])
+            # Get market data
+            security_data = self.market_analyzer.analyze_security(ticker)
+            if not security_data or 'error' in security_data:
+                print(f"{self.colors['error']}Failed to fetch market data for {ticker}{Style.RESET_ALL}")
+                return
             
-            # Summarize the data processed
-            ticker_count = len(response.get('security_data', {}))
-            news_count = sum(len(data.get('sentiments', [])) 
-                           for data in response.get('news_data', {}).values())
+            # Get news
+            news_items = self.news_collector.scrape_all_sources(ticker)
+            news_analysis = self.market_analyzer.analyze_news_impact(news_items)
             
-            print(f"\n{self.colors['info']}Analysis based on {ticker_count} securities and {news_count} news articles.{Style.RESET_ALL}")
+            # Generate explanation
+            explanation = self.market_analyzer.generate_explanation(security_data, news_analysis, ticker)
             
+            # Prepare response
+            response = {
+                'success': True,
+                'components': components,
+                'security_data': security_data,
+                'news_data': news_analysis,
+                'explanation': explanation
+            }
+            
+            # Display results
+            self.display_analysis_results(ticker, security_data, news_analysis, explanation)
+            
+            return response
+                
         except Exception as e:
             print(f"{self.colors['error']}Error processing query: {str(e)}{Style.RESET_ALL}")
             logger.error(f"Query processing error: {str(e)}")
             logger.error(traceback.format_exc())
-
+            return {'success': False, 'message': str(e)}
+    
     def analyze_security(self, ticker):
         """Perform comprehensive security analysis"""
         try:
@@ -523,6 +549,8 @@ class NewsSenseCLI:
         """Display help information"""
         print(f"\n{self.colors['header']}=== NewsSense Help ==={Style.RESET_ALL}")
         print("""
+=== NewsSense Help ===
+
 NewsSense helps you understand why stocks, ETFs, and mutual funds are moving up or down.
 
 Key Features:
@@ -530,6 +558,7 @@ Key Features:
 2. Ask a Question - Ask natural language questions about market movements
 3. Track Multiple Securities - Compare multiple securities side-by-side
 4. View Recent Analyses - Access previously saved analyses
+5. News Crawler and Parsing -Using beautifulsoup
 
 Example Questions:
 - "Why is Apple up today?"
@@ -545,18 +574,17 @@ Supported Indian Securities:
 - "JYOTHYLAB.NS" - Jyothy Labs
 - "RELIANCE.NS" - Reliance Industries
 - "TCS.NS" - Tata Consultancy Services
-- "HDFCBANK.NS" - HDFC Bank
-""")
+- "HDFCBANK.NS" - HDFC Bank""")
 
     def display_disclaimer(self):
         """Display legal disclaimer"""
-        print(f"\n{self.colors['warning']}DISCLAIMER:{Style.RESET_ALL}")
-        print("""
-NewsSense is for educational and informational purposes only. It does not provide 
-investment advice, and you should not rely solely on its analysis for making investment 
-decisions. The data and analysis provided may not be accurate or complete. 
-Always consult with a qualified financial advisor before making investment decisions.
-""")
+#         print(f"\n{self.colors['warning']}DISCLAIMER:{Style.RESET_ALL}")
+#         print("""
+# NewsSense is for educational and informational purposes only. It does not provide 
+# investment advice, and you should not rely solely on its analysis for making investment 
+# decisions. The data and analysis provided may not be accurate or complete. 
+# Always consult with a qualified financial advisor before making investment decisions.
+# """)
 
     def run(self):
         """Main application loop"""

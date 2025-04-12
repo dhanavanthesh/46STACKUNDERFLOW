@@ -1,0 +1,30 @@
+=== Market Analysis for VTI ===
+Analysis Date: 2025-04-12 07:00:44
+
+Company Information:
+Name: Vanguard Total Stock Market Index Fund ETF Shares
+Sector: Unknown
+Industry: Unknown
+Website: Unknown
+
+Price Information:
+Current Price: $261.7200012207031
+Change: 5.010009765625
+Change %: 1.9516224270147684%
+Day Range: $254.6699981689453 - $262.75
+
+Volume Information:
+Current Volume: 4774349
+Average Volume: 61209.60256410256
+Volume Change: 7700.0%
+
+Key Factors Affecting Price:
+
+Market Context:
+- S&P 500: 2.0511573169300705%
+- Dow Jones: 1.821348702463129%
+- NASDAQ: 2.237094343154935%
+- Russell 2000: 1.7807152542721552%
+- VIX: -7.941171383225148%
+- Nifty 50: 0.5866844749740643%
+- Sensex: 0.4299639323461889%

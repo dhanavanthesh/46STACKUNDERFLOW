@@ -1,0 +1,7 @@
+2025-04-12 06:41:15,071 - NewsSense - ERROR - Initialization error: cannot access local variable 'GeminiHelper' where it is not associated with a value
+2025-04-12 06:41:15,072 - NewsSense - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\main.py", line 40, in __init__
+    self.gemini_helper = GeminiHelper(
+                         ^^^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'GeminiHelper' where it is not associated with a value
+

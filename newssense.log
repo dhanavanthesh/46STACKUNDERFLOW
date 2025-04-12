@@ -967,3 +967,432 @@ AttributeError: 'NewsCollector' object has no attribute '_scrape_thefly'
 2025-04-12 05:50:14,051 - MarketAnalyzer - WARNING - No news items to analyze
 2025-04-12 05:50:14,051 - MarketAnalyzer - INFO - Generating explanation for TODAY
 2025-04-12 05:50:14,054 - QueryProcessor - INFO - Query saved to data/queries\query_20250412_055014.json
+2025-04-12 06:00:57,286 - QueryProcessor - INFO - Processing query: WHY APPPLE IS DOWN TODAY?
+2025-04-12 06:00:57,287 - QueryProcessor - INFO - Extracted query components: {'original_query': 'WHY APPPLE IS DOWN TODAY?', 'intent': 'price_movement', 'tickers': [], 'timeframe': 'today', 'security_type': None, 'direction': 'down', 'specific_factors': []}
+2025-04-12 06:00:57,288 - GeminiHelper - INFO - Found tickers from local mappings: ['WHY', 'IS', 'DOWN', 'TODAY']
+2025-04-12 06:00:57,288 - QueryProcessor - INFO - Used Gemini to extract tickers: ['WHY', 'IS', 'DOWN', 'TODAY']
+2025-04-12 06:00:57,288 - MarketAnalyzer - INFO - Analyzing security data for WHY
+2025-04-12 06:00:57,846 - yfinance - ERROR - $WHY: possibly delisted; no price data found  (period=1d)
+2025-04-12 06:00:57,847 - MarketAnalyzer - WARNING - No historical data available for WHY
+2025-04-12 06:00:58,561 - NewsCollector - INFO - Scraping news for WHY from multiple sources...
+2025-04-12 06:00:58,679 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=WHY
+2025-04-12 06:00:58,735 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/WHY.O
+2025-04-12 06:00:58,745 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/why-news
+2025-04-12 06:00:58,749 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=why
+2025-04-12 06:00:58,777 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/why
+2025-04-12 06:00:58,777 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/WHY/news
+2025-04-12 06:00:58,805 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/WHY/news
+2025-04-12 06:00:58,812 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/WHY:US
+2025-04-12 06:00:58,814 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/why
+2025-04-12 06:00:58,823 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/WHY
+2025-04-12 06:00:58,830 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/WHY/news
+2025-04-12 06:00:58,849 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/why
+2025-04-12 06:00:59,553 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 06:00:59,603 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 06:01:00,085 - NewsCollector - WARNING - Seeking Alpha returned status code 404
+2025-04-12 06:01:00,477 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 06:01:00,627 - NewsCollector - WARNING - Finviz returned status code 404
+2025-04-12 06:01:03,943 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 06:01:06,393 - NewsCollector - WARNING - No news articles found for WHY
+2025-04-12 06:01:06,394 - MarketAnalyzer - WARNING - No news items to analyze
+2025-04-12 06:01:06,395 - MarketAnalyzer - INFO - Generating explanation for WHY
+2025-04-12 06:01:06,395 - MarketAnalyzer - INFO - Analyzing security data for IS
+2025-04-12 06:01:09,095 - yfinance - ERROR - $IS: possibly delisted; no price data found  (period=1d) (Yahoo error = "No data found, symbol may be delisted")
+2025-04-12 06:01:09,096 - MarketAnalyzer - WARNING - No historical data available for IS
+2025-04-12 06:01:09,098 - NewsCollector - INFO - Scraping news for IS from multiple sources...
+2025-04-12 06:01:09,202 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/is
+2025-04-12 06:01:09,227 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/is-news
+2025-04-12 06:01:09,228 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/IS/news
+2025-04-12 06:01:09,249 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/IS:US
+2025-04-12 06:01:09,287 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=IS
+2025-04-12 06:01:09,294 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/IS.O
+2025-04-12 06:01:09,296 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=is
+2025-04-12 06:01:09,317 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/is
+2025-04-12 06:01:09,324 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/IS/news
+2025-04-12 06:01:09,325 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/IS
+2025-04-12 06:01:09,328 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/IS/news
+2025-04-12 06:01:09,339 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/is
+2025-04-12 06:01:10,043 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 06:01:10,725 - NewsCollector - WARNING - CNBC returned status code 404
+2025-04-12 06:01:10,744 - NewsCollector - WARNING - Seeking Alpha returned status code 403
+2025-04-12 06:01:11,259 - NewsCollector - WARNING - Finviz returned status code 404
+2025-04-12 06:01:11,260 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 06:01:12,506 - NewsCollector - INFO - Found 4 articles from marketwatch
+2025-04-12 06:01:12,763 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 06:01:14,227 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 06:01:19,421 - NewsSense - WARNING - Gemini helper not available: Gemini API key is required
+2025-04-12 06:01:19,424 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 06:01:23,105 - QueryProcessor - INFO - Processing query: WHY APPPLE IS DOWN TODAY?
+2025-04-12 06:01:23,107 - QueryProcessor - INFO - Extracted query components: {'original_query': 'WHY APPPLE IS DOWN TODAY?', 'intent': 'price_movement', 'tickers': [], 'timeframe': 'today', 'security_type': None, 'direction': 'down', 'specific_factors': []}
+2025-04-12 06:01:23,109 - QueryProcessor - INFO - Query saved to data/queries\query_20250412_060123.json
+2025-04-12 06:02:36,781 - NewsSense - WARNING - Gemini helper not available: Gemini API key is required
+2025-04-12 06:02:36,782 - NewsSense - ERROR - Initialization error: Gemini API key is required
+2025-04-12 06:02:36,784 - NewsSense - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\main.py", line 51, in __init__
+    self.gemini_helper = GeminiHelper()
+                         ^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\utils\gemini_helper.py", line 19, in __init__
+    raise ValueError("Gemini API key is required")
+ValueError: Gemini API key is required
+
+2025-04-12 06:05:05,345 - NewsSense - WARNING - Gemini helper not available: Gemini API key is required
+2025-04-12 06:05:05,346 - NewsSense - ERROR - Initialization error: Gemini API key is required
+2025-04-12 06:05:05,347 - NewsSense - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\main.py", line 51, in __init__
+    self.gemini_helper = GeminiHelper()
+                         ^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\utils\gemini_helper.py", line 19, in __init__
+    raise ValueError("Gemini API key is required")
+ValueError: Gemini API key is required
+
+2025-04-12 06:06:45,340 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 06:06:45,340 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 06:06:45,341 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 06:06:45,343 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 06:06:54,401 - QueryProcessor - INFO - Processing query: WHY APPPLE IS DOWN TODAY?
+2025-04-12 06:06:57,232 - GeminiHelper - ERROR - Gemini API error: 401 - {
+  "error": {
+    "code": 401,
+    "message": "Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.",
+    "status": "UNAUTHENTICATED"
+  }
+}
+
+2025-04-12 06:06:57,235 - QueryProcessor - INFO - Extracted query components: {'original_query': 'WHY APPPLE IS DOWN TODAY?', 'intent': 'price_movement', 'tickers': [], 'timeframe': 'today', 'security_type': None, 'direction': 'down', 'specific_factors': []}
+2025-04-12 06:08:24,048 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 06:08:24,049 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 06:08:24,050 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 06:08:24,052 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 06:08:33,818 - QueryProcessor - INFO - Processing query: WHY APPPLE IS DOWN TODAY?
+2025-04-12 06:08:35,724 - GeminiHelper - ERROR - Gemini API error: 401 - {
+  "error": {
+    "code": 401,
+    "message": "Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.",
+    "status": "UNAUTHENTICATED"
+  }
+}
+
+2025-04-12 06:08:35,729 - QueryProcessor - INFO - Extracted query components: {'original_query': 'WHY APPPLE IS DOWN TODAY?', 'intent': 'price_movement', 'tickers': [], 'timeframe': 'today', 'security_type': None, 'direction': 'down', 'specific_factors': []}
+2025-04-12 06:10:56,576 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 06:10:56,577 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 06:10:56,578 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 06:10:56,580 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 06:11:04,217 - QueryProcessor - INFO - Processing query: WHY APPPLE IS DOWN TODAY?
+2025-04-12 06:11:06,060 - GeminiHelper - ERROR - Gemini API error: 401 - {
+  "error": {
+    "code": 401,
+    "message": "Request had invalid authentication credentials. Expected OAuth 2 access token, login cookie or other valid authentication credential. See https://developers.google.com/identity/sign-in/web/devconsole-project.",
+    "status": "UNAUTHENTICATED"
+  }
+}
+
+2025-04-12 06:11:06,066 - QueryProcessor - INFO - Extracted query components: {'original_query': 'WHY APPPLE IS DOWN TODAY?', 'intent': 'price_movement', 'tickers': [], 'timeframe': 'today', 'security_type': None, 'direction': 'down', 'specific_factors': []}
+2025-04-12 06:19:14,255 - NewsSense - WARNING - Gemini helper not available: 'GeminiHelper' object has no attribute '_load_company_mappings'
+2025-04-12 06:19:14,256 - NewsSense - ERROR - Initialization error: 'GeminiHelper' object has no attribute '_load_company_mappings'
+2025-04-12 06:19:14,259 - NewsSense - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\main.py", line 51, in __init__
+    self.gemini_helper = GeminiHelper()
+                         ^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\utils\gemini_helper.py", line 36, in __init__
+    self.company_mappings = self._load_company_mappings()
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'GeminiHelper' object has no attribute '_load_company_mappings'
+
+2025-04-12 06:22:24,386 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 06:22:24,387 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 06:22:24,388 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 06:22:24,390 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 06:22:34,450 - QueryProcessor - INFO - Processing query: WHY APPPLE IS DOWN TODAY?
+2025-04-12 06:22:38,113 - GeminiHelper - ERROR - Gemini API error: 400 - {
+  "error": {
+    "code": 400,
+    "message": "* GenerateContentRequest.safety_settings[0]: element predicate failed: $.category in (HarmCategory.HARM_CATEGORY_HATE_SPEECH, HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, HarmCategory.HARM_CATEGORY_HARASSMENT, HarmCategory.HARM_CATEGORY_CIVIC_INTEGRITY)\n",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+2025-04-12 06:22:38,118 - QueryProcessor - INFO - Extracted query components: {'original_query': 'WHY APPPLE IS DOWN TODAY?', 'intent': 'price_movement', 'tickers': [], 'timeframe': 'today', 'security_type': None, 'direction': 'down', 'specific_factors': []}
+2025-04-12 06:22:38,118 - QueryProcessor - INFO - Using Gemini analysis: {'original_query': 'WHY APPPLE IS DOWN TODAY?', 'intent': 'price_movement', 'tickers': ['AAPL'], 'timeframe': 'today', 'security_type': None, 'direction': 'down', 'specific_factors': [], 'company_name': 'apple'}
+2025-04-12 06:22:38,119 - MarketAnalyzer - INFO - Analyzing security data for AAPL
+2025-04-12 06:22:41,710 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_AAPL_20250412_062241.txt
+2025-04-12 06:22:41,710 - NewsCollector - INFO - Scraping news for AAPL from multiple sources...
+2025-04-12 06:22:41,863 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=aapl
+2025-04-12 06:22:41,869 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/AAPL/news
+2025-04-12 06:22:41,904 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=AAPL
+2025-04-12 06:22:41,908 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/aapl-news
+2025-04-12 06:22:41,912 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/aapl
+2025-04-12 06:22:41,919 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/AAPL:US
+2025-04-12 06:22:41,942 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/AAPL
+2025-04-12 06:22:41,949 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/AAPL/news
+2025-04-12 06:22:41,963 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/aapl
+2025-04-12 06:22:41,975 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/AAPL.O
+2025-04-12 06:22:41,977 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/aapl
+2025-04-12 06:22:41,986 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/AAPL/news
+2025-04-12 06:22:42,678 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 06:22:42,852 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 06:22:45,916 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 06:22:46,961 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 06:22:47,195 - NewsCollector - INFO - News saved to data/scraped_news\AAPL_news_20250412_062247.json
+2025-04-12 06:22:47,195 - NewsCollector - INFO - Total articles found for AAPL: 10
+2025-04-12 06:22:47,195 - MarketAnalyzer - INFO - Analyzing impact of 10 news items
+2025-04-12 06:22:47,237 - MarketAnalyzer - INFO - Generating explanation for AAPL
+2025-04-12 06:24:16,949 - QueryProcessor - INFO - Processing query: why apple was dowwn tooday?
+2025-04-12 06:24:20,637 - GeminiHelper - ERROR - Gemini API error: 400 - {
+  "error": {
+    "code": 400,
+    "message": "* GenerateContentRequest.safety_settings[0]: element predicate failed: $.category in (HarmCategory.HARM_CATEGORY_HATE_SPEECH, HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, HarmCategory.HARM_CATEGORY_HARASSMENT, HarmCategory.HARM_CATEGORY_CIVIC_INTEGRITY)\n",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+2025-04-12 06:24:20,640 - QueryProcessor - INFO - Extracted query components: {'original_query': 'why apple was dowwn tooday?', 'intent': 'price_movement', 'tickers': [], 'timeframe': 'today', 'security_type': None, 'direction': None, 'specific_factors': []}
+2025-04-12 06:24:20,640 - QueryProcessor - INFO - Using Gemini analysis: {'original_query': 'why apple was dowwn tooday?', 'intent': 'price_movement', 'tickers': ['AAPL'], 'timeframe': 'today', 'security_type': None, 'direction': None, 'specific_factors': [], 'company_name': 'apple'}
+2025-04-12 06:24:20,641 - MarketAnalyzer - INFO - Using cached security data for AAPL
+2025-04-12 06:24:20,641 - NewsCollector - INFO - Using cached news for AAPL
+2025-04-12 06:24:20,641 - MarketAnalyzer - INFO - Analyzing impact of 10 news items
+2025-04-12 06:24:20,647 - MarketAnalyzer - INFO - Generating explanation for AAPL
+2025-04-12 06:27:00,325 - QueryProcessor - INFO - Processing query: whhy applle was down tody?
+2025-04-12 06:27:04,146 - GeminiHelper - ERROR - Gemini API error: 400 - {
+  "error": {
+    "code": 400,
+    "message": "* GenerateContentRequest.safety_settings[0]: element predicate failed: $.category in (HarmCategory.HARM_CATEGORY_HATE_SPEECH, HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, HarmCategory.HARM_CATEGORY_HARASSMENT, HarmCategory.HARM_CATEGORY_CIVIC_INTEGRITY)\n",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+2025-04-12 06:27:04,148 - QueryProcessor - INFO - Extracted query components: {'original_query': 'whhy applle was down tody?', 'intent': 'price_movement', 'tickers': [], 'timeframe': 'today', 'security_type': None, 'direction': 'down', 'specific_factors': []}
+2025-04-12 06:27:04,149 - QueryProcessor - INFO - Using Gemini analysis: {'original_query': 'whhy applle was down tody?', 'intent': 'price_movement', 'tickers': ['AAPL'], 'timeframe': 'today', 'security_type': None, 'direction': 'down', 'specific_factors': [], 'company_name': 'apple'}
+2025-04-12 06:27:04,149 - MarketAnalyzer - INFO - Using cached security data for AAPL
+2025-04-12 06:27:04,149 - NewsCollector - INFO - Using cached news for AAPL
+2025-04-12 06:27:04,150 - MarketAnalyzer - INFO - Analyzing impact of 10 news items
+2025-04-12 06:27:04,154 - MarketAnalyzer - INFO - Generating explanation for AAPL
+2025-04-12 06:28:21,910 - QueryProcessor - INFO - Processing query: Why did VTI drop today?
+2025-04-12 06:28:25,497 - GeminiHelper - ERROR - Gemini API error: 400 - {
+  "error": {
+    "code": 400,
+    "message": "* GenerateContentRequest.safety_settings[0]: element predicate failed: $.category in (HarmCategory.HARM_CATEGORY_HATE_SPEECH, HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT, HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT, HarmCategory.HARM_CATEGORY_HARASSMENT, HarmCategory.HARM_CATEGORY_CIVIC_INTEGRITY)\n",
+    "status": "INVALID_ARGUMENT"
+  }
+}
+
+2025-04-12 06:28:25,501 - QueryProcessor - INFO - Extracted query components: {'original_query': 'Why did VTI drop today?', 'intent': 'price_movement', 'tickers': ['VTI'], 'timeframe': 'today', 'security_type': None, 'direction': 'down', 'specific_factors': []}
+2025-04-12 06:28:25,501 - QueryProcessor - INFO - Using Gemini analysis: {'original_query': 'Why did VTI drop today?', 'intent': 'price_movement', 'tickers': [], 'timeframe': 'today', 'security_type': None, 'direction': 'down', 'specific_factors': [], 'company_name': None}
+2025-04-12 06:43:30,448 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 06:43:30,448 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 06:43:30,449 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 06:43:30,451 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 06:43:30,451 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 06:43:30,456 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 06:45:11,279 - MarketAnalyzer - INFO - Analyzing security data for MSFT
+2025-04-12 06:45:15,424 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_MSFT_20250412_064515.txt
+2025-04-12 06:45:15,424 - NewsCollector - INFO - Scraping news for MSFT from multiple sources...
+2025-04-12 06:45:15,530 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/MSFT:US
+2025-04-12 06:45:15,543 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/MSFT.O
+2025-04-12 06:45:15,545 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/msft
+2025-04-12 06:45:15,553 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/MSFT/news
+2025-04-12 06:45:15,553 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/msft-news
+2025-04-12 06:45:15,570 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/MSFT
+2025-04-12 06:45:15,588 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/MSFT/news
+2025-04-12 06:45:15,594 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/MSFT/news
+2025-04-12 06:45:15,619 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=msft
+2025-04-12 06:45:15,644 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/msft
+2025-04-12 06:45:15,718 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=MSFT
+2025-04-12 06:45:15,723 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/msft
+2025-04-12 06:45:16,366 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 06:45:16,476 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 06:45:19,512 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 06:45:19,641 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 06:45:20,571 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 06:45:21,968 - NewsCollector - INFO - News saved to data/scraped_news\MSFT_news_20250412_064521.json
+2025-04-12 06:45:21,968 - NewsCollector - INFO - Total articles found for MSFT: 10
+2025-04-12 06:45:21,968 - MarketAnalyzer - INFO - Analyzing impact of 10 news items
+2025-04-12 06:45:22,007 - MarketAnalyzer - INFO - Generating explanation for MSFT
+2025-04-12 06:45:46,478 - GeminiHelper - INFO - Found direct ticker: ['QQQ']
+2025-04-12 06:45:46,478 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 06:45:47,609 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_064547.txt
+2025-04-12 06:45:47,609 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 06:45:47,739 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 06:45:47,752 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 06:45:47,758 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 06:45:47,781 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 06:45:47,791 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 06:45:47,816 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 06:45:47,884 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 06:45:47,906 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 06:45:47,907 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 06:45:47,907 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 06:45:47,917 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 06:45:47,920 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 06:45:48,615 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 06:45:48,696 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 06:45:52,121 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 06:45:52,788 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 06:45:55,617 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 06:45:55,621 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_064555.json
+2025-04-12 06:45:55,621 - NewsCollector - INFO - Total articles found for QQQ: 10
+2025-04-12 06:45:55,621 - MarketAnalyzer - INFO - Analyzing impact of 10 news items
+2025-04-12 06:45:55,624 - MarketAnalyzer - INFO - Generating explanation for QQQ
+2025-04-12 06:55:13,907 - NewsSense - ERROR - Initialization error: expected 'except' or 'finally' block (gemini_helper.py, line 236)
+2025-04-12 06:55:13,910 - NewsSense - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\main.py", line 44, in __init__
+    from src.utils.gemini_helper import GeminiHelper  # Move import here
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\src\utils\gemini_helper.py", line 236
+    def _search_company_tickers(self, company_name):
+SyntaxError: expected 'except' or 'finally' block
+
+2025-04-12 06:57:51,864 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 06:57:51,865 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 06:57:51,865 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 06:57:51,866 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 06:57:51,867 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 06:57:51,869 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 07:00:27,403 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 07:00:27,404 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 07:00:27,404 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 07:00:27,405 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 07:00:27,406 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 07:00:27,407 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 07:00:42,018 - GeminiHelper - INFO - Found companies: Vanguard, Fidelity with tickers: ['VTI', 'VOO', 'BND', 'FXAIX', 'FNILX', 'FZROX']
+2025-04-12 07:00:42,019 - MarketAnalyzer - INFO - Analyzing security data for VTI
+2025-04-12 07:00:44,410 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_VTI_20250412_070044.txt
+2025-04-12 07:00:44,411 - NewsCollector - INFO - Scraping news for VTI from multiple sources...
+2025-04-12 07:00:44,564 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/VTI.O
+2025-04-12 07:00:44,577 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=vti
+2025-04-12 07:00:44,581 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/vti
+2025-04-12 07:00:44,581 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/vti-news
+2025-04-12 07:00:44,588 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/vti
+2025-04-12 07:00:44,606 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/VTI/news
+2025-04-12 07:00:44,612 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=VTI
+2025-04-12 07:00:44,654 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/VTI/news
+2025-04-12 07:00:44,671 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/vti
+2025-04-12 07:00:44,686 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/VTI
+2025-04-12 07:00:44,701 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/VTI:US
+2025-04-12 07:00:44,704 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/VTI/news
+2025-04-12 07:00:45,355 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 07:00:46,753 - NewsCollector - WARNING - Reuters returned status code 404
+2025-04-12 07:00:48,949 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 07:00:48,951 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 07:00:48,998 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 07:00:50,426 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 07:00:51,229 - NewsCollector - INFO - News saved to data/scraped_news\VTI_news_20250412_070051.json
+2025-04-12 07:00:51,229 - NewsCollector - INFO - Total articles found for VTI: 18
+2025-04-12 07:00:51,230 - MarketAnalyzer - INFO - Analyzing impact of 18 news items
+2025-04-12 07:00:51,276 - MarketAnalyzer - INFO - Generating explanation for VTI
+2025-04-12 07:05:19,077 - MarketAnalyzer - INFO - Analyzing security data for QQQ
+2025-04-12 07:05:20,936 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_QQQ_20250412_070520.txt
+2025-04-12 07:05:20,937 - NewsCollector - INFO - Scraping news for QQQ from multiple sources...
+2025-04-12 07:05:21,053 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/qqq-news
+2025-04-12 07:05:21,070 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/QQQ
+2025-04-12 07:05:21,075 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/QQQ/news
+2025-04-12 07:05:21,086 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/QQQ/news
+2025-04-12 07:05:21,102 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=QQQ
+2025-04-12 07:05:21,112 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/qqq
+2025-04-12 07:05:21,133 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/QQQ:US
+2025-04-12 07:05:21,137 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=qqq
+2025-04-12 07:05:21,164 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/QQQ/news
+2025-04-12 07:05:21,194 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/qqq
+2025-04-12 07:05:21,205 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/QQQ.O
+2025-04-12 07:05:21,223 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/qqq
+2025-04-12 07:05:21,773 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 07:05:22,661 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 07:05:25,225 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 07:05:26,319 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 07:05:29,278 - NewsCollector - INFO - News saved to data/scraped_news\QQQ_news_20250412_070529.json
+2025-04-12 07:05:29,280 - NewsCollector - INFO - Total articles found for QQQ: 10
+2025-04-12 07:05:29,280 - MarketAnalyzer - INFO - Analyzing impact of 10 news items
+2025-04-12 07:05:29,283 - MarketAnalyzer - INFO - Generating explanation for QQQ
+2025-04-12 07:06:09,621 - MarketAnalyzer - INFO - Analyzing security data for AAPL
+2025-04-12 07:06:12,061 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_AAPL_20250412_070612.txt
+2025-04-12 07:06:12,062 - NewsCollector - INFO - Scraping news for AAPL from multiple sources...
+2025-04-12 07:06:12,178 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/AAPL.O
+2025-04-12 07:06:12,188 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/AAPL/news
+2025-04-12 07:06:12,241 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/AAPL/news
+2025-04-12 07:06:12,267 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/aapl
+2025-04-12 07:06:12,271 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/aapl-news
+2025-04-12 07:06:12,282 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/aapl
+2025-04-12 07:06:12,282 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=aapl
+2025-04-12 07:06:12,290 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/AAPL
+2025-04-12 07:06:12,304 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/aapl
+2025-04-12 07:06:12,325 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/AAPL:US
+2025-04-12 07:06:12,327 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=AAPL
+2025-04-12 07:06:12,350 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/AAPL/news
+2025-04-12 07:06:13,069 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 07:06:13,733 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 07:06:16,145 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 07:06:16,802 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 07:06:17,592 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 07:06:17,973 - NewsCollector - INFO - News saved to data/scraped_news\AAPL_news_20250412_070617.json
+2025-04-12 07:06:17,973 - NewsCollector - INFO - Total articles found for AAPL: 10
+2025-04-12 07:06:17,973 - MarketAnalyzer - INFO - Analyzing impact of 10 news items
+2025-04-12 07:06:17,976 - MarketAnalyzer - INFO - Analyzing security data for MSFT
+2025-04-12 07:06:18,940 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_MSFT_20250412_070618.txt
+2025-04-12 07:06:18,941 - NewsCollector - INFO - Scraping news for MSFT from multiple sources...
+2025-04-12 07:06:19,052 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/MSFT/news
+2025-04-12 07:06:19,086 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/MSFT.O
+2025-04-12 07:06:19,098 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/msft
+2025-04-12 07:06:19,175 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/msft
+2025-04-12 07:06:19,201 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=msft
+2025-04-12 07:06:19,212 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/msft
+2025-04-12 07:06:19,216 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=MSFT
+2025-04-12 07:06:19,226 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/MSFT/news
+2025-04-12 07:06:19,235 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/MSFT/news
+2025-04-12 07:06:19,242 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/msft-news
+2025-04-12 07:06:19,940 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 07:06:20,114 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/MSFT
+2025-04-12 07:06:20,645 - NewsCollector - WARNING - MarketWatch returned status code 401
+2025-04-12 07:06:21,473 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/MSFT:US
+2025-04-12 07:06:22,371 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 07:06:26,345 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 07:06:27,181 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 07:06:27,187 - NewsCollector - INFO - News saved to data/scraped_news\MSFT_news_20250412_070627.json
+2025-04-12 07:06:27,189 - NewsCollector - INFO - Total articles found for MSFT: 10
+2025-04-12 07:06:27,190 - MarketAnalyzer - INFO - Analyzing impact of 10 news items
+2025-04-12 07:06:27,197 - MarketAnalyzer - INFO - Analyzing security data for AMZN
+2025-04-12 07:06:28,034 - MarketAnalyzer - INFO - Analysis saved to data/analysis\analysis_AMZN_20250412_070628.txt
+2025-04-12 07:06:28,035 - NewsCollector - INFO - Scraping news for AMZN from multiple sources...
+2025-04-12 07:06:28,154 - NewsCollector - INFO - Requesting: https://www.reuters.com/companies/AMZN.O
+2025-04-12 07:06:28,166 - NewsCollector - INFO - Requesting: https://www.zacks.com/stock/quote/AMZN/news
+2025-04-12 07:06:28,171 - NewsCollector - INFO - Requesting: https://finviz.com/quote.ashx?t=amzn
+2025-04-12 07:06:28,202 - NewsCollector - INFO - Requesting: https://www.investing.com/equities/amzn-news
+2025-04-12 07:06:28,204 - NewsCollector - INFO - Requesting: https://www.cnbc.com/quotes/amzn
+2025-04-12 07:06:28,248 - NewsCollector - INFO - Requesting: https://finance.yahoo.com/quote/AMZN/news
+2025-04-12 07:06:28,249 - NewsCollector - INFO - Requesting: https://www.marketwatch.com/investing/stock/amzn
+2025-04-12 07:06:28,255 - NewsCollector - INFO - Requesting: https://www.benzinga.com/stock/amzn
+2025-04-12 07:06:28,275 - NewsCollector - INFO - Requesting: https://www.barrons.com/quote/stock/AMZN
+2025-04-12 07:06:28,302 - NewsCollector - INFO - Requesting: https://thefly.com/news.php?symbol=AMZN
+2025-04-12 07:06:28,334 - NewsCollector - INFO - Requesting: https://seekingalpha.com/symbol/AMZN/news
+2025-04-12 07:06:28,916 - NewsCollector - WARNING - Investing.com returned status code 403
+2025-04-12 07:06:29,487 - NewsCollector - INFO - Requesting: https://www.bloomberg.com/quote/AMZN:US
+2025-04-12 07:06:30,496 - NewsCollector - INFO - Found 8 articles from marketwatch
+2025-04-12 07:06:32,382 - NewsCollector - INFO - Found 10 articles from finviz
+2025-04-12 07:06:34,061 - NewsCollector - WARNING - bloomberg returned status code 403
+2025-04-12 07:06:34,065 - NewsCollector - WARNING - barrons returned status code 401
+2025-04-12 07:06:34,070 - NewsCollector - INFO - News saved to data/scraped_news\AMZN_news_20250412_070634.json
+2025-04-12 07:06:34,071 - NewsCollector - INFO - Total articles found for AMZN: 18
+2025-04-12 07:06:34,071 - MarketAnalyzer - INFO - Analyzing impact of 18 news items
+2025-04-12 07:37:33,847 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 07:37:33,847 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 07:37:33,848 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 07:37:33,849 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 07:37:33,851 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 07:37:33,856 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 07:38:02,192 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 07:38:02,193 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 07:38:02,194 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 07:38:02,194 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 07:38:02,196 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 07:38:02,199 - NewsSense - INFO - NewsSense initialized successfully
+2025-04-12 07:38:29,137 - NewsSense - ERROR - Unexpected error: 'NewsSenseCLI' object has no attribute 'display_disclaimer'
+2025-04-12 07:38:29,143 - NewsSense - ERROR - Traceback (most recent call last):
+  File "C:\Users\Dhana\Desktop\newssense\market_analyzer\main.py", line 627, in run
+    self.display_disclaimer()
+    ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NewsSenseCLI' object has no attribute 'display_disclaimer'
+
+2025-04-12 07:39:10,215 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 07:39:10,216 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 07:39:10,217 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 07:39:10,218 - NewsSense - INFO - Gemini helper initialized successfully
+2025-04-12 07:39:10,219 - GeminiHelper - INFO - Gemini helper initialized successfully
+2025-04-12 07:39:10,222 - NewsSense - INFO - NewsSense initialized successfully
